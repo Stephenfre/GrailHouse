@@ -33,25 +33,42 @@
   align-items: center;
 }
 
-.content {
+.cta-trending-img {
+  height: 40%;
+  width: 100%;
+  background: grey;
+}
+
+.alltrending-content {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.title-trending {
-  width: 77%;
+.title-alltrending {
+  width: 43.2%;
   height: 20%;
   display: flex;
   align-items: flex-end;
 }
 
-.trending-shoes-container {
+.alltrending-shoes-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.options {
+  width: 20%;
+  background: grey;
+}
+
+.alltrending-shoes-content {
   /* height: 50%; */
-  width: 90%;
+  width: 65%;
   display: flex;
   flex-wrap: wrap;
-  /* overflow: scroll; */
   justify-content: center;
 }
