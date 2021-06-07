@@ -4,13 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore, applyMiddleware } from "redux";
-import reducers from "./reducer";
+import rootReducer from "./reducers";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
+import logger from 'redux-logger'
 import { BrowserRouter as Router } from "react-router-dom";
 
 
-const store = createStore(reducers, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 
 ReactDOM.render(

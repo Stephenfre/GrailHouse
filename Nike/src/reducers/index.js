@@ -2,41 +2,39 @@ import {
     GETTING_SHOES,
     GETTING_SHOES_SUCCESS,
     GETTING_SHOES_FAIL,
-    SELECTED_SHOE
+    GETTING_TEN_SHOES,
+    GETTING_TEN_SHOES_SUCCESS,
+    GETTING_TEN_SHOES_FAIL,
+    SELECTED_SHOE,
 } from "../actions";
 
 const initialState = {
-    isLoading: false,
-    shoes: null,
+    shoes: [],
     gettingShoes: false,
     gettingShoesError: '',
-    gettingShoesFail: false,
-    gettingShoesSuccess: false,
     selectedShoe: null,
 };
 
-const reducers = (state = initialState, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
-        case GETTING_SHOES: {
+        case GETTING_SHOES:
             return {
                 ...state,
-                gettingShoes: true
+                gettingShoes: true,
             }
-        }
 
         case GETTING_SHOES_SUCCESS:
-            return{
+            console.log('stop loading')
+            return {
                 ...state,
                 shoes: action.payload,
                 gettingShoes: false,
-                gettingShoesSuccess: true
             }
 
         case GETTING_SHOES_FAIL:
             return {
                 ...state,
                 gettingShoes: false,
-                gettingShoesFail: true,
                 gettingShoesError: action.payload
             }
 
@@ -53,5 +51,3 @@ const reducers = (state = initialState, action) => {
             return state;
     }
 };
-
-export default reducers

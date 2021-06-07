@@ -1,21 +1,22 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {useHistory, withRouter, useParams} from 'react-router-dom';
 
 
-import selectShoe from '../../actions/index.js'
-import './AllTrends.css'
+import {selectShoe} from '../../actions'
+import './TrendingShoesCard.css'
 
 
-function TrendingShoes(props) {
+function TrendingShoesCard(props) {
+    let history = useHistory()
 
-    const clickHandler = (e, id) => {
-        e.preventDefault
+    const clickHandler = (id) => {
         props.selectShoe(id)
+        history.push(`trendingshoes/details/${id}`)
     }
 
     return (
-        <div className='alltrending' onClick={clickHandler(props.id)}>
+        <div className='alltrending' onClick={(e) => clickHandler(props.id)}>
                 <div className='alltrending-shoes'>
                 <div className='alltrending-shoes-img'>
                     <img src={props.thumbnail} alt='shoe pic'/>
@@ -49,5 +50,5 @@ export default withRouter(
     connect(
         mapStateToProps,
         mapDispatchToPros
-    )(TrendingShoes)
+    )(TrendingShoesCard)
 )

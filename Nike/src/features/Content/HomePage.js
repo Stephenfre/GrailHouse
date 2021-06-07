@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 
-import NavBar from './features/Nav/NavBar'
-import Cta from './features/Cta/Cta'
-import TrendingShoes from './features/Content/TrendingShoes';
+import NavBar from '../Nav/NavBar'
+import Cta from '../Cta/Cta'
+import TopTenShoes from './TopTenShoes';
 
-import './App.css'
-import GrailHouse from './GrailHouse.svg'
+import './HomePage.css'
+import GrailHouse from '../../GrailHouse.svg'
 import styled from "styled-components";
 import LinearProgress from '@material-ui/core/LinearProgress';
 
@@ -40,32 +40,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Home() {
+export default function HomePage() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [shoeData, setShoeData] = useState([]);
     const classes = useStyles();
-
-
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/')
-    //     .then(res => res.json())
-    //     .then(
-    //         (results) => 
-    //             (
-    //                 setIsLoaded(true),
-    //                 setShoeData(results),
-    //                 console.log('shoeData', shoeData)
-    //             )
-    //         ,
-    //         (error) => 
-    //             (
-    //                 setIsLoaded(true),
-    //                 setError(error)
-    //             )
-            
-    //     )
-    // },[])
     
     useEffect(() => {
         fetch('http://localhost:5000/')
@@ -102,7 +81,7 @@ export default function Home() {
                         </div>
                         <div className='trending-shoes-container'>
                             {shoeData.map(shoes => (
-                                <TrendingShoes
+                                <TopTenShoes
                                     thumbnail={shoes.thumbnail}
                                     shoeName={shoes.shoeName}
                                     retailPrice={shoes.retailPrice}
@@ -111,7 +90,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div style={{width: '100%', height: '25%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                                <StyledLinks to='alltrending' className='trending-btn'>All Trending Shoes</StyledLinks>
+                                <StyledLinks to='trendingshoes' className='trending-btn'>All Trending Shoes</StyledLinks>
                             </div>
                     </div>
             </div>
