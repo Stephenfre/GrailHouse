@@ -1,0 +1,26 @@
+.shoe-details-content {
+  display: flex;
+  width: 87%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.shoe-img {
+  width: 50%;
+  border: 1px blue solid;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shoe-details {
+  width: 50%;
+  height: 64%;
+  border: 1px green solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

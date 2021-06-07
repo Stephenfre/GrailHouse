@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {useHistory, withRouter, useParams} from 'react-router-dom';
+import {useHistory, withRouter} from 'react-router-dom';
 
 
 import {selectShoe} from '../../actions'
