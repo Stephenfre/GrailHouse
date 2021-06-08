@@ -1,11 +1,10 @@
-import React from 'react';
-import SearchRes from './SearchRes';
+import React from "react";
+import SearchRes from "./SearchRes";
 
-export default function SearchPage () {
-
-    return (
-        <div>
-            <SearchRes />
-        </div>
-    )
+export default function SearchPage() {
+	return (
+		<div>
+			<SearchRes />
+		</div>
+	);
 }

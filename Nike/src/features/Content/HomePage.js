@@ -1,99 +1,107 @@
-import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 
-import NavBar from '../Nav/NavBar'
-import Cta from '../Cta/Cta'
-import TopTenShoes from './TopTenShoes';
+import NavBar from "../Nav/NavBar";
+import Cta from "../Cta/Cta";
+import TopTenShoes from "./TopTenShoes";
 
-import './HomePage.css'
-import GrailHouse from '../../GrailHouse.svg'
+import "./HomePage.css";
+import GrailHouse from "../../GrailHouse.svg";
 import styled from "styled-components";
-import LinearProgress from '@material-ui/core/LinearProgress';
-
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const StyledLinks = styled(Link)`
-    text-decoration: none;
-    background: black;
-    color: white;
-    font-size: 18px;
-    padding: 1rem;
-    width: 11%;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
+	text-decoration: none;
+	background: black;
+	color: white;
+	font-size: 18px;
+	padding: 1rem;
+	width: 11%;
+	border-radius: 5px;
+	border: none;
+	text-align: center;
 
-    &:hover {
-        background: rgb(41, 41, 41);
-        color: rgb(235, 235, 235);
-    }
+	&:hover {
+		background: rgb(41, 41, 41);
+		color: rgb(235, 235, 235);
+	}
 `;
 
-
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
+	root: {
+		width: "100%",
+		"& > * + *": {
+			marginTop: theme.spacing(2),
+		},
+	},
 }));
 
-
 export default function HomePage() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [shoeData, setShoeData] = useState([]);
-    const classes = useStyles();
-    
-    useEffect(() => {
-        fetch('http://localhost:5000/')
-        .then(res => res.json())
-        .then(jsonResponse => {
-            setShoeData(jsonResponse)
-            setIsLoaded(true)
-        });
-    },[]);
+	const [error, setError] = useState(null);
+	const [isLoaded, setIsLoaded] = useState(false);
+	const [shoeData, setShoeData] = useState([]);
+	const classes = useStyles();
 
+	useEffect(() => {
+		fetch("http://localhost:5000/")
+			.then((res) => res.json())
+			.then((jsonResponse) => {
+				setShoeData(jsonResponse);
+				setIsLoaded(true);
+			});
+	}, []);
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div className='loader-container'>
-                    <div className='loader'>
-                        <div className='loader-logo'>
-                            <img src={GrailHouse} alt='logo' />
-                        </div>
-                    <div className={classes.root}>
-                        <LinearProgress color="secondary" />
-                    </div>
-                    </div>
-                </div>;
-    } else {
-        return (
-            <div className="app">
-                <div className='container'>
-                    <NavBar />
-                    <Cta />
-                    <div className='content'>
-                        <div className='title-trending'>
-                            <h1>Trending</h1>
-                        </div>
-                        <div className='trending-shoes-container'>
-                            {shoeData.map(shoes => (
-                                <TopTenShoes
-                                    thumbnail={shoes.thumbnail}
-                                    shoeName={shoes.shoeName}
-                                    retailPrice={shoes.retailPrice}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                    <div style={{width: '100%', height: '25%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                                <StyledLinks to='trendingshoes' className='trending-btn'>All Trending Shoes</StyledLinks>
-                            </div>
-                    </div>
-            </div>
-        );
-    }
-};
+	if (error) {
+		return <div>Error: {error.message}</div>;
+	} else if (!isLoaded) {
+		return (
+			<div className="loader-container">
+				<div className="loader">
+					<div className="loader-logo">
+						<img src={GrailHouse} alt="logo" />
+					</div>
+					<div className={classes.root}>
+						<LinearProgress color="secondary" />
+					</div>
+				</div>
+			</div>
+		);
+	} else {
+		return (
+			<div className="app">
+				<div className="container">
+					<NavBar />
+					<Cta />
+					<div className="content">
+						<div className="title-trending">
+							<h1>Trending</h1>
+						</div>
+						<div className="trending-shoes-container">
+							{shoeData.map((shoes) => (
+								<TopTenShoes
+									thumbnail={shoes.thumbnail}
+									shoeName={shoes.shoeName}
+									retailPrice={shoes.retailPrice}
+								/>
+							))}
+						</div>
+					</div>
+					<div
+						style={{
+							width: "100%",
+							height: "25%",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+						}}
+					>
+						<StyledLinks to="trendingshoes" className="trending-btn">
+							All Trending Shoes
+						</StyledLinks>
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
