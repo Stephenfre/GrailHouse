@@ -8,7 +8,7 @@
 
 .shoe-img {
   width: 50%;
-  border: 1px blue solid;
+  /* border: 1px blue solid; */
   height: 80%;
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@
 .shoe-details {
   width: 50%;
   height: 64%;
-  border: 1px green solid;
+  /* border: 1px green solid; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
