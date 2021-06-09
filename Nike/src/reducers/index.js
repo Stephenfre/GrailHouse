@@ -12,6 +12,8 @@ const initialState = {
 	shoes: [],
 	gettingShoes: false,
 	gettingShoesError: "",
+	gettingTenShoes: false,
+	gettingTenShoesError: "",
 	selectedShoe: null,
 };
 
@@ -47,6 +49,25 @@ export default (state = initialState, action) => {
 				selectedShoe: shoe,
 			};
 
+		case GETTING_TEN_SHOES:
+			return {
+				...state,
+				gettingTenShoes: true,
+			};
+
+		case GETTING_TEN_SHOES_SUCCESS:
+			return {
+				...state,
+				shoes: action.payload,
+				gettingTenShoes: false,
+			};
+
+		case GETTING_TEN_SHOES_FAIL:
+			return {
+				...state,
+				gettingTenShoes: false,
+				gettingShoesError: action.payload,
+			};
 		default:
 			return state;
 	}

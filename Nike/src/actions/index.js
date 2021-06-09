@@ -43,8 +43,8 @@ export function getTenShoes() {
 	return (dispatch) => {
 		dispatch({ type: GETTING_TEN_SHOES });
 
-		axios
-			.get("http://localhost:5000/")
+		return axios
+			.get("http://localhost:5000/home")
 			.then((res) => {
 				console.log(res.data);
 				dispatch({

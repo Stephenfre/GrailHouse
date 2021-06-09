@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import styled from "styled-components";
 
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
@@ -13,6 +14,23 @@ import Box from "@material-ui/core/Box";
 
 import NavBar from "../Nav/NavBar";
 import "./DetailPage.css";
+
+const StyledLinks = styled(Link)`
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 18px;
+	color: white;
+	background: black;
+	width: 22%;
+	padding: 1rem;
+	border-radius: 5px;
+	border: none;
+	&:hover {
+		background: rgb(41, 41, 41);
+		color: rgb(235, 235, 235);
+	}
+`;
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -27,7 +45,7 @@ function TabPanel(props) {
 		>
 			{value === index && (
 				<Box p={3}>
-					<Typography>{children}</Typography>
+					<Typography style={{ lineHeight: "2" }}>{children}</Typography>
 				</Box>
 			)}
 		</div>
@@ -51,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		backgroundColor: theme.palette.background.paper,
 		width: "90%",
+		height: "60%",
 	},
 }));
 
@@ -94,8 +113,8 @@ function DetailPage(props) {
 									variant="fullWidth"
 									aria-label="full width tabs example"
 								>
-									<Tab label="Item One" {...a11yProps(0)} />
-									<Tab label="Item Two" {...a11yProps(1)} />
+									<Tab label="Details" {...a11yProps(0)} />
+									<Tab label="Prices" {...a11yProps(1)} />
 								</Tabs>
 							</AppBar>
 							<SwipeableViews
@@ -104,17 +123,19 @@ function DetailPage(props) {
 								onChangeIndex={handleChangeIndex}
 							>
 								<TabPanel value={value} index={0} dir={theme.direction}>
-									{props.selectedShoe.description}
-									{props.selectedShoe.styleID}
+									{props.selectedShoe.description} <br /> {props.selectedShoe.styleID}{" "}
+									{props.selectedShoe.colorway} {props.selectedShoe.releaseDate}
 								</TabPanel>
 								<TabPanel value={value} index={1} dir={theme.direction}>
 									{props.selectedShoe.lowestResellPrice.stockX}
 								</TabPanel>
 							</SwipeableViews>
 						</div>
-						<div></div>
-						<div className="add-btn">
-							<Link>Add to closet</Link>
+						<div
+							className="add-btn"
+							style={{ width: "87%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}
+						>
+							<StyledLinks>Add to closet</StyledLinks>
 						</div>
 					</div>
 				</div>
