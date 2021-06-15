@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 
@@ -14,19 +14,27 @@ function TopTenShoes(props) {
 		history.push(`trendingshoes/details/${id}`);
 	};
 
+	const addToCloset = (e) => {
+		// e.stopPropagation();
+		console.log(addToCloset, "clicked");
+	};
+
 	return (
-		<div className="trending-shoes" onClick={(e) => clickHandler(props.id)}>
-			<div className="trending-shoes-img">
-				<img src={props.thumbnail} alt="shoe pic" />
-			</div>
-			<div className="trending-shoes-wrap">
-				<div className="trending-shoes-details">
-					<p>{props.shoeName}</p>
-					<div className="trending-prices">
-						<p>Lowest Price</p>
-						<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.retailPrice}</p>
+		<div className="trending-shoes-card">
+			<div className="trending-shoes" onClick={(e) => clickHandler(props.id)}>
+				<div className="trending-shoes-img">
+					<img src={props.thumbnail} alt="shoe pic" />
+				</div>
+				<div className="trending-shoes-wrap">
+					<div className="trending-shoes-details">
+						<p>{props.shoeName}</p>
+						<div className="trending-prices">
+							<p> Lowest Price</p>
+
+							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.lowestPrice}</p>
+						</div>
+						<button onClick={addToCloset()} className="trending-got-them"></button>
 					</div>
-					<div className="trending-got-them"></div>
 				</div>
 			</div>
 		</div>

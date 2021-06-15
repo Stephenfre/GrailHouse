@@ -86,7 +86,7 @@ class TrendingShoes extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		shoes: state.shoes,
+		trendingShoes: state.trendingShoes,
 		gettingShoes: state.gettingShoes,
 		gettingShoesError: state.gettingShoesError,
 	};

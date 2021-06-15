@@ -1,23 +1,63 @@
-.trending-shoes {
-	height: 100%;
-	width: 20%;
+.trending-shoes-card {
+	height: 24rem;
+	width: 22%;
 	display: flex;
 	flex-direction: column;
-	margin: 0 10px;
+	margin: 0 25px 40px 0;
 	background: white;
 }
 
-.trending-shoes-img {
+.trending-shoes {
+	height: 100%;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.trending-shoes-img {
+	width: 74%;
+	height: 47%;
 }
 
 img {
 	width: 100%;
 }
 
-.trending-shoes-details {
-	height: 50%;
+.trending-shoes-wrap {
+	height: 53%;
 	width: 100%;
+	display: flex;
+	justify-content: center;
+	background: rgb(247, 247, 247);
+}
+
+.trending-shoes-details {
+	height: 100%;
+	width: 87%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+.trending-prices {
+	height: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.trending-prices p {
+	margin: 0 10px;
+}
+
+.trending-got-them {
+	width: 5%;
+	border: 2px black solid;
+	height: 6%;
+	border-radius: 13px;
+	margin-left: 10px;
 }
 
 .content button {

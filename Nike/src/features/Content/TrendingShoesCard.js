@@ -25,7 +25,7 @@ function TrendingShoesCard(props) {
 						<p>{props.shoeName}</p>
 						<div className="prices">
 							<p>Lowest Price</p>
-							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.retailPrice}</p>
+							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.lowestPrice}</p>
 						</div>
 						<div className="got-them"></div>
 					</div>
@@ -37,7 +37,7 @@ function TrendingShoesCard(props) {
 
 const mapStateToProps = (state) => {
 	return {
-		shoes: state.shoes,
+		trendingShoes: state.trendingShoes,
 	};
 };
 

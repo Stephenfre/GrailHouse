@@ -14,21 +14,21 @@ import GrailHouse from "../../GrailHouse.svg";
 import styled from "styled-components";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-// const StyledLinks = styled(Link)`
-// 	text-decoration: none;
-// 	background: black;
-// 	color: white;
-// 	font-size: 18px;
-// 	padding: 1rem;
-// 	width: 11%;
-// 	border-radius: 5px;
-// 	border: none;
-// 	text-align: center;
-// 	&:hover {
-// 		background: rgb(41, 41, 41);
-// 		color: rgb(235, 235, 235);
-// 	}
-// `;
+const StyledLinks = styled(Link)`
+	text-decoration: none;
+	background: black;
+	color: white;
+	font-size: 18px;
+	padding: 1rem;
+	width: 11%;
+	border-radius: 5px;
+	border: none;
+	text-align: center;
+	&:hover {
+		background: rgb(41, 41, 41);
+		color: rgb(235, 235, 235);
+	}
+`;
 
 // const useStyles = makeStyles((theme) => ({
 // 	root: {
@@ -84,25 +84,23 @@ class HomePage extends Component {
 										id={shoe._id}
 										thumbnail={shoe.thumbnail}
 										shoeName={shoe.shoeName}
-										// silhoutte={shoe.silhoutte}
-										// colorway={shoe.colorway}
-										retailPrice={shoe.retailPrice}
+										lowestPrice={shoe.lowestPrice}
 									/>
 								))}
 							</div>
-						</div>
-						<div
-							style={{
-								width: "100%",
-								height: "25%",
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<Link to="trendingshoes" className="trending-btn">
-								All Trending Shoes
-							</Link>
+							<div
+								style={{
+									width: "100%",
+									height: "6rem",
+									display: "flex",
+									justifyContent: "center",
+									alignItems: "center",
+								}}
+							>
+								<StyledLinks to="trendingshoes" className="trending-btn">
+									All Trending Shoes
+								</StyledLinks>
+							</div>
 						</div>
 					</div>
 				</div>

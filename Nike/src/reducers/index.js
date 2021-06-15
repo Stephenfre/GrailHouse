@@ -10,6 +10,7 @@ import {
 
 const initialState = {
 	shoes: [],
+	trendingShoes: [],
 	gettingShoes: false,
 	gettingShoesError: "",
 	gettingTenShoes: false,
@@ -26,10 +27,16 @@ export default (state = initialState, action) => {
 			};
 
 		case GETTING_SHOES_SUCCESS:
-			console.log("stop loading");
+			let trendingShoes = [];
+			action.payload.map((shoe) => {
+				let arr = Object.values(shoe.lowestResellPrice);
+				let min = Math.min(...arr);
+				shoe.lowestPrice = min;
+				trendingShoes.push(shoe);
+			});
 			return {
 				...state,
-				shoes: action.payload,
+				trendingShoes: trendingShoes,
 				gettingShoes: false,
 			};
 
@@ -56,9 +63,16 @@ export default (state = initialState, action) => {
 			};
 
 		case GETTING_TEN_SHOES_SUCCESS:
+			let shoes = [];
+			action.payload.map((shoe) => {
+				let arr = Object.values(shoe.lowestResellPrice);
+				let min = Math.min(...arr);
+				shoe.lowestPrice = min;
+				shoes.push(shoe);
+			});
 			return {
 				...state,
-				shoes: action.payload,
+				shoes: shoes,
 				gettingTenShoes: false,
 			};
 
