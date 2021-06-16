@@ -62,16 +62,14 @@ class TrendingShoes extends React.Component {
 							<div className="alltrending-shoes-container">
 								<div className="options"></div>
 								<div className="alltrending-shoes-content">
-									{this.props.shoes.map((shoe, i) => (
+									{this.props.trendingShoes.map((shoe, i) => (
 										// console.log(shoe._id)
 										<TrendingShoesCard
 											key={i}
 											id={shoe._id}
 											thumbnail={shoe.thumbnail}
 											shoeName={shoe.shoeName}
-											// silhoutte={shoe.silhoutte}
-											// colorway={shoe.colorway}
-											retailPrice={shoe.retailPrice}
+											lowestPrice={shoe.lowestPrice}
 										/>
 									))}
 								</div>

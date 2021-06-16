@@ -37,7 +37,7 @@ function TrendingShoesCard(props) {
 
 const mapStateToProps = (state) => {
 	return {
-		trendingShoes: state.trendingShoes,
+		shoes: state.shoes,
 	};
 };
 

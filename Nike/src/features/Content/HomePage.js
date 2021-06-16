@@ -46,7 +46,7 @@ class HomePage extends Component {
 	}
 
 	componentDidMount() {
-		this.props.getTenShoes();
+		// this.props.getTenShoes();
 	}
 
 	render() {

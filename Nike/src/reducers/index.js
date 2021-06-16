@@ -12,9 +12,9 @@ const initialState = {
 	shoes: [],
 	trendingShoes: [],
 	gettingShoes: false,
-	gettingShoesError: "",
+	gettingShoesError: null,
 	gettingTenShoes: false,
-	gettingTenShoesError: "",
+	gettingTenShoesError: null,
 	selectedShoe: null,
 };
 
@@ -38,13 +38,14 @@ export default (state = initialState, action) => {
 				...state,
 				trendingShoes: trendingShoes,
 				gettingShoes: false,
+				gettingShoesError: null,
 			};
 
 		case GETTING_SHOES_FAIL:
 			return {
 				...state,
 				gettingShoes: false,
-				gettingShoesError: action.payload,
+				gettingShoesError: action.payload.message,
 			};
 
 		case SELECTED_SHOE:
@@ -80,7 +81,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				gettingTenShoes: false,
-				gettingShoesError: action.payload,
+				gettingTenShoesError: action.payload,
 			};
 		default:
 			return state;

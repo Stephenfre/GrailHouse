@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 
@@ -12,11 +12,6 @@ function TopTenShoes(props) {
 	const clickHandler = (id) => {
 		props.selectShoe(id);
 		history.push(`trendingshoes/details/${id}`);
-	};
-
-	const addToCloset = (e) => {
-		// e.stopPropagation();
-		console.log(addToCloset, "clicked");
 	};
 
 	return (
@@ -33,7 +28,7 @@ function TopTenShoes(props) {
 
 							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.lowestPrice}</p>
 						</div>
-						<button onClick={addToCloset()} className="trending-got-them"></button>
+						<div className="trending-got-them"></div>
 					</div>
 				</div>
 			</div>
