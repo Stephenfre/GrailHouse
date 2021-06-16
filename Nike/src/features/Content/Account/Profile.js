@@ -15,19 +15,23 @@ export default function Profile() {
 					<div>
 						<h2>Profile</h2>
 					</div>
-					<div>
-						<div className="profile-username">
-							Username: <br /> Stephen Freeman
+					<div className="profile-info">
+						<div className="username-shoesize">
+							<div className="profile-username">
+								Username: <br /> Stephen Freeman
+							</div>
+							<div className="profile-shoesize">
+								Shoe Size: <br /> 11.5 - 12
+							</div>
 						</div>
-						<div className="profile-Email">
-							Email: <br /> stephen.freeman.dev@gmail.com
-						</div>
-						<div className="profile-shoesize">
-							Shoe Size: <br /> 11.5 - 12
-						</div>
-						<div className="profile-reset-password">
-							Reset Password: <br />
-							<Link to="">Reset Password</Link>
+						<div className="email-password">
+							<div className="profile-Email">
+								Email: <br /> stephen.freeman.dev@gmail.com
+							</div>
+							<div className="profile-reset-password">
+								Reset Password: <br />
+								<Link to="">Reset Password</Link>
+							</div>
 						</div>
 					</div>
 				</div>

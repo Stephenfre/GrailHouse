@@ -17,6 +17,14 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 
 LogRocket.init("c7rsta/grail-house");
 
+LogRocket.identify("1891", {
+	name: "Stephen Freeman Jr.",
+	email: "setphen.freeman.dev@gmail.com",
+
+	// Add your own custom user variables here, ie:
+	subscriptionType: "pro",
+});
+
 const StyledLinks = styled(Link)`
 	text-decoration: none;
 	background: black;

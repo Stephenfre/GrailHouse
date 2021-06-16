@@ -8,7 +8,6 @@ import AdidasLinks from "./AdidasLink";
 import YeezyLinks from "./YeezyLinks";
 import MoreSneakLinks from "./MoreSneakLinks";
 import Account from "../Content/Account/Account";
-import SearchPage from "../Content/Search/SearchPage";
 
 import GrailHouse from "../../GrailHouse.svg";
 import "./NavBar.css";
@@ -40,35 +39,35 @@ export default function NavBar() {
 					<ul className="top-nav">
 						<li>
 							<StyledLinks to="">Jordan </StyledLinks>
-							<ul class="sub-nav">
+							<ul className="sub-nav">
 								<JordanLinks />
 							</ul>
 						</li>
 
 						<li>
 							<StyledLinks to="">Nike</StyledLinks>
-							<ul class="sub-nav">
+							<ul className="sub-nav">
 								<NikeLinks />
 							</ul>
 						</li>
 
 						<li>
 							<StyledLinks to="">Adidas</StyledLinks>
-							<ul class="sub-nav">
+							<ul className="sub-nav">
 								<AdidasLinks />
 							</ul>
 						</li>
 
 						<li>
 							<StyledLinks to="">Yeezy</StyledLinks>
-							<ul class="sub-nav">
+							<ul className="sub-nav">
 								<YeezyLinks />
 							</ul>
 						</li>
 
 						<li>
 							<StyledLinks to="">More Sneakers</StyledLinks>
-							<ul class="sub-nav">
+							<ul className="sub-nav">
 								<MoreSneakLinks />
 							</ul>
 						</li>
@@ -79,7 +78,6 @@ export default function NavBar() {
 					</ul>
 				</div>
 				<div className="other-content">
-					{/* <SearchPage /> */}
 					<StyledLinks onClick={() => setAccountClick(!accountClick)}>Account</StyledLinks>
 				</div>
 				<div className="account">{accountClick && <Account />}</div>
