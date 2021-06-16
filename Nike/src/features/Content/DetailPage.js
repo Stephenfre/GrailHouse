@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
 import NavBar from "../Nav/NavBar";
+import SimilarShoes from "./SimilarShoes";
 import "./DetailPage.css";
 
 const StyledLinks = styled(Link)`
@@ -123,14 +124,16 @@ function DetailPage(props) {
 								onChangeIndex={handleChangeIndex}
 							>
 								<TabPanel value={value} index={0} dir={theme.direction}>
-									{props.selectedShoe.description} <br /> {props.selectedShoe.styleID}{" "}
-									{props.selectedShoe.colorway} {props.selectedShoe.releaseDate}
+									{props.selectedShoe.description}
 								</TabPanel>
 								<TabPanel value={value} index={1} dir={theme.direction}>
 									{props.selectedShoe.lowestResellPrice.stockX}
 								</TabPanel>
 							</SwipeableViews>
 						</div>
+						<span style={{ width: "83%", fontSize: "9px" }}>
+							{props.selectedShoe.styleID} {props.selectedShoe.colorway} {props.selectedShoe.releaseDate}
+						</span>
 						<div
 							className="add-btn"
 							style={{ width: "87%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}
@@ -139,6 +142,7 @@ function DetailPage(props) {
 						</div>
 					</div>
 				</div>
+				<SimilarShoes />
 			</div>
 		</div>
 	);

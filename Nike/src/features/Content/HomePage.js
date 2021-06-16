@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import LogRocket from "logrocket";
 
 import NavBar from "../Nav/NavBar";
 import Cta from "../Cta/Cta";
@@ -13,6 +14,8 @@ import "./HomePage.css";
 import GrailHouse from "../../GrailHouse.svg";
 import styled from "styled-components";
 import LinearProgress from "@material-ui/core/LinearProgress";
+
+LogRocket.init("c7rsta/grail-house");
 
 const StyledLinks = styled(Link)`
 	text-decoration: none;

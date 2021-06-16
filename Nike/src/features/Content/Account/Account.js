@@ -34,8 +34,8 @@ export default function Account() {
 	return (
 		<div className="account-content-container">
 			<div className="account-content">
-				<StyledLinks to="account">My Account</StyledLinks>
-				<StyledLinks to="closet">My Closet</StyledLinks>
+				<StyledLinks to="account/profile">My Account</StyledLinks>
+				<StyledLinks to="account/closet">My Closet</StyledLinks>
 				<StyledLinks to="trackchanges">Track Changes</StyledLinks>
 			</div>
 			<div className="sign-in-bttn">
