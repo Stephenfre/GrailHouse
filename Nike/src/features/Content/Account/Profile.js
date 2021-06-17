@@ -12,7 +12,7 @@ export default function Profile() {
 			<div className="profile">
 				<SideNavBar />
 				<div className="profile-content">
-					<div>
+					<div className="title">
 						<h2>Profile</h2>
 					</div>
 					<div className="profile-info">
