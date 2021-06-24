@@ -5,6 +5,8 @@ import { withRouter } from "react-router-dom";
 import { searchShoes } from "../../../actions";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import { Icon, InlineIcon } from "@iconify/react";
+import magnifyIcon from "@iconify/icons-mdi/magnify";
 
 import "./Search.css";
 
@@ -12,9 +14,6 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		"& > *": {
 			margin: theme.spacing(1),
-			background: "white",
-			width: "70%",
-			height: "40%",
 		},
 	},
 }));
@@ -43,19 +42,41 @@ function Search(props) {
 			noValidate
 			autoComplete="off"
 			onSubmit={callSearchFunction}
-			style={{ display: "flex", width: "90%", justifyContent: "space-around", alignItems: "center" }}
+			style={{
+				display: "flex",
+				width: "90%",
+				justifyContent: "space-around",
+				alignItems: "center",
+				height: "100%",
+			}}
 		>
-			<TextField
-				id="outlined-basic"
-				// label="Search"
-				variant="filled"
+			<input
 				value={searchValue}
 				onChange={handleSearchInputChanges}
 				type="text"
-				style={{ background: "white" }}
+				style={{
+					background: "white",
+					width: "70%",
+					height: "20%",
+					borderRadius: "10px",
+					color: "black",
+					padding: "10px",
+				}}
 			/>
-			<button type="submit" style={{ height: "50%", width: "20%", background: "white", color: "black" }}>
-				Search
+			<button
+				type="submit"
+				style={{
+					position: "absolute",
+					background: "none",
+					right: "11rem",
+					top: "2.4rem",
+					margin: "0",
+					padding: "0",
+					width: "0",
+					color: "black",
+				}}
+			>
+				<Icon icon={magnifyIcon} style={{ height: "1.5rem", width: "1.5rem" }} />
 			</button>
 		</form>
 	);
