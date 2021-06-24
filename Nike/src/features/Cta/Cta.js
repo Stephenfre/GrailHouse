@@ -7,7 +7,9 @@ export default function Cta() {
 	return (
 		<div className="cta-img">
 			<img src={GrailBackground} alt="cta-logo" />
-			{/* <Search /> */}
+			<div className="search-bar">
+				<Search search={Search} />
+			</div>
 		</div>
 	);
 }

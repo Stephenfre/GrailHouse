@@ -1,0 +1,6 @@
+#search-bar {
+	display: flex;
+	width: 90%;
+	justify-content: space-around;
+	align-content: center;
+}

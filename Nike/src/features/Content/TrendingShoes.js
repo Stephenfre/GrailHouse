@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -12,14 +12,14 @@ import TrendingBackground from "../../TrendingBackground.svg";
 import GrailHouse from "../../GrailHouse.svg";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     width: '100%',
-//     '& > * + *': {
-//       marginTop: theme.spacing(2),
-//     },
-//   },
-// }));
+const useStyles = makeStyles((theme) => ({
+	root: {
+		width: "100%",
+		"& > * + *": {
+			marginTop: theme.spacing(2),
+		},
+	},
+}));
 
 class TrendingShoes extends React.Component {
 	constructor(props) {

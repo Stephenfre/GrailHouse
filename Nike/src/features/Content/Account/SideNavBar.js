@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import userIcon from "@iconify/icons-carbon/user";
 import doorOpen from "@iconify/icons-bi/door-open";
 import pieChartOutlined from "@iconify/icons-ant-design/pie-chart-outlined";

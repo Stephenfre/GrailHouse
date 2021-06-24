@@ -7,6 +7,9 @@ export const GETTING_TEN_SHOES = "GETTING_TEN_SHOES_START";
 export const GETTING_TEN_SHOES_SUCCESS = "GETTING_TEN_SHOES_SUCCESS";
 export const GETTING_TEN_SHOES_FAIL = "GETTING_TEN_SHOES_FAIL";
 export const SELECTED_SHOE = "SELECTED_SHOE";
+export const SEARCHING_SHOE = "SEARCHING_SHOE";
+export const SEARCHING_SHOE_SUCCESS = "SEARCHING_SHOE_SUCCESS";
+export const SEARCHING_SHOE_FAIL = "SEARCHING_SHOE_FAIL";
 
 export function getShoes() {
 	return (dispatch) => {
@@ -15,7 +18,7 @@ export function getShoes() {
 		return axios
 			.get("http://localhost:5000/trending")
 			.then((res) => {
-				console.log(res.data);
+				console.log("get shoes", res.data);
 				dispatch({
 					type: GETTING_SHOES_SUCCESS,
 					payload: res.data,
@@ -46,7 +49,7 @@ export function getTenShoes() {
 		return axios
 			.get("http://localhost:5000/")
 			.then((res) => {
-				console.log(res.data);
+				console.log("get ten shoes", res.data);
 				dispatch({
 					type: GETTING_TEN_SHOES_SUCCESS,
 					payload: res.data,
@@ -55,6 +58,28 @@ export function getTenShoes() {
 			.catch((err) => {
 				dispatch({
 					type: GETTING_TEN_SHOES_FAIL,
+					payload: err,
+				});
+			});
+	};
+}
+
+export function searchShoes(searchValue) {
+	return (dispatch) => {
+		dispatch({ type: SEARCHING_SHOE });
+
+		return axios
+			.get(`http://localhost:5000/search/${searchValue}`)
+			.then((res) => {
+				console.log("search shoe", res.data);
+				dispatch({
+					type: SEARCHING_SHOE_SUCCESS,
+					payload: res.data,
+				});
+			})
+			.catch((err) => {
+				dispatch({
+					type: SEARCHING_SHOE_FAIL,
 					payload: err,
 				});
 			});

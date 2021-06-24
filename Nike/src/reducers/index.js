@@ -6,6 +6,9 @@ import {
 	GETTING_TEN_SHOES_SUCCESS,
 	GETTING_TEN_SHOES_FAIL,
 	SELECTED_SHOE,
+	SEARCHING_SHOE,
+	SEARCHING_SHOE_SUCCESS,
+	SEARCHING_SHOE_FAIL,
 } from "../actions";
 
 const initialState = {
@@ -16,6 +19,10 @@ const initialState = {
 	gettingTenShoes: false,
 	gettingTenShoesError: null,
 	selectedShoe: null,
+	searchShoes: false,
+	searchShoesSuccess: false,
+	searchResults: [],
+	searchShoesError: null,
 };
 
 export default (state = initialState, action) => {
@@ -82,6 +89,25 @@ export default (state = initialState, action) => {
 				...state,
 				gettingTenShoes: false,
 				gettingTenShoesError: action.payload,
+			};
+
+		case SEARCHING_SHOE:
+			return {
+				searchShoes: true,
+				searchShoesSuccess: false,
+			};
+
+		case SEARCHING_SHOE_SUCCESS:
+			return {
+				searchShoes: false,
+				searchShoesSuccess: true,
+				searchResults: action.payload,
+			};
+
+		case SEARCHING_SHOE_FAIL:
+			return {
+				searchShoes: false,
+				searchShoesError: action.payload,
 			};
 		default:
 			return state;

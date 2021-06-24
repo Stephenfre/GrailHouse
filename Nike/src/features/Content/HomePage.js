@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -8,7 +8,8 @@ import LogRocket from "logrocket";
 import NavBar from "../Nav/NavBar";
 import Cta from "../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
-import { getTenShoes } from "../../actions";
+import { getTenShoes, getShoes } from "../../actions";
+import SearchedShoes from "./Search/SearchedShoes";
 
 import "./HomePage.css";
 import GrailHouse from "../../GrailHouse.svg";
@@ -50,8 +51,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 function HomePage(props) {
+	const classes = useStyles();
+
 	useEffect(() => {
-		getTenShoes();
+		props.getTenShoes();
 	}, []);
 
 	if (props.gettingTenShoesError) {
@@ -63,9 +66,9 @@ function HomePage(props) {
 					<div className="loader-logo">
 						<img src={GrailHouse} alt="logo" />
 					</div>
-					{/* <div className={classes.root}>
-                            <LinearProgress color="secondary" />
-                        </div> */}
+					<div className={classes.root}>
+						<LinearProgress color="secondary" />
+					</div>
 				</div>
 			</div>
 		);
@@ -77,18 +80,29 @@ function HomePage(props) {
 					<Cta />
 					<div className="content">
 						<div className="title-trending">
-							<h1>Trending</h1>
+							<h1>{props.searchShoesSuccess ? `Search Results` : `Trending`}</h1>
 						</div>
 						<div className="trending-shoes-container">
-							{props.shoes.map((shoe, i) => (
-								<TopTenShoeCards
-									key={i}
-									id={shoe._id}
-									thumbnail={shoe.thumbnail}
-									shoeName={shoe.shoeName}
-									lowestPrice={shoe.lowestPrice}
-								/>
-							))}
+							{props.searchShoesSuccess === true && props.searchShoes === false
+								? props.searchResults.map((shoes, index) => (
+										<SearchedShoes
+											key={`${index}-${shoes.shoeName}`}
+											thumbnail={shoes.thumbnail}
+											shoeName={shoes.shoeName}
+											retailPrice={shoes.retailPrice}
+										/>
+								  ))
+								: props.searchShoes === false && props.searchShoesSuccess === false
+								? props.shoes.map((shoe, i) => (
+										<TopTenShoeCards
+											key={i}
+											id={shoe._id}
+											thumbnail={shoe.thumbnail}
+											shoeName={shoe.shoeName}
+											lowestPrice={shoe.lowestPrice}
+										/>
+								  ))
+								: null}
 						</div>
 						<div
 							style={{
@@ -113,6 +127,9 @@ function HomePage(props) {
 const mapStateToProps = (state) => {
 	return {
 		shoes: state.shoes,
+		searchShoes: state.searchShoes,
+		searchShoesSuccess: state.searchShoesSuccess,
+		searchResults: state.searchResults,
 		gettingTenShoes: state.gettingTenShoes,
 		gettingTenShoesError: state.gettingTenShoesError,
 	};
