@@ -1,6 +1,6 @@
 import React from "react";
 import "./Cta.css";
-import GrailBackground from "../../GrailBackground.svg";
+import GrailBackground from "../../Svgs/GrailBackground.svg";
 import SearchForm from "../Content/Search/SearchForm";
 
 export default function Cta() {

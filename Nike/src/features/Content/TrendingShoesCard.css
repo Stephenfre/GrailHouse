@@ -1,4 +1,4 @@
-.alltrending {
+.trending {
 	height: 23%;
 	width: 22%;
 	display: flex;
@@ -8,7 +8,7 @@
 	/* border: red solid 1px; */
 }
 
-.alltrending-shoes {
+.trending-shoes {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -17,16 +17,16 @@
 	justify-content: center;
 }
 
-.alltrending-shoes-img {
+.trending-shoes-img {
 	width: 74%;
 	height: 47%;
 }
 
-.alltrending-shoes-img img {
+.trending-shoes-img img {
 	width: 100%;
 }
 
-.alltrending-shoes-wrap {
+.trending-shoes-wrap {
 	height: 53%;
 	width: 100%;
 	display: flex;
@@ -35,7 +35,7 @@
 	border-radius: 0 0 6px 6px;
 }
 
-.alltrending-shoes-details {
+.trending-shoes-details {
 	height: 100%;
 	width: 87%;
 	display: flex;
@@ -44,7 +44,7 @@
 	align-items: flex-start;
 }
 
-.alltrending-shoes-details p {
+.trending-shoes-details p {
 	font-size: 14px;
 	font-weight: 600;
 	font-family: "Source Sans Pro", sans-serif;

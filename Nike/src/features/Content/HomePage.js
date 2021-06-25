@@ -11,7 +11,7 @@ import TopTenShoeCards from "./TopTenShoeCards";
 import { getTenShoes } from "../../actions";
 
 import "./HomePage.css";
-import GrailHouse from "../../GrailHouse.svg";
+import GrailHouse from "../../Svgs/GrailHouse.svg";
 import styled from "styled-components";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
@@ -80,10 +80,10 @@ function HomePage(props) {
 					<NavBar />
 					<Cta />
 					<div className="content">
-						<div className="title-trending">
-							<h1>Trending</h1>
+						<div className="title-topten">
+							<h1>Most Popular</h1>
 						</div>
-						<div className="trending-shoes-container">
+						<div className="topten-shoes-container">
 							{props.shoes.map((shoe, i) => (
 								// console.log(shoe._id)
 								<TopTenShoeCards

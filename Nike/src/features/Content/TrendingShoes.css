@@ -39,21 +39,21 @@
 	background: grey;
 }
 
-.alltrending-content {
+.trending-content {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.title-alltrending {
+.title-trending {
 	width: 43.2%;
 	height: 20%;
 	display: flex;
 	align-items: flex-end;
 }
 
-.alltrending-shoes-container {
+.trending-shoes-container {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -65,7 +65,7 @@
 	background: grey;
 }
 
-.alltrending-shoes-content {
+.trending-shoes-content {
 	/* height: 50%; */
 	width: 65%;
 	display: flex;

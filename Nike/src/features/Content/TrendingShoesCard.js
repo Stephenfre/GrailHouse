@@ -15,13 +15,13 @@ function TrendingShoesCard(props) {
 	};
 
 	return (
-		<div className="alltrending" onClick={(e) => clickHandler(props.id)}>
-			<div className="alltrending-shoes">
-				<div className="alltrending-shoes-img">
+		<div className="trending" onClick={(e) => clickHandler(props.id)}>
+			<div className="trending-shoes">
+				<div className="trending-shoes-img">
 					<img src={props.thumbnail} alt="shoe pic" />
 				</div>
-				<div className="alltrending-shoes-wrap">
-					<div className="alltrending-shoes-details">
+				<div className="trending-shoes-wrap">
+					<div className="trending-shoes-details">
 						<p>{props.shoeName}</p>
 						<div className="prices">
 							<p>Lowest Price</p>

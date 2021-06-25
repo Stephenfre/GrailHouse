@@ -8,8 +8,8 @@ import TrendingShoesCard from "./TrendingShoesCard";
 import { getShoes } from "../../actions";
 
 import "./TrendingShoes.css";
-import TrendingBackground from "../../TrendingBackground.svg";
-import GrailHouse from "../../GrailHouse.svg";
+import TrendingBackground from "../../Svgs/TrendingBackground.svg";
+import GrailHouse from "../../Svgs/GrailHouse.svg";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 const useStyles = makeStyles((theme) => ({
@@ -52,13 +52,13 @@ function TrendingShoes(props) {
 					<div className="cta-trending-img">
 						<img src={TrendingBackground} alt="cta-logo" />
 					</div>
-					<div className="alltrending-content">
-						<div className="title-alltrending">
+					<div className="trending-content">
+						<div className="title-trending">
 							<h1>Results</h1>
 						</div>
-						<div className="alltrending-shoes-container">
+						<div className="trending-shoes-container">
 							<div className="options"></div>
-							<div className="alltrending-shoes-content">
+							<div className="trending-shoes-content">
 								{props.trendingShoes.map((shoe, i) => (
 									// console.log(shoe._id)
 									<TrendingShoesCard

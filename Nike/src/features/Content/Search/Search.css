@@ -1,6 +1,129 @@
-#search-bar {
+.app {
+	height: 100vh;
+	width: 100%;
+}
+
+.container {
+	height: 100vh;
+	width: 100%;
+}
+
+.search-content {
+	width: 100%;
 	display: flex;
-	width: 90%;
-	justify-content: space-around;
-	align-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title-details {
+	width: 78%;
+	height: 20%;
+	display: flex;
+	align-items: center;
+	margin-top: 3.5rem;
+	justify-content: flex-end;
+}
+
+.search-links-results-details {
+	width: 50%;
+}
+
+.search-bar-details {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 50%;
+}
+
+.search-shoes-container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.search-options {
+	width: 20%;
+	background: grey;
+}
+
+.search-shoes-content {
+	/* height: 50%; */
+	width: 65%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.searched-shoes {
+	height: 8%;
+	width: 22%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 25px 40px 0;
+	background: white;
+	/* border: red solid 1px; */
+}
+
+.searched-shoes-details {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.searched-shoes-details-img {
+	width: 74%;
+	height: 47%;
+}
+
+.searched-shoes-details-img img {
+	width: 100%;
+}
+
+.searched-shoes-details-wrap {
+	height: 53%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background: rgb(247, 247, 247);
+	border-radius: 0 0 6px 6px;
+}
+
+.searched-shoes-details-details {
+	height: 100%;
+	width: 87%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.searched-shoes-details-details p {
+	font-size: 14px;
+	font-weight: 600;
+	font-family: "Source Sans Pro", sans-serif;
+	margin: 10px;
+}
+
+.prices {
+	height: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.prices p {
+	font-weight: 300;
+	margin: 0 10px;
+}
+
+.got-them {
+	width: 5%;
+	border: 2px black solid;
+	height: 6%;
+	border-radius: 13px;
+	margin-left: 10px;
 }

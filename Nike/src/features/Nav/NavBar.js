@@ -9,7 +9,7 @@ import YeezyLinks from "./YeezyLinks";
 import MoreSneakLinks from "./MoreSneakLinks";
 import Account from "../Content/Account/Account";
 
-import GrailHouse from "../../GrailHouse.svg";
+import GrailHouse from "../../Svgs/GrailHouse.svg";
 import "./NavBar.css";
 
 const StyledLinks = styled(Link)`

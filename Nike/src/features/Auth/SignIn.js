@@ -6,8 +6,8 @@ import { refreshTokenSetup } from "./refreshTokenSetup";
 import { useGoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
 
-import GrailHouse from "../../GrailHouse.svg";
-import GoogleIcon from "../../GoogleIcon.svg";
+import GrailHouse from "../../Svgs/GrailHouse.svg";
+import GoogleIcon from "../../Svgs/GoogleIcon.svg";
 
 const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
 

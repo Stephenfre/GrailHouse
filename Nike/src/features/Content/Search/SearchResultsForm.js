@@ -59,7 +59,7 @@ function Search(props) {
 				type="text"
 				style={{
 					background: "white",
-					width: "70%",
+					width: "90%",
 					height: "20%",
 					borderRadius: "10px",
 					color: "black",
@@ -71,10 +71,9 @@ function Search(props) {
 				style={{
 					position: "absolute",
 					background: "none",
-					right: "10.5rem",
-					top: "1.8rem",
+					right: "19.2rem",
 					margin: "0",
-					padding: "0",
+					padding: "4px 0 0 0",
 					width: "0",
 					color: "black",
 				}}
