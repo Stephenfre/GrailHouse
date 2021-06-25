@@ -21,64 +21,60 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-class TrendingShoes extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
+function TrendingShoes(props) {
+	const classes = useStyles();
+	const { getShoes } = props;
 
-	componentDidMount() {
-		this.props.getShoes();
-	}
+	useEffect(() => {
+		getShoes();
+	}, [getShoes]);
 
-	render() {
-		if (this.props.gettingShoesError) {
-			return <div>Error: {this.props.gettingShoesError}</div>;
-		} else if (this.props.gettingShoes) {
-			return (
-				<div className="loader-container">
-					<div className="loader">
-						<div className="loader-logo">
-							<img src={GrailHouse} alt="logo" />
-						</div>
-						{/* <div className={classes.root}>
-                            <LinearProgress color="secondary" />
-                        </div> */}
+	if (props.gettingShoesError) {
+		return <div>Error: {props.gettingShoesError}</div>;
+	} else if (props.gettingShoes) {
+		return (
+			<div className="loader-container">
+				<div className="loader">
+					<div className="loader-logo">
+						<img src={GrailHouse} alt="logo" />
+					</div>
+					<div className={classes.root}>
+						<LinearProgress color="secondary" />
 					</div>
 				</div>
-			);
-		} else {
-			return (
-				<div className="app">
-					<div className="container">
-						<NavBar />
-						<div className="cta-trending-img">
-							<img src={TrendingBackground} alt="cta-logo" />
+			</div>
+		);
+	} else {
+		return (
+			<div className="app">
+				<div className="container">
+					<NavBar />
+					<div className="cta-trending-img">
+						<img src={TrendingBackground} alt="cta-logo" />
+					</div>
+					<div className="alltrending-content">
+						<div className="title-alltrending">
+							<h1>Results</h1>
 						</div>
-						<div className="alltrending-content">
-							<div className="title-alltrending">
-								<h1>Results</h1>
-							</div>
-							<div className="alltrending-shoes-container">
-								<div className="options"></div>
-								<div className="alltrending-shoes-content">
-									{this.props.trendingShoes.map((shoe, i) => (
-										// console.log(shoe._id)
-										<TrendingShoesCard
-											key={i}
-											id={shoe._id}
-											thumbnail={shoe.thumbnail}
-											shoeName={shoe.shoeName}
-											lowestPrice={shoe.lowestPrice}
-										/>
-									))}
-								</div>
+						<div className="alltrending-shoes-container">
+							<div className="options"></div>
+							<div className="alltrending-shoes-content">
+								{props.trendingShoes.map((shoe, i) => (
+									// console.log(shoe._id)
+									<TrendingShoesCard
+										key={i}
+										id={shoe._id}
+										thumbnail={shoe.thumbnail}
+										shoeName={shoe.shoeName}
+										lowestPrice={shoe.lowestPrice}
+									/>
+								))}
 							</div>
 						</div>
 					</div>
 				</div>
-			);
-		}
+			</div>
+		);
 	}
 }
 

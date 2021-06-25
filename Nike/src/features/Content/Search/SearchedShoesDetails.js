@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SearchedShoes(props) {
+export default function SearchedShoesDetails(props) {
 	return (
 		<div className="alltrending">
 			<div className="alltrending-shoes">
@@ -9,7 +9,7 @@ export default function SearchedShoes(props) {
 				</div>
 				<div className="alltrending-shoes-details">
 					<p>{props.shoeName}</p>
-					<p>${props.retailPrice}</p>
+					<p>${props.lowestPrice}</p>
 				</div>
 			</div>
 		</div>

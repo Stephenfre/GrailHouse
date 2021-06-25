@@ -55,15 +55,6 @@ export default (state = initialState, action) => {
 				gettingShoesError: action.payload.message,
 			};
 
-		case SELECTED_SHOE:
-			const id = action.payload;
-			const shoe = state.shoes.find((shoe) => shoe._id === id);
-			console.log("shoe", shoe);
-			return {
-				...state,
-				selectedShoe: shoe,
-			};
-
 		case GETTING_TEN_SHOES:
 			return {
 				...state,
@@ -91,6 +82,15 @@ export default (state = initialState, action) => {
 				gettingTenShoesError: action.payload,
 			};
 
+		case SELECTED_SHOE:
+			const id = action.payload;
+			const shoe = state.shoes.find((shoe) => shoe._id === id);
+			console.log("shoe", shoe);
+			return {
+				...state,
+				selectedShoe: shoe,
+			};
+
 		case SEARCHING_SHOE:
 			return {
 				searchShoes: true,
@@ -98,10 +98,17 @@ export default (state = initialState, action) => {
 			};
 
 		case SEARCHING_SHOE_SUCCESS:
+			let searchResults = [];
+			action.payload.map((shoe) => {
+				let arr = Object.values(shoe.lowestResellPrice);
+				let min = Math.min(...arr);
+				shoe.lowestPrice = min;
+				searchResults.push(shoe);
+			});
 			return {
+				...state,
 				searchShoes: false,
-				searchShoesSuccess: true,
-				searchResults: action.payload,
+				searchResults: searchResults,
 			};
 
 		case SEARCHING_SHOE_FAIL:

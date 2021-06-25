@@ -8,8 +8,7 @@ import LogRocket from "logrocket";
 import NavBar from "../Nav/NavBar";
 import Cta from "../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
-import { getTenShoes, getShoes } from "../../actions";
-import SearchedShoes from "./Search/SearchedShoes";
+import { getTenShoes } from "../../actions";
 
 import "./HomePage.css";
 import GrailHouse from "../../GrailHouse.svg";
@@ -53,9 +52,11 @@ const useStyles = makeStyles((theme) => ({
 function HomePage(props) {
 	const classes = useStyles();
 
+	const { getTenShoes } = props;
+
 	useEffect(() => {
-		props.getTenShoes();
-	}, []);
+		getTenShoes();
+	}, [getTenShoes]);
 
 	if (props.gettingTenShoesError) {
 		return <div>Error: {props.gettingTenShoesError}</div>;
@@ -80,29 +81,19 @@ function HomePage(props) {
 					<Cta />
 					<div className="content">
 						<div className="title-trending">
-							<h1>{props.searchShoesSuccess ? `Search Results` : `Trending`}</h1>
+							<h1>Trending</h1>
 						</div>
 						<div className="trending-shoes-container">
-							{props.searchShoesSuccess === true && props.searchShoes === false
-								? props.searchResults.map((shoes, index) => (
-										<SearchedShoes
-											key={`${index}-${shoes.shoeName}`}
-											thumbnail={shoes.thumbnail}
-											shoeName={shoes.shoeName}
-											retailPrice={shoes.retailPrice}
-										/>
-								  ))
-								: props.searchShoes === false && props.searchShoesSuccess === false
-								? props.shoes.map((shoe, i) => (
-										<TopTenShoeCards
-											key={i}
-											id={shoe._id}
-											thumbnail={shoe.thumbnail}
-											shoeName={shoe.shoeName}
-											lowestPrice={shoe.lowestPrice}
-										/>
-								  ))
-								: null}
+							{props.shoes.map((shoe, i) => (
+								// console.log(shoe._id)
+								<TopTenShoeCards
+									key={i}
+									id={shoe._id}
+									thumbnail={shoe.thumbnail}
+									shoeName={shoe.shoeName}
+									lowestPrice={shoe.lowestPrice}
+								/>
+							))}
 						</div>
 						<div
 							style={{
@@ -127,9 +118,6 @@ function HomePage(props) {
 const mapStateToProps = (state) => {
 	return {
 		shoes: state.shoes,
-		searchShoes: state.searchShoes,
-		searchShoesSuccess: state.searchShoesSuccess,
-		searchResults: state.searchResults,
 		gettingTenShoes: state.gettingTenShoes,
 		gettingTenShoesError: state.gettingTenShoesError,
 	};

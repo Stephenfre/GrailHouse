@@ -11,7 +11,7 @@ function TopTenShoes(props) {
 
 	const clickHandler = (id) => {
 		props.selectShoe(id);
-		history.push(`trendingshoes/details/${id}`);
+		history.push(`/details/${id}`);
 	};
 
 	return (
