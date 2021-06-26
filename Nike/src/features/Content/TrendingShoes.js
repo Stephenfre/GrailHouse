@@ -75,8 +75,8 @@ function TrendingShoes(props) {
 					<div className="trending-shoes-container">
 						<div className="options"></div>
 						<div className="trending-shoes-content">
-							{!props.gettingShoes && <SkeletonCards />}
-							{props.gettingShoes &&
+							{props.gettingShoes && <SkeletonCards />}
+							{!props.gettingShoes &&
 								props.trendingShoes.map((shoe, i) => (
 									<TrendingShoesCard
 										key={i}

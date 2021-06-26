@@ -70,3 +70,63 @@
 	border-radius: 13px;
 	margin-left: 10px;
 }
+
+.skeleton {
+	height: 53%;
+	width: 22%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 25px 40px 0;
+	background: white;
+}
+
+.skeleton-wrap {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.skeleton-content {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.skeleton-img {
+	width: 100%;
+	height: 36%;
+}
+
+.skeleton-details-wrap {
+	height: 40%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background: rgb(247, 247, 247);
+	border-radius: 0 0 6px 6px;
+}
+
+.skeleton-details {
+	height: 100%;
+	width: 87%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.skeleton-prices {
+	width: 90%;
+	height: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px 0;
+}
+.skeleton-got-them-btn {
+	width: 40%;
+	height: 25%;
+	margin-bottom: 15px;
+}
