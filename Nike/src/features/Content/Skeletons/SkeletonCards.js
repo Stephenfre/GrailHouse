@@ -1,6 +1,6 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
-import "../TrendingShoesCard.css";
+import "./Skeleton.css";
 
 export default function SkeletonCards() {
 	return (

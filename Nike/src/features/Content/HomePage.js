@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import { Icon, InlineIcon } from "@iconify/react";
+import questionMarkCircle from "@iconify/icons-majesticons/question-mark-circle";
 import LogRocket from "logrocket";
 
+import { getTenShoes } from "../../actions";
 import NavBar from "../Nav/NavBar";
 import Cta from "../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
-import { getTenShoes } from "../../actions";
+import TopTenHoverBox from "./TopTenHoverBox";
 
 import "./HomePage.css";
 import GrailHouse from "../../Svgs/GrailHouse.svg";
@@ -51,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 function HomePage(props) {
 	const classes = useStyles();
+	const [hover, setHover] = useState(false);
 
 	const { getTenShoes } = props;
 
@@ -82,10 +86,17 @@ function HomePage(props) {
 					<div className="content">
 						<div className="title-topten">
 							<h1>Most Popular</h1>
+							<div className="hover-icon" style={{ marginLeft: "5px" }}>
+								<Icon
+									icon={questionMarkCircle}
+									onMouseEnter={() => setHover(true)}
+									onMouseLeave={() => setHover(false)}
+								/>
+								{hover && <TopTenHoverBox />}
+							</div>
 						</div>
 						<div className="topten-shoes-container">
 							{props.shoes.map((shoe, i) => (
-								// console.log(shoe._id)
 								<TopTenShoeCards
 									key={i}
 									id={shoe._id}
