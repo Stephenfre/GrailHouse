@@ -4,7 +4,6 @@ import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 import { selectShoe } from "../../../actions";
-
 import "./TopTenShoeCards.css";
 
 const Button = styled.button`
@@ -36,7 +35,7 @@ function TopTenShoes(props) {
 				</div>
 				<div className="topten-shoes-wrap">
 					<div className="topten-shoes-details">
-						<p style={{ fontSize: "11px}", fontWeight: "600" }}>{props.shoeName}</p>
+						<p>{props.shoeName}</p>
 						<div className="topten-shoes-prices">
 							<p> Lowest Price</p>
 

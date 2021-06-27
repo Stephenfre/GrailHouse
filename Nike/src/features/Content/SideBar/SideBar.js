@@ -33,10 +33,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SideBar() {
 	const classes = useStyles();
-	const [openBrand, setOpenBrand] = useState(true);
+	const [openBrand, setOpenBrand] = useState(false);
 	const [openModel, setOpenModel] = useState(false);
 	const [openYear, setOpenYear] = useState(false);
-	const [checked, setChecked] = useState([0]);
+	const [checked, setChecked] = useState([]);
 
 	const handleClickBrand = () => {
 		setOpenBrand(!openBrand);

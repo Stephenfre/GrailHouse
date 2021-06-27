@@ -25,12 +25,12 @@ export default function App() {
 				<Route exact path="/trendingshoes/details/:shoeId" component={DetailPage} />
 				<Route exact path="/details/:shoeId" component={DetailPage} />
 				<Route exact path="/search/:shoe" component={Search} />
-				<Route path="/account/profile" component={Profile} />
-				<Route path="/account/closet" component={Closet} />
-				<Route path="/account/portfolio" component={Portfolio} />
-				<Route path="/account/settings" component={Settings} />
-				<Route path="/closet" component={MyCloset} />
-				<Route path="/trackchanges" component={TrackChanges} />
+				<Route exact path="/account/profile" component={Profile} />
+				<Route exact path="/account/closet" component={Closet} />
+				<Route exact path="/account/portfolio" component={Portfolio} />
+				<Route exact path="/account/settings" component={Settings} />
+				<Route exact path="/closet" component={MyCloset} />
+				<Route exact path="/trackchanges" component={TrackChanges} />
 			</Switch>
 		</div>
 	);
