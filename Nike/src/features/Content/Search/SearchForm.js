@@ -4,8 +4,7 @@ import { useHistory, withRouter } from "react-router-dom";
 
 import { searchShoes } from "../../../actions";
 import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import magnifyIcon from "@iconify/icons-mdi/magnify";
 
 import "./Search.css";

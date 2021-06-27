@@ -1,28 +1,29 @@
 import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { Icon, InlineIcon } from "@iconify/react";
-import questionMarkCircle from "@iconify/icons-majesticons/question-mark-circle";
+import { withRouter, Link } from "react-router-dom";
+import styled from "styled-components";
 
-import NavBar from "../../Nav/NavBar";
-import TrendingShoesCard from "./TrendingShoesCard";
+import { Icon } from "@iconify/react";
+import gridIcon from "@iconify/icons-gridicons/grid";
+import menuIcon from "@iconify/icons-vaadin/menu";
+
 import { getShoes } from "../../../actions";
+import NavBar from "../../Nav/NavBar";
 import SkeletonCards from "../Skeletons/SkeletonCards";
-import "./TrendingShoes.css";
+import TrendingShoesCard from "./TrendingShoesCard";
 import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
+import SearchResultsForm from "../Search/SearchResultsForm";
+import "./TrendingShoes.css";
+import "../Search/Search.css";
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		width: "100%",
-		"& > * + *": {
-			marginTop: theme.spacing(2),
-		},
-	},
-}));
+const StyledLinks = styled(Link)`
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
+	text-align: center;
+`;
 
 function TrendingShoes(props) {
-	const classes = useStyles();
 	const { getShoes } = props;
 
 	useEffect(() => {
@@ -37,10 +38,26 @@ function TrendingShoes(props) {
 					<img src={TrendingBackground} alt="cta-logo" />
 				</div>
 				<div className="trending-content">
-					<div className="title-trending">
-						<h1>Results</h1>
-						<div>
-							<Icon icon={questionMarkCircle} />
+					<div className="title-details" style={{ width: "84%" }}>
+						<div
+							style={{
+								width: "75%",
+								display: "flex",
+								justifyContent: "space-between",
+								alignItems: "center",
+								marginBottom: "1.5rem",
+							}}
+						>
+							<div className="search-links-results-details">
+								<StyledLinks to="/">HOME</StyledLinks>
+								{" / "}
+								<StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
+							</div>
+							<div className="search-bar-details">
+								<SearchResultsForm search={SearchResultsForm} />
+								<Icon icon={gridIcon} style={{ width: "2.5rem", height: "2.5rem" }} />
+								<Icon icon={menuIcon} style={{ color: "CECECE", width: "2rem", height: "3rem" }} />
+							</div>
 						</div>
 					</div>
 					<div className="trending-shoes-container">

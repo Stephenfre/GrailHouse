@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import { Icon, InlineIcon } from "@iconify/react";
+import styled from "styled-components";
+import { Icon } from "@iconify/react";
 import questionMarkCircle from "@iconify/icons-majesticons/question-mark-circle";
 import LogRocket from "logrocket";
 
@@ -12,11 +12,8 @@ import NavBar from "../../Nav/NavBar";
 import Cta from "../../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
 import TopTenHoverBox from "../TopTenHoverBox";
-
+import SkeletonCards from "../Skeletons/SkeletonCards";
 import "./HomePage.css";
-import GrailHouse from "../../../Svgs/GrailHouse.svg";
-import styled from "styled-components";
-import LinearProgress from "@material-ui/core/LinearProgress";
 
 LogRocket.init("c7rsta/grail-house");
 
@@ -30,30 +27,13 @@ LogRocket.identify("1891", {
 
 const StyledLinks = styled(Link)`
 	text-decoration: none;
-	background: black;
-	color: white;
-	font-size: 18px;
-	padding: 1rem;
-	width: 11%;
-	border-radius: 5px;
-	border: none;
+	color: black;
+	font-size: 17px;
+	width: 100%;
 	text-align: center;
-	&:hover {
-		background: rgb(41, 41, 41);
-		color: rgb(235, 235, 235);
-	}
 `;
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		width: "100%",
-		"& > * + *": {
-			marginTop: theme.spacing(2),
-		},
-	},
-}));
 function HomePage(props) {
-	const classes = useStyles();
 	const [hover, setHover] = useState(false);
 
 	const { getTenShoes } = props;
@@ -62,41 +42,41 @@ function HomePage(props) {
 		getTenShoes();
 	}, [getTenShoes]);
 
-	if (props.gettingTenShoesError) {
-		return <div>Error: {props.gettingTenShoesError}</div>;
-	} else if (props.gettingTenShoes) {
-		return (
-			<div className="loader-container">
-				<div className="loader">
-					<div className="loader-logo">
-						<img src={GrailHouse} alt="logo" />
-					</div>
-					<div className={classes.root}>
-						<LinearProgress color="secondary" />
-					</div>
-				</div>
-			</div>
-		);
-	} else {
-		return (
-			<div className="app">
-				<div className="container">
-					<NavBar />
-					<Cta />
-					<div className="content">
-						<div className="title-topten">
+	return (
+		<div className="app">
+			<div className="container">
+				<NavBar />
+				<Cta />
+				<div className="content">
+					<div className="title-topten">
+						<div className="title-hover-icon">
 							<h1>Most Popular</h1>
-							<div className="hover-icon" style={{ marginLeft: "5px" }}>
-								<Icon
-									icon={questionMarkCircle}
-									onMouseEnter={() => setHover(true)}
-									onMouseLeave={() => setHover(false)}
-								/>
-								{hover && <TopTenHoverBox />}
-							</div>
+
+							<Icon
+								icon={questionMarkCircle}
+								onMouseEnter={() => setHover(true)}
+								onMouseLeave={() => setHover(false)}
+							/>
+							{hover && <TopTenHoverBox />}
 						</div>
-						<div className="topten-shoes-container">
-							{props.shoes.map((shoe, i) => (
+						<div
+							style={{
+								width: "10%",
+								height: "6rem",
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+							}}
+						>
+							<StyledLinks to="trendingshoes" className="trending-btn">
+								SEE ALL
+							</StyledLinks>
+						</div>
+					</div>
+					<div className="topten-shoes-container">
+						{props.gettingTenShoes && <SkeletonCards />}
+						{!props.gettingTenShoes &&
+							props.shoes.map((shoe, i) => (
 								<TopTenShoeCards
 									key={i}
 									id={shoe._id}
@@ -105,25 +85,11 @@ function HomePage(props) {
 									lowestPrice={shoe.lowestPrice}
 								/>
 							))}
-						</div>
-						<div
-							style={{
-								width: "100%",
-								height: "6rem",
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<StyledLinks to="trendingshoes" className="trending-btn">
-								All Trending Shoes
-							</StyledLinks>
-						</div>
 					</div>
 				</div>
 			</div>
-		);
-	}
+		</div>
+	);
 }
 
 const mapStateToProps = (state) => {

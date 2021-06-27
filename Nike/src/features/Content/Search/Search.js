@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import gridIcon from "@iconify/icons-gridicons/grid";
 import menuIcon from "@iconify/icons-vaadin/menu";
 
