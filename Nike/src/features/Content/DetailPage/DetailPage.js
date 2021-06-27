@@ -12,8 +12,8 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
-import NavBar from "../Nav/NavBar";
-import SimilarShoes from "./SimilarShoes";
+import NavBar from "../../Nav/NavBar";
+import SimilarShoes from "../SimilarShoes";
 import "./DetailPage.css";
 
 const StyledLinks = styled(Link)`

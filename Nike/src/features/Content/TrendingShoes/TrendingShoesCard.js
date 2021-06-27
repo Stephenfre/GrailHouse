@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 
-import { selectShoe } from "../../actions";
+import { selectShoe } from "../../../actions";
 
 import "./TrendingShoesCard.css";
 

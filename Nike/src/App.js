@@ -6,7 +6,7 @@ import useDarkMode from "./features/DarkMode/UseDarkMode";
 import { GlobalStyles } from "./features/DarkMode/GlobalStyles";
 import { lightTheme, darkTheme } from "./features/DarkMode/Theme";
 
-import HomePage from "./features/Content/HomePage";
+import HomePage from "./features/Content/HomePage/HomePage";
 import Profile from "./features/Content/Account/Profile";
 import Closet from "./features/Content/Account/Closet";
 import Portfolio from "./features/Content/Account/Portfolio";
@@ -16,8 +16,8 @@ import TrackChanges from "./features/Content/Account/TrackChanges";
 import SearchRes from "./features/Content/Search/Search";
 import SignIn from "./features/Auth/SignIn";
 import SignUp from "./features/Auth/SignUp";
-import TrendingShoes from "./features/Content/TrendingShoes";
-import DetailPage from "./features/Content/DetailPage";
+import TrendingShoes from "./features/Content/TrendingShoes/TrendingShoes";
+import DetailPage from "./features/Content/DetailPage/DetailPage";
 import Toggle from "./features/DarkMode/Toggler";
 import Search from "./features/Content/Search/Search";
 

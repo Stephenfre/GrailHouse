@@ -7,14 +7,14 @@ import { Icon, InlineIcon } from "@iconify/react";
 import questionMarkCircle from "@iconify/icons-majesticons/question-mark-circle";
 import LogRocket from "logrocket";
 
-import { getTenShoes } from "../../actions";
-import NavBar from "../Nav/NavBar";
-import Cta from "../Cta/Cta";
+import { getTenShoes } from "../../../actions";
+import NavBar from "../../Nav/NavBar";
+import Cta from "../../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
-import TopTenHoverBox from "./TopTenHoverBox";
+import TopTenHoverBox from "../TopTenHoverBox";
 
 import "./HomePage.css";
-import GrailHouse from "../../Svgs/GrailHouse.svg";
+import GrailHouse from "../../../Svgs/GrailHouse.svg";
 import styled from "styled-components";
 import LinearProgress from "@material-ui/core/LinearProgress";
 

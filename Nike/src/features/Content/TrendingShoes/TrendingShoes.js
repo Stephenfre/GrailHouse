@@ -5,12 +5,12 @@ import { withRouter } from "react-router-dom";
 import { Icon, InlineIcon } from "@iconify/react";
 import questionMarkCircle from "@iconify/icons-majesticons/question-mark-circle";
 
-import NavBar from "../Nav/NavBar";
+import NavBar from "../../Nav/NavBar";
 import TrendingShoesCard from "./TrendingShoesCard";
-import { getShoes } from "../../actions";
-import SkeletonCards from "./Skeletons/SkeletonCards";
+import { getShoes } from "../../../actions";
+import SkeletonCards from "../Skeletons/SkeletonCards";
 import "./TrendingShoes.css";
-import TrendingBackground from "../../Svgs/TrendingBackground.svg";
+import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 
 const useStyles = makeStyles((theme) => ({
 	root: {

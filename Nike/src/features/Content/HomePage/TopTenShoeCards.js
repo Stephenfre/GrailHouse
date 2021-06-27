@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
-import { selectShoe } from "../../actions";
+import { selectShoe } from "../../../actions";
 
 import "./TopTenShoeCards.css";
 
