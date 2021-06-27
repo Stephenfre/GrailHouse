@@ -16,20 +16,22 @@ import Search from "./features/Content/Search/Search";
 
 export default function App() {
 	return (
-		<Switch>
-			<Route exact path="/" component={HomePage} />
-			<Route exact path="/signin" component={SignIn} />
-			<Route exact path="/signup" component={SignUp} />
-			<Route exact path="/trendingshoes" component={TrendingShoes} />
-			<Route exact path="/trendingshoes/details/:shoeId" component={DetailPage} />
-			<Route exact path="/details/:shoeId" component={DetailPage} />
-			<Route exact path="/search/:shoe" component={Search} />
-			<Route path="/account/profile" component={Profile} />
-			<Route path="/account/closet" component={Closet} />
-			<Route path="/account/portfolio" component={Portfolio} />
-			<Route path="/account/settings" component={Settings} />
-			<Route path="/closet" component={MyCloset} />
-			<Route path="/trackchanges" component={TrackChanges} />
-		</Switch>
+		<div className="app">
+			<Switch>
+				<Route exact path="/" component={HomePage} />
+				<Route exact path="/signin" component={SignIn} />
+				<Route exact path="/signup" component={SignUp} />
+				<Route exact path="/trendingshoes" component={TrendingShoes} />
+				<Route exact path="/trendingshoes/details/:shoeId" component={DetailPage} />
+				<Route exact path="/details/:shoeId" component={DetailPage} />
+				<Route exact path="/search/:shoe" component={Search} />
+				<Route path="/account/profile" component={Profile} />
+				<Route path="/account/closet" component={Closet} />
+				<Route path="/account/portfolio" component={Portfolio} />
+				<Route path="/account/settings" component={Settings} />
+				<Route path="/closet" component={MyCloset} />
+				<Route path="/trackchanges" component={TrackChanges} />
+			</Switch>
+		</div>
 	);
 }

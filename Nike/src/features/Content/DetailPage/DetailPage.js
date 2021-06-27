@@ -13,7 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
 import NavBar from "../../Nav/NavBar";
-import SimilarShoes from "../SimilarShoes";
+import SimilarShoes from "../../Content/SimilarShoes/SimilarShoes";
+import Footer from "../../Footer/Footer";
 import "./DetailPage.css";
 
 const StyledLinks = styled(Link)`
@@ -88,62 +89,61 @@ function DetailPage(props) {
 	};
 
 	return (
-		<div className="app">
-			<div
-				className="container"
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-				}}
-			>
-				<NavBar />
-				<div className="shoe-details-content">
-					<div className="shoe-img">
-						<img src={props.selectedShoe.thumbnail} alt="shoe pic" />
-					</div>
-					<div className="shoe-details">
-						<h2>{props.selectedShoe.shoeName}</h2>
-						<div className={classes.root}>
-							<AppBar position="static" color="default">
-								<Tabs
-									value={value}
-									onChange={handleChange}
-									indicatorColor="primary"
-									textColor="primary"
-									variant="fullWidth"
-									aria-label="full width tabs example"
-								>
-									<Tab label="Details" {...a11yProps(0)} />
-									<Tab label="Prices" {...a11yProps(1)} />
-								</Tabs>
-							</AppBar>
-							<SwipeableViews
-								axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-								index={value}
-								onChangeIndex={handleChangeIndex}
+		<div
+			className="container"
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+			}}
+		>
+			<NavBar />
+			<div className="shoe-details-content">
+				<div className="shoe-img">
+					<img src={props.selectedShoe.thumbnail} alt="shoe pic" />
+				</div>
+				<div className="shoe-details">
+					<h2>{props.selectedShoe.shoeName}</h2>
+					<div className={classes.root}>
+						<AppBar position="static" color="default">
+							<Tabs
+								value={value}
+								onChange={handleChange}
+								indicatorColor="primary"
+								textColor="primary"
+								variant="fullWidth"
+								aria-label="full width tabs example"
 							>
-								<TabPanel value={value} index={0} dir={theme.direction}>
-									{props.selectedShoe.description}
-								</TabPanel>
-								<TabPanel value={value} index={1} dir={theme.direction}>
-									{props.selectedShoe.lowestResellPrice.stockX}
-								</TabPanel>
-							</SwipeableViews>
-						</div>
-						<span style={{ width: "83%", fontSize: "9px" }}>
-							{props.selectedShoe.styleID} {props.selectedShoe.colorway} {props.selectedShoe.releaseDate}
-						</span>
-						<div
-							className="add-btn"
-							style={{ width: "87%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}
+								<Tab label="Details" {...a11yProps(0)} />
+								<Tab label="Prices" {...a11yProps(1)} />
+							</Tabs>
+						</AppBar>
+						<SwipeableViews
+							axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+							index={value}
+							onChangeIndex={handleChangeIndex}
 						>
-							<StyledLinks>Add to closet</StyledLinks>
-						</div>
+							<TabPanel value={value} index={0} dir={theme.direction}>
+								{props.selectedShoe.description}
+							</TabPanel>
+							<TabPanel value={value} index={1} dir={theme.direction}>
+								{props.selectedShoe.lowestResellPrice.stockX}
+							</TabPanel>
+						</SwipeableViews>
+					</div>
+					<span style={{ width: "83%", fontSize: "9px" }}>
+						{props.selectedShoe.styleID} {props.selectedShoe.colorway} {props.selectedShoe.releaseDate}
+					</span>
+					<div
+						className="add-btn"
+						style={{ width: "87%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}
+					>
+						<StyledLinks>Add to closet</StyledLinks>
 					</div>
 				</div>
-				<SimilarShoes />
 			</div>
+			<SimilarShoes />
+			<Footer />
 		</div>
 	);
 }

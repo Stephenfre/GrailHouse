@@ -29,15 +29,15 @@ function TopTenShoes(props) {
 	};
 
 	return (
-		<div className="trending-shoes-card">
-			<div className="trending-shoes" onClick={(e) => clickHandler(props.id)}>
-				<div className="trending-shoes-img">
+		<div className="topten-shoes-card">
+			<div className="topten-shoes" onClick={(e) => clickHandler(props.id)}>
+				<div className="topten-shoes-img">
 					<img src={props.thumbnail} alt="shoe pic" />
 				</div>
-				<div className="trending-shoes-wrap">
-					<div className="trending-shoes-details">
-						<p>{props.shoeName}</p>
-						<div className="trending-prices">
+				<div className="topten-shoes-wrap">
+					<div className="topten-shoes-details">
+						<p style={{ fontSize: "11px}", fontWeight: "600" }}>{props.shoeName}</p>
+						<div className="topten-shoes-prices">
 							<p> Lowest Price</p>
 
 							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.lowestPrice}</p>

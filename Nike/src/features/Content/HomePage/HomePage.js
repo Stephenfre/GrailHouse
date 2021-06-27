@@ -13,6 +13,7 @@ import Cta from "../../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
 import TopTenHoverBox from "../TopTenHoverBox";
 import SkeletonCards from "../Skeletons/SkeletonCards";
+import Footer from "../../Footer/Footer";
 import "./HomePage.css";
 
 LogRocket.init("c7rsta/grail-house");
@@ -43,51 +44,50 @@ function HomePage(props) {
 	}, [getTenShoes]);
 
 	return (
-		<div className="app">
-			<div className="container">
-				<NavBar />
-				<Cta />
-				<div className="content">
-					<div className="title-topten">
-						<div className="title-hover-icon">
-							<h1>Most Popular</h1>
+		<div className="container">
+			<NavBar />
+			<Cta />
+			<div className="content">
+				<div className="title-topten">
+					<div className="title-hover-icon">
+						<h1>Most Popular</h1>
 
-							<Icon
-								icon={questionMarkCircle}
-								onMouseEnter={() => setHover(true)}
-								onMouseLeave={() => setHover(false)}
-							/>
-							{hover && <TopTenHoverBox />}
-						</div>
-						<div
-							style={{
-								width: "10%",
-								height: "6rem",
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-							}}
-						>
-							<StyledLinks to="trendingshoes" className="trending-btn">
-								SEE ALL
-							</StyledLinks>
-						</div>
+						<Icon
+							icon={questionMarkCircle}
+							onMouseEnter={() => setHover(true)}
+							onMouseLeave={() => setHover(false)}
+						/>
+						{hover && <TopTenHoverBox />}
 					</div>
-					<div className="topten-shoes-container">
-						{props.gettingTenShoes && <SkeletonCards />}
-						{!props.gettingTenShoes &&
-							props.shoes.map((shoe, i) => (
-								<TopTenShoeCards
-									key={i}
-									id={shoe._id}
-									thumbnail={shoe.thumbnail}
-									shoeName={shoe.shoeName}
-									lowestPrice={shoe.lowestPrice}
-								/>
-							))}
+					<div
+						style={{
+							width: "10%",
+							height: "6rem",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+						}}
+					>
+						<StyledLinks to="trendingshoes" className="trending-btn">
+							SEE ALL
+						</StyledLinks>
 					</div>
 				</div>
+				<div className="topten-shoes-container">
+					{props.gettingTenShoes && <SkeletonCards />}
+					{!props.gettingTenShoes &&
+						props.shoes.map((shoe, i) => (
+							<TopTenShoeCards
+								key={i}
+								id={shoe._id}
+								thumbnail={shoe.thumbnail}
+								shoeName={shoe.shoeName}
+								lowestPrice={shoe.lowestPrice}
+							/>
+						))}
+				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }

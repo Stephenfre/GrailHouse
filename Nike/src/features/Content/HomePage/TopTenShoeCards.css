@@ -1,4 +1,4 @@
-.trending-shoes-card {
+.topten-shoes-card {
 	height: 23rem;
 	width: 20%;
 	display: flex;
@@ -7,7 +7,7 @@
 	background: white;
 }
 
-.trending-shoes {
+.topten-shoes {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -17,7 +17,7 @@
 	border: 1px solid rgb(247 247 247);
 }
 
-.trending-shoes-img {
+.topten-shoes-img {
 	width: 74%;
 	height: 47%;
 }
@@ -26,7 +26,7 @@ img {
 	width: 100%;
 }
 
-.trending-shoes-wrap {
+.topten-shoes-wrap {
 	height: 53%;
 	width: 100%;
 	display: flex;
@@ -34,36 +34,39 @@ img {
 	background: rgb(247, 247, 247);
 }
 
-.trending-shoes-details {
+.topten-shoes-details {
 	height: 100%;
 	width: 87%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: flex-start;
 }
-.trending-prices {
+.topten-prices {
 	height: 45%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
-.trending-shoes-details p {
-	font-size: 17px;
+.topten-shoes-details p {
+	font-size: 15px;
 	font-weight: 600;
 	font-family: "Source Sans Pro", sans-serif;
 	margin: 10px;
 }
 
-.trending-prices p {
+.topten-shoes-prices p {
+	font-size: 12px;
 	font-weight: 300;
-	margin: 0 10px;
+	margin: 10px 10px 5px 10px;
 }
 
 .add-to-closet {
 	width: 40%;
 	height: 25%;
+	display: flex;
+	align-items: flex-end;
 }
 
 .add-to-closet-btn button {
@@ -71,7 +74,7 @@ img {
 	width: 100%;
 }
 
-/* .trending-got-them {
+/* .topten-got-them {
 	width: 5%;
 	border: 2px black solid;
 	height: 6%;

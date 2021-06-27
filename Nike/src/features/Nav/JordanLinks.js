@@ -1,35 +1,112 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		width: "100%",
+		display: "flex",
+		alignItems: "center",
+		height: "13rem",
+		backgroundColor: theme.palette.background.paper,
+	},
+}));
+
+function ListItemLink(props) {
+	return <ListItem button component="a" {...props} />;
+}
 
 export default function JordanLinks() {
+	const classes = useStyles();
+
 	return (
-		<div className="dropdown-container">
-			<div className="dropdown-menu">
-				<ul className="dropdown-list">
-					<li>Jordan 1</li>
-					<li>Jordan 2</li>
-					<li>Jordan 3</li>
-					<li>Jordan 4</li>
-					<li>Jordan 5</li>
-					<li>Jordan 6</li>
-					<li>Jordan 7</li>
-					<li>Jordan 8</li>
-					<li>Jordan 9</li>
-					<li>Jordan 10</li>
-					<li>Jordan 11</li>
-					<li>Jordan 12</li>
-					<li>Jordan 13</li>
-					<li>Jordan 14</li>
-					<li>Jordan 15</li>
-					<li>Jordan 16</li>
-					<li>Jordan 17</li>
-					<li>Jordan 18</li>
-					<li>Jordan 19</li>
-					<li>Jordan 20</li>
-					<li>Jordan 21</li>
-					<li>Jordan 22</li>
-					<li>Jordan 23</li>
-				</ul>
-			</div>
+		<div className={classes.root}>
+			<List component="jordan-links-list" style={{ width: "50%" }}>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 1" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 2" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 3" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 4" />
+				</ListItemLink>
+			</List>
+			<List component="jordan-links-list" style={{ width: "50%" }}>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 5" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordant 6" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 7" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 8" />
+				</ListItemLink>
+			</List>
+			<List component="jordan-links-list" style={{ width: "50%" }}>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 9" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 10" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 11" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 12" />
+				</ListItemLink>
+			</List>
+			<List component="jordan-links-list" style={{ width: "50%" }}>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 13" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 14" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 15" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 16" />
+				</ListItemLink>
+			</List>
+			<List component="jordan-links-list" style={{ width: "50%" }}>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 17" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 18" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 19" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 20" />
+				</ListItemLink>
+			</List>
+			<List component="jordan-links-list" style={{ width: "50%" }}>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 21" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 22" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="Jordan 23" />
+				</ListItemLink>
+				<ListItemLink href="">
+					<ListItemText primary="More Jordans" />
+				</ListItemLink>
+			</List>
 		</div>
 	);
 }
