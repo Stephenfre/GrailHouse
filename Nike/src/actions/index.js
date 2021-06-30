@@ -33,11 +33,12 @@ export function getShoes() {
 	};
 }
 
-export function selectShoe(id) {
+export function selectShoe(id, name) {
 	return (dispatch) => {
 		dispatch({
 			type: SELECTED_SHOE,
 			payload: id,
+			name: name,
 		});
 	};
 }

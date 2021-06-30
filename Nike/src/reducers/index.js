@@ -83,9 +83,22 @@ export default (state = initialState, action) => {
 			};
 
 		case SELECTED_SHOE:
+			let shoe;
 			const id = action.payload;
-			const shoe = state.shoes.find((shoe) => shoe._id === id);
-			console.log("shoe", shoe);
+
+			if (action.name === "trending") {
+				shoe = state.trendingShoes.find((shoe) => shoe._id === id);
+			} else {
+				shoe = state.shoes.find((shoe) => shoe._id === id);
+			}
+			localStorage.setItem("selectedShoe", action.payload);
+			localStorage.setItem("selectedThumbnail", shoe.thumbnail);
+			localStorage.setItem("selectedShoeName", shoe.shoeName);
+			localStorage.setItem("selectedDescription", shoe.description);
+			localStorage.setItem("selectedLowestResellPrice", shoe.lowestResellPrice.stockX);
+			localStorage.setItem("selectedStyleID", shoe.styleID);
+			localStorage.setItem("selectedColorway", shoe.colorway);
+			localStorage.setItem("selectedReleaseDate", shoe.releaseDate);
 			return {
 				...state,
 				selectedShoe: shoe,
@@ -93,6 +106,7 @@ export default (state = initialState, action) => {
 
 		case SEARCHING_SHOE:
 			return {
+				...state,
 				searchShoes: true,
 				searchShoesSuccess: false,
 			};
@@ -113,6 +127,7 @@ export default (state = initialState, action) => {
 
 		case SEARCHING_SHOE_FAIL:
 			return {
+				...state,
 				searchShoes: false,
 				searchShoesError: action.payload,
 			};

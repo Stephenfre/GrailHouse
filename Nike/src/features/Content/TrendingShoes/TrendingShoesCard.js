@@ -10,7 +10,7 @@ function TrendingShoesCard(props) {
 	let history = useHistory();
 
 	const clickHandler = (id) => {
-		props.selectShoe(id);
+		props.selectShoe(id, props.type);
 		history.push(`trendingshoes/details/${id}`);
 	};
 

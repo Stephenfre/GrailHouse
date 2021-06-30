@@ -37,6 +37,28 @@ export default function SideBar() {
 	const [openModel, setOpenModel] = useState(false);
 	const [openYear, setOpenYear] = useState(false);
 	const [checked, setChecked] = useState([]);
+	const [brandList, setBrandList] = useState([
+		{
+			id: 1,
+			brand: "Nike",
+		},
+		{
+			id: 2,
+			brand: "Jordan",
+		},
+		{
+			id: 3,
+			brand: "Adidas",
+		},
+		{
+			id: 4,
+			brand: "Asics",
+		},
+		{
+			id: 5,
+			brand: "Other Sneakers",
+		},
+	]);
 
 	const handleClickBrand = () => {
 		setOpenBrand(!openBrand);
@@ -72,7 +94,7 @@ export default function SideBar() {
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
 							<List className={classes.root}>
-								{[0, 1, 2, 3].map((value) => {
+								{brandList.map((value) => {
 									const labelId = `checkbox-list-label-${value}`;
 
 									return (
@@ -92,7 +114,7 @@ export default function SideBar() {
 													inputProps={{ "aria-labelledby": labelId }}
 												/>
 											</ListItemIcon>
-											<ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+											<ListItemText id={labelId} primary={`${value.brand}`} />
 										</ListItem>
 									);
 								})}
@@ -111,7 +133,7 @@ export default function SideBar() {
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
 							<List className={classes.root}>
-								{[0, 1, 2, 3].map((value) => {
+								{brandList.map((value) => {
 									const labelId = `checkbox-list-label-${value}`;
 
 									return (
@@ -131,7 +153,7 @@ export default function SideBar() {
 													inputProps={{ "aria-labelledby": labelId }}
 												/>
 											</ListItemIcon>
-											<ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+											<ListItemText id={labelId} primary={`${value}`} />
 										</ListItem>
 									);
 								})}

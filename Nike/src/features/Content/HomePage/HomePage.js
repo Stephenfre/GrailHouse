@@ -83,6 +83,7 @@ function HomePage(props) {
 								thumbnail={shoe.thumbnail}
 								shoeName={shoe.shoeName}
 								lowestPrice={shoe.lowestPrice}
+								type="shoes"
 							/>
 						))}
 				</div>

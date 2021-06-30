@@ -19,11 +19,11 @@ const Button = styled.button`
 	text-align: center;
 `;
 
-function TopTenShoes(props) {
+function TopTenShoeCards(props) {
 	let history = useHistory();
 
 	const clickHandler = (id) => {
-		props.selectShoe(id);
+		props.selectShoe(id, "top ten");
 		history.push(`/details/${id}`);
 	};
 
@@ -61,4 +61,4 @@ const mapDispatchToPros = {
 	selectShoe,
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToPros)(TopTenShoes));
+export default withRouter(connect(mapStateToProps, mapDispatchToPros)(TopTenShoeCards));

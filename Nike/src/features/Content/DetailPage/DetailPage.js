@@ -88,6 +88,21 @@ function DetailPage(props) {
 		setValue(index);
 	};
 
+	let shoe;
+
+	if (localStorage.getItem("selectedShoe")) {
+		shoe = {
+			thumbnail: localStorage.getItem("selectedThumbnail"),
+			shoeName: localStorage.getItem("selectedShoeName"),
+			description: localStorage.getItem("selectedDescription"),
+			lowestResellPrice: localStorage.getItem("selectedLowestResellPrice"),
+			styleID: localStorage.getItem("selectedStyleID"),
+			colorway: localStorage.getItem("selectedColorway"),
+			releaseDate: localStorage.getItem("selectedReleaseDate"),
+		};
+	} else {
+		shoe = props.selectedShoe;
+	}
 	return (
 		<div
 			className="container"
@@ -100,10 +115,10 @@ function DetailPage(props) {
 			<NavBar />
 			<div className="shoe-details-content">
 				<div className="shoe-img">
-					<img src={props.selectedShoe.thumbnail} alt="shoe pic" />
+					<img src={shoe.thumbnail} alt="shoe pic" />
 				</div>
 				<div className="shoe-details">
-					<h2>{props.selectedShoe.shoeName}</h2>
+					<h2>{shoe.shoeName}</h2>
 					<div className={classes.root}>
 						<AppBar position="static" color="default">
 							<Tabs
@@ -124,15 +139,15 @@ function DetailPage(props) {
 							onChangeIndex={handleChangeIndex}
 						>
 							<TabPanel value={value} index={0} dir={theme.direction}>
-								{props.selectedShoe.description}
+								{shoe.description}
 							</TabPanel>
 							<TabPanel value={value} index={1} dir={theme.direction}>
-								{props.selectedShoe.lowestResellPrice.stockX}
+								{shoe.lowestResellPrice.stockX}
 							</TabPanel>
 						</SwipeableViews>
 					</div>
 					<span style={{ width: "83%", fontSize: "9px" }}>
-						{props.selectedShoe.styleID} {props.selectedShoe.colorway} {props.selectedShoe.releaseDate}
+						{shoe.styleID} {shoe.colorway} {shoe.releaseDate}
 					</span>
 					<div
 						className="add-btn"
