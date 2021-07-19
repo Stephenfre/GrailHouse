@@ -32,6 +32,9 @@ const StyledLinks = styled(Link)`
 		background: rgb(41, 41, 41);
 		color: rgb(235, 235, 235);
 	}
+	@media only screen and (max-width: 600px) {
+		width: 100%;
+	}
 `;
 
 function TabPanel(props) {
@@ -72,6 +75,9 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: theme.palette.background.paper,
 		width: "90%",
 		height: "60%",
+		["@media (max-width: 600px)"]: {
+			width: "100%",
+		},
 	},
 }));
 
@@ -104,14 +110,7 @@ function DetailPage(props) {
 		shoe = props.selectedShoe;
 	}
 	return (
-		<div
-			className="container"
-			style={{
-				display: "flex",
-				flexDirection: "column",
-				alignItems: "center",
-			}}
-		>
+		<div className="container">
 			<NavBar />
 			<div className="shoe-details-content">
 				<div className="shoe-img">
@@ -119,6 +118,9 @@ function DetailPage(props) {
 				</div>
 				<div className="shoe-details">
 					<h2>{shoe.shoeName}</h2>
+					<div className="shoe-img-mobile">
+						<img src={shoe.thumbnail} alt="shoe pic" />
+					</div>
 					<div className={classes.root}>
 						<AppBar position="static" color="default">
 							<Tabs
@@ -157,7 +159,7 @@ function DetailPage(props) {
 					</div>
 				</div>
 			</div>
-			<SimilarShoes />
+			{/* <SimilarShoes /> */}
 			<Footer />
 		</div>
 	);

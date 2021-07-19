@@ -24,3 +24,44 @@
 	justify-content: space-around;
 	align-items: center;
 }
+
+@media only screen and (max-width: 600px) {
+	.shoe-details-content {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		margin-top: 5rem;
+	}
+
+	.shoe-img {
+		display: none;
+	}
+
+	.shoe-img-mobile {
+		width: 75%;
+		height: 80%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 3rem 0;
+	}
+
+	.shoe-details {
+		width: 90%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.add-btn {
+		width: 87%;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-top: 2rem;
+	}
+}
