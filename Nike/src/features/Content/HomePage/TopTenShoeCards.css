@@ -81,3 +81,85 @@ img {
 	border-radius: 13px;
 	margin-left: 10px;
 } */
+
+@media only screen and (max-width: 600px) {
+	.topten-shoes-card {
+		height: 18rem;
+		width: 43%;
+		display: flex;
+		flex-direction: column;
+		margin: 0 25px 40px 0;
+		background: white;
+	}
+
+	.topten-shoes {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid rgb(247 247 247);
+	}
+
+	.topten-shoes-img {
+		width: 74%;
+		height: 40%;
+	}
+
+	img {
+		width: 100%;
+	}
+
+	.topten-shoes-wrap {
+		height: 60%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		background: rgb(247, 247, 247);
+	}
+
+	.topten-shoes-details {
+		height: 100%;
+		width: 87%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+	.topten-prices {
+		height: 45%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.topten-shoes-details p {
+		font-size: 15px;
+		font-weight: 600;
+		font-family: "Source Sans Pro", sans-serif;
+		margin: 10px;
+	}
+
+	.topten-shoes-prices p {
+		font-size: 12px;
+		font-weight: 300;
+		margin: 10px 10px 5px 10px;
+	}
+
+	.add-to-closet {
+		display: none;
+	}
+
+	.add-to-closet-btn button {
+		display: none;
+	}
+
+	/* .topten-got-them {
+	width: 5%;
+	border: 2px black solid;
+	height: 6%;
+	border-radius: 13px;
+	margin-left: 10px;
+} */
+}

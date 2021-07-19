@@ -42,7 +42,7 @@ function TopTenShoeCards(props) {
 							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.lowestPrice}</p>
 						</div>
 						<div className="add-to-closet">
-							<Button onClick={(e) => e.stopPropagation}>ADD TO CLOSET</Button>
+							<Button>ADD TO CLOSET</Button>
 						</div>
 					</div>
 				</div>

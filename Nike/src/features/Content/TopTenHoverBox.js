@@ -1,50 +1,46 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import styled from "styled-components";
 
 import "./HomePage/HomePage.css";
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		display: "flex",
-		flexWrap: "wrap",
-		"& > *": {
-			margin: theme.spacing(1),
-			width: theme.spacing(16),
-			height: theme.spacing(16),
-		},
-	},
-}));
+const HoverDiv = styled.div`
+	width: 20%;
+	height: 13%;
+	zindex: 9999;
+	position: absolute;
+	bottom: 20.5rem;
+	left: 25rem;
+	background: white;
+	@media only screen and (max-width: 600px) {
+		width: 60%;
+		height: 10%;
+		bottom: 24.8rem;
+		left: 5rem;
+	}
+	box-shadow: 0px 4px 5px #c7c7c7;
+`;
+
+const Paper = styled.div`
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	text-align: center;
+`;
+
+const P = styled.p`
+	font-size: 20px;
+	padding: 18px;
+	@media only screen and (max-width: 600px) {
+		font-size: 15px;
+	}
+`;
 
 export default function TopTenHoverBox() {
-	const classes = useStyles();
-
 	return (
-		<div
-			className={classes.root}
-			style={{
-				width: "20%",
-				height: "13%",
-				zIndex: 9999,
-				position: "absolute",
-				bottom: "20.5rem",
-				left: "25rem",
-			}}
-		>
-			<Paper
-				elevation={2}
-				style={{
-					width: "100%",
-					height: "100%",
-					// fontWeight: "600",
-					margin: "0",
-					textAlign: "center",
-				}}
-			>
-				<p style={{ fontSize: "21px", padding: "19px" }}>
-					The 'Most Popular' products are a curated collection of our best selling items.
-				</p>
+		<HoverDiv>
+			<Paper>
+				<P>The 'Most Popular' products are a curated collection of our best selling items.</P>
 			</Paper>
-		</div>
+		</HoverDiv>
 	);
 }

@@ -8,9 +8,13 @@ import AdidasLinks from "./AdidasLink";
 import YeezyLinks from "./YeezyLinks";
 import MoreSneakLinks from "./MoreSneakLinks";
 import Account from "../Content/Account/Account";
+import Burger from "./Burger";
+import SearchForm from "../Content/Search/SearchForm";
 
 import GrailHouse from "../../Svgs/GrailHouse.svg";
 import "./NavBar.css";
+import { Icon } from "@iconify/react";
+import magnifyIcon from "@iconify/icons-mdi/magnify";
 
 const StyledUl = styled.ul`
 	list-style-type: none;
@@ -26,7 +30,7 @@ const StyledLi = styled.li`
 	float: left;
 `;
 
-const Dropbtn = styled.div`
+const Dropbtn = styled(Link)`
 	display: inline-block;
 	color: white;
 	text-align: center;
@@ -62,12 +66,17 @@ const StyledLinks = styled(Link)`
 		border-bottom: black solid 1px;
 	}
 `;
-export default function NavBar() {
+export default function NavBar(props) {
 	const [accountClick, setAccountClick] = useState(false);
+	const [openSearch, setOpenSearch] = useState(false);
 
 	return (
 		<div className="nav-container">
 			<div className="nav-bar">
+				<div className="nav-icon-mobile" onClick={() => setOpenSearch(!openSearch)}>
+					<Icon icon={magnifyIcon} style={{ height: "2.5rem", width: "2.2rem", color: "white" }} />
+				</div>
+				<div className="search-bar-mobile">{openSearch && <SearchForm search={SearchForm} />}</div>
 				<div className="nav-logo">
 					<Link to="/">
 						<img src={GrailHouse} alt="logo" />
@@ -76,7 +85,7 @@ export default function NavBar() {
 				<div className="nav-links-container">
 					<StyledUl className="nav-list-ul">
 						<DropDownLi className="nav-list-li">
-							<Dropbtn>Nike</Dropbtn>
+							<Dropbtn to={`jordan/search/${props.brand}`}>Nike</Dropbtn>
 							<DropDownContent className="dropdown-content">
 								{" "}
 								<NikeLinks />
@@ -111,6 +120,9 @@ export default function NavBar() {
 							</DropDownContent>{" "}
 						</DropDownLi>
 					</StyledUl>
+				</div>
+				<div className="nav-links-container-mobile">
+					<Burger />
 				</div>
 				<div className="other-content">
 					<StyledLinks onClick={() => setAccountClick(!accountClick)}>Account</StyledLinks>

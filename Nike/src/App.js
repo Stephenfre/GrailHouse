@@ -13,6 +13,7 @@ import SignUp from "./features/Auth/SignUp";
 import TrendingShoes from "./features/Content/TrendingShoes/TrendingShoes";
 import DetailPage from "./features/Content/DetailPage/DetailPage";
 import Search from "./features/Content/Search/Search";
+import Jordans from "./features/Nav/Jordans";
 
 export default function App() {
 	return (
@@ -25,6 +26,7 @@ export default function App() {
 				<Route exact path="/trendingshoes/details/:shoeId" component={DetailPage} />
 				<Route exact path="/details/:shoeId" component={DetailPage} />
 				<Route exact path="/search/:shoe" component={Search} />
+				<Route exact path="jordan/search/:shoe" component={Jordans} />
 				<Route exact path="/account/profile" component={Profile} />
 				<Route exact path="/account/closet" component={Closet} />
 				<Route exact path="/account/portfolio" component={Portfolio} />

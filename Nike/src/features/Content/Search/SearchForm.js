@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 
 import { searchShoes } from "../../../actions";
+
+import "./Search.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { Icon } from "@iconify/react";
 import magnifyIcon from "@iconify/icons-mdi/magnify";
-
-import "./Search.css";
 
 const useStyles = makeStyles((theme) => ({
 	root: {

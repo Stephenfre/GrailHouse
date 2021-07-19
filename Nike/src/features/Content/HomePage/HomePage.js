@@ -32,6 +32,9 @@ const StyledLinks = styled(Link)`
 	font-size: 17px;
 	width: 100%;
 	text-align: center;
+	@media only screen and (max-width: 600px) {
+		font-size: 15px;
+	}
 `;
 
 function HomePage(props) {
@@ -59,15 +62,7 @@ function HomePage(props) {
 						/>
 						{hover && <TopTenHoverBox />}
 					</div>
-					<div
-						style={{
-							width: "10%",
-							height: "6rem",
-							display: "flex",
-							justifyContent: "center",
-							alignItems: "center",
-						}}
-					>
+					<div className="topten-link-con">
 						<StyledLinks to="trendingshoes" className="trending-btn">
 							SEE ALL
 						</StyledLinks>
