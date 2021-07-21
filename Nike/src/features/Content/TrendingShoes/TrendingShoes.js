@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
@@ -13,6 +13,7 @@ import SkeletonCards from "../Skeletons/SkeletonCards";
 import TrendingShoesCard from "./TrendingShoesCard";
 import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import SearchResultsForm from "../Search/SearchResultsForm";
+import Pagination from "./Pagination.js";
 import SideBar from "../SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 import "./TrendingShoes.css";
@@ -25,8 +26,17 @@ const StyledLinks = styled(Link)`
 	text-align: center;
 `;
 
-function TrendingShoes(props) {
-	const { getShoes } = props;
+function TrendingShoes({ getShoes, trendingShoes, gettingShoes }) {
+	const [currentPage, setCurrentPage] = useState(1);
+	const [shoesPerPage] = useState(16);
+
+	// Get Current Shoes
+	const indexofLastShoe = currentPage * shoesPerPage;
+	const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
+	const currentShoes = trendingShoes.slice(indexOfFirstShoe, indexofLastShoe);
+
+	// Change page
+	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 	useEffect(() => {
 		getShoes();
@@ -39,21 +49,14 @@ function TrendingShoes(props) {
 				<img src={TrendingBackground} alt="cta-logo" />
 			</div>
 			<div className="trending-content">
-				<div className="title-details" style={{ width: "84%" }}>
-					<div
-						style={{
-							width: "75%",
-							display: "flex",
-							justifyContent: "space-between",
-							alignItems: "center",
-							marginBottom: "1.5rem",
-						}}
-					>
+				<div className="title-details">
+					<div className="title-links-filters-view">
 						<div className="search-links-results-details">
 							<StyledLinks to="/">HOME</StyledLinks>
 							{" / "}
 							<StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
 						</div>
+						<div className="options-mobile">filter</div>
 						<div className="search-bar-details">
 							<SearchResultsForm search={SearchResultsForm} />
 							<Icon icon={gridIcon} style={{ width: "2.5rem", height: "2.5rem" }} />
@@ -66,10 +69,11 @@ function TrendingShoes(props) {
 						<h3>FILTER</h3>
 						<SideBar />
 					</div>
+
 					<div className="trending-shoes-content">
-						{props.gettingShoes && <SkeletonCards />}
-						{!props.gettingShoes &&
-							props.trendingShoes.map((shoe, i) => (
+						{gettingShoes && <SkeletonCards />}
+						{!gettingShoes &&
+							currentShoes.map((shoe, i) => (
 								<TrendingShoesCard
 									key={i}
 									id={shoe._id}
@@ -81,6 +85,7 @@ function TrendingShoes(props) {
 							))}
 					</div>
 				</div>
+				<Pagination shoesPerPage={shoesPerPage} totalShoes={trendingShoes.length} paginate={paginate} />
 			</div>
 			<Footer />
 		</div>

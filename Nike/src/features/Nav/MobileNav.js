@@ -18,7 +18,7 @@ const Ul = styled.ul`
 		height: 100vh;
 		width: 100%;
 		padding-top: 3.5rem;
-		margin: 0;
+		margin-top: 64px;
 		transition: transform 0.3s ease-in-out;
 		li {
 			color: black;

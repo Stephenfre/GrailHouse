@@ -1,0 +1,22 @@
+nav {
+	width: 30%;
+	margin-top: 40px;
+}
+
+ul {
+	list-style: none;
+	display: flex;
+	margin-top: 50px;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+li {
+	border: 1px solid black;
+	padding: 10px 15px;
+}
+
+a {
+	text-decoration: none;
+}

@@ -41,30 +41,13 @@
 	align-items: center;
 }
 
-/* .content button {
-	text-decoration: none;
-	background: black;
-	color: white;
-	font-size: 18px;
-	padding: 1rem;
-	height: 30%;
-	width: 17%;
-	border-radius: 5px;
-	border: none;
-	text-align: center;
-}
-
-.content button:hover {
-	background: rgb(41, 41, 41);
-	color: rgb(235, 235, 235);
-} */
-
 .title-topten {
 	width: 78%;
 	height: 20%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	/* z-index: -1; */
 }
 
 .topten-shoes-container {
@@ -156,7 +139,7 @@
 	.title-hover-icon {
 		display: flex;
 		align-items: center;
-		width: 45%;
+		width: 41%;
 		height: 100%;
 		justify-content: space-between;
 	}

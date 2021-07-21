@@ -1,9 +1,20 @@
 import React from "react";
+import { connect } from "react-redux";
+import { useHistory, withRouter } from "react-router-dom";
+
+import { selectShoe } from "../../../actions";
+
 import "./Search.css";
 
-export default function SearchedShoesDetails(props) {
+function SearchedShoesDetails(props) {
+	let history = useHistory();
+
+	const clickHandler = (id) => {
+		props.selectShoe(id, props.type);
+		history.push(`details/${id}`);
+	};
 	return (
-		<div className="searched-shoes">
+		<div className="searched-shoes" onClick={(e) => clickHandler(props.id)}>
 			<div className="searched-shoes-details">
 				<div className="searched-shoes-details-img">
 					<img src={props.thumbnail} alt="shoe pic" />
@@ -22,3 +33,15 @@ export default function SearchedShoesDetails(props) {
 		</div>
 	);
 }
+
+const mapStateToProps = (state) => {
+	return {
+		shoes: state.shoes,
+	};
+};
+
+const mapDispatchToPros = {
+	selectShoe,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToPros)(SearchedShoesDetails));

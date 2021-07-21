@@ -71,3 +71,79 @@
 	border-radius: 13px;
 	margin-left: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+	.trending {
+		height: 7%;
+		width: 40%;
+		display: flex;
+		flex-direction: column;
+		margin: 0 25px 40px 0;
+		background: white;
+		/* border: red solid 1px; */
+	}
+
+	.trending-shoes {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid rgb(247 247 247);
+	}
+
+	.trending-shoes-img {
+		width: 74%;
+		height: 40%;
+	}
+
+	.trending-shoes-img img {
+		width: 100%;
+	}
+
+	.trending-shoes-wrap {
+		height: 60%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		background: rgb(247, 247, 247);
+		border-radius: 0 0 6px 6px;
+	}
+
+	.trending-shoes-details {
+		height: 100%;
+		width: 87%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	.trending-shoes-details p {
+		font-size: 14px;
+		font-weight: 600;
+		font-family: "Source Sans Pro", sans-serif;
+		margin: 10px;
+	}
+
+	.prices {
+		height: 45%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.prices p {
+		font-weight: 300;
+		margin: 0 10px;
+	}
+
+	.got-them {
+		width: 5%;
+		border: 2px black solid;
+		height: 6%;
+		border-radius: 13px;
+		margin-left: 10px;
+	}
+}
