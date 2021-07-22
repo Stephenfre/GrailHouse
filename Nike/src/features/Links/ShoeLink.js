@@ -25,7 +25,7 @@ const StyledLinks = styled(Link)`
 	text-align: center;
 `;
 
-export default function ShoeLink({}) {
+export default function ShoeLink() {
 	const [searchedShoes, setSearchedShoes] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
@@ -66,6 +66,7 @@ export default function ShoeLink({}) {
 				});
 		};
 		fetchShoes();
+		// eslint-disable-next-line
 	}, []);
 
 	return (

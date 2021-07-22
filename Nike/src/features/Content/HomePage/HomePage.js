@@ -39,7 +39,7 @@ const StyledLinks = styled(Link)`
 
 function HomePage({ getTenShoes, shoes, gettingTenShoes }) {
 	const [hover, setHover] = useState(false);
-	const [currentPage, setCurrentPage] = useState(1);
+	const [currentPage] = useState(1);
 	const [shoesPerPage] = useState(8);
 
 	// Get Current Shoes

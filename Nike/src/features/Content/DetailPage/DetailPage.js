@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
 import NavBar from "../../Nav/NavBar";
-import SimilarShoes from "../../Content/SimilarShoes/SimilarShoes";
+// import SimilarShoes from "../../Content/SimilarShoes/SimilarShoes";
 import Footer from "../../Footer/Footer";
 import "./DetailPage.css";
 
@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: theme.palette.background.paper,
 		width: "90%",
 		height: "60%",
+		// eslint-disable-next-line
 		["@media (max-width: 600px)"]: {
 			width: "100%",
 		},

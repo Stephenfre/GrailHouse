@@ -25,6 +25,7 @@ const initialState = {
 	searchShoesError: null,
 };
 
+// eslint-disable-next-line
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case GETTING_SHOES:
@@ -35,6 +36,7 @@ export default (state = initialState, action) => {
 
 		case GETTING_SHOES_SUCCESS:
 			let trendingShoes = [];
+			// eslint-disable-next-line
 			action.payload.map((shoe) => {
 				let arr = Object.values(shoe.lowestResellPrice);
 				let min = Math.min(...arr);
@@ -63,6 +65,7 @@ export default (state = initialState, action) => {
 
 		case GETTING_TEN_SHOES_SUCCESS:
 			let shoes = [];
+			// eslint-disable-next-line
 			action.payload.map((shoe) => {
 				let arr = Object.values(shoe.lowestResellPrice);
 				let min = Math.min(...arr);
@@ -113,6 +116,7 @@ export default (state = initialState, action) => {
 
 		case SEARCHING_SHOE_SUCCESS:
 			let searchResults = [];
+			// eslint-disable-next-line
 			action.payload.map((shoe) => {
 				let arr = Object.values(shoe.lowestResellPrice);
 				let min = Math.min(...arr);

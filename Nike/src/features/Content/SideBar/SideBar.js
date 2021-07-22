@@ -37,7 +37,7 @@ export default function SideBar() {
 	const [openModel, setOpenModel] = useState(false);
 	const [openYear, setOpenYear] = useState(false);
 	const [checked, setChecked] = useState([]);
-	const [brandList, setBrandList] = useState([
+	const [brandList] = useState([
 		{
 			id: 1,
 			brand: "Nike",
