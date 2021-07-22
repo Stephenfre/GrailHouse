@@ -23,6 +23,7 @@ export default function App() {
 				<Route exact path="/signin" component={SignIn} />
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/trendingshoes" component={TrendingShoes} />
+				<Route exact path="/trendingshoes/:pageNumber" component={TrendingShoes} />
 				<Route exact path="/trendingshoes/details/:shoeId" component={DetailPage} />
 				<Route exact path="/details/:shoeId" component={DetailPage} />
 				<Route exact path="/search/:shoe" component={Search} />

@@ -37,10 +37,15 @@ const StyledLinks = styled(Link)`
 	}
 `;
 
-function HomePage(props) {
+function HomePage({ getTenShoes, shoes, gettingTenShoes }) {
 	const [hover, setHover] = useState(false);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [shoesPerPage] = useState(8);
 
-	const { getTenShoes } = props;
+	// Get Current Shoes
+	const indexofLastShoe = currentPage * shoesPerPage;
+	const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
+	const currentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
 
 	useEffect(() => {
 		getTenShoes();
@@ -69,9 +74,9 @@ function HomePage(props) {
 					</div>
 				</div>
 				<div className="topten-shoes-container">
-					{props.gettingTenShoes && <SkeletonCards />}
-					{!props.gettingTenShoes &&
-						props.shoes.map((shoe, i) => (
+					{gettingTenShoes && <SkeletonCards />}
+					{!gettingTenShoes &&
+						currentShoes.map((shoe, i) => (
 							<TopTenShoeCards
 								key={i}
 								id={shoe._id}

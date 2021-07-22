@@ -5,7 +5,7 @@ import "./Skeleton.css";
 export default function SkeletonCards() {
 	return (
 		<div className="skeleton-wrap">
-			{Array(16)
+			{Array(8)
 				.fill()
 				.map((item, i) => (
 					<div className="skeleton">

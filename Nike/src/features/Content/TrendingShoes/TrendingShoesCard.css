@@ -74,7 +74,7 @@
 
 @media only screen and (max-width: 600px) {
 	.trending {
-		height: 7%;
+		height: 25%;
 		width: 40%;
 		display: flex;
 		flex-direction: column;

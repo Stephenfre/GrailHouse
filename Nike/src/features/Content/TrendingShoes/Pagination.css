@@ -1,22 +1,43 @@
-nav {
-	width: 30%;
-	margin-top: 40px;
-}
-
-ul {
-	list-style: none;
+.pagination {
+	position: relative;
+	top: 160px;
+	margin: 0px;
 	display: flex;
-	margin-top: 50px;
-	align-items: center;
 	justify-content: center;
 	width: 100%;
 }
 
-li {
+.pagination-list {
+	list-style: none;
+	display: flex;
+	margin: 0px;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+.page-item {
 	border: 1px solid black;
 	padding: 10px 15px;
 }
 
-a {
-	text-decoration: none;
+@media only screen and (max-width: 1584) {
+	.pagination {
+		width: 30%;
+		margin-top: 40px;
+	}
+
+	.pagination-list {
+		list-style: none;
+		display: flex;
+		margin-top: 50px;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.page-item {
+		border: 1px solid black;
+		padding: 10px 15px;
+	}
 }

@@ -28,7 +28,7 @@ const StyledLinks = styled(Link)`
 
 function TrendingShoes({ getShoes, trendingShoes, gettingShoes }) {
 	const [currentPage, setCurrentPage] = useState(1);
-	const [shoesPerPage] = useState(16);
+	const [shoesPerPage] = useState(8);
 
 	// Get Current Shoes
 	const indexofLastShoe = currentPage * shoesPerPage;
@@ -85,8 +85,8 @@ function TrendingShoes({ getShoes, trendingShoes, gettingShoes }) {
 							))}
 					</div>
 				</div>
-				<Pagination shoesPerPage={shoesPerPage} totalShoes={trendingShoes.length} paginate={paginate} />
 			</div>
+			<Pagination shoesPerPage={shoesPerPage} totalShoes={trendingShoes.length} paginate={paginate} />
 			<Footer />
 		</div>
 	);
