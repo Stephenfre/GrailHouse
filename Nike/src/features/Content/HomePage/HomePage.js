@@ -45,7 +45,7 @@ function HomePage({ getTenShoes, shoes, gettingTenShoes }) {
 	// Get Current Shoes
 	const indexofLastShoe = currentPage * shoesPerPage;
 	const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
-	const currentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
+	const homeCurrentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
 
 	useEffect(() => {
 		getTenShoes();
@@ -76,7 +76,7 @@ function HomePage({ getTenShoes, shoes, gettingTenShoes }) {
 				<div className="topten-shoes-container">
 					{gettingTenShoes && <SkeletonCards />}
 					{!gettingTenShoes &&
-						currentShoes.map((shoe, i) => (
+						homeCurrentShoes.map((shoe, i) => (
 							<TopTenShoeCards
 								key={i}
 								id={shoe._id}

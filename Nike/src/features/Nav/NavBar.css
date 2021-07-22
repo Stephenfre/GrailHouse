@@ -92,6 +92,7 @@ button:hover {
 		flex-direction: column;
 		background-color: black;
 		align-items: center;
+		position: inherit;
 	}
 
 	.nav-bar {

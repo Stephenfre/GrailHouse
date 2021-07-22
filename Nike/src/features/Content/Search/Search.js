@@ -44,7 +44,7 @@ function Search(props) {
 							{" / "}
 							<StyledLinks to="">JORDAN 1</StyledLinks>
 							<div>
-								<h3>Search resuls for ""</h3>
+								<h3>Search results for ""</h3>
 							</div>
 						</div>
 						<div className="search-bar-details">

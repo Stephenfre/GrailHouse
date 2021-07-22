@@ -13,7 +13,7 @@ import SkeletonCards from "../Skeletons/SkeletonCards";
 import TrendingShoesCard from "./TrendingShoesCard";
 import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import SearchResultsForm from "../Search/SearchResultsForm";
-import Pagination from "./Pagination.js";
+import Pagination from "./Pagination/Pagination";
 import SideBar from "../SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 import "./TrendingShoes.css";
@@ -28,7 +28,7 @@ const StyledLinks = styled(Link)`
 
 function TrendingShoes({ getShoes, trendingShoes, gettingShoes }) {
 	const [currentPage, setCurrentPage] = useState(1);
-	const [shoesPerPage] = useState(8);
+	const [shoesPerPage] = useState(16);
 
 	// Get Current Shoes
 	const indexofLastShoe = currentPage * shoesPerPage;
@@ -69,7 +69,6 @@ function TrendingShoes({ getShoes, trendingShoes, gettingShoes }) {
 						<h3>FILTER</h3>
 						<SideBar />
 					</div>
-
 					<div className="trending-shoes-content">
 						{gettingShoes && <SkeletonCards />}
 						{!gettingShoes &&

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import JordanLinks from "./JordanLinks";
-import NikeLinks from "./NikeLinks";
-import AdidasLinks from "./AdidasLink";
-import YeezyLinks from "./YeezyLinks";
-import MoreSneakLinks from "./MoreSneakLinks";
+import JordanLinks from "../Links/JordanLinks";
+import NikeLinks from "../Links/NikeLinks";
+import AdidasLinks from "../Links/AdidasLink";
+import YeezyLinks from "../Links/YeezyLinks";
+import MoreSneakLinks from "../Links/MoreSneakLinks";
 import Account from "../Content/Account/Account";
 import Burger from "./Burger";
 import SearchForm from "../Content/Search/SearchForm";
@@ -85,28 +85,28 @@ export default function NavBar(props) {
 				<div className="nav-links-container">
 					<StyledUl className="nav-list-ul">
 						<DropDownLi className="nav-list-li">
-							<Dropbtn to={`jordan/search/${props.brand}`}>Nike</Dropbtn>
+							<Dropbtn to={`/nike`}>Nike</Dropbtn>
 							<DropDownContent className="dropdown-content">
 								{" "}
 								<NikeLinks />
 							</DropDownContent>
 						</DropDownLi>
 						<DropDownLi className="nav-list-li">
-							<Dropbtn>Jordan</Dropbtn>
+							<Dropbtn to={`/jordan`}>Jordan</Dropbtn>
 							<DropDownContent className="dropdown-content">
 								{" "}
 								<JordanLinks />
 							</DropDownContent>
 						</DropDownLi>
 						<DropDownLi className="nav-list-li">
-							<Dropbtn>Adidas</Dropbtn>
+							<Dropbtn to={`/adidas`}>Adidas</Dropbtn>
 							<DropDownContent className="dropdown-content">
 								{" "}
 								<AdidasLinks />
 							</DropDownContent>
 						</DropDownLi>
 						<DropDownLi className="nav-list-li">
-							<Dropbtn>Yeezy</Dropbtn>
+							<Dropbtn to={`/yeezy`}>Yeezy</Dropbtn>
 							<DropDownContent className="dropdown-content">
 								{" "}
 								<YeezyLinks />
