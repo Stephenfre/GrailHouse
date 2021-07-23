@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -15,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ListItemLink(props) {
-	return <ListItem button component="a" {...props} />;
+	return <ListItem button component={Link} {...props} />;
 }
 
 export default function AdidasLinks() {
@@ -24,21 +26,21 @@ export default function AdidasLinks() {
 	return (
 		<div className={classes.root}>
 			<List component="nike-links-list" style={{ width: "50%" }}>
-				<ListItemLink href="">
+				<ListItemLink to={`/yeezy`}>
 					<ListItemText primary="Yeezy" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/pharrell`}>
 					<ListItemText primary="Pharrell" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/nmd`}>
 					<ListItemText primary="NMD" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/ultraboost`}>
 					<ListItemText primary="Ultra Boost" />
 				</ListItemLink>
 			</List>
 			<List component="nike-links-list" style={{ width: "50%" }}>
-				<ListItemLink href="">
+				<ListItemLink to={`/yeezy`}>
 					<ListItemText primary="More Adidas" />
 				</ListItemLink>
 			</List>

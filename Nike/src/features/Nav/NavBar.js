@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -66,9 +66,31 @@ const StyledLinks = styled(Link)`
 		border-bottom: black solid 1px;
 	}
 `;
+
 export default function NavBar(props) {
-	const [accountClick, setAccountClick] = useState(false);
+	const dropdownRef = useRef(null);
+	const [isActive, setIsActive] = useState(false);
 	const [openSearch, setOpenSearch] = useState(false);
+
+	const menuClicked = () => setIsActive(!isActive);
+
+	useEffect(() => {
+		const pageClickEvent = (e) => {
+			// If the active element exists and is clicked outside of
+			if (dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
+				setIsActive(!isActive);
+			}
+		};
+
+		// If the item is active (ie open) then listen for clicks
+		if (isActive) {
+			window.addEventListener("click", pageClickEvent);
+		}
+
+		return () => {
+			window.removeEventListener("click", pageClickEvent);
+		};
+	}, [isActive]);
 
 	return (
 		<div className="nav-container">
@@ -125,9 +147,13 @@ export default function NavBar(props) {
 					<Burger />
 				</div>
 				<div className="other-content">
-					<StyledLinks onClick={() => setAccountClick(!accountClick)}>Account</StyledLinks>
+					<StyledLinks onClick={menuClicked} className="menu-trigger">
+						<span>Account</span>
+					</StyledLinks>
+					<nav ref={dropdownRef} className={`menu ${isActive ? "active" : "inactive"}`}>
+						<Account />
+					</nav>
 				</div>
-				<div className="account">{accountClick && <Account />}</div>
 			</div>
 		</div>
 	);

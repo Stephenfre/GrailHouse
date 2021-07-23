@@ -9,7 +9,7 @@ const Links = styled(Link)`
 	color: black;
 `;
 
-const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
+const Pagination = ({ shoesPerPage, totalShoes, paginate, gettingShoes }) => {
 	const pageNumbers = [];
 
 	for (let i = 1; i <= Math.ceil(totalShoes / shoesPerPage); i++) {
@@ -19,6 +19,10 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
 	const clickHandler = (pageNumber) => {
 		paginate(pageNumber);
 	};
+
+	// if (!gettingShoes) {
+	// 	<h1> loading </h1>;
+	// }
 
 	return (
 		<div className="pagination">

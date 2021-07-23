@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -15,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ListItemLink(props) {
-	return <ListItem button component="a" {...props} />;
+	return <ListItem button component={Link} {...props} />;
 }
 
 export default function NikeLinks() {
@@ -24,30 +26,30 @@ export default function NikeLinks() {
 	return (
 		<div className={classes.root}>
 			<List component="nike-links-list" style={{ width: "50%" }}>
-				<ListItemLink href="">
+				<ListItemLink to={`/airforce`}>
 					<ListItemText primary="Air Force 1" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/airmax`}>
 					<ListItemText primary="Air Max" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/dunks`}>
 					<ListItemText primary="Dunks" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/kobe`}>
 					<ListItemText primary="Kobe" />
 				</ListItemLink>
 			</List>
 			<List component="nike-links-list" style={{ width: "50%" }}>
-				<ListItemLink href="">
+				<ListItemLink to={`/leborn`}>
 					<ListItemText primary="LeBron" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/offwhite`}>
 					<ListItemText primary="Off-White" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/kyrie`}>
 					<ListItemText primary="Kyrie" />
 				</ListItemLink>
-				<ListItemLink href="">
+				<ListItemLink to={`/nike`}>
 					<ListItemText primary="More Nikes" />
 				</ListItemLink>
 			</List>

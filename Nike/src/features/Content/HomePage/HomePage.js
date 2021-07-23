@@ -12,7 +12,7 @@ import NavBar from "../../Nav/NavBar";
 import Cta from "../../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
 import TopTenHoverBox from "../TopTenHoverBox";
-import SkeletonCards from "../Skeletons/SkeletonCards";
+import HomeSkeletonCards from "../Skeletons/HomeSkeletonCards";
 import Footer from "../../Footer/Footer";
 import "./HomePage.css";
 
@@ -74,7 +74,7 @@ function HomePage({ getTenShoes, shoes, gettingTenShoes }) {
 					</div>
 				</div>
 				<div className="topten-shoes-container">
-					{gettingTenShoes && <SkeletonCards />}
+					{gettingTenShoes && <HomeSkeletonCards />}
 					{!gettingTenShoes &&
 						homeCurrentShoes.map((shoe, i) => (
 							<TopTenShoeCards

@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import List from "@material-ui/core/List";
-// import ListItem from "@material-ui/core/ListItem";
+import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
 const useStyles = makeStyles((theme) => ({
@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-// function Link(props) {
-// 	return <ListItem button component="a" {...props} />;
-// }
+function ListItemLink(props) {
+	return <ListItem button component={Link} {...props} />;
+}
 
 export default function JordanLinks({ shoeName }) {
 	const classes = useStyles();
@@ -29,88 +29,88 @@ export default function JordanLinks({ shoeName }) {
 	return (
 		<div className={classes.root}>
 			<List component="jordan-links-list" style={{ width: "50%" }}>
-				<Link to={`/jordan1`}>
+				<ListItemLink to={`/jordan1`}>
 					<ListItemText primary="Jordan 1" />
-				</Link>
-				<Link ink to={`/jordan2`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan2`}>
 					<ListItemText primary="Jordan 2" />
-				</Link>
-				<Link ink to={`/jordan3`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan3`}>
 					<ListItemText primary="Jordan 3" />
-				</Link>
-				<Link ink to={`/jordan4`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan4`}>
 					<ListItemText primary="Jordan 4" />
-				</Link>
+				</ListItemLink>
 			</List>
 			<List component="jordan-links-list" style={{ width: "50%" }}>
-				<Link ink to={`/jordan5`}>
+				<ListItemLink to={`/jordan5`}>
 					<ListItemText primary="Jordan 5" />
-				</Link>
-				<Link ink to={`/jordan6`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan6`}>
 					<ListItemText primary="Jordant 6" />
-				</Link>
-				<Link ink to={`/jordan7`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan7`}>
 					<ListItemText primary="Jordan 7" />
-				</Link>
-				<Link ink to={`/jordan8`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan8`}>
 					<ListItemText primary="Jordan 8" />
-				</Link>
+				</ListItemLink>
 			</List>
 			<List component="jordan-links-list" style={{ width: "50%" }}>
-				<Link ink to={`/jordan9`}>
+				<ListItemLink to={`/jordan9`}>
 					<ListItemText primary="Jordan 9" />
-				</Link>
-				<Link ink to={`/jordan10`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan10`}>
 					<ListItemText primary="Jordan 10" />
-				</Link>
-				<Link ink to={`/jordan11`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan11`}>
 					<ListItemText primary="Jordan 11" />
-				</Link>
-				<Link ink to={`/jordan12`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan12`}>
 					<ListItemText primary="Jordan 12" />
-				</Link>
+				</ListItemLink>
 			</List>
 			<List component="jordan-links-list" style={{ width: "50%" }}>
-				<Link ink to={`/jordan13`}>
+				<ListItemLink to={`/jordan13`}>
 					<ListItemText primary="Jordan 13" />
-				</Link>
-				<Link ink to={`/jordan14`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan14`}>
 					<ListItemText primary="Jordan 14" />
-				</Link>
-				<Link ink to={`/jordan15`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan15`}>
 					<ListItemText primary="Jordan 15" />
-				</Link>
-				<Link ink to={`/jordan16`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan16`}>
 					<ListItemText primary="Jordan 16" />
-				</Link>
+				</ListItemLink>
 			</List>
 			<List component="jordan-links-list" style={{ width: "50%" }}>
-				<Link ink to={`/jordan17`}>
+				<ListItemLink to={`/jordan17`}>
 					<ListItemText primary="Jordan 17" />
-				</Link>
-				<Link ink to={`/jordan18`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan18`}>
 					<ListItemText primary="Jordan 18" />
-				</Link>
-				<Link ink to={`/jordan19`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan19`}>
 					<ListItemText primary="Jordan 19" />
-				</Link>
-				<Link ink to={`/jordan20`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan20`}>
 					<ListItemText primary="Jordan 20" />
-				</Link>
+				</ListItemLink>
 			</List>
 			<List component="jordan-links-list" style={{ width: "50%" }}>
-				<Link ink to={`/jordan21`}>
+				<ListItemLink to={`/jordan21`}>
 					<ListItemText primary="Jordan 21" />
-				</Link>
-				<Link ink to={`/jordan22`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan22`}>
 					<ListItemText primary="Jordan 22" />
-				</Link>
-				<Link ink to={`/jordan23`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan23`}>
 					<ListItemText primary="Jordan 23" />
-				</Link>
-				<Link ink to={`/jordan`}>
+				</ListItemLink>
+				<ListItemLink to={`/jordan`}>
 					<ListItemText primary="More Jordans" />
-				</Link>
+				</ListItemLink>
 			</List>
 		</div>
 	);

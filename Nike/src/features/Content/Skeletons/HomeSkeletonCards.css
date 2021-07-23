@@ -1,23 +1,25 @@
-.skeleton-wrap-mobile {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.skeleton-wrap {
+.skeleton-wrap-home {
 	display: none;
 }
 
-.skeleton {
-	height: 16rem;
-	width: 41%;
+.skeleton-wrap-mobile-home {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 800px;
+}
+
+.skeleton-home {
+	height: 20rem;
+	width: 43%;
 	display: flex;
 	flex-direction: column;
-	margin: 0 33px 0px 0;
+	margin: 0 25px 0px 0;
 	background: white;
 }
 
-.skeleton-content {
+.skeleton-content-home {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -26,13 +28,13 @@
 	justify-content: center;
 }
 
-.skeleton-img {
+.skeleton-img-home {
 	width: 100%;
-	height: 62%;
+	height: 36%;
 }
 
-.skeleton-details-wrap {
-	height: 61%;
+.skeleton-details-wrap-home {
+	height: 40%;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -40,7 +42,7 @@
 	border-radius: 0 0 6px 6px;
 }
 
-.skeleton-details {
+.skeleton-details-home {
 	height: 100%;
 	width: 87%;
 	display: flex;
@@ -48,7 +50,7 @@
 	justify-content: space-evenly;
 }
 
-.skeleton-prices {
+.skeleton-prices-home {
 	width: 90%;
 	height: 45%;
 	display: flex;
@@ -56,33 +58,35 @@
 	justify-content: center;
 	margin: 10px 0;
 }
-.skeleton-got-them-btn {
+.skeleton-got-them-btn-home {
 	width: 40%;
 	height: 25%;
 	margin-bottom: 15px;
 }
 
 @media only screen and (min-width: 1584px) {
-	.skeleton-wrap {
-		width: 100%;
+	.skeleton-wrap-home {
+		width: 90%;
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
+		height: 800px;
 	}
 
-	.skeleton-wrap-mobile {
+	.skeleton-wrap-mobile-home {
 		display: none;
 	}
 
-	.skeleton {
-		height: 16rem;
-		width: 17%;
+	.skeleton-home {
+		height: 23rem;
+		width: 22%;
 		display: flex;
 		flex-direction: column;
-		margin: 0 76px 0px 0;
+		margin: 0 25px 40px 0;
 		background: white;
 	}
 
-	.skeleton-content {
+	.skeleton-content-home {
 		height: 100%;
 		width: 100%;
 		display: flex;
@@ -91,13 +95,13 @@
 		justify-content: center;
 	}
 
-	.skeleton-img {
+	.skeleton-img-home {
 		width: 100%;
-		height: 62%;
+		height: 36%;
 	}
 
-	.skeleton-details-wrap {
-		height: 61%;
+	.skeleton-details-wrap-home {
+		height: 40%;
 		width: 100%;
 		display: flex;
 		justify-content: center;
@@ -105,7 +109,7 @@
 		border-radius: 0 0 6px 6px;
 	}
 
-	.skeleton-details {
+	.skeleton-details-home {
 		height: 100%;
 		width: 87%;
 		display: flex;
@@ -113,7 +117,7 @@
 		justify-content: space-evenly;
 	}
 
-	.skeleton-prices {
+	.skeleton-prices-home {
 		width: 90%;
 		height: 45%;
 		display: flex;
@@ -121,7 +125,7 @@
 		justify-content: center;
 		margin: 10px 0;
 	}
-	.skeleton-got-them-btn {
+	.skeleton-got-them-btn-home {
 		width: 40%;
 		height: 25%;
 		margin-bottom: 15px;

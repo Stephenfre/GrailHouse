@@ -48,11 +48,11 @@
 }
 
 .trending-shoes-content {
-	/* height: 50%; */
+	height: 700px;
 	width: 68%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 @media only screen and (max-width: 600px) {
@@ -113,11 +113,11 @@
 	}
 
 	.trending-shoes-content {
-		/* height: 50%; */
+		height: 100%;
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: flex-start;
 	}
 
 	.search-links-results-details {

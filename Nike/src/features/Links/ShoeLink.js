@@ -10,13 +10,14 @@ import menuIcon from "@iconify/icons-vaadin/menu";
 import NavBar from "../Nav/NavBar";
 import SearchCta from "../Content/Search/SearchCta";
 import SkeletonCards from "../Content/Skeletons/SkeletonCards";
-import SearchedShoesDetails from "../Content/Search/SearchedShoesDetails";
+// import SearchedShoesDetails from "../Content/Search/SearchedShoesDetails";
+import TrendingShoesCard from "../Content/TrendingShoes/TrendingShoesCard";
 import SearchResultsForm from "../Content/Search/SearchResultsForm";
 import LinksPagination from "./LinksPagination";
 import SideBar from "../Content/SideBar/SideBar";
 import Footer from "../Footer/Footer";
 
-import "./ShoeLink.css";
+// import "./ShoeLink.css";
 
 const StyledLinks = styled(Link)`
 	text-decoration: none;
@@ -73,40 +74,34 @@ export default function ShoeLink() {
 		<div className="container">
 			<NavBar />
 			<SearchCta />
-			<div className="shoelinks-content">
-				<div className="shoelinks-title-details">
-					<div
-						style={{
-							width: "75%",
-							display: "flex",
-							justifyContent: "space-between",
-							alignItems: "center",
-						}}
-					>
-						<div className="shoelinks-links-results-details">
+			<div className="trending-content">
+				<div className="title-details">
+					<div className="title-links-filters-view">
+						<div className="search-links-results-details">
 							<StyledLinks to="/">HOME</StyledLinks>
 							{" / "}
 							<StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
 							{" / "}
-							<StyledLinks to="">JORDAN 1</StyledLinks>
+							<StyledLinks to={`/${shoeName}`}>{shoeName}</StyledLinks>
 						</div>
-						<div className="shoelinks-searchbar-details">
+						<div className="options-mobile">filter</div>
+						<div className="search-bar-details">
 							<SearchResultsForm search={SearchResultsForm} />
-							<Icon icon={gridIcon} style={{ width: "4rem", height: "3rem" }} />
-							<Icon icon={menuIcon} style={{ color: "CECECE", width: "2.8rem", height: "3rem" }} />
+							<Icon icon={gridIcon} style={{ width: "2.5rem", height: "2.5rem" }} />
+							<Icon icon={menuIcon} style={{ color: "CECECE", width: "2rem", height: "3rem" }} />
 						</div>
 					</div>
 				</div>
-				<div className="shoelinks-shoes-container">
-					<div className="shoelinks-options">
+				<div className="trending-shoes-container">
+					<div className="options">
 						<h3>FILTER</h3>
 						<SideBar />
 					</div>
-					<div className="shoelinks-shoes-content">
+					<div className="trending-shoes-content">
 						{isLoading && <SkeletonCards />}
 						{!isLoading &&
 							currentShoes.map((shoe, i) => (
-								<SearchedShoesDetails
+								<TrendingShoesCard
 									key={i}
 									id={shoe._id}
 									thumbnail={shoe.thumbnail}

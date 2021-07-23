@@ -8,6 +8,18 @@
 	position: fixed;
 }
 
+.menu.inactive {
+	display: none;
+}
+
+.menu.active {
+	position: absolute;
+	top: 75px;
+	width: 240px;
+	height: 230px;
+	right: 40px;
+}
+
 .nav-bar {
 	height: 100%;
 	width: 90%;
