@@ -35,35 +35,6 @@ export default (state = initialState, action) => {
 			};
 
 		case GETTING_SHOES_SUCCESS:
-			let trendingShoes = [];
-			// eslint-disable-next-line
-			action.payload.map((shoe) => {
-				let arr = Object.values(shoe.lowestResellPrice);
-				let min = Math.min(...arr);
-				shoe.lowestPrice = min;
-				trendingShoes.push(shoe);
-			});
-			return {
-				...state,
-				trendingShoes: trendingShoes,
-				gettingShoes: false,
-				gettingShoesError: null,
-			};
-
-		case GETTING_SHOES_FAIL:
-			return {
-				...state,
-				gettingShoes: false,
-				gettingShoesError: action.payload.message,
-			};
-
-		case GETTING_TEN_SHOES:
-			return {
-				...state,
-				gettingTenShoes: true,
-			};
-
-		case GETTING_TEN_SHOES_SUCCESS:
 			let shoes = [];
 			// eslint-disable-next-line
 			action.payload.map((shoe) => {
@@ -75,25 +46,54 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				shoes: shoes,
-				gettingTenShoes: false,
+				gettingShoes: false,
+				gettingShoesError: null,
 			};
 
-		case GETTING_TEN_SHOES_FAIL:
+		case GETTING_SHOES_FAIL:
 			return {
 				...state,
-				gettingTenShoes: false,
-				gettingTenShoesError: action.payload,
+				gettingShoes: false,
+				gettingShoesError: action.payload.message,
 			};
+
+		// case GETTING_TEN_SHOES:
+		// 	return {
+		// 		...state,
+		// 		gettingTenShoes: true,
+		// 	};
+
+		// case GETTING_TEN_SHOES_SUCCESS:
+		// 	let shoes = [];
+		// 	// eslint-disable-next-line
+		// 	action.payload.map((shoe) => {
+		// 		let arr = Object.values(shoe.lowestResellPrice);
+		// 		let min = Math.min(...arr);
+		// 		shoe.lowestPrice = min;
+		// 		shoes.push(shoe);
+		// 	});
+		// 	return {
+		// ...state,
+		// shoes: shoes,
+		// gettingTenShoes: false,
+		// 	};
+
+		// case GETTING_TEN_SHOES_FAIL:
+		// 	return {
+		// 		...state,
+		// 		gettingTenShoes: false,
+		// 		gettingTenShoesError: action.payload,
+		// 	};
 
 		case SELECTED_SHOE:
 			let shoe;
 			const id = action.payload;
 
-			if (action.name === "trending") {
-				shoe = state.trendingShoes.find((shoe) => shoe._id === id);
-			} else {
-				shoe = state.shoes.find((shoe) => shoe._id === id);
-			}
+			// if (action.name === "trending") {
+			// 	shoe = state.trendingShoes.find((shoe) => shoe._id === id);
+			// } else {
+			shoe = state.shoes.find((shoe) => shoe._id === id);
+			// }
 			localStorage.setItem("selectedShoe", action.payload);
 			localStorage.setItem("selectedThumbnail", shoe.thumbnail);
 			localStorage.setItem("selectedShoeName", shoe.shoeName);

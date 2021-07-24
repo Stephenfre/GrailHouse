@@ -16,7 +16,7 @@ export function getShoes() {
 		dispatch({ type: GETTING_SHOES });
 
 		return axios
-			.get("http://localhost:5000/trending")
+			.get("http://localhost:5000/")
 			.then((res) => {
 				console.log("get shoes", res.data);
 				dispatch({

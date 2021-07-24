@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import questionMarkCircle from "@iconify/icons-majesticons/question-mark-circle";
 import LogRocket from "logrocket";
 
-import { getTenShoes } from "../../../actions";
+import { getShoes } from "../../../actions";
 import NavBar from "../../Nav/NavBar";
 import Cta from "../../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
@@ -37,7 +37,7 @@ const StyledLinks = styled(Link)`
 	}
 `;
 
-function HomePage({ getTenShoes, shoes, gettingTenShoes }) {
+function HomePage({ getShoes, shoes, gettingTenShoes }) {
 	const [hover, setHover] = useState(false);
 	const [currentPage] = useState(1);
 	const [shoesPerPage] = useState(8);
@@ -48,8 +48,8 @@ function HomePage({ getTenShoes, shoes, gettingTenShoes }) {
 	const homeCurrentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
 
 	useEffect(() => {
-		getTenShoes();
-	}, [getTenShoes]);
+		getShoes();
+	}, [getShoes]);
 
 	return (
 		<div className="container">
@@ -96,13 +96,13 @@ function HomePage({ getTenShoes, shoes, gettingTenShoes }) {
 const mapStateToProps = (state) => {
 	return {
 		shoes: state.shoes,
-		gettingTenShoes: state.gettingTenShoes,
-		gettingTenShoesError: state.gettingTenShoesError,
+		gettingShoes: state.gettingShoes,
+		gettingShoesError: state.gettingShoesError,
 	};
 };
 
 const mapDispatchToPros = {
-	getTenShoes,
+	getShoes,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(HomePage));

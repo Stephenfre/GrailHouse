@@ -26,14 +26,14 @@ const StyledLinks = styled(Link)`
 	text-align: center;
 `;
 
-function TrendingShoes({ getShoes, trendingShoes, gettingShoes }) {
+function TrendingShoes({ getShoes, shoes, gettingShoes }) {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [shoesPerPage] = useState(16);
 
 	// Get Current Shoes
 	const indexofLastShoe = currentPage * shoesPerPage;
 	const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
-	const currentShoes = trendingShoes.slice(indexOfFirstShoe, indexofLastShoe);
+	const currentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
 
 	// Change page
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -85,15 +85,27 @@ function TrendingShoes({ getShoes, trendingShoes, gettingShoes }) {
 					</div>
 				</div>
 			</div>
-			<Pagination shoesPerPage={shoesPerPage} totalShoes={trendingShoes.length} paginate={paginate} />
+			<Pagination shoesPerPage={shoesPerPage} totalShoes={shoes.length} paginate={paginate} />
 			<Footer />
 		</div>
 	);
 }
 
+// const mapStateToProps = (state) => {
+// 	return {
+// 		trendingShoes: state.trendingShoes,
+// 		gettingShoes: state.gettingShoes,
+// 		gettingShoesError: state.gettingShoesError,
+// 	};
+// };
+
+// const mapDispatchToPros = {
+// 	getShoes,
+// };
+
 const mapStateToProps = (state) => {
 	return {
-		trendingShoes: state.trendingShoes,
+		shoes: state.shoes,
 		gettingShoes: state.gettingShoes,
 		gettingShoesError: state.gettingShoesError,
 	};
