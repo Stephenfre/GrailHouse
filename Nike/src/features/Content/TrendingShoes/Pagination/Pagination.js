@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -11,6 +11,7 @@ const Links = styled(Link)`
 
 const Pagination = ({ shoesPerPage, totalShoes, paginate, gettingShoes }) => {
 	const pageNumbers = [];
+	const [isActive, setIsActive] = useState(false);
 
 	for (let i = 1; i <= Math.ceil(totalShoes / shoesPerPage); i++) {
 		pageNumbers.push(i);
@@ -18,6 +19,7 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate, gettingShoes }) => {
 
 	const clickHandler = (pageNumber) => {
 		paginate(pageNumber);
+		setIsActive(!isActive);
 	};
 
 	// if (!gettingShoes) {
@@ -28,15 +30,15 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate, gettingShoes }) => {
 		<div className="pagination">
 			<ul className="pagination-list">
 				{pageNumbers.map((number) => (
-					<li key={number} className="page-item">
-						<Links
-							to={`/trendingshoes/${number}`}
-							onClick={() => clickHandler(number)}
-							className="page-link"
-						>
+					<Links
+						to={`/trendingshoes/${number}`}
+						onClick={() => clickHandler(number)}
+						className={`page-link ${isActive ? "active" : "inactive"}`}
+					>
+						<li key={number} className="page-item">
 							{number}
-						</Links>
-					</li>
+						</li>
+					</Links>
 				))}
 			</ul>
 		</div>

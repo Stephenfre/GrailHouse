@@ -27,12 +27,12 @@ export default function App() {
 				<Route exact path="/trendingshoes/details/:shoeId" component={DetailPage} />
 				<Route exact path="/details/:shoeId" component={DetailPage} />
 				<Route exact path="/search/:shoe" component={Search} />
-				<Route exact path="/:shoeName" component={ShoeLink} />
-				<Route exact path="/:shoeName/:pageNumber" component={ShoeLink} />
 				<Route exact path="/account/profile" component={Profile} />
 				<Route exact path="/account/closet" component={Closet} />
 				<Route exact path="/account/portfolio" component={Portfolio} />
 				<Route exact path="/account/settings" component={Settings} />
+				<Route exact path="/:shoeName" component={ShoeLink} />
+				<Route exact path="/:shoeName/:pageNumber" component={ShoeLink} />
 				<Route exact path="/closet" component={MyCloset} />
 				<Route exact path="/trackchanges" component={TrackChanges} />
 			</Switch>
