@@ -37,7 +37,7 @@ const StyledLinks = styled(Link)`
 	}
 `;
 
-function HomePage({ getShoes, shoes, gettingTenShoes }) {
+function HomePage({ getShoes, shoes, gettingShoes }) {
 	const [hover, setHover] = useState(false);
 	const [currentPage] = useState(1);
 	const [shoesPerPage] = useState(8);
@@ -74,8 +74,8 @@ function HomePage({ getShoes, shoes, gettingTenShoes }) {
 					</div>
 				</div>
 				<div className="topten-shoes-container">
-					{gettingTenShoes && <HomeSkeletonCards />}
-					{!gettingTenShoes &&
+					{gettingShoes && <HomeSkeletonCards />}
+					{!gettingShoes &&
 						homeCurrentShoes.map((shoe, i) => (
 							<TopTenShoeCards
 								key={i}

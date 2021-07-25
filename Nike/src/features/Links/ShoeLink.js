@@ -10,7 +10,6 @@ import menuIcon from "@iconify/icons-vaadin/menu";
 import NavBar from "../Nav/NavBar";
 import SearchCta from "../Content/Search/SearchCta";
 import SkeletonCards from "../Content/Skeletons/SkeletonCards";
-// import SearchedShoesDetails from "../Content/Search/SearchedShoesDetails";
 import TrendingShoesCard from "../Content/TrendingShoes/TrendingShoesCard";
 import SearchResultsForm from "../Content/Search/SearchResultsForm";
 import LinksPagination from "./LinksPagination";
@@ -41,9 +40,15 @@ export default function ShoeLink() {
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 	let { shoeName } = useParams();
 
+	var newShoeName = { shoeName };
+	const UpperShoeName = newShoeName.shoeName.toUpperCase();
+
+	console.log(shoeName);
+
 	let url = `http://localhost:5000/search/${shoeName}`;
 
 	useEffect(() => {
+		let searchPrices = [];
 		const fetchShoes = async () => {
 			setIsLoading(true);
 			await axios
@@ -52,12 +57,26 @@ export default function ShoeLink() {
 					console.log(response);
 					if (response.data) {
 						console.log(response.data);
-						setSearchedShoes(response.data);
+						// eslint-disable-next-line
+						response.data.map((shoe) => {
+							let arr = Object.values(shoe.lowestResellPrice);
+							let min = Math.min(...arr);
+							shoe.lowestPrice = min;
+							searchPrices.push(shoe);
+						});
+						setSearchedShoes(searchPrices);
 						setIsLoading(false);
 					} else {
 						setTimeout(() => {
 							console.log("waited", response.data);
-							setSearchedShoes(response.data);
+							// eslint-disable-next-line
+							response.data.map((shoe) => {
+								let arr = Object.values(shoe.lowestResellPrice);
+								let min = Math.min(...arr);
+								shoe.lowestPrice = min;
+								searchPrices.push(shoe);
+							});
+							setSearchedShoes(searchPrices);
 						}, 4000);
 						setIsLoading(false);
 					}
@@ -82,7 +101,7 @@ export default function ShoeLink() {
 							{" / "}
 							<StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
 							{" / "}
-							<StyledLinks to={`/${shoeName}`}>{shoeName}</StyledLinks>
+							<StyledLinks to={`/${shoeName}`}>{UpperShoeName}</StyledLinks>
 						</div>
 						<div className="options-mobile">filter</div>
 						<div className="search-bar-details">

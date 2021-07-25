@@ -2,9 +2,6 @@ import {
 	GETTING_SHOES,
 	GETTING_SHOES_SUCCESS,
 	GETTING_SHOES_FAIL,
-	GETTING_TEN_SHOES,
-	GETTING_TEN_SHOES_SUCCESS,
-	GETTING_TEN_SHOES_FAIL,
 	SELECTED_SHOE,
 	SEARCHING_SHOE,
 	SEARCHING_SHOE_SUCCESS,
@@ -13,11 +10,8 @@ import {
 
 const initialState = {
 	shoes: [],
-	trendingShoes: [],
 	gettingShoes: false,
 	gettingShoesError: null,
-	gettingTenShoes: false,
-	gettingTenShoesError: null,
 	selectedShoe: null,
 	searchShoes: false,
 	searchShoesSuccess: false,
@@ -56,34 +50,6 @@ export default (state = initialState, action) => {
 				gettingShoes: false,
 				gettingShoesError: action.payload.message,
 			};
-
-		// case GETTING_TEN_SHOES:
-		// 	return {
-		// 		...state,
-		// 		gettingTenShoes: true,
-		// 	};
-
-		// case GETTING_TEN_SHOES_SUCCESS:
-		// 	let shoes = [];
-		// 	// eslint-disable-next-line
-		// 	action.payload.map((shoe) => {
-		// 		let arr = Object.values(shoe.lowestResellPrice);
-		// 		let min = Math.min(...arr);
-		// 		shoe.lowestPrice = min;
-		// 		shoes.push(shoe);
-		// 	});
-		// 	return {
-		// ...state,
-		// shoes: shoes,
-		// gettingTenShoes: false,
-		// 	};
-
-		// case GETTING_TEN_SHOES_FAIL:
-		// 	return {
-		// 		...state,
-		// 		gettingTenShoes: false,
-		// 		gettingTenShoesError: action.payload,
-		// 	};
 
 		case SELECTED_SHOE:
 			let shoe;

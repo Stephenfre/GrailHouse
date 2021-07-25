@@ -16,15 +16,19 @@
 	padding: 0;
 }
 
-.links-page-item {
+.link-page-link {
 	border: 1px solid black;
+	margin: 0px 5px;
+}
+
+.links-page-item {
 	padding: 10px 15px;
 }
 
 @media only screen and (min-width: 1584px) {
 	.links-pagination {
 		position: relative;
-		top: 690px;
+		top: 290px;
 		margin: 0px 0px 60px 0;
 		display: flex;
 		justify-content: center;
@@ -41,8 +45,12 @@
 		padding: 0;
 	}
 
-	.links-page-item {
+	.link-page-link {
 		border: 1px solid black;
+		margin: 0px 5px;
+	}
+
+	.link-page-item {
 		padding: 10px 15px;
 	}
 }

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SideNavBar from "./SideNavBar";
 import NavBar from "../../Nav/NavBar";
 import "./Profile.css";
+import Footer from "../../Footer/Footer";
 
 export default function Profile() {
 	return (
@@ -36,6 +37,7 @@ export default function Profile() {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }

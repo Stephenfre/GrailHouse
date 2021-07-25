@@ -91,18 +91,6 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
 	);
 }
 
-// const mapStateToProps = (state) => {
-// 	return {
-// 		trendingShoes: state.trendingShoes,
-// 		gettingShoes: state.gettingShoes,
-// 		gettingShoesError: state.gettingShoesError,
-// 	};
-// };
-
-// const mapDispatchToPros = {
-// 	getShoes,
-// };
-
 const mapStateToProps = (state) => {
 	return {
 		shoes: state.shoes,

@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import "./Pagination.css";
+import "../TrendingShoes/Pagination/Pagination.css";
 
 const Links = styled(Link)`
 	text-decoration: none;
 	color: black;
 `;
 
-const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
+const SearchPaginate = ({ shoesPerPage, totalShoes, paginate }) => {
 	const pageNumbers = [];
-	const [isActive, setIsActive] = useState(false);
+	let { shoeName } = useParams();
 
 	for (let i = 1; i <= Math.ceil(totalShoes / shoesPerPage); i++) {
 		pageNumbers.push(i);
@@ -19,21 +19,16 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
 
 	const clickHandler = (pageNumber) => {
 		paginate(pageNumber);
-		setIsActive(!isActive);
 	};
-
-	// if (!gettingShoes) {
-	// 	<h1> loading </h1>;
-	// }
 
 	return (
 		<div className="pagination">
 			<ul className="pagination-list">
 				{pageNumbers.map((number) => (
 					<Links
-						to={`/trendingshoes/${number}`}
+						to={`/search/${shoeName}/${number}`}
 						onClick={() => clickHandler(number)}
-						className={`page-link ${isActive ? "active" : "inactive"}`}
+						className="page-link"
 					>
 						<li key={number} className="page-item">
 							{number}
@@ -45,4 +40,4 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
 	);
 };
 
-export default Pagination;
+export default SearchPaginate;

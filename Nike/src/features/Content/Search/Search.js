@@ -1,5 +1,5 @@
-import React from "react";
-import { withRouter, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { withRouter, Link, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -14,6 +14,8 @@ import SearchedShoesDetails from "./SearchedShoesDetails";
 import SkeletonCards from "../Skeletons/SkeletonCards";
 import Footer from "../../Footer/Footer";
 import "./Search.css";
+import SearchPaginate from "./SearchPaginate";
+import SideBar from "../SideBar/SideBar";
 
 const StyledLinks = styled(Link)`
 	text-decoration: none;
@@ -22,7 +24,21 @@ const StyledLinks = styled(Link)`
 	text-align: center;
 `;
 
-function Search(props) {
+function Search({ searchResults, searchShoes }) {
+	const [currentPage, setCurrentPage] = useState(1);
+	const [shoesPerPage] = useState(16);
+
+	// Get Current Shoes
+	const indexofLastShoe = currentPage * shoesPerPage;
+	const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
+	const currentShoes = searchResults.slice(indexOfFirstShoe, indexofLastShoe);
+
+	// Change page
+	const paginate = (pageNumber) => setCurrentPage(pageNumber);
+	let { shoeName } = useParams();
+
+	console.log(shoeName);
+
 	return (
 		<div className="container">
 			<NavBar />
@@ -42,7 +58,7 @@ function Search(props) {
 							{" / "}
 							<StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
 							{" / "}
-							<StyledLinks to="">JORDAN 1</StyledLinks>
+							<StyledLinks to={`/${shoeName}`}>{shoeName}</StyledLinks>
 							<div>
 								<h3>Search results for ""</h3>
 							</div>
@@ -55,11 +71,14 @@ function Search(props) {
 					</div>
 				</div>
 				<div className="search-shoes-container">
-					<div className="search-options"></div>
+					<div className="search-options">
+						<h3>FILTER</h3>
+						<SideBar />
+					</div>
 					<div className="search-shoes-content">
-						{props.searchShoes && <SkeletonCards />}
-						{!props.searchShoes &&
-							props.searchResults.map((shoe, i) => (
+						{searchShoes && <SkeletonCards />}
+						{!searchShoes &&
+							currentShoes.map((shoe, i) => (
 								<SearchedShoesDetails
 									key={i}
 									id={shoe._id}
@@ -71,6 +90,7 @@ function Search(props) {
 					</div>
 				</div>
 			</div>
+			<SearchPaginate shoesPerPage={shoesPerPage} totalShoes={searchResults.length} paginate={paginate} />
 			<Footer />
 		</div>
 	);

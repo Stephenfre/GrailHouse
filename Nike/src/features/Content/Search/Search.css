@@ -16,7 +16,7 @@
 }
 
 .title-details {
-	width: 78%;
+	width: 85%;
 	height: 20%;
 	display: flex;
 	align-items: center;
@@ -44,7 +44,6 @@
 
 .search-options {
 	width: 20%;
-	background: grey;
 }
 
 .search-shoes-content {

@@ -19,12 +19,15 @@
 .page-link {
 	border: 1px solid black;
 	margin: 0px 5px;
+}
+
+.page-item {
 	padding: 10px 15px;
 }
 @media only screen and (min-width: 1584px) {
 	.pagination {
 		position: relative;
-		top: 680px;
+		top: 290px;
 		margin: 0px 0px 60px 0;
 		display: flex;
 		justify-content: center;
@@ -42,7 +45,6 @@
 	}
 
 	.page-item {
-		border: 1px solid black;
 		padding: 10px 15px;
 	}
 }

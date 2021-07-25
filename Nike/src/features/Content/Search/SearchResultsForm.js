@@ -70,7 +70,7 @@ function Search(props) {
 				style={{
 					position: "absolute",
 					background: "none",
-					right: "19rem",
+					right: "14.4rem",
 					margin: "0",
 					padding: "4px 0 0 0",
 					width: "0",

@@ -17,16 +17,16 @@ export default function Footer() {
 					<ul>
 						<li style={{ paddingTop: "0", fontWeight: "bold", color: "white" }}>Trending Shoes</li>
 						<li>
-							<Links>Nike Air Force 1</Links>
+							<Links to="/airforce">Nike Air Force 1</Links>
 						</li>
 						<li>
-							<Links>Nike Dunks</Links>
+							<Links to="/dunks">Nike Dunks</Links>
 						</li>
 						<li>
-							<Links>Jordan 1</Links>
+							<Links to="/jordan1">Jordan 1</Links>
 						</li>
 						<li>
-							<Links>Off-White Sneakers</Links>
+							<Links to="offwhite">Off-White Sneakers</Links>
 						</li>
 					</ul>
 				</div>
@@ -45,10 +45,10 @@ export default function Footer() {
 					<ul style={{ margin: "6px 0 0 0" }}>
 						<li style={{ paddingTop: "10px", fontWeight: "bold", color: "white" }}>Account</li>
 						<li>
-							<Links>My Account</Links>
+							<Links to="/account/profile">My Account</Links>
 						</li>
 						<li>
-							<Links>My Closet</Links>
+							<Links to="/account/mycloset">My Closet</Links>
 						</li>
 					</ul>
 				</div>

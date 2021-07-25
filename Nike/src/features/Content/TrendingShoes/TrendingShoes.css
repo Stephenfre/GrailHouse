@@ -19,6 +19,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 495px;
 }
 
 .title-links-filters-view {
@@ -45,6 +46,10 @@
 
 .options {
 	width: 20%;
+}
+
+.options-mobile {
+	display: none;
 }
 
 .trending-shoes-content {

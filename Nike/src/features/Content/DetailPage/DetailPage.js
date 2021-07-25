@@ -149,7 +149,7 @@ function DetailPage(props) {
 							</TabPanel>
 						</SwipeableViews>
 					</div>
-					<span style={{ width: "83%", fontSize: "9px" }}>
+					<span style={{ width: "83%", fontSize: "9px", marginTop: "30px" }}>
 						{shoe.styleID} {shoe.colorway} {shoe.releaseDate}
 					</span>
 					<div
