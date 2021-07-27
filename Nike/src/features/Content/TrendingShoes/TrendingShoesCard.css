@@ -8,6 +8,16 @@
 	/* border: red solid 1px; */
 }
 
+.trending.active {
+	height: 320px;
+	width: 94.6%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 25px 27px 0;
+	background: white;
+	/* border: red solid 1px; */
+}
+
 .trending-shoes {
 	height: 100%;
 	width: 100%;
@@ -18,9 +28,26 @@
 	border: 1px solid rgb(247 247 247);
 }
 
+.trending-shoes.active {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgb(247 247 247);
+	margin-left: 10px;
+}
+
 .trending-shoes-img {
 	width: 74%;
 	height: 47%;
+}
+
+.trending-shoes-img.active {
+	width: 20%;
+	height: 100%;
+	margin-left: 20px;
 }
 
 .trending-shoes-img img {
@@ -34,6 +61,10 @@
 	justify-content: center;
 	background: rgb(247, 247, 247);
 	border-radius: 0 0 6px 6px;
+}
+
+.trending-shoes-wrap.active {
+	background: none;
 }
 
 .trending-shoes-details {
@@ -59,6 +90,10 @@
 	justify-content: center;
 }
 
+.prices.active {
+	display: none;
+}
+
 .prices p {
 	font-weight: 300;
 	margin: 0 10px;
@@ -70,6 +105,10 @@
 	display: flex;
 	align-items: flex-end;
 	margin: 0 0 10px 10px;
+}
+
+.add-to-closet.active {
+	display: none;
 }
 
 .got-them {

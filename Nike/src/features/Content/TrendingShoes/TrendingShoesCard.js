@@ -20,28 +20,28 @@ const Button = styled.button`
 	text-align: center;
 `;
 
-function TrendingShoesCard(props) {
+function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName, id, lowestPrice }) {
 	let history = useHistory();
 
 	const clickHandler = (id) => {
-		props.selectShoe(id, props.type);
+		selectShoe(id, type);
 		history.push(`trendingshoes/details/${id}`);
 	};
 
 	return (
-		<div className="trending" onClick={(e) => clickHandler(props.id)}>
-			<div className="trending-shoes">
-				<div className="trending-shoes-img">
-					<img src={props.thumbnail} alt="shoe pic" />
+		<div className={"trending" + (isViewActive ? " active" : "")} onClick={(e) => clickHandler(id)}>
+			<div className={"trending-shoes" + (isViewActive ? " active" : "")}>
+				<div className={"trending-shoes-img" + (isViewActive ? " active" : "")}>
+					<img src={thumbnail} alt="shoe pic" />
 				</div>
-				<div className="trending-shoes-wrap">
+				<div className={"trending-shoes-wrap" + (isViewActive ? " active" : "")}>
 					<div className="trending-shoes-details">
-						<p>{props.shoeName}</p>
-						<div className="prices">
+						<p>{shoeName}</p>
+						<div className={"prices" + (isViewActive ? " active" : "")}>
 							<p>Lowest Price</p>
-							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.lowestPrice}</p>
+							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
 						</div>
-						<div className="add-to-closet">
+						<div className={"add-to-closet" + (isViewActive ? " active" : "")}>
 							<Button>ADD TO CLOSET</Button>
 						</div>
 						{/* <div className="got-them"></div> */}

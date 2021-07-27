@@ -56,6 +56,7 @@ function Search(props) {
 				value={searchValue}
 				onChange={handleSearchInputChanges}
 				type="text"
+				placeholder="Search..."
 				style={{
 					background: "white",
 					width: "70%",

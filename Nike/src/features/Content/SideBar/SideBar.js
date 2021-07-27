@@ -153,7 +153,7 @@ export default function SideBar() {
 													inputProps={{ "aria-labelledby": labelId }}
 												/>
 											</ListItemIcon>
-											<ListItemText id={labelId} primary={`${value}`} />
+											<ListItemText id={labelId} primary={`${value.brand}`} />
 										</ListItem>
 									);
 								})}
