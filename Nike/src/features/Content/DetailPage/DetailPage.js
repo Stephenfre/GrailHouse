@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
@@ -37,6 +37,8 @@ const StyledLinks = styled(Link)`
 	}
 `;
 
+// * THIS IS THE STYLING FOR THE DETAIL TABS.
+// *TODO WILL BE FACTORED SOON.
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -82,12 +84,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function DetailPage(props) {
+// * THIS IS THE START OF THE COMPONENT.
+
+export default function DetailPage(props) {
 	const classes = useStyles();
 	const theme = useTheme();
-	const [value, setValue] = React.useState(0);
+	const [value, setValue] = useState(0);
 
-	const handleChange = (event, newValue) => {
+	const handleChange = (newValue) => {
 		setValue(newValue);
 	};
 
@@ -95,32 +99,32 @@ function DetailPage(props) {
 		setValue(index);
 	};
 
-	let shoe;
+	// let shoe;
 
-	if (localStorage.getItem("selectedShoe")) {
-		shoe = {
-			thumbnail: localStorage.getItem("selectedThumbnail"),
-			shoeName: localStorage.getItem("selectedShoeName"),
-			description: localStorage.getItem("selectedDescription"),
-			lowestResellPrice: localStorage.getItem("selectedLowestResellPrice"),
-			styleID: localStorage.getItem("selectedStyleID"),
-			colorway: localStorage.getItem("selectedColorway"),
-			releaseDate: localStorage.getItem("selectedReleaseDate"),
-		};
-	} else {
-		shoe = props.selectedShoe;
-	}
+	// if (localStorage.getItem("selectedShoe")) {
+	// 	shoe = {
+	// 		thumbnail: localStorage.getItem("selectedThumbnail"),
+	// 		shoeName: localStorage.getItem("selectedShoeName"),
+	// 		description: localStorage.getItem("selectedDescription"),
+	// 		lowestResellPrice: localStorage.getItem("selectedLowestResellPrice"),
+	// 		styleID: localStorage.getItem("selectedStyleID"),
+	// 		colorway: localStorage.getItem("selectedColorway"),
+	// 		releaseDate: localStorage.getItem("selectedReleaseDate"),
+	// 	};
+	// } else {
+	// 	shoe = props.selectedShoe;
+	// }
+
 	return (
-		<div className="container">
-			<NavBar />
+		<div className="shoe-details-container">
 			<div className="shoe-details-content">
 				<div className="shoe-img">
-					<img src={shoe.thumbnail} alt="shoe pic" />
+					<img src={props.thumbnail} alt="shoe pic" />
 				</div>
 				<div className="shoe-details">
-					<h2>{shoe.shoeName}</h2>
+					<h2>{props.shoeName}</h2>
 					<div className="shoe-img-mobile">
-						<img src={shoe.thumbnail} alt="shoe pic" />
+						<img src={props.thumbnail} alt="shoe pic" />
 					</div>
 					<div className={classes.root}>
 						<AppBar position="static" color="default">
@@ -142,15 +146,15 @@ function DetailPage(props) {
 							onChangeIndex={handleChangeIndex}
 						>
 							<TabPanel value={value} index={0} dir={theme.direction}>
-								{shoe.description}
+								{props.description}
 							</TabPanel>
 							<TabPanel value={value} index={1} dir={theme.direction}>
-								{shoe.lowestResellPrice.stockX}
+								{/* {props.resellPrices} */}
 							</TabPanel>
 						</SwipeableViews>
 					</div>
 					<span style={{ width: "83%", fontSize: "9px", marginTop: "30px" }}>
-						{shoe.styleID} {shoe.colorway} {shoe.releaseDate}
+						{props.styleID} {props.colorway} {props.releaseDate}
 					</span>
 					<div
 						className="add-btn"
@@ -161,17 +165,16 @@ function DetailPage(props) {
 				</div>
 			</div>
 			{/* <SimilarShoes /> */}
-			<Footer />
 		</div>
 	);
 }
 
-const mapStateToProps = (state) => {
-	return {
-		selectedShoe: state.selectedShoe,
-	};
-};
+// const mapStateToProps = (state) => {
+// 	return {
+// 		selectedShoe: state.selectedShoe,
+// 	};
+// };
 
-const mapDispatchToPros = {};
+// const mapDispatchToPros = {};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToPros)(DetailPage));
+// export default withRouter(connect(mapStateToProps, mapDispatchToPros)(DetailPage));

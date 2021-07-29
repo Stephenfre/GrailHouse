@@ -20,12 +20,12 @@ const Button = styled.button`
 	text-align: center;
 `;
 
-function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName, id, lowestPrice }) {
+function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
 	let history = useHistory();
 
 	const clickHandler = (id) => {
 		selectShoe(id, type);
-		history.push(`trendingshoes/details/${id}`);
+		history.push(`trendingshoes/details/${id}/${styleId}`);
 	};
 
 	return (

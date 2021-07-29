@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import JordanLinks from "../Links/JordanLinks";
-import NikeLinks from "../Links/NikeLinks";
-import AdidasLinks from "../Links/AdidasLink";
-import YeezyLinks from "../Links/YeezyLinks";
-import MoreSneakLinks from "../Links/MoreSneakLinks";
+import JordanLinks from "./Links/JordanLinks";
+import NikeLinks from "./Links/NikeLinks";
+import AdidasLinks from "./Links/AdidasLink";
+import YeezyLinks from "./Links/YeezyLinks";
+import MoreSneakLinks from "./Links/MoreSneakLinks";
 import Account from "../Content/Account/Account";
 import Burger from "./Burger";
 import SearchForm from "../Content/Search/SearchForm";

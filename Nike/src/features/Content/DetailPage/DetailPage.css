@@ -38,6 +38,10 @@
 }
 
 @media only screen and (min-width: 1584px) {
+	h5 {
+		margin: 0;
+	}
+
 	.shoe-details-content {
 		display: flex;
 		width: 87%;
@@ -69,5 +73,74 @@
 		justify-content: space-around;
 		align-items: center;
 		margin: 0;
+	}
+
+	.details-prices-tabs {
+		width: 100%;
+		height: 290px;
+	}
+
+	.tabs {
+		display: flex;
+		width: 70%;
+		height: 40px;
+		justify-content: center;
+		box-shadow: 0 5px 18px 1px #b1b1b1;
+		margin-left: 105px;
+	}
+
+	.details-box {
+		width: 100%;
+		margin-top: 15px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.details-box p {
+		line-height: 32.5px;
+	}
+
+	.details-tab {
+		text-decoration: none;
+		background: white;
+		color: grey;
+		font-size: 15px;
+		width: 50%;
+		border: none;
+		border-radius: 0;
+	}
+
+	.prices-tab {
+		text-decoration: none;
+		background: white;
+		color: grey;
+		font-size: 15px;
+		width: 50%;
+		border: none;
+		border-radius: 0;
+	}
+
+	.details-tab.active {
+		border-bottom: 3px solid red;
+	}
+
+	.prices-tab.active {
+		border-bottom: 3px solid red;
+	}
+
+	.details-description.active {
+		width: 65%;
+	}
+
+	.prices-prices.active {
+		width: 65%;
+	}
+
+	.details-description.inactive {
+		display: none;
+	}
+
+	.prices-prices.inactive {
+		display: none;
 	}
 }

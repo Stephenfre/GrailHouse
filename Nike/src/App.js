@@ -10,9 +10,9 @@ import TrackChanges from "./features/Content/Account/TrackChanges";
 import SignIn from "./features/Auth/SignIn";
 import SignUp from "./features/Auth/SignUp";
 import TrendingShoes from "./features/Content/TrendingShoes/TrendingShoes";
-import DetailPage from "./features/Content/DetailPage/DetailPage";
+import Details from "./features/Content/DetailPage/Details";
 import Search from "./features/Content/Search/Search";
-import ShoeLink from "./features/Links/ShoeLink";
+import ShoeLink from "./features/Nav/Links/ShoeLink";
 
 export default function App() {
 	return (
@@ -23,8 +23,8 @@ export default function App() {
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/trendingshoes" component={TrendingShoes} />
 				<Route exact path="/trendingshoes/:pageNumber" component={TrendingShoes} />
-				<Route exact path="/trendingshoes/details/:shoeId" component={DetailPage} />
-				<Route exact path="/details/:shoeId" component={DetailPage} />
+				<Route exact path="/trendingshoes/details/:id/:styleId" component={Details} />
+				<Route exact path="/details/id/:styleId/prices" component={Details} />
 				<Route exact path="/search/:shoe" component={Search} />
 				<Route exact path="/search/:shoe/:pagenumber" component={Search} />
 				<Route exact path="/account/profile" component={Profile} />

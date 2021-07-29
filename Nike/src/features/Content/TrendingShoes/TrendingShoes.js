@@ -97,6 +97,7 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
 									thumbnail={shoe.thumbnail}
 									shoeName={shoe.shoeName}
 									lowestPrice={shoe.lowestPrice}
+									styleId={shoe.styleID}
 									type="trending"
 									isViewActive={isViewActive}
 								/>

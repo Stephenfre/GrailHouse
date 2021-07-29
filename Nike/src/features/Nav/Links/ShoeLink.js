@@ -7,14 +7,14 @@ import { Icon } from "@iconify/react";
 import gridIcon from "@iconify/icons-gridicons/grid";
 import menuIcon from "@iconify/icons-vaadin/menu";
 
-import NavBar from "../Nav/NavBar";
-import SearchCta from "../Content/Search/SearchCta";
-import SkeletonCards from "../Content/Skeletons/SkeletonCards";
-import TrendingShoesCard from "../Content/TrendingShoes/TrendingShoesCard";
-import SearchResultsForm from "../Content/Search/SearchResultsForm";
+import NavBar from "../NavBar";
+import SearchCta from "../../Content/Search/SearchCta";
+import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
+import TrendingShoesCard from "../../Content/TrendingShoes/TrendingShoesCard";
+import SearchResultsForm from "../../Content/Search/SearchResultsForm";
 import LinksPagination from "./LinksPagination";
-import SideBar from "../Content/SideBar/SideBar";
-import Footer from "../Footer/Footer";
+import SideBar from "../../Content/SideBar/SideBar";
+import Footer from "../../Footer/Footer";
 
 // import "./ShoeLink.css";
 

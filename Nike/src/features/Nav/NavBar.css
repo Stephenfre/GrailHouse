@@ -104,7 +104,7 @@ button:hover {
 		flex-direction: column;
 		background-color: black;
 		align-items: center;
-		position: fixed;
+		position: inherit;
 		z-index: 2;
 	}
 
