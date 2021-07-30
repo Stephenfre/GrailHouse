@@ -127,3 +127,208 @@
 		margin-bottom: 15px;
 	}
 }
+/** Home Skeleton Below */
+/** Home Skeleton Below */
+/** Home Skeleton Below */
+
+.skeleton-wrap-home {
+	display: none;
+}
+
+.skeleton-wrap-mobile-home {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 800px;
+}
+
+.skeleton-home {
+	height: 20rem;
+	width: 43%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 25px 0px 0;
+	background: white;
+}
+
+.skeleton-content-home {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.skeleton-img-home {
+	width: 100%;
+	height: 36%;
+}
+
+.skeleton-details-wrap-home {
+	height: 40%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background: rgb(247, 247, 247);
+	border-radius: 0 0 6px 6px;
+}
+
+.skeleton-details-home {
+	height: 100%;
+	width: 87%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.skeleton-prices-home {
+	width: 90%;
+	height: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px 0;
+}
+.skeleton-got-them-btn-home {
+	width: 40%;
+	height: 25%;
+	margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 1584px) {
+	.skeleton-wrap-home {
+		width: 90%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 800px;
+	}
+
+	.skeleton-wrap-mobile-home {
+		display: none;
+	}
+
+	.skeleton-home {
+		height: 26rem;
+		width: 22%;
+		display: flex;
+		flex-direction: column;
+		margin: 0 25px 0px 0;
+		background: white;
+	}
+
+	.skeleton-content-home {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.skeleton-img-home {
+		width: 100%;
+		height: 36%;
+	}
+
+	.skeleton-details-wrap-home {
+		height: 40%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		background: rgb(247, 247, 247);
+		border-radius: 0 0 6px 6px;
+	}
+
+	.skeleton-details-home {
+		height: 100%;
+		width: 87%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+
+	.skeleton-prices-home {
+		width: 90%;
+		height: 45%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 10px 0;
+	}
+	.skeleton-got-them-btn-home {
+		width: 40%;
+		height: 25%;
+		margin-bottom: 15px;
+	}
+}
+
+/** Detail Skeleton Below */
+/** Detail Skeleton Below */
+/** Detail Skeleton Below */
+
+.shoe-details-content-skeleton {
+	display: flex;
+	width: 95%;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	margin-left: 115px;
+}
+
+.shoe-img-skeleton {
+	width: 50%;
+	height: 80%;
+}
+
+.shoe-img-mobile {
+	display: none;
+}
+
+.shoe-details-skeleton {
+	width: 50%;
+	height: 64%;
+}
+
+.details-prices-tabs-skeleton {
+	width: 100%;
+	height: 290px;
+}
+
+.tabs-skeleton {
+	display: flex;
+	width: 70%;
+	height: 40px;
+	justify-content: center;
+	margin-left: 105px;
+}
+
+.details-box-skeleton {
+	width: 66%;
+	height: 230px;
+	margin: 15px 0px 0 117px;
+}
+
+.details-tab-skeleton {
+	text-decoration: none;
+	background: white;
+	color: grey;
+	width: 44%;
+	border: none;
+	border-radius: 0;
+	margin-right: 20px;
+	padding: 0;
+}
+
+.prices-tab-skeleton {
+	text-decoration: none;
+	background: white;
+	color: grey;
+	font-size: 15px;
+	width: 45%;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+}

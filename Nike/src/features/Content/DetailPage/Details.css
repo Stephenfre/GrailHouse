@@ -48,12 +48,11 @@
 		justify-content: center;
 		align-items: center;
 		height: 100%;
-		margin-left: 95px;
+		margin-left: 130px;
 	}
 
 	.shoe-img {
 		width: 50%;
-		/* border: 1px blue solid; */
 		height: 80%;
 		display: flex;
 		justify-content: center;
@@ -67,7 +66,6 @@
 	.shoe-details {
 		width: 50%;
 		height: 64%;
-		/* border: 1px green solid; */
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -134,7 +132,7 @@
 	}
 
 	.details-description.active {
-		width: 65%;
+		width: 70%;
 	}
 
 	.prices-prices.active {
@@ -242,7 +240,7 @@
 		position: absolute;
 		top: 430px;
 		width: 471px;
-		right: 218px;
+		right: 184px;
 		border: 1px solid #dadada;
 	}
 
@@ -250,21 +248,21 @@
 		position: absolute;
 		top: 479px;
 		width: 471px;
-		right: 218px;
+		right: 184px;
 		border: 1px solid #dadada;
 	}
 	.hr2 {
 		position: absolute;
 		top: 524px;
 		width: 471px;
-		right: 218px;
+		right: 184px;
 		border: 1px solid #dadada;
 	}
 	.hr3 {
 		position: absolute;
 		top: 571px;
 		width: 471px;
-		right: 218px;
+		right: 184px;
 		border: 1px solid #dadada;
 	}
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
-import "./HomeSkeletonCards.css";
+import "./Skeleton.css";
 
 export default function HomeSkeletonCards() {
 	return (
