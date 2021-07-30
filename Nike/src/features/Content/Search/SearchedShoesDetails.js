@@ -6,25 +6,25 @@ import { selectShoe } from "../../../actions";
 
 import "./Search.css";
 
-function SearchedShoesDetails(props) {
+function SearchedShoesDetails({ isViewActive, selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
 	let history = useHistory();
 
 	const clickHandler = (id) => {
-		props.selectShoe(id, props.type);
-		history.push(`details/${id}`);
+		selectShoe(id, type);
+		history.push(`/details/${id}/${styleId}`);
 	};
 	return (
-		<div className="searched-shoes" onClick={(e) => clickHandler(props.id)}>
+		<div className="searched-shoes" onClick={(e) => clickHandler(id)}>
 			<div className="searched-shoes-details">
 				<div className="searched-shoes-details-img">
-					<img src={props.thumbnail} alt="shoe pic" />
+					<img src={thumbnail} alt="shoe pic" />
 				</div>
 				<div className="searched-shoes-details-wrap">
 					<div className="searched-shoes-details-details">
-						<p>{props.shoeName}</p>
+						<p>{shoeName}</p>
 						<div className="prices">
 							<p>Lowest Price</p>
-							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.lowestPrice}</p>
+							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
 						</div>
 						<div className="got-them"></div>
 					</div>

@@ -5,6 +5,10 @@ import styled from "styled-components";
 
 import NavBar from "../../Nav/NavBar";
 import Footer from "../../Footer/Footer";
+import FlightClub from "../../../Svgs/Flightclub.svg";
+import StockX from "../../../Svgs/StockX.svg";
+import Goat from "../../../Svgs/Goat.svg";
+import StadiumGoods from "../../../Svgs/StadiumGoods.svg";
 
 import "./DetailPage.css";
 
@@ -32,15 +36,21 @@ export default function Details(props) {
 	const [shoeDetails, setShoeDetails] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [detailsTabActive, setDetailsTabActive] = useState(false);
-	// const [pricesTabActive, setPricesTabActive] = useState(false);
-
-	// const tabClick = () => {
-	// 	setTabActive(tabActive);
-	// };
-
 	let { styleId } = useParams();
 
-	// console.log("prices", shoeDetails.resellPrices.flightClub);
+	// function sizeNumbers() {
+	// 	return (
+	// 		<ul className="size-ul">
+	// 			{[...Array.range(7, 15)].map((e, i) => {
+	// 				return (
+	// 					<li className="size-li" key={i}>
+	// 						{i}
+	// 					</li>
+	// 				);
+	// 			})}
+	// 		</ul>
+	// 	);
+	// }
 
 	//* FETCH HERE
 	useEffect(() => {
@@ -108,12 +118,217 @@ export default function Details(props) {
 										<p>{shoeDetails.description}</p>
 									</div>
 									<div className={`prices-prices ${detailsTabActive ? "active" : "inactive"}`}>
-										{shoeDetails.resellPrices.flightClub}
+										<hr className="hr0" />
+										<hr className="hr1" />
+										<hr className="hr2" />
+										<hr className="hr3" />
+										<div className="sizes">
+											<ul className="logo-row-ul">
+												<li className="prices-logo-li">
+													<h4 style={{ fontSize: "18px", fontWeight: "700" }}>Sizes</h4>
+												</li>
+
+												<li className="prices-logo-li">
+													<a href="https://www.flightclub.com/">
+														<img src={FlightClub} alt="flight club logo" />
+													</a>
+												</li>
+
+												<li className="prices-logo-li">
+													<a href="https://www.stockx.com/">
+														<img src={StockX} alt="Stock X logo" />
+													</a>
+												</li>
+
+												<li className="prices-logo-li">
+													<a href="https://www.goat.com/">
+														<img src={Goat} alt="Goat logo" />
+													</a>
+												</li>
+
+												<li className="prices-logo-li">
+													<a href="https://www.stadiumgoods.com/">
+														<img src={StadiumGoods} alt="Stadium Goods logo" />
+													</a>
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">7</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["7"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["7"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["7"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["7"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">8</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["8"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["8"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["8"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["8"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">9</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["9"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["9"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["9"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["9"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">10</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["10"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["10"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["10"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["10"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">11</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["11"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["11"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["11"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["11"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">12</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["12"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["12"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["12"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["12"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">12</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["12"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["12"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["12"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["12"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">13</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["13"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["13"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["13"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["13"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">14</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["14"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["14"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["14"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["14"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">15</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["15"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["15"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["15"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["15"]}
+												</li>
+											</ul>
+											<ul className="size-row-ul">
+												<li className="prices-li">16</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.flightClub["16"]}
+												</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.stockX["16"]}</li>
+
+												<li className="prices-li">$ {shoeDetails.resellPrices.goat["16"]}</li>
+
+												<li className="prices-li">
+													$ {shoeDetails.resellPrices.stadiumGoods["16"]}
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
-							<span style={{ fontSize: "9px", margin: "30px 207px 0 0" }}>
-								{shoeDetails.styleID} {shoeDetails.colorway} {shoeDetails.releaseDate}
+							<span
+								style={
+									!detailsTabActive
+										? { fontSize: "9px", margin: "19px 270px 0 0" }
+										: { fontSize: "9px", margin: "49px 230px 0 0" }
+								}
+							>
+								{shoeDetails.styleID} | {shoeDetails.colorway} | {shoeDetails.releaseDate}
 							</span>
 							<div
 								className="add-btn"

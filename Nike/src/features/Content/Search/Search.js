@@ -16,6 +16,7 @@ import Footer from "../../Footer/Footer";
 import "./Search.css";
 import SearchPaginate from "./SearchPaginate";
 import SideBar from "../SideBar/SideBar";
+import TrendingShoesCard from "../TrendingShoes/TrendingShoesCard";
 
 const StyledLinks = styled(Link)`
 	text-decoration: none;
@@ -27,6 +28,7 @@ const StyledLinks = styled(Link)`
 function Search({ searchResults, searchShoes }) {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [shoesPerPage] = useState(16);
+	const [isViewActive, setIsViewActive] = useState(false);
 
 	// Get Current Shoes
 	const indexofLastShoe = currentPage * shoesPerPage;
@@ -65,8 +67,25 @@ function Search({ searchResults, searchShoes }) {
 						</div>
 						<div className="search-bar-details">
 							<SearchResultsForm search={SearchResultsForm} />
-							<Icon icon={gridIcon} style={{ width: "4rem", height: "3rem" }} />
-							<Icon icon={menuIcon} style={{ color: "CECECE", width: "2.8rem", height: "3rem" }} />
+							<Icon
+								icon={gridIcon}
+								onClick={() => setIsViewActive(!isViewActive)}
+								style={
+									isViewActive
+										? { color: "CECECE", width: "2.5rem", height: "2.5rem" }
+										: { color: "000000", width: "2.5rem", height: "2.5rem" }
+								}
+							/>
+							<Icon
+								icon={menuIcon}
+								onClick={() => setIsViewActive(!isViewActive)}
+								className={`menu-list-icon ${isViewActive ? "active" : "inactive"}`}
+								style={
+									isViewActive
+										? { color: "000000", width: "2rem", height: "3rem" }
+										: { color: "CECECE", width: "2rem", height: "3rem" }
+								}
+							/>
 						</div>
 					</div>
 				</div>
@@ -79,12 +98,15 @@ function Search({ searchResults, searchShoes }) {
 						{searchShoes && <SkeletonCards />}
 						{!searchShoes &&
 							currentShoes.map((shoe, i) => (
-								<SearchedShoesDetails
+								<TrendingShoesCard
 									key={i}
 									id={shoe._id}
 									thumbnail={shoe.thumbnail}
 									shoeName={shoe.shoeName}
 									lowestPrice={shoe.lowestPrice}
+									styleId={shoe.styleID}
+									type="trending"
+									isViewActive={isViewActive}
 								/>
 							))}
 					</div>

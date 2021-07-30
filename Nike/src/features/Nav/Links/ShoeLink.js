@@ -16,6 +16,9 @@ import LinksPagination from "./LinksPagination";
 import SideBar from "../../Content/SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 
+import "../../Content/TrendingShoes/TrendingShoes.css";
+import "../../Content/Search/Search.css";
+
 // import "./ShoeLink.css";
 
 const StyledLinks = styled(Link)`
@@ -30,6 +33,7 @@ export default function ShoeLink() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [shoesPerPage] = useState(16);
+	const [isViewActive, setIsViewActive] = useState(false);
 
 	// Get Current Shoes
 	const indexofLastShoe = currentPage * shoesPerPage;
@@ -106,8 +110,25 @@ export default function ShoeLink() {
 						<div className="options-mobile">filter</div>
 						<div className="search-bar-details">
 							<SearchResultsForm search={SearchResultsForm} />
-							<Icon icon={gridIcon} style={{ width: "2.5rem", height: "2.5rem" }} />
-							<Icon icon={menuIcon} style={{ color: "CECECE", width: "2rem", height: "3rem" }} />
+							<Icon
+								icon={gridIcon}
+								onClick={() => setIsViewActive(!isViewActive)}
+								style={
+									isViewActive
+										? { color: "CECECE", width: "2.5rem", height: "2.5rem" }
+										: { color: "000000", width: "2.5rem", height: "2.5rem" }
+								}
+							/>
+							<Icon
+								icon={menuIcon}
+								onClick={() => setIsViewActive(!isViewActive)}
+								className={`menu-list-icon ${isViewActive ? "active" : "inactive"}`}
+								style={
+									isViewActive
+										? { color: "000000", width: "2rem", height: "3rem" }
+										: { color: "CECECE", width: "2rem", height: "3rem" }
+								}
+							/>
 						</div>
 					</div>
 				</div>
