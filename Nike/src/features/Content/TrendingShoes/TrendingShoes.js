@@ -44,7 +44,7 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
 	}, [getShoes]);
 
 	return (
-		<div className="container">
+		<div className="main-container">
 			<NavBar />
 			<div className="cta-trending-img">
 				<img src={TrendingBackground} alt="cta-logo" />

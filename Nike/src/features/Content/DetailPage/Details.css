@@ -38,8 +38,28 @@
 }
 
 @media only screen and (min-width: 1584px) {
-	h5 {
+	.details-tab h5 {
 		margin: 0;
+		padding: 0;
+		font-weight: normal;
+		font-size: 0.7rem;
+		line-height: 0;
+	}
+
+	.prices-tab h5 {
+		margin: 0;
+		padding: 0;
+		font-weight: normal;
+		font-size: 0.7rem;
+		line-height: 0;
+	}
+
+	.shoe-details h2 {
+		margin: 30px 0;
+		padding: 0;
+		font-weight: 700;
+		font-size: 1.5rem;
+		line-height: 0;
 	}
 
 	.shoe-details-content {
@@ -96,6 +116,10 @@
 
 	.details-box p {
 		line-height: 32.5px;
+		margin: 0;
+		font-size: 15px;
+		padding: 0;
+		margin: 0;
 	}
 
 	.details-tab {
@@ -250,6 +274,7 @@
 		width: 471px;
 		right: 184px;
 		border: 1px solid #dadada;
+		margin: 0;
 	}
 	.hr2 {
 		position: absolute;
@@ -257,6 +282,7 @@
 		width: 471px;
 		right: 184px;
 		border: 1px solid #dadada;
+		margin: 0;
 	}
 	.hr3 {
 		position: absolute;
@@ -264,5 +290,6 @@
 		width: 471px;
 		right: 184px;
 		border: 1px solid #dadada;
+		margin: 0;
 	}
 }

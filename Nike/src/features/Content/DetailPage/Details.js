@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import Carousel from "react-bootstrap/Carousel";
 
 import NavBar from "../../Nav/NavBar";
 import DetailsSkeleton from "../Skeletons/DetailsSkeleton";
@@ -66,7 +67,7 @@ export default function Details(props) {
 
 	if (shoeDetails.length < 1) {
 		return (
-			<div className="container">
+			<div className="main-container">
 				<NavBar />
 				<DetailsSkeleton />
 				<Footer />
@@ -74,12 +75,28 @@ export default function Details(props) {
 		);
 	} else {
 		return (
-			<div className="container">
+			<div className="main-container">
 				<NavBar />
 				<div className="shoe-details-container" style={{ marginTop: "200px" }}>
 					<div className="shoe-details-content">
 						<div className="shoe-img">
-							<img src={shoeDetails.thumbnail} alt="shoe pic" />
+							<Carousel>
+								<Carousel.Item interval={4000}>
+									<img src={shoeDetails.imageLinks[0]} alt="shoe" />
+								</Carousel.Item>
+								<Carousel.Item interval={4000}>
+									<img src={shoeDetails.imageLinks[1]} alt="shoe" />
+								</Carousel.Item>
+								<Carousel.Item interval={4000}>
+									<img src={shoeDetails.imageLinks[2]} alt="shoe" />
+								</Carousel.Item>
+								<Carousel.Item interval={4000}>
+									<img src={shoeDetails.imageLinks[3]} alt="shoe" />
+								</Carousel.Item>
+								<Carousel.Item interval={4000}>
+									<img src={shoeDetails.imageLinks[4]} alt="shoe" />
+								</Carousel.Item>
+							</Carousel>
 						</div>
 						<div className="shoe-details">
 							<h2>{shoeDetails.shoeName}</h2>

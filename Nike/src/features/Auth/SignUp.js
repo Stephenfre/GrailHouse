@@ -31,7 +31,7 @@ export default function SignUp() {
 	});
 
 	return (
-		<div className="container">
+		<div className="main-container">
 			<div className="sign-up-container">
 				<div className="sign-up-content">
 					<div className="sign-up-imgs">

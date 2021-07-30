@@ -52,7 +52,7 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
 	}, [getShoes]);
 
 	return (
-		<div className="container">
+		<div className="main-container">
 			<NavBar />
 			<Cta />
 			<div className="content">

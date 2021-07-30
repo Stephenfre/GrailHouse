@@ -42,7 +42,7 @@ function Search({ searchResults, searchShoes }) {
 	console.log(shoeName);
 
 	return (
-		<div className="container">
+		<div className="main-container">
 			<NavBar />
 			<SearchCta />
 			<div className="search-content">

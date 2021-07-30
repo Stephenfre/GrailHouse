@@ -19,27 +19,27 @@ const Button = styled.button`
 	text-align: center;
 `;
 
-function TopTenShoeCards(props) {
+function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
 	let history = useHistory();
 
 	const clickHandler = (id) => {
-		props.selectShoe(id, "top ten");
-		history.push(`/details/${id}`);
+		selectShoe(id, type);
+		history.push(`details/${id}/${styleId}`);
 	};
 
 	return (
 		<div className="topten-shoes-card">
-			<div className="topten-shoes" onClick={(e) => clickHandler(props.id)}>
+			<div className="topten-shoes" onClick={(e) => clickHandler(id)}>
 				<div className="topten-shoes-img">
-					<img src={props.thumbnail} alt="shoe pic" />
+					<img src={thumbnail} alt="shoe pic" />
 				</div>
 				<div className="topten-shoes-wrap">
 					<div className="topten-shoes-details">
-						<p>{props.shoeName}</p>
+						<p>{shoeName}</p>
 						<div className="topten-shoes-prices">
 							<p> Lowest Price</p>
 
-							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${props.lowestPrice}</p>
+							<p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
 						</div>
 						<div className="add-to-closet">
 							<Button>ADD TO CLOSET</Button>

@@ -31,7 +31,7 @@ export default function SignIn() {
 	});
 
 	return (
-		<div className="container">
+		<div className="main-container">
 			<div className="sign-in-container">
 				<div className="sign-in-content">
 					<div className="sign-in-imgs">

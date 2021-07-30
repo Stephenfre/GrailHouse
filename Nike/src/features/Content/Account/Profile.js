@@ -8,7 +8,7 @@ import Footer from "../../Footer/Footer";
 
 export default function Profile() {
 	return (
-		<div className="container">
+		<div className="main-container">
 			<NavBar />
 			<div className="profile">
 				<SideNavBar />

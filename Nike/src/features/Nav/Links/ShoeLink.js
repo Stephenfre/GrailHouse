@@ -94,7 +94,7 @@ export default function ShoeLink() {
 	}, []);
 
 	return (
-		<div className="container">
+		<div className="main-container">
 			<NavBar />
 			<SearchCta />
 			<div className="trending-content">
