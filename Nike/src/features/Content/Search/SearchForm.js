@@ -59,9 +59,9 @@ function Search(props) {
 				placeholder="Search..."
 				style={{
 					background: "white",
-					width: "70%",
-					height: "20%",
-					borderRadius: "10px",
+					width: "75%",
+					height: "50%",
+					borderRadius: "15px",
 					color: "black",
 					padding: "10px",
 				}}
@@ -72,7 +72,7 @@ function Search(props) {
 					position: "absolute",
 					background: "none",
 					right: "10.5rem",
-					top: "1.8rem",
+					top: "1.7rem",
 					margin: "0",
 					padding: "0",
 					width: "0",

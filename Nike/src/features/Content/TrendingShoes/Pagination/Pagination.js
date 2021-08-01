@@ -7,6 +7,9 @@ import "./Pagination.css";
 const Links = styled(Link)`
 	text-decoration: none;
 	color: black;
+	&:hover {
+		color: black;
+	}
 `;
 
 const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
@@ -21,10 +24,6 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
 		paginate(pageNumber);
 		setIsActive(!isActive);
 	};
-
-	// if (!gettingShoes) {
-	// 	<h1> loading </h1>;
-	// }
 
 	return (
 		<div className="pagination">

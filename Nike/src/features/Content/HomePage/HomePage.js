@@ -35,6 +35,10 @@ const StyledLinks = styled(Link)`
 	@media only screen and (max-width: 600px) {
 		font-size: 15px;
 	}
+	&:hover {
+		color: black;
+		text-decoration: none;
+	}
 `;
 
 function HomePage({ getShoes, shoes, gettingShoes }) {

@@ -64,6 +64,7 @@ function Search(props) {
 					borderRadius: "10px",
 					color: "black",
 					padding: "10px",
+					fontSize: "13px",
 				}}
 			/>
 			<button
@@ -71,7 +72,8 @@ function Search(props) {
 				style={{
 					position: "absolute",
 					background: "none",
-					right: "14.4rem",
+					right: "15rem",
+					bottom: "338px",
 					margin: "0",
 					padding: "4px 0 0 0",
 					width: "0",
