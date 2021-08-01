@@ -12,7 +12,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import { loadState, saveState } from "./localStorage";
 import ScrollToTop from "./ScrollToTop";
 // import LogRocket from "logrocket";
-import "bootstrap/dist/css/bootstrap.css";
 
 // const persistedState = loadState();
 

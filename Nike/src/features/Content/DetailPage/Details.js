@@ -3,11 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.css";
 
 import NavBar from "../../Nav/NavBar";
 import DetailsSkeleton from "../Skeletons/DetailsSkeleton";
 import Footer from "../../Footer/Footer";
 import FlightClub from "../../../Svgs/Flightclub.svg";
+// import FlightClubColored from "../../../Svgs/FlightClubColoredsvg";
 import StockX from "../../../Svgs/StockX.svg";
 import Goat from "../../../Svgs/Goat.svg";
 import StadiumGoods from "../../../Svgs/StadiumGoods.svg";
@@ -38,7 +40,86 @@ export default function Details(props) {
 	const [shoeDetails, setShoeDetails] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [detailsTabActive, setDetailsTabActive] = useState(false);
+	const [pricesActive, setPricesActive] = useState(false);
+	const [stores, setStores] = useState({
+		flightClub: {
+			active: true,
+		},
+		stockX: {
+			active: false,
+		},
+		goat: {
+			active: false,
+		},
+		stadiumGoods: {
+			active: false,
+		},
+	});
 	let { styleId } = useParams();
+
+	const toggleMe = (store) => {
+		if (store === "flightClub") {
+			setStores({
+				flightClub: {
+					active: true,
+				},
+				stockX: {
+					active: false,
+				},
+				goat: {
+					active: false,
+				},
+				stadiumGoods: {
+					active: false,
+				},
+			});
+		} else if (store === "stockX") {
+			setStores({
+				flightClub: {
+					active: false,
+				},
+				stockX: {
+					active: true,
+				},
+				goat: {
+					active: false,
+				},
+				stadiumGoods: {
+					active: false,
+				},
+			});
+		} else if (store === "goat") {
+			setStores({
+				flightClub: {
+					active: false,
+				},
+				stockX: {
+					active: false,
+				},
+				goat: {
+					active: true,
+				},
+				stadiumGoods: {
+					active: false,
+				},
+			});
+		} else if (store === "stadiumGoods") {
+			setStores({
+				flightClub: {
+					active: false,
+				},
+				stockX: {
+					active: false,
+				},
+				goat: {
+					active: false,
+				},
+				stadiumGoods: {
+					active: true,
+				},
+			});
+		}
+	};
 
 	//* FETCH HERE
 	useEffect(() => {
@@ -80,21 +161,21 @@ export default function Details(props) {
 				<div className="shoe-details-container" style={{ marginTop: "200px" }}>
 					<div className="shoe-details-content">
 						<div className="shoe-img">
-							<Carousel>
-								<Carousel.Item interval={4000}>
-									<img src={shoeDetails.imageLinks[0]} alt="shoe" />
+							<Carousel indicators={true} controls={true} interval={10000}>
+								<Carousel.Item>
+									<img className="d-block w-100" src={shoeDetails.imageLinks[0]} alt="First slide" />
 								</Carousel.Item>
-								<Carousel.Item interval={4000}>
-									<img src={shoeDetails.imageLinks[1]} alt="shoe" />
+								<Carousel.Item>
+									<img className="d-block w-100" src={shoeDetails.imageLinks[1]} alt="Second slide" />
 								</Carousel.Item>
-								<Carousel.Item interval={4000}>
-									<img src={shoeDetails.imageLinks[2]} alt="shoe" />
+								<Carousel.Item>
+									<img className="d-block w-100" src={shoeDetails.imageLinks[2]} alt="Third slide" />
 								</Carousel.Item>
-								<Carousel.Item interval={4000}>
-									<img src={shoeDetails.imageLinks[3]} alt="shoe" />
+								<Carousel.Item>
+									<img className="d-block w-100" src={shoeDetails.imageLinks[3]} alt="Third slide" />
 								</Carousel.Item>
-								<Carousel.Item interval={4000}>
-									<img src={shoeDetails.imageLinks[4]} alt="shoe" />
+								<Carousel.Item>
+									<img className="d-block w-100" src={shoeDetails.imageLinks[4]} alt="Third slide" />
 								</Carousel.Item>
 							</Carousel>
 						</div>
@@ -118,210 +199,286 @@ export default function Details(props) {
 										<h5>PRICES</h5>
 									</button>
 								</div>
-
 								<div className="details-box">
 									<div className={`details-description ${!detailsTabActive ? "active" : "inactive"}`}>
 										<p>{shoeDetails.description}</p>
 									</div>
 									<div className={`prices-prices ${detailsTabActive ? "active" : "inactive"}`}>
-										<hr className="hr0" />
-										<hr className="hr1" />
-										<hr className="hr2" />
-										<hr className="hr3" />
-										<div className="sizes">
-											<ul className="logo-row-ul">
-												<li className="prices-logo-li">
-													<h4 style={{ fontSize: "18px", fontWeight: "700" }}>Sizes</h4>
-												</li>
-
-												<li className="prices-logo-li">
-													<a href="https://www.flightclub.com/">
-														<img src={FlightClub} alt="flight club logo" />
-													</a>
-												</li>
-
-												<li className="prices-logo-li">
-													<a href="https://www.stockx.com/">
-														<img src={StockX} alt="Stock X logo" />
-													</a>
-												</li>
-
-												<li className="prices-logo-li">
-													<a href="https://www.goat.com/">
-														<img src={Goat} alt="Goat logo" />
-													</a>
-												</li>
-
-												<li className="prices-logo-li">
-													<a href="https://www.stadiumgoods.com/">
-														<img src={StadiumGoods} alt="Stadium Goods logo" />
-													</a>
-												</li>
+										<div className="prices-stores">
+											<button
+												onClick={() => toggleMe("flightClub")}
+												className={`flightclub ${
+													stores.flightClub.active ? "active" : "inactive"
+												}`}
+											>
+												<img
+													src={stores.flightClub.active ? FlightClub : FlightClub}
+													alt="logo"
+												/>
+											</button>
+											<button
+												onClick={() => toggleMe("stockX")}
+												className={`stockx ${stores.stockX.active ? "active" : "inactive"}`}
+											>
+												<img src={StockX} alt="logo" />
+											</button>
+											<button
+												onClick={() => toggleMe("goat")}
+												className={`goat ${stores.goat.active ? "active" : "inactive"}`}
+											>
+												<img src={Goat} alt="logo" />
+											</button>
+											<button
+												onClick={() => toggleMe("stadiumGoods")}
+												className={`stadiumgoods ${
+													stores.stadiumGoods.active ? "active" : "inactive"
+												}`}
+											>
+												<img src={StadiumGoods} alt="logo" />
+											</button>
+										</div>
+										<div
+											className={`flightclub-sizes ${
+												stores.flightClub.active ? "active" : "inactive"
+											}`}
+										>
+											<ul className="flightclub-ul">
+												<a href="">
+													<li className="flightclub-li">
+														<p>6 | ${shoeDetails.resellPrices.flightClub["6"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>7 | ${shoeDetails.resellPrices.flightClub["7"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>8 | ${shoeDetails.resellPrices.flightClub["8"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>9 | ${shoeDetails.resellPrices.flightClub["9"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>10 | ${shoeDetails.resellPrices.flightClub["10"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>11 | ${shoeDetails.resellPrices.flightClub["11"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>12 | ${shoeDetails.resellPrices.flightClub["12"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>13 | ${shoeDetails.resellPrices.flightClub["13"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>14 | ${shoeDetails.resellPrices.flightClub["14"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>15 | ${shoeDetails.resellPrices.flightClub["15"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="flightclub-li">
+														<p>16 | ${shoeDetails.resellPrices.flightClub["16"]}</p>
+													</li>
+												</a>
 											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">7</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["7"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["7"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["7"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["7"]}
-												</li>
+										</div>
+										<div className={`stockx-sizes ${stores.stockX.active ? "active" : "inactive"}`}>
+											<ul className="stockx-ul">
+												<a href="">
+													<li className="stockx-li">
+														<p>6 | ${shoeDetails.resellPrices.stockX["6"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>7 | ${shoeDetails.resellPrices.stockX["7"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>8 | ${shoeDetails.resellPrices.stockX["8"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>9 | ${shoeDetails.resellPrices.stockX["9"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>10 | ${shoeDetails.resellPrices.stockX["10"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>11 | ${shoeDetails.resellPrices.stockX["11"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>12 | ${shoeDetails.resellPrices.stockX["12"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>13 | ${shoeDetails.resellPrices.stockX["13"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>14 | ${shoeDetails.resellPrices.stockX["14"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>15 | ${shoeDetails.resellPrices.stockX["15"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stockx-li">
+														<p>16 | ${shoeDetails.resellPrices.stockX["16"]}</p>
+													</li>
+												</a>
 											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">8</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["8"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["8"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["8"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["8"]}
-												</li>
+										</div>
+										<div className={`goat-sizes ${stores.goat.active ? "active" : "inactive"}`}>
+											<ul className="goat-ul">
+												<a href="">
+													<li className="goat-li">
+														<p>6 | ${shoeDetails.resellPrices.stockX["6"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>7 | ${shoeDetails.resellPrices.stockX["7"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>8 | ${shoeDetails.resellPrices.stockX["8"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>9 | ${shoeDetails.resellPrices.stockX["9"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>10 | ${shoeDetails.resellPrices.stockX["10"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>11 | ${shoeDetails.resellPrices.stockX["11"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>12 | ${shoeDetails.resellPrices.stockX["12"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>13 | ${shoeDetails.resellPrices.stockX["13"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>14 | ${shoeDetails.resellPrices.stockX["14"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>15 | ${shoeDetails.resellPrices.stockX["15"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="goat-li">
+														<p>16 | ${shoeDetails.resellPrices.stockX["16"]}</p>
+													</li>
+												</a>
 											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">9</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["9"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["9"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["9"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["9"]}
-												</li>
-											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">10</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["10"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["10"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["10"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["10"]}
-												</li>
-											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">11</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["11"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["11"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["11"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["11"]}
-												</li>
-											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">12</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["12"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["12"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["12"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["12"]}
-												</li>
-											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">12</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["12"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["12"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["12"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["12"]}
-												</li>
-											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">13</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["13"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["13"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["13"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["13"]}
-												</li>
-											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">14</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["14"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["14"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["14"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["14"]}
-												</li>
-											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">15</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["15"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["15"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["15"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["15"]}
-												</li>
-											</ul>
-											<ul className="size-row-ul">
-												<li className="prices-li">16</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.flightClub["16"]}
-												</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.stockX["16"]}</li>
-
-												<li className="prices-li">${shoeDetails.resellPrices.goat["16"]}</li>
-
-												<li className="prices-li">
-													${shoeDetails.resellPrices.stadiumGoods["16"]}
-												</li>
+										</div>
+										<div
+											className={`stadium-sizes ${
+												stores.stadiumGoods.active ? "active" : "inactive"
+											}`}
+										>
+											<ul className="stadium-ul">
+												<a href="">
+													<li className="stadium-li">
+														<p>6 | ${shoeDetails.resellPrices.stockX["6"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>7 | ${shoeDetails.resellPrices.stockX["7"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>8 | ${shoeDetails.resellPrices.stockX["8"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>9 | ${shoeDetails.resellPrices.stockX["9"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>10 | ${shoeDetails.resellPrices.stockX["10"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>11 | ${shoeDetails.resellPrices.stockX["11"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>12 | ${shoeDetails.resellPrices.stockX["12"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>13 | ${shoeDetails.resellPrices.stockX["13"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>14 | ${shoeDetails.resellPrices.stockX["14"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>15 | ${shoeDetails.resellPrices.stockX["15"]}</p>
+													</li>
+												</a>
+												<a href="">
+													<li className="stadium-li">
+														<p>16 | ${shoeDetails.resellPrices.stockX["16"]}</p>
+													</li>
+												</a>
 											</ul>
 										</div>
 									</div>
