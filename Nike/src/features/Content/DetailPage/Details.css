@@ -67,7 +67,7 @@
 		width: 87%;
 		justify-content: center;
 		align-items: center;
-		height: 100%;
+		height: 540px;
 		margin-left: 130px;
 	}
 
@@ -85,12 +85,12 @@
 
 	.shoe-details {
 		width: 50%;
-		height: 64%;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
-		margin: 0;
+		margin-top: 80px;
 	}
 
 	.details-prices-tabs {
@@ -247,6 +247,16 @@
 		margin-right: 21px;
 	}
 
+	.flightclub-ul a,
+	.stockx-ul a,
+	.goat-ul a,
+	.stadiumgoods-ul a,
+	:hover {
+		text-decoration: none;
+		/* color: white; */
+		/* background: rgb(31, 31, 31); */
+	}
+
 	.flightclub-li,
 	.stockx-li,
 	.goat-li,
@@ -263,5 +273,9 @@
 		text-align: center;
 		padding: 8px;
 		color: white;
+	}
+
+	.carousel-indicators li {
+		background-color: black;
 	}
 }

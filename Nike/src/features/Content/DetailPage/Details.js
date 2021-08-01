@@ -164,7 +164,7 @@ export default function Details(props) {
 				<div className="shoe-details-container" style={{ marginTop: "200px" }}>
 					<div className="shoe-details-content">
 						<div className="shoe-img">
-							<Carousel indicators={true} controls={true} interval={10000}>
+							<Carousel variant="dark" indicator="true" controls="true" interval={10000}>
 								<Carousel.Item>
 									<img className="d-block w-100" src={shoeDetails.imageLinks[0]} alt="First slide" />
 								</Carousel.Item>
@@ -251,27 +251,27 @@ export default function Details(props) {
 											}`}
 										>
 											<ul className="flightclub-ul">
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>6 | ${shoeDetails.resellPrices.flightClub["6"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>7 | ${shoeDetails.resellPrices.flightClub["7"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>8 | ${shoeDetails.resellPrices.flightClub["8"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>9 | ${shoeDetails.resellPrices.flightClub["9"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>10 | ${shoeDetails.resellPrices.flightClub["10"]}</p>
 													</li>
@@ -281,27 +281,27 @@ export default function Details(props) {
 														<p>11 | ${shoeDetails.resellPrices.flightClub["11"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>12 | ${shoeDetails.resellPrices.flightClub["12"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>13 | ${shoeDetails.resellPrices.flightClub["13"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>14 | ${shoeDetails.resellPrices.flightClub["14"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>15 | ${shoeDetails.resellPrices.flightClub["15"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.flightClub}>
 													<li className="flightclub-li">
 														<p>16 | ${shoeDetails.resellPrices.flightClub["16"]}</p>
 													</li>
@@ -310,57 +310,57 @@ export default function Details(props) {
 										</div>
 										<div className={`stockx-sizes ${stores.stockX.active ? "active" : "inactive"}`}>
 											<ul className="stockx-ul">
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>6 | ${shoeDetails.resellPrices.stockX["6"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>7 | ${shoeDetails.resellPrices.stockX["7"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>8 | ${shoeDetails.resellPrices.stockX["8"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>9 | ${shoeDetails.resellPrices.stockX["9"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>10 | ${shoeDetails.resellPrices.stockX["10"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>11 | ${shoeDetails.resellPrices.stockX["11"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>12 | ${shoeDetails.resellPrices.stockX["12"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>13 | ${shoeDetails.resellPrices.stockX["13"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>14 | ${shoeDetails.resellPrices.stockX["14"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>15 | ${shoeDetails.resellPrices.stockX["15"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stockX}>
 													<li className="stockx-li">
 														<p>16 | ${shoeDetails.resellPrices.stockX["16"]}</p>
 													</li>
@@ -369,47 +369,47 @@ export default function Details(props) {
 										</div>
 										<div className={`goat-sizes ${stores.goat.active ? "active" : "inactive"}`}>
 											<ul className="goat-ul">
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>6 | ${shoeDetails.resellPrices.goat["6"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>7 | ${shoeDetails.resellPrices.goat["7"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>8 | ${shoeDetails.resellPrices.goat["8"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>9 | ${shoeDetails.resellPrices.goat["9"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>10 | ${shoeDetails.resellPrices.goat["10"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>11 | ${shoeDetails.resellPrices.goat["11"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>12 | ${shoeDetails.resellPrices.goat["12"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>13 | ${shoeDetails.resellPrices.goat["13"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>14 | ${shoeDetails.resellPrices.goat["14"]}</p>
 													</li>
@@ -419,7 +419,7 @@ export default function Details(props) {
 														<p>15 | ${shoeDetails.resellPrices.goat["15"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.goat}>
 													<li className="goat-li">
 														<p>16 | ${shoeDetails.resellPrices.goat["16"]}</p>
 													</li>
@@ -432,57 +432,57 @@ export default function Details(props) {
 											}`}
 										>
 											<ul className="stadiumgoods-ul">
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>6 | ${shoeDetails.resellPrices.stadiumGoods["6"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>7 | ${shoeDetails.resellPrices.stadiumGoods["7"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>8 | ${shoeDetails.resellPrices.stadiumGoods["8"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>9 | ${shoeDetails.resellPrices.stadiumGoods["9"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>10 | ${shoeDetails.resellPrices.stadiumGoods["10"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>11 | ${shoeDetails.resellPrices.stadiumGoods["11"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>12 | ${shoeDetails.resellPrices.stadiumGoods["12"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>13 | ${shoeDetails.resellPrices.stadiumGoods["13"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>14 | ${shoeDetails.resellPrices.stadiumGoods["14"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>15 | ${shoeDetails.resellPrices.stadiumGoods["15"]}</p>
 													</li>
 												</a>
-												<a href="">
+												<a href={shoeDetails.resellLinks.stadiumGoods}>
 													<li className="stadiumgoods-li">
 														<p>16 | ${shoeDetails.resellPrices.stadiumGoods["16"]}</p>
 													</li>

@@ -19,7 +19,7 @@ import Footer from "../../Footer/Footer";
 import "../../Content/TrendingShoes/TrendingShoes.css";
 import "../../Content/Search/Search.css";
 
-// import "./ShoeLink.css";
+import "./ShoeLink.css";
 
 const StyledLinks = styled(Link)`
 	text-decoration: none;

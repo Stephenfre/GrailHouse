@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 
-import { selectShoe } from "../../actions";
+import { selectShoe } from "../../../actions";
 
-import "./Link.css";
+// import "./Link.css";
 
 function ShoeLinkDetails(props) {
 	let history = useHistory();

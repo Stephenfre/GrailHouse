@@ -36,6 +36,10 @@ const Dropbtn = styled(Link)`
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
+	&:hover {
+		color: black;
+		text-decoration: none;
+	}
 `;
 
 const DropDownContent = styled.div`
