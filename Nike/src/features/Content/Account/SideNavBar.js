@@ -22,6 +22,8 @@ const StyledLink = styled(NavLink).attrs({ activeClassName })`
 	color: black;
 	&:hover {
 		background: white;
+		text-decoration: none;
+		color: black;
 	}
 	&.${activeClassName} {
 		color: white;

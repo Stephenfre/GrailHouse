@@ -11,6 +11,7 @@ import NavBar from "../NavBar";
 import SearchCta from "../../Content/Search/SearchCta";
 import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
 import TrendingShoesCard from "../../Content/TrendingShoes/TrendingShoesCard";
+import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import SearchResultsForm from "../../Content/Search/SearchResultsForm";
 import LinksPagination from "./LinksPagination";
 import SideBar from "../../Content/SideBar/SideBar";
@@ -96,7 +97,9 @@ export default function ShoeLink() {
 	return (
 		<div className="main-container">
 			<NavBar />
-			<SearchCta />
+			<div className="cta-trending-img">
+				<img src={TrendingBackground} alt="cta-logo" />
+			</div>
 			<div className="trending-content">
 				<div className="title-details">
 					<div className="title-links-filters-view">
@@ -104,8 +107,6 @@ export default function ShoeLink() {
 							<StyledLinks to="/">HOME</StyledLinks>
 							{" / "}
 							<StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
-							{" / "}
-							<StyledLinks to={`/${shoeName}`}>{UpperShoeName}</StyledLinks>
 						</div>
 						<div className="options-mobile">filter</div>
 						<div className="search-bar-details">
@@ -132,12 +133,12 @@ export default function ShoeLink() {
 						</div>
 					</div>
 				</div>
-				<div className="trending-shoes-container">
+				<div className={`trending-shoes-container ${isViewActive ? "active" : "inactive"}`}>
 					<div className="options">
 						<h3>FILTER</h3>
 						<SideBar />
 					</div>
-					<div className="trending-shoes-content">
+					<div className={`trending-shoes-content ${isViewActive ? "active" : "inactive"}`}>
 						{isLoading && <SkeletonCards />}
 						{!isLoading &&
 							currentShoes.map((shoe, i) => (
@@ -147,6 +148,9 @@ export default function ShoeLink() {
 									thumbnail={shoe.thumbnail}
 									shoeName={shoe.shoeName}
 									lowestPrice={shoe.lowestPrice}
+									styleId={shoe.styleID}
+									type="trending"
+									isViewActive={isViewActive}
 								/>
 							))}
 					</div>

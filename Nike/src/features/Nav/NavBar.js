@@ -37,7 +37,7 @@ const Dropbtn = styled(Link)`
 	padding: 14px 16px;
 	text-decoration: none;
 	&:hover {
-		color: black;
+		color: white;
 		text-decoration: none;
 	}
 `;
@@ -151,9 +151,9 @@ export default function NavBar(props) {
 					<Burger />
 				</div>
 				<div className="other-content">
-					<StyledLinks onClick={menuClicked} className="menu-trigger">
-						<span>Account</span>
-					</StyledLinks>
+					<Dropbtn onClick={menuClicked} className="menu-trigger">
+						Account
+					</Dropbtn>
 					<nav ref={dropdownRef} className={`menu ${isActive ? "active" : "inactive"}`}>
 						<Account />
 					</nav>

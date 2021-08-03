@@ -9,7 +9,8 @@ const StyledLinks = styled(Link)`
 	color: black;
 
 	&:hover {
-		color: grey;
+		color: black;
+		text-decoration: none;
 	}
 `;
 
@@ -19,7 +20,7 @@ const StyledLinkBtn = styled(Link)`
 	color: white;
 	font-size: 18px;
 	padding: 1rem;
-	width: 75%;
+	width: 89%;
 	border-radius: 5px;
 	border: none;
 	text-align: center;
@@ -27,6 +28,7 @@ const StyledLinkBtn = styled(Link)`
 	&:hover {
 		background: rgb(41, 41, 41);
 		color: rgb(235, 235, 235);
+		text-decoration: none;
 	}
 `;
 

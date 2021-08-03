@@ -123,7 +123,7 @@ export default function SideBar() {
 					</List>
 				</Collapse>
 			</List>
-
+			{/* 
 			<List>
 				<ListItem button onClick={handleClickModel}>
 					<ListItemText primary="MODEL" />
@@ -161,9 +161,9 @@ export default function SideBar() {
 						</ListItem>
 					</List>
 				</Collapse>
-			</List>
+			</List> */}
 
-			<List>
+			{/* <List>
 				<ListItem button onClick={handleClickYear}>
 					<ListItemText primary="YEAR" />
 					{openYear ? <ExpandLess /> : <ExpandMore />}
@@ -200,7 +200,7 @@ export default function SideBar() {
 						</ListItem>
 					</List>
 				</Collapse>
-			</List>
+			</List> */}
 		</div>
 	);
 }

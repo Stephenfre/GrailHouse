@@ -8,6 +8,78 @@
 	width: 100%;
 }
 
+.cta-trending-img {
+	height: 40%;
+	width: 100%;
+	background: black;
+}
+
+.trending-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 495px;
+}
+
+.title-links-filters-view {
+	width: 75%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.title-trending-hover-icon {
+	width: 43.2%;
+	height: 20%;
+	display: flex;
+	align-items: flex-end;
+}
+
+.trending-shoes-container.inactive {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.trending-shoes-container.active {
+	height: 1700px;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.options {
+	width: 20%;
+}
+
+.options-mobile {
+	display: none;
+}
+
+.trending-shoes-content.inactive {
+	height: 700px;
+	width: 68%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.trending-shoes-content.active {
+	height: 700px;
+	width: 68%;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.menu-list-icon.active {
+	color: black;
+}
+
 @media only screen and (max-width: 600px) {
 	.cta-trending-img {
 		height: 40%;
@@ -80,76 +152,4 @@
 	.search-bar-details {
 		display: none;
 	}
-}
-
-.cta-trending-img {
-	height: 40%;
-	width: 100%;
-	background: black;
-}
-
-.trending-content {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 495px;
-}
-
-.title-links-filters-view {
-	width: 75%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 1.5rem;
-}
-
-.title-trending-hover-icon {
-	width: 43.2%;
-	height: 20%;
-	display: flex;
-	align-items: flex-end;
-}
-
-.trending-shoes-container.inactive {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	justify-content: space-evenly;
-}
-
-.trending-shoes-container.active {
-	height: 1700px;
-	width: 100%;
-	display: flex;
-	justify-content: space-evenly;
-}
-
-.options {
-	width: 20%;
-}
-
-.options-mobile {
-	display: none;
-}
-
-.trending-shoes-content.inactive {
-	height: 700px;
-	width: 68%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-}
-
-.trending-shoes-content.active {
-	height: 700px;
-	width: 68%;
-	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: column;
-	justify-content: flex-start;
-}
-
-.menu-list-icon.active {
-	color: black;
 }

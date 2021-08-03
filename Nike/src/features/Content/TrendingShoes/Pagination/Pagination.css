@@ -16,7 +16,7 @@
 	padding: 0;
 }
 
-.page-link {
+.trending-page-link {
 	border: 1px solid black;
 	margin: 0px 5px;
 }
@@ -46,5 +46,10 @@
 
 	.page-item {
 		padding: 10px 15px;
+	}
+
+	.trending-page-link {
+		border: 1px solid black;
+		margin: 0px 5px;
 	}
 }

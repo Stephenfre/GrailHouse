@@ -16,15 +16,15 @@ import HomeSkeletonCards from "../Skeletons/HomeSkeletonCards";
 import Footer from "../../Footer/Footer";
 import "./HomePage.css";
 
-LogRocket.init("c7rsta/grail-house");
+// LogRocket.init("c7rsta/grail-house");
 
-LogRocket.identify("1891", {
-	name: "Stephen Freeman Jr.",
-	email: "setphen.freeman.dev@gmail.com",
+// LogRocket.identify("1891", {
+// 	name: "Stephen Freeman Jr.",
+// 	email: "setphen.freeman.dev@gmail.com",
 
-	// Add your own custom user variables here, ie:
-	subscriptionType: "pro",
-});
+// Add your own custom user variables here, ie:
+// 	subscriptionType: "pro",
+// });
 
 const StyledLinks = styled(Link)`
 	text-decoration: none;

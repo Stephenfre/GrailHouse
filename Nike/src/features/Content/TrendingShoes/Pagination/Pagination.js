@@ -32,7 +32,7 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
 					<Links
 						to={`/trendingshoes/${number}`}
 						onClick={() => clickHandler(number)}
-						className={`page-link ${isActive ? "active" : "inactive"}`}
+						className={`trending-page-link ${isActive ? "active" : "inactive"}`}
 					>
 						<li key={number} className="page-item">
 							{number}

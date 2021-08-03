@@ -1,10 +1,15 @@
-p {
+.name h1 {
+	font-size: 1.8rem;
+	padding: 30px 0;
+}
+
+.account-details p {
 	font-size: 12px;
 	margin: 0;
 	padding: 0;
 }
 
-h4 {
+.account-details h4 {
 	font-size: 15px;
 	margin: 0;
 	padding: 0;
@@ -25,12 +30,9 @@ h4 {
 }
 
 .side-nav {
-	height: 100%;
+	height: 1200px;
 	width: 17%;
 	background-color: rgb(251, 251, 251);
-	position: fixed;
-	top: 77px;
-	z-index: 1;
 }
 
 .my-account-sidebar-nav {
@@ -87,6 +89,7 @@ h4 {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	margin-top: 10px;
 	margin-left: 3rem;
 	border-bottom: 1px solid lightgray;
 }

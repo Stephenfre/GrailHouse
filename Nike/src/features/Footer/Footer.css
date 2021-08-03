@@ -13,7 +13,8 @@
 	color: #757575;
 }
 
-h3 {
+.copyright h3 {
+	font-size: inherit;
 	margin: 0;
 	font-weight: 600;
 	color: #5e5e5e;
