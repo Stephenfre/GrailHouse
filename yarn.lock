@@ -169,6 +169,21 @@
   "resolved" "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.5.tgz"
   "version" "0.7.5"
 
+"@iconify/icons-ant-design@^1.1.0":
+  "integrity" "sha512-sE4NKXMfN9arTFmfvt4zARoS+hjhd8P0z5osjWYxVkQPCri1RYpF+NRa9MsDh3ScqAcSU9wfUeQ3X4Gf8GrcNQ=="
+  "resolved" "https://registry.npmjs.org/@iconify/icons-ant-design/-/icons-ant-design-1.1.0.tgz"
+  "version" "1.1.0"
+
+"@iconify/icons-bi@^1.1.5":
+  "integrity" "sha512-aDxe8WGt9KovnzzBSi5m4WR/OQ6bjx3x85jxhiCM/ylTZtPwMGUZyuNY7hU7ECV8QFci/IMUNHRmz3epm88/+w=="
+  "resolved" "https://registry.npmjs.org/@iconify/icons-bi/-/icons-bi-1.1.5.tgz"
+  "version" "1.1.5"
+
+"@iconify/icons-carbon@^1.1.5":
+  "integrity" "sha512-v9d2Hy7FZ3yQfuN/wC2fbbcWrubznDoAnCYSImeFan1CYuwhwHpEzos7c4+V+8DQV3OR3v5RyDSJgleBcBAhqw=="
+  "resolved" "https://registry.npmjs.org/@iconify/icons-carbon/-/icons-carbon-1.1.5.tgz"
+  "version" "1.1.5"
+
 "@iconify/icons-gridicons@^1.1.1":
   "integrity" "sha512-yOAIhxGwmoj2z2+EEi0/5nsUHxOwUcWJMFxodPGffCpK7NCJl+YY28iPG15+elVmvR6Fs9SFyHkBjdgWFRWI2w=="
   "resolved" "https://registry.npmjs.org/@iconify/icons-gridicons/-/icons-gridicons-1.1.1.tgz"
