@@ -1,22 +1,22 @@
 import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 
-const HomePage = React.lazy(() => import("./features/Content/HomePage/HomePage"));
-const Profile = React.lazy(() => import("./features/Content/Account/Profile"));
-const Closet = React.lazy(() => import("./features/Content/Account/Closet"));
-const Portfolio = React.lazy(() => import("./features/Content/Account/Portfolio"));
-const Settings = React.lazy(() => import("./features/Content/Account/Settings"));
-const TrackChanges = React.lazy(() => import("./features/Content/Account/TrackChanges"));
-const SignIn = React.lazy(() => import("./features/Auth/SignIn"));
-const SignUp = React.lazy(() => import("./features/Auth/SignUp"));
-const TrendingShoes = React.lazy(() => import("./features/Content/TrendingShoes/TrendingShoes"));
-const Details = React.lazy(() => import("./features/Content/DetailPage/Details"));
-const Search = React.lazy(() => import("./features/Content/Search/Search"));
-const ShoeLink = React.lazy(() => import("./features/Nav/Links/ShoeLink"));
+ import HomePage from "./features/Content/HomePage/HomePage";
+ import Profile from "./features/Content/Account/Profile";
+ import Closet from "./features/Content/Account/Closet";
+ import Portfolio from "./features/Content/Account/Portfolio";
+ import Settings from "./features/Content/Account/Settings";
+//  import from "./features/Content/Account/TrackChanges";
+ import SignIn from "./features/Auth/SignIn";
+ import SignUp from "./features/Auth/SignUp";
+ import TrendingShoes from "./features/Content/TrendingShoes/TrendingShoes";
+ import Details from "./features/Content/DetailPage/Details";
+ import Search from "./features/Content/Search/Search";
+ import ShoeLink from "./features/Nav/Links/ShoeLink";
 
 export default function App() {
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		// <Suspense fallback={<div>Loading...</div>}>
 			<div className="app">
 				<Switch>
 					<Route exact path="/" component={HomePage} />
@@ -34,9 +34,9 @@ export default function App() {
 					<Route exact path="/account/settings" component={Settings} />
 					<Route exact path="/:shoeName" component={ShoeLink} />
 					<Route exact path="/:shoeName/:pageNumber" component={ShoeLink} />
-					<Route exact path="/trackchanges" component={TrackChanges} />
+					{/* <Route exact path="/trackchanges" component={TrackChanges} /> */}
 				</Switch>
 			</div>
-		</Suspense>
+		// </Suspense>
 	);
 }
