@@ -169,6 +169,11 @@
   "resolved" "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.5.tgz"
   "version" "0.7.5"
 
+"@iconify/icons-gridicons@^1.1.1":
+  "integrity" "sha512-yOAIhxGwmoj2z2+EEi0/5nsUHxOwUcWJMFxodPGffCpK7NCJl+YY28iPG15+elVmvR6Fs9SFyHkBjdgWFRWI2w=="
+  "resolved" "https://registry.npmjs.org/@iconify/icons-gridicons/-/icons-gridicons-1.1.1.tgz"
+  "version" "1.1.1"
+
 "@iconify/icons-majesticons@^1.1.3":
   "integrity" "sha512-UKPmS5oRi7EosUXGmDbmFCofYIIpbmiXxE5VvIrYPLmnRfV2O7ReMk08ZqH8x5jgPcveCW4gPTYZ/DEjLXuqWg=="
   "resolved" "https://registry.npmjs.org/@iconify/icons-majesticons/-/icons-majesticons-1.1.3.tgz"
