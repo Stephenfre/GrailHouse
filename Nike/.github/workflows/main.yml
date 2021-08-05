@@ -1,24 +1,22 @@
-
-name: Deploy to firebase
+name: CI/CD
 
 on:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - master
 
 jobs:
-  deploy:
+  build:
 
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-    - name: Setup the code
-      run: npm install
-    - name: Test the code
-      run: npm test
-    - name: Deploy to Firebase
-      uses: mohammed-atif/firebase-publish-react@v1.0
-      with:
-        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
+    - uses: actions/checkout@v1
+    - name: Build
+      run: |
+        npm install
+        npm run build
+    - name: Firebase Deploy
+      run: |
+        sudo npm install -g firebase-tools
+        firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
