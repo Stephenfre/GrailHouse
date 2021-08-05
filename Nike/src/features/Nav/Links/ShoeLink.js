@@ -50,7 +50,7 @@ export default function ShoeLink() {
 
 	console.log(shoeName);
 
-	let url = `http://localhost:5000/search/${shoeName}`;
+	let url = `https://grailhouse.herokuapp.com/search/${shoeName}`;
 
 	useEffect(() => {
 		let searchPrices = [];
