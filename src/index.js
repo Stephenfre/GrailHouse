@@ -9,17 +9,9 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { BrowserRouter as Router } from "react-router-dom";
-// import { loadState, saveState } from "./localStorage";
 import ScrollToTop from "./ScrollToTop";
-// import LogRocket from "logrocket";
-
-// const persistedState = loadState();
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
-
-// store.subscribe(() => {
-// 	saveState(store.getState());
-// });
 
 ReactDOM.render(
 	<Provider store={store}>

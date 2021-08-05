@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import questionMarkCircle from "@iconify/icons-majesticons/question-mark-circle";
-import LogRocket from "logrocket";
 
 import { getShoes } from "../../../actions";
 import NavBar from "../../Nav/NavBar";
@@ -15,16 +14,6 @@ import TopTenHoverBox from "../TopTenHoverBox";
 import HomeSkeletonCards from "../Skeletons/HomeSkeletonCards";
 import Footer from "../../Footer/Footer";
 import "./HomePage.css";
-
-// LogRocket.init("c7rsta/grail-house");
-
-// LogRocket.identify("1891", {
-// 	name: "Stephen Freeman Jr.",
-// 	email: "setphen.freeman.dev@gmail.com",
-
-// Add your own custom user variables here, ie:
-// 	subscriptionType: "pro",
-// });
 
 const StyledLinks = styled(Link)`
 	text-decoration: none;
