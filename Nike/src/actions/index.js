@@ -13,7 +13,7 @@ export function getShoes() {
 		dispatch({ type: GETTING_SHOES });
 
 		return axios
-			.get("https://grailhouse.herokuapp.com/")
+			.get("https://grailhouse.herokuapp.com/home")
 			.then((res) => {
 				console.log("get shoes", res.data);
 				dispatch({
