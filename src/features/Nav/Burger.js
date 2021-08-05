@@ -39,14 +39,14 @@ const Burger = () => {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<>
+		<React.Fragment>
 			<StyledBurger open={open} onClick={() => setOpen(!open)}>
 				<div />
 				<div />
 				<div />
 			</StyledBurger>
 			<MobileNav open={open} />
-		</>
+		</React.Fragment>
 	);
 };
 
