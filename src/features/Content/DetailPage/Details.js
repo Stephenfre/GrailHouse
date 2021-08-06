@@ -41,7 +41,6 @@ const StyledLinks = styled(Link)`
 
 export default function Details(props) {
 	const [shoeDetails, setShoeDetails] = useState([]);
-    // eslint-disable-next-line
 	const [isLoading, setIsLoading] = useState(true);
 	const [detailsTabActive, setDetailsTabActive] = useState(false);
 	const [stores, setStores] = useState({
@@ -127,7 +126,7 @@ export default function Details(props) {
 	//* FETCH HERE
 	useEffect(() => {
 		axios
-			.get(`https://grailhouse.herokuapp.com/api/id/${styleId}/prices`)
+			.get(`http://localhost:5001/api/id/${styleId}/prices`)
 			.then((response) => {
 				console.log("", response);
 				setIsLoading(true);

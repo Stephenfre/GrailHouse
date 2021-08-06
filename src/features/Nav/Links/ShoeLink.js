@@ -45,7 +45,7 @@ export default function ShoeLink() {
 	let { shoeName } = useParams();
 
 
-	let url = `https://grailhouse.herokuapp.com/api/search/${shoeName}`;
+	let url = `http://localhost:5001/api/search/${shoeName}`;
 
 	useEffect(() => {
 		let searchPrices = [];
