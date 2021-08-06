@@ -41,7 +41,7 @@ const StyledLinks = styled(Link)`
 
 export default function Details(props) {
 	const [shoeDetails, setShoeDetails] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [setIsLoading] = useState(true);
 	const [detailsTabActive, setDetailsTabActive] = useState(false);
 	const [stores, setStores] = useState({
 		flightClub: {
