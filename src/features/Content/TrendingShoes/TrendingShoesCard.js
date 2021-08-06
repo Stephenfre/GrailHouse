@@ -25,7 +25,7 @@ function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName
 
 	const clickHandler = (id) => {
 		selectShoe(id, type);
-		history.push(`trendingshoes/details/${id}/${styleId}`);
+		history.push(`trendingshoes/details/id/${styleId}`);
 	};
 
 	return (
