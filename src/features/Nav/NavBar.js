@@ -59,17 +59,17 @@ const DropDownLi = styled(StyledLi)`
 	}
 `;
 
-const StyledLinks = styled(Link)`
-	padding: 5px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 15px;
-	color: white;
+// const StyledLinks = styled(Link)`
+// 	padding: 5px;
+// 	text-align: center;
+// 	text-decoration: none;
+// 	font-size: 15px;
+// 	color: white;
 
-	&:hover {
-		border-bottom: black solid 1px;
-	}
-`;
+// 	&:hover {
+// 		border-bottom: black solid 1px;
+// 	}
+// `;
 
 export default function NavBar(props) {
 	const dropdownRef = useRef(null);

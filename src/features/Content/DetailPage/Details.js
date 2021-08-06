@@ -43,7 +43,6 @@ export default function Details(props) {
 	const [shoeDetails, setShoeDetails] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [detailsTabActive, setDetailsTabActive] = useState(false);
-	const [pricesActive, setPricesActive] = useState(false);
 	const [stores, setStores] = useState({
 		flightClub: {
 			active: true,

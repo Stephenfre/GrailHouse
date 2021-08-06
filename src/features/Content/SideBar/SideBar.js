@@ -63,12 +63,12 @@ export default function SideBar() {
 	const handleClickBrand = () => {
 		setOpenBrand(!openBrand);
 	};
-	const handleClickModel = () => {
-		setOpenModel(!openModel);
-	};
-	const handleClickYear = () => {
-		setOpenYear(!openYear);
-	};
+	// const handleClickModel = () => {
+	// 	setOpenModel(!openModel);
+	// };
+	// const handleClickYear = () => {
+	// 	setOpenYear(!openYear);
+	// };
 
 	const handleToggle = (value) => () => {
 		const currentIndex = checked.indexOf(value);

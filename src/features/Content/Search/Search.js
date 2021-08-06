@@ -10,7 +10,6 @@ import menuIcon from "@iconify/icons-vaadin/menu";
 import NavBar from "../../Nav/NavBar";
 import SearchCta from "./SearchCta";
 import SearchResultsForm from "./SearchResultsForm";
-import SearchedShoesDetails from "./SearchedShoesDetails";
 import SkeletonCards from "../Skeletons/SkeletonCards";
 import Footer from "../../Footer/Footer";
 import "./Search.css";

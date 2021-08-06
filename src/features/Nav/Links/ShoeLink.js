@@ -8,7 +8,6 @@ import gridIcon from "@iconify/icons-gridicons/grid";
 import menuIcon from "@iconify/icons-vaadin/menu";
 
 import NavBar from "../NavBar";
-import SearchCta from "../../Content/Search/SearchCta";
 import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
 import TrendingShoesCard from "../../Content/TrendingShoes/TrendingShoesCard";
 import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
@@ -45,10 +44,6 @@ export default function ShoeLink() {
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 	let { shoeName } = useParams();
 
-	var newShoeName = { shoeName };
-	const UpperShoeName = newShoeName.shoeName.toUpperCase();
-
-	console.log(shoeName);
 
 	let url = `https://grailhouse.herokuapp.com/search/${shoeName}`;
 
