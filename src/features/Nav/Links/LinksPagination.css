@@ -1,56 +1,56 @@
 .links-pagination {
-	position: relative;
-	top: 160px;
-	margin: 0px;
-	display: flex;
-	justify-content: center;
-	width: 100%;
+    position: relative;
+    top: 160px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .links-pagination-list {
-	list-style: none;
-	display: flex;
-	margin: 0px;
-	align-items: center;
-	justify-content: center;
-	padding: 0;
+    list-style: none;
+    display: flex;
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 .link-page-link {
-	border: 1px solid black;
-	margin: 0px 5px;
+    border: 1px solid black;
+    margin: 0px 5px;
 }
 
 .links-page-item {
-	padding: 10px 15px;
+    padding: 10px 15px;
 }
 
-@media only screen and (min-width: 1584px) {
-	.links-pagination {
-		position: relative;
-		top: 290px;
-		margin: 0px 0px 60px 0;
-		display: flex;
-		justify-content: center;
-		width: 65%;
-		left: 460px;
-	}
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+    .links-pagination {
+        position: relative;
+        top: 290px;
+        margin: 0px 0px 60px 0;
+        display: flex;
+        justify-content: center;
+        width: 65%;
+        left: 460px;
+    }
 
-	.links-pagination-list {
-		list-style: none;
-		display: flex;
-		margin: 0px;
-		align-items: center;
-		justify-content: center;
-		padding: 0;
-	}
+    .links-pagination-list {
+        list-style: none;
+        display: flex;
+        margin: 0px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
 
-	.link-page-link {
-		border: 1px solid black;
-		margin: 0px 5px;
-	}
+    .link-page-link {
+        border: 1px solid black;
+        margin: 0px 5px;
+    }
 
-	.link-page-item {
-		padding: 10px 15px;
-	}
+    .link-page-item {
+        padding: 10px 15px;
+    }
 }
