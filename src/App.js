@@ -17,7 +17,7 @@ import { Route, Switch } from "react-router-dom";
 export default function App() {
 	return (
 		// <Suspense fallback={<div>Loading...</div>}>
-			<div className="app-test">
+			<div className="app">
 				<Switch>
 					<Route exact path="/" component={HomePage} />
 					<Route exact path="/signin" component={SignIn} />
