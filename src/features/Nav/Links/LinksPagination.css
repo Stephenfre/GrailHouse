@@ -53,4 +53,9 @@
     .link-page-item {
         padding: 10px 15px;
     }
+
+    .link-page-item:hover {
+        text-decoration: none;
+        color: black;
+    }
 }
