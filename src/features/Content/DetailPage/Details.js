@@ -126,7 +126,7 @@ export default function Details(props) {
 	//* FETCH HERE
 	useEffect(() => {
 		axios
-			.get(`https://grailhouse.herokuapp.com/id/${styleId}/prices`)
+			.get(`https://grailhouse.herokuapp.com/api/id/${styleId}/prices`)
 			.then((response) => {
 				console.log("", response);
 				setIsLoading(true);
