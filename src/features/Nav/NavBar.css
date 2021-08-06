@@ -96,7 +96,7 @@ button:hover {
     color: rgb(235, 235, 235);
 }
 
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1600px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1600px) {
     .nav-container {
         height: 9%;
         width: 100%;
