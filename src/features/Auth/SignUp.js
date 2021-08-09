@@ -13,12 +13,12 @@ const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleuserc
 
 export default function SignUp() {
     const {
-        value: enteredName,
-        isValid: enteredNameIsValid,
-        hasError: nameInputHasError,
-        valueChangeHandler: nameChangedHandler,
-        inputBlurHandler: nameBlurHandler,
-        reset: resetNameInput,
+        value: enteredUsername,
+        isValid: enteredUsernameIsValid,
+        hasError: usernameInputHasError,
+        valueChangeHandler: usernameChangedHandler,
+        inputBlurHandler: usernameBlurHandler,
+        reset: resetUsernameInput,
     } = useInput((value) => value.trim() !== "");
 
     const {
@@ -61,7 +61,7 @@ export default function SignUp() {
 
     var formIsValid = true;
 
-    if (enteredNameIsValid && enteredEmailIsValid && enteredPasswordIsValid) {
+    if (enteredUsernameIsValid && enteredEmailIsValid && enteredPasswordIsValid) {
         formIsValid = true;
     } else {
         formIsValid = false;
@@ -70,16 +70,16 @@ export default function SignUp() {
     const formSubmit = (e) => {
         e.preventDefault();
 
-        if (!enteredNameIsValid || !enteredEmailIsValid || !enteredPasswordIsValid) {
+        if (!enteredUsernameIsValid || !enteredEmailIsValid || !enteredPasswordIsValid) {
             return;
         }
 
-        resetNameInput();
+        resetUsernameInput();
         resetEmailInput();
         resetPasswordInput();
     };
 
-    const nameInputClasses = nameInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
+    const usernameInputClasses = usernameInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
     const emailInputClasses = emailInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
     const passwordInputClasses = passwordInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
 
@@ -122,16 +122,16 @@ export default function SignUp() {
                     </div>
                     <form className="sign-up-form" onSubmit={formSubmit}>
                         <div className="sign-up-inputs-container">
-                            <div className={nameInputClasses}>
+                            <div className={usernameInputClasses}>
                                 <input
                                     type="text"
                                     name="username"
                                     placeholder="Username"
-                                    onChange={nameChangedHandler}
-                                    onBlur={nameBlurHandler}
-                                    value={enteredName}
+                                    onChange={usernameChangedHandler}
+                                    onBlur={usernameBlurHandler}
+                                    value={enteredUsername}
                                 />
-                                {nameInputHasError && <p className="error-text">Must enter Username</p>}
+                                {usernameInputHasError && <p className="error-text">Must enter Username</p>}
                             </div>
                             <div className={emailInputClasses}>
                                 <input

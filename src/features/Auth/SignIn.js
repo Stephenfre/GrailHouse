@@ -1,5 +1,6 @@
 import React from "react";
 import "./SignForms.css";
+import useInput from "./CustomHooks/useInput";
 import { refreshTokenSetup } from "./refreshTokenSetup";
 
 import { useGoogleLogin } from "react-google-login";
@@ -11,7 +12,47 @@ import GoogleIcon from "../../Svgs/GoogleIcon.svg";
 const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
 
 export default function SignIn() {
-    const { inputs, handleInputChange, handleSubmit } = useSignUpForm();
+    const {
+        value: enteredUsername,
+        isValid: enteredUsernameIsValid,
+        hasError: usernameInputHasError,
+        valueChangeHandler: usernameChangedHandler,
+        inputBlurHandler: usernameBlurHandler,
+        reset: resetUsernameInput,
+    } = useInput((value) => value.trim() !== "");
+
+    const {
+        value: enteredPassword,
+        isValid: enteredPasswordIsValid,
+        hasError: passwordInputHasError,
+        valueChangeHandler: passwordChangedHandler,
+        inputBlurHandler: passwordBlurHandler,
+        reset: resetPasswordInput,
+    } = useInput((value) => value.includes("@"));
+
+    var formIsValid = true;
+
+    if (enteredUsernameIsValid && enteredPasswordIsValid) {
+        formIsValid = true;
+    } else {
+        formIsValid = false;
+    }
+
+    const formSubmit = (e) => {
+        e.preventDefault();
+
+        if (!enteredUsernameIsValid || !enteredPasswordIsValid) {
+            return;
+        }
+
+        resetUsernameInput();
+        resetPasswordInput();
+    };
+
+    const usernameInputClasses = usernameInputHasError ? "sign-in-inputs invaild" : "sign-in-inputs";
+    const passwordInputClasses = passwordInputHasError ? "sign-in-inputs invaild" : "sign-in-inputs";
+
+    // * Google Sign Up (Below)
     const onSuccess = (res) => {
         console.log("[Login Success} currentUser", res.profileObj);
         refreshTokenSetup(res);
@@ -28,6 +69,8 @@ export default function SignIn() {
         isSignedIn: true,
         accessType: "offline",
     });
+
+    // * Google Sign Up (Above)
 
     return (
         <div className="main-container">
@@ -66,23 +109,30 @@ export default function SignIn() {
                             OR
                         </span>
                     </div>
-                    <form className="sign-in-form" onSubmit={handleSubmit}>
-                        <div className="sign-in-inputs">
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                onChange={handleInputChange}
-                                value={inputs.email}
-                                required
-                            />
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                onChange={handleInputChange}
-                                value={inputs.email}
-                            />
+                    <form className="sign-in-form" onSubmit={formSubmit}>
+                        <div className="sign-in-inputs-container">
+                            <div className={usernameInputClasses}>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    placeholder="Username"
+                                    onChange={usernameChangedHandler}
+                                    onBlur={usernameBlurHandler}
+                                    value={enteredUsername}
+                                />
+                                {usernameInputHasError && <p className="error-text">Must enter Username</p>}
+                            </div>
+                            <div className={passwordInputClasses}>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    onChange={passwordChangedHandler}
+                                    onBlur={passwordBlurHandler}
+                                    value={enteredPassword}
+                                />
+                                {passwordInputHasError && <p className="error-text">Must enter a vaild Password</p>}
+                            </div>
                             <button className="sign-in-btn" type="submit">
                                 Sign In
                             </button>

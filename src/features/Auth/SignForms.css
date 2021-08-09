@@ -43,10 +43,6 @@
     border: 1px solid red;
 }
 
-.invalid input:focus {
-    border-color: orange;
-}
-
 input {
     height: 100%;
     width: 100%;
@@ -96,7 +92,7 @@ input {
     width: 90%;
 }
 
-.sign-in-inputs {
+.sign-in-inputs-container {
     height: 100%;
     width: 100%;
     display: flex;
@@ -105,12 +101,21 @@ input {
     justify-content: space-around;
 }
 
-.sign-in-inputs input {
-    height: 10%;
+.sign-in-inputs {
     width: 80%;
+    height: 10%;
+}
+
+.sign-in-inputs input {
+    height: 100%;
+    width: 100%;
     background-color: white;
     border: 1px solid #c5c5c5;
     color: #c5c5c5;
+}
+
+.sign-in-inputs.invaild input {
+    border: 1px solid red;
 }
 
 .google-btn {
