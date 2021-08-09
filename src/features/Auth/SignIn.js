@@ -30,7 +30,8 @@ export default function SignIn() {
         reset: resetPasswordInput,
     } = useInput((value) => value.includes("@"));
 
-    var formIsValid = true;
+    // eslint-disable-next-line
+    let formIsValid = false;
 
     if (enteredUsernameIsValid && enteredPasswordIsValid) {
         formIsValid = true;

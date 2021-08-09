@@ -59,7 +59,8 @@ export default function SignUp() {
 
     // * Google Sign Up (Above)
 
-    var formIsValid = true;
+    // eslint-disable-next-line
+    var formIsValid = false;
 
     if (enteredUsernameIsValid && enteredEmailIsValid && enteredPasswordIsValid) {
         formIsValid = true;
