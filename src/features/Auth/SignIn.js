@@ -6,7 +6,7 @@ import { refreshTokenSetup } from "./refreshTokenSetup";
 import { useGoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
 
-import GrailHouse from "../../Svgs/GrailHouse.svg";
+import GrailHouseBlack from "../../Svgs/GrailHouseBlack.svg";
 import GoogleIcon from "../../Svgs/GoogleIcon.svg";
 
 const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
@@ -78,16 +78,13 @@ export default function SignIn() {
             <div className="sign-in-container">
                 <div className="sign-in-content">
                     <div className="sign-in-imgs">
-                        <img src={GrailHouse} alt="logo" />
+                        <img src={GrailHouseBlack} alt="logo" />
                     </div>
                     <button onClick={signIn} className="google-btn">
-                        <img
-                            src={GoogleIcon}
-                            alt="google login"
-                            className="icon"
-                            style={{ width: "5%", padding: "0 10px" }}
-                        ></img>
-                        <span className="google_btn_text">Continue with Google </span>
+                        <img src={GoogleIcon} alt="google login" className="icon" style={{ width: "8%" }} />
+                        <p className="google_btn_text" style={{ margin: "0 0 0 7px" }}>
+                            Continue with Google
+                        </p>
                     </button>
                     <div
                         style={{
