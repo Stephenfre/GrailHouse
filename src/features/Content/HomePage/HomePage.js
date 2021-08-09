@@ -73,6 +73,7 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
                             <TopTenShoeCards
                                 key={i}
                                 id={shoe._id}
+                                styleId={shoe.styleID}
                                 thumbnail={shoe.thumbnail}
                                 shoeName={shoe.shoeName}
                                 lowestPrice={shoe.lowestPrice}

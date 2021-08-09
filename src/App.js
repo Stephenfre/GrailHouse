@@ -25,7 +25,7 @@ export default function App() {
                 <Route exact path="/trendingshoes" component={TrendingShoes} />
                 <Route exact path="/trendingshoes/:pageNumber" component={TrendingShoes} />
                 <Route exact path="/trendingshoes/details/id/:styleId" component={Details} />
-                <Route exact path="/details/id/:styleId/prices" component={Details} />
+                <Route exact path="/details/:id/:styleId" component={Details} />
                 <Route exact path="/search/:shoe" component={Search} />
                 <Route exact path="/search/:shoe/:pagenumber" component={Search} />
                 <Route exact path="/account/profile" component={Profile} />
