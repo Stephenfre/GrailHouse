@@ -6,6 +6,9 @@ import {
     SEARCHING_SHOE,
     SEARCHING_SHOE_SUCCESS,
     SEARCHING_SHOE_FAIL,
+    GETTING_LINK_SHOES,
+    GETTING_LINK_SHOES_SUCCESS,
+    GETTING_LINK_SHOES_FAIL,
 } from "../actions";
 
 const initialState = {
@@ -17,7 +20,10 @@ const initialState = {
     searchShoesSuccess: false,
     searchResults: [],
     searchShoesError: null,
-    shoeLinkResults: [],
+    gettingLinkShoes: false,
+    gettingLinkShoesSucces: false,
+    linkShoesResults: [],
+    gettingLinkShoesError: null,
 };
 
 // eslint-disable-next-line
@@ -61,7 +67,7 @@ export default (state = initialState, action) => {
             } else if (action.name === "search") {
                 shoe = state.searchResults.find((shoe) => shoe._id === id);
             } else if (action.name === "shoeLinks") {
-                shoe = state.shoeLinkResults.find((shoe) => shoe._id === id);
+                shoe = state.linkShoesResults.find((shoe) => shoe._id === id);
             } else {
                 shoe = state.shoes.find((shoe) => shoe._id === id);
             }
@@ -107,6 +113,35 @@ export default (state = initialState, action) => {
                 searchShoes: false,
                 searchShoesError: action.payload,
             };
+
+        case GETTING_LINK_SHOES:
+            return {
+                ...state,
+                gettingLinkShoes: true,
+            };
+
+        case GETTING_LINK_SHOES_SUCCESS:
+            let linkShoesResults = [];
+            // eslint-disable-next-line
+            action.payload.map((shoe) => {
+                let arr = Object.values(shoe.lowestResellPrice);
+                let min = Math.min(...arr);
+                shoe.lowestPrice = min;
+                linkShoesResults.push(shoe);
+            });
+            return {
+                ...state,
+                gettingLinkShoes: false,
+                linkShoesResults: linkShoesResults,
+            };
+
+        case GETTING_LINK_SHOES_FAIL:
+            return {
+                ...state,
+                gettingLinkShoes: false,
+                gettingLinkShoesError: action.payload.message,
+            };
+
         default:
             return state;
     }

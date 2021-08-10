@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { withRouter, useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { Icon } from "@iconify/react";
 import gridIcon from "@iconify/icons-gridicons/grid";
 import menuIcon from "@iconify/icons-vaadin/menu";
 
+import { getLinkShoes } from "../../../actions";
 import NavBar from "../NavBar";
 import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
 import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import ShoeLinkDetails from "./ShoeLinkDetails";
 import SearchResultsForm from "../../Content/Search/SearchResultsForm";
-import LinksPagination from "./LinksPagination";
+// import LinksPagination from "./LinksPagination";
 import SideBar from "../../Content/SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 
@@ -28,65 +29,23 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-export default function ShoeLink() {
-    const [searchedShoes, setSearchedShoes] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [shoesPerPage] = useState(16);
+function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
-
-    // Get Current Shoes
-    const indexofLastShoe = currentPage * shoesPerPage;
-    const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
-    const currentShoes = searchedShoes.slice(indexOfFirstShoe, indexofLastShoe);
-
-    // Change page
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-    let { shoeName } = useParams();
-
-    let url = `https://grailhouse.herokuapp.com/api/search/${shoeName}`;
+    const { shoeName } = useParams();
 
     useEffect(() => {
-        let searchPrices = [];
-        const fetchShoes = async () => {
-            setIsLoading(true);
-            await axios
-                .get(url)
-                .then((response) => {
-                    console.log(response);
-                    if (response.data) {
-                        console.log(response.data);
-                        // eslint-disable-next-line
-                        response.data.map((shoe) => {
-                            let arr = Object.values(shoe.lowestResellPrice);
-                            let min = Math.min(...arr);
-                            shoe.lowestPrice = min;
-                            searchPrices.push(shoe);
-                        });
-                        setSearchedShoes(searchPrices);
-                        setIsLoading(false);
-                    } else {
-                        setTimeout(() => {
-                            console.log("waited", response.data);
-                            // eslint-disable-next-line
-                            response.data.map((shoe) => {
-                                let arr = Object.values(shoe.lowestResellPrice);
-                                let min = Math.min(...arr);
-                                shoe.lowestPrice = min;
-                                searchPrices.push(shoe);
-                            });
-                            setSearchedShoes(searchPrices);
-                        }, 4000);
-                        setIsLoading(false);
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        };
-        fetchShoes();
-        // eslint-disable-next-line
+        getLinkShoes(shoeName);
     }, []);
+
+    //* Get Current Shoes
+    // const indexofLastShoe = currentPage * shoesPerPage;
+    // const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
+    // const currentShoes = getLinkShoesResults.slice(indexOfFirstShoe, indexofLastShoe);
+
+    //* Change page
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div className="main-container">
@@ -133,9 +92,9 @@ export default function ShoeLink() {
                         <SideBar />
                     </div>
                     <div className={`trending-shoes-content ${isViewActive ? "active" : "inactive"}`}>
-                        {isLoading && <SkeletonCards />}
-                        {!isLoading &&
-                            currentShoes.map((shoe, i) => (
+                        {findingLinkShoes && <SkeletonCards />}
+                        {!findingLinkShoes &&
+                            linkShoesResults.map((shoe, i) => (
                                 <ShoeLinkDetails
                                     key={i}
                                     id={shoe._id}
@@ -150,8 +109,22 @@ export default function ShoeLink() {
                     </div>
                 </div>
             </div>
-            <LinksPagination shoesPerPage={shoesPerPage} totalShoes={searchedShoes.length} paginate={paginate} />
+            {/* <LinksPagination shoesPerPage={shoesPerPage} totalShoes={findingLinkShoes.length} paginate={paginate} /> */}
             <Footer />
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        linkShoesResults: state.linkShoesResults,
+        findingLinkShoes: state.findingLinkShoes,
+        findingLinkShoesError: state.findingLinkShoesError,
+    };
+};
+
+const mapDispatchToProps = {
+    getLinkShoes,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ShoeLink));

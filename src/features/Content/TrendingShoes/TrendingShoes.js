@@ -31,6 +31,10 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
 
+    useEffect(() => {
+        getShoes();
+    }, [getShoes]);
+
     // Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
@@ -38,10 +42,6 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
 
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    useEffect(() => {
-        getShoes();
-    }, [getShoes]);
 
     return (
         <div className="main-container">

@@ -7,6 +7,9 @@ export const SELECTED_SHOE = "SELECTED_SHOE";
 export const SEARCHING_SHOE = "SEARCHING_SHOE";
 export const SEARCHING_SHOE_SUCCESS = "SEARCHING_SHOE_SUCCESS";
 export const SEARCHING_SHOE_FAIL = "SEARCHING_SHOE_FAIL";
+export const GETTING_LINK_SHOES = "GETTING_LINK_SHOES";
+export const GETTING_LINK_SHOES_SUCCESS = "GETTING_LINK_SHOES_SUCCESS";
+export const GETTING_LINK_SHOES_FAIL = "GETTING_LINK_SHOES_FAIL";
 
 export function getShoes() {
     return (dispatch) => {
@@ -57,6 +60,40 @@ export function searchShoes(searchValue) {
             .catch((err) => {
                 dispatch({
                     type: SEARCHING_SHOE_FAIL,
+                    payload: err,
+                });
+            });
+    };
+}
+
+export function getLinkShoes(shoeName) {
+    console.log(shoeName);
+    return (dispatch) => {
+        dispatch({ type: GETTING_LINK_SHOES });
+
+        return axios
+            .get(`https://grailhouse.herokuapp.com/api/search/${shoeName}`)
+            .then((res) => {
+                if (res.data) {
+                    dispatch({
+                        type: GETTING_LINK_SHOES_SUCCESS,
+                        payload: res.data,
+                    });
+                } else {
+                    setTimeout(() => {
+                        dispatch(
+                            {
+                                type: GETTING_LINK_SHOES_SUCCESS,
+                                payload: res.data,
+                            },
+                            4000
+                        );
+                    });
+                }
+            })
+            .catch((err) => {
+                dispatch({
+                    type: GETTING_LINK_SHOES_FAIL,
                     payload: err,
                 });
             });

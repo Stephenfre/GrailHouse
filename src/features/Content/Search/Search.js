@@ -15,7 +15,6 @@ import Footer from "../../Footer/Footer";
 import "./Search.css";
 import SearchPaginate from "./SearchPaginate";
 import SideBar from "../SideBar/SideBar";
-import TrendingShoesCard from "../TrendingShoes/TrendingShoesCard";
 import SearchedShoesDetails from "./SearchedShoesDetails";
 
 const StyledLinks = styled(Link)`
