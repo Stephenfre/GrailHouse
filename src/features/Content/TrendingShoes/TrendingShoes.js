@@ -20,107 +20,107 @@ import "./TrendingShoes.css";
 import "../Search/Search.css";
 
 const StyledLinks = styled(Link)`
-	text-decoration: none;
-	color: black;
-	font-size: 15px;
-	text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    text-align: center;
 `;
 
 function TrendingShoes({ getShoes, shoes, gettingShoes }) {
-	const [currentPage, setCurrentPage] = useState(1);
-	const [shoesPerPage] = useState(16);
-	const [isViewActive, setIsViewActive] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [shoesPerPage] = useState(16);
+    const [isViewActive, setIsViewActive] = useState(false);
 
-	// Get Current Shoes
-	const indexofLastShoe = currentPage * shoesPerPage;
-	const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
-	const currentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
+    // Get Current Shoes
+    const indexofLastShoe = currentPage * shoesPerPage;
+    const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
+    const currentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
 
-	// Change page
-	const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-	useEffect(() => {
-		getShoes();
-	}, [getShoes]);
+    useEffect(() => {
+        getShoes();
+    }, [getShoes]);
 
-	return (
-		<div className="main-container">
-			<NavBar />
-			<div className="cta-trending-img">
-				<img src={TrendingBackground} alt="cta-logo" />
-			</div>
-			<div className="trending-content">
-				<div className="title-details">
-					<div className="title-links-filters-view">
-						<div className="search-links-results-details">
-							<StyledLinks to="/">HOME</StyledLinks>
-							{" / "}
-							<StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
-						</div>
-						<div className="options-mobile">filter</div>
-						<div className="search-bar-details">
-							<SearchResultsForm search={SearchResultsForm} />
-							<Icon
-								icon={gridIcon}
-								onClick={() => setIsViewActive(!isViewActive)}
-								style={
-									isViewActive
-										? { color: "CECECE", width: "2.5rem", height: "2.5rem" }
-										: { color: "000000", width: "2.5rem", height: "2.5rem" }
-								}
-							/>
-							<Icon
-								icon={menuIcon}
-								onClick={() => setIsViewActive(!isViewActive)}
-								className={`menu-list-icon ${isViewActive ? "active" : "inactive"}`}
-								style={
-									isViewActive
-										? { color: "000000", width: "2rem", height: "3rem" }
-										: { color: "CECECE", width: "2rem", height: "3rem" }
-								}
-							/>
-						</div>
-					</div>
-				</div>
-				<div className={`trending-shoes-container ${isViewActive ? "active" : "inactive"}`}>
-					<div className="options">
-						<h3>FILTER</h3>
-						<SideBar />
-					</div>
-					<div className={`trending-shoes-content ${isViewActive ? "active" : "inactive"}`}>
-						{gettingShoes && <SkeletonCards />}
-						{!gettingShoes &&
-							currentShoes.map((shoe, i) => (
-								<TrendingShoesCard
-									key={i}
-									id={shoe._id}
-									thumbnail={shoe.thumbnail}
-									shoeName={shoe.shoeName}
-									lowestPrice={shoe.lowestPrice}
-									styleId={shoe.styleID}
-									type="trending"
-									isViewActive={isViewActive}
-								/>
-							))}
-					</div>
-				</div>
-			</div>
-			<Pagination shoesPerPage={shoesPerPage} totalShoes={shoes.length} paginate={paginate} />
-			<Footer />
-		</div>
-	);
+    return (
+        <div className="main-container">
+            <NavBar />
+            <div className="cta-trending-img">
+                <img src={TrendingBackground} alt="cta-logo" />
+            </div>
+            <div className="trending-content">
+                <div className="title-details">
+                    <div className="title-links-filters-view">
+                        <div className="search-links-results-details">
+                            <StyledLinks to="/">HOME</StyledLinks>
+                            {" / "}
+                            <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
+                        </div>
+                        <div className="options-mobile">filter</div>
+                        <div className="search-bar-details">
+                            <SearchResultsForm search={SearchResultsForm} />
+                            <Icon
+                                icon={gridIcon}
+                                onClick={() => setIsViewActive(!isViewActive)}
+                                style={
+                                    isViewActive
+                                        ? { color: "CECECE", width: "2.5rem", height: "2.5rem" }
+                                        : { color: "000000", width: "2.5rem", height: "2.5rem" }
+                                }
+                            />
+                            <Icon
+                                icon={menuIcon}
+                                onClick={() => setIsViewActive(!isViewActive)}
+                                className={`menu-list-icon ${isViewActive ? "active" : "inactive"}`}
+                                style={
+                                    isViewActive
+                                        ? { color: "000000", width: "2rem", height: "3rem" }
+                                        : { color: "CECECE", width: "2rem", height: "3rem" }
+                                }
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className={`trending-shoes-container ${isViewActive ? "active" : "inactive"}`}>
+                    <div className="options">
+                        <h3>FILTER</h3>
+                        <SideBar />
+                    </div>
+                    <div className={`trending-shoes-content ${isViewActive ? "active" : "inactive"}`}>
+                        {gettingShoes && <SkeletonCards />}
+                        {!gettingShoes &&
+                            currentShoes.map((shoe, i) => (
+                                <TrendingShoesCard
+                                    key={i}
+                                    id={shoe._id}
+                                    thumbnail={shoe.thumbnail}
+                                    shoeName={shoe.shoeName}
+                                    lowestPrice={shoe.lowestPrice}
+                                    styleId={shoe.styleID}
+                                    type="trending"
+                                    isViewActive={isViewActive}
+                                />
+                            ))}
+                    </div>
+                </div>
+            </div>
+            <Pagination shoesPerPage={shoesPerPage} totalShoes={shoes.length} paginate={paginate} />
+            <Footer />
+        </div>
+    );
 }
 
 const mapStateToProps = (state) => {
-	return {
-		shoes: state.shoes,
-		gettingShoes: state.gettingShoes,
-		gettingShoesError: state.gettingShoesError,
-	};
+    return {
+        shoes: state.shoes,
+        gettingShoes: state.gettingShoes,
+        gettingShoesError: state.gettingShoesError,
+    };
 };
 
 const mapDispatchToPros = {
-	getShoes,
+    getShoes,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(TrendingShoes));

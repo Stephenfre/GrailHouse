@@ -123,13 +123,13 @@ export default function NavBar(props) {
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to={`/adidas`}>Adidas</Dropbtn>
+                            <Dropbtn to={"/adidas"}>Adidas</Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <AdidasLinks />
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to={`/yeezy`}>Yeezy</Dropbtn>
+                            <Dropbtn to={"/yeezy"}>Yeezy</Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <YeezyLinks />
                             </DropDownContent>
