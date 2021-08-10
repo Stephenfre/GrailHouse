@@ -53,7 +53,7 @@ export default function Footer() {
                             <Links to="/account/profile">My Account</Links>
                         </li>
                         <li>
-                            <Links to="/account/mycloset">My Closet</Links>
+                            <Links to="/account/closet">My Closet</Links>
                         </li>
                     </ul>
                 </div>

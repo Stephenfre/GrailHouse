@@ -23,6 +23,9 @@ export default function App() {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/signin" component={SignIn} />
                 <Route exact path="/signup" component={SignUp} />
+                <Route exact path="/account/profile" component={Profile} />
+                <Route exact path="/account/closet" component={Closet} />
+                <Route exact path="/account/portfolio" component={Portfolio} />
                 <Route exact path="/ourstory" component={OurStory} />
                 <Route exact path="/trendingshoes" component={TrendingShoes} />
                 <Route exact path="/trendingshoes/:pageNumber" component={TrendingShoes} />
@@ -30,9 +33,6 @@ export default function App() {
                 <Route exact path="/details/:id/:styleId" component={Details} />
                 <Route exact path="/search/:shoe" component={Search} />
                 <Route exact path="/search/:shoe/:pagenumber" component={Search} />
-                <Route exact path="/account/profile" component={Profile} />
-                <Route exact path="/account/closet" component={Closet} />
-                <Route exact path="/account/portfolio" component={Portfolio} />
                 <Route exact path="/account/settings" component={Settings} />
                 <Route exact path="/:shoeName" component={ShoeLink} />
                 <Route exact path="/:shoeName/:pageNumber" component={ShoeLink} />
