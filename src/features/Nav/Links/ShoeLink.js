@@ -13,7 +13,7 @@ import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
 import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import ShoeLinkDetails from "./ShoeLinkDetails";
 import SearchResultsForm from "../../Content/Search/SearchResultsForm";
-// import LinksPagination from "./LinksPagination";
+import LinksPagination from "./LinksPagination";
 import SideBar from "../../Content/SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 
@@ -30,8 +30,8 @@ const StyledLinks = styled(Link)`
 `;
 
 function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const [shoesPerPage] = useState(16);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
     const { shoeName } = useParams();
 
@@ -40,12 +40,12 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
     }, []);
 
     //* Get Current Shoes
-    // const indexofLastShoe = currentPage * shoesPerPage;
-    // const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
-    // const currentShoes = getLinkShoesResults.slice(indexOfFirstShoe, indexofLastShoe);
+    const indexofLastShoe = currentPage * shoesPerPage;
+    const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
+    const currentShoes = linkShoesResults.slice(indexOfFirstShoe, indexofLastShoe);
 
     //* Change page
-    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div className="main-container">
@@ -94,7 +94,7 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
                     <div className={`trending-shoes-content ${isViewActive ? "active" : "inactive"}`}>
                         {findingLinkShoes && <SkeletonCards />}
                         {!findingLinkShoes &&
-                            linkShoesResults.map((shoe, i) => (
+                            currentShoes.map((shoe, i) => (
                                 <ShoeLinkDetails
                                     key={i}
                                     id={shoe._id}
@@ -109,7 +109,7 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
                     </div>
                 </div>
             </div>
-            {/* <LinksPagination shoesPerPage={shoesPerPage} totalShoes={findingLinkShoes.length} paginate={paginate} /> */}
+            <LinksPagination shoesPerPage={shoesPerPage} totalShoes={findingLinkShoes.length} paginate={paginate} />
             <Footer />
         </div>
     );
