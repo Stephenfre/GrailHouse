@@ -13,6 +13,7 @@ import TrendingShoes from "./features/Content/TrendingShoes/TrendingShoes";
 import Details from "./features/Content/DetailPage/Details";
 import Search from "./features/Content/Search/Search";
 import ShoeLink from "./features/Nav/Links/ShoeLink";
+import OurStory from "./features/Content/OurStory/OurStory";
 
 export default function App() {
     return (
@@ -34,6 +35,7 @@ export default function App() {
                 <Route exact path="/account/settings" component={Settings} />
                 <Route exact path="/:shoeName" component={ShoeLink} />
                 <Route exact path="/:shoeName/:pageNumber" component={ShoeLink} />
+                <Route exact path="/ourstory" component={OurStory} />
                 {/* <Route exact path="/trackchanges" component={TrackChanges} /> */}
             </Switch>
         </div>
