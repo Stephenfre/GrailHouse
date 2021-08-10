@@ -102,14 +102,14 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
                                     shoeName={shoe.shoeName}
                                     lowestPrice={shoe.lowestPrice}
                                     styleId={shoe.styleID}
-                                    type="trending"
+                                    type="shoeLinks"
                                     isViewActive={isViewActive}
                                 />
                             ))}
                     </div>
                 </div>
             </div>
-            <LinksPagination shoesPerPage={shoesPerPage} totalShoes={findingLinkShoes.length} paginate={paginate} />
+            <LinksPagination shoesPerPage={shoesPerPage} totalShoes={linkShoesResults.length} paginate={paginate} />
             <Footer />
         </div>
     );

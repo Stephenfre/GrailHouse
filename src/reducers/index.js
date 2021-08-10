@@ -63,7 +63,7 @@ export default (state = initialState, action) => {
             const id = action.payload;
 
             if (action.name === "trending") {
-                shoe = state.trendingShoes.find((shoe) => shoe._id === id);
+                shoe = state.shoes.find((shoe) => shoe._id === id);
             } else if (action.name === "search") {
                 shoe = state.searchResults.find((shoe) => shoe._id === id);
             } else if (action.name === "shoeLinks") {

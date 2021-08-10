@@ -24,7 +24,7 @@ function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName
     let history = useHistory();
 
     const clickHandler = (id) => {
-        selectShoe(id, type);
+        selectShoe(id, "trending");
         history.push(`/trendingshoes/details/id/${styleId}`);
     };
 
