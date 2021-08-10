@@ -9,6 +9,11 @@ const Links = styled(Link)`
     color: #757575;
 `;
 
+const ATags = styled.a`
+    text-decoration: none;
+    color: #757575;
+`;
+
 export default function Footer() {
     return (
         <div className="footer">
@@ -34,10 +39,10 @@ export default function Footer() {
                     <ul>
                         <li style={{ paddingTop: "10px", fontWeight: "bold", color: "white" }}>About Us</li>
                         <li>
-                            <Links>Our Story</Links>
+                            <Links to="/ourstory">Our Story</Links>
                         </li>
                         <li>
-                            <Links>Instagram</Links>
+                            <ATags href="https://www.instagram.com/theroadtomvp/">Instagram</ATags>
                         </li>
                     </ul>
                 </div>

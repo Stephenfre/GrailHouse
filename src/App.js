@@ -23,6 +23,7 @@ export default function App() {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/signin" component={SignIn} />
                 <Route exact path="/signup" component={SignUp} />
+                <Route exact path="/ourstory" component={OurStory} />
                 <Route exact path="/trendingshoes" component={TrendingShoes} />
                 <Route exact path="/trendingshoes/:pageNumber" component={TrendingShoes} />
                 <Route exact path="/trendingshoes/details/id/:styleId" component={Details} />
@@ -35,7 +36,6 @@ export default function App() {
                 <Route exact path="/account/settings" component={Settings} />
                 <Route exact path="/:shoeName" component={ShoeLink} />
                 <Route exact path="/:shoeName/:pageNumber" component={ShoeLink} />
-                <Route exact path="/ourstory" component={OurStory} />
                 {/* <Route exact path="/trackchanges" component={TrackChanges} /> */}
             </Switch>
         </div>
