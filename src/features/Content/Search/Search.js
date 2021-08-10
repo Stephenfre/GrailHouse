@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter, Link, useParams } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -24,7 +24,7 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function Search({ searchResults, searchShoes }) {
+function Search({ searchResults, searchShoes, shoeName }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
@@ -36,9 +36,6 @@ function Search({ searchResults, searchShoes }) {
 
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-    let { shoeName } = useParams();
-
-    console.log(shoeName);
 
     return (
         <div className="main-container">
@@ -88,12 +85,12 @@ function Search({ searchResults, searchShoes }) {
                         </div>
                     </div>
                 </div>
-                <div className="search-shoes-container">
+                <div className={`search-shoes-container ${isViewActive ? "active" : "inactive"}`}>
                     <div className="search-options">
                         <h3>FILTER</h3>
                         <SideBar />
                     </div>
-                    <div className="search-shoes-content">
+                    <div className={`search-shoes-content ${isViewActive ? "active" : "inactive"}`}>
                         {searchShoes && <SkeletonCards />}
                         {!searchShoes &&
                             currentShoes.map((shoe, i) => (

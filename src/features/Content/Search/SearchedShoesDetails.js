@@ -14,19 +14,19 @@ function SearchedShoesDetails({ isViewActive, selectShoe, type, thumbnail, shoeN
         history.push(`/details/${id}/${styleId}`);
     };
     return (
-        <div className="searched-shoes" onClick={(e) => clickHandler(id)}>
-            <div className="searched-shoes-details">
-                <div className="searched-shoes-details-img">
+        <div className={"searched-shoes" + (isViewActive ? " active" : "")} onClick={(e) => clickHandler(id)}>
+            <div className={"searched-shoes-details" + (isViewActive ? " active" : "")}>
+                <div className={"searched-shoes-details-img" + (isViewActive ? " active" : "")}>
                     <img src={thumbnail} alt="shoe pic" />
                 </div>
-                <div className="searched-shoes-details-wrap">
-                    <div className="searched-shoes-details-details">
+                <div className={"searched-shoes-details-wrap" + (isViewActive ? " active" : "")}>
+                    <div className={"searched-shoes-details-details" + (isViewActive ? " active" : "")}>
                         <p>{shoeName}</p>
-                        <div className="prices">
+                        <div className={"prices" + (isViewActive ? " active" : "")}>
                             <p>Lowest Price</p>
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>
-                        <div className="got-them"></div>
+                        <div className={"got-them" + (isViewActive ? " active" : "")}></div>
                     </div>
                 </div>
             </div>
