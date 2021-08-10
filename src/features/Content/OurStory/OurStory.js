@@ -2,7 +2,7 @@ import React from "react";
 
 import Navbar from "../../Nav/NavBar";
 import Footer from "../../Footer/Footer";
-import "./OurStory.css";
+import "./Story.css";
 import SneakerOnShelf from "../../../Svgs/Sneakersonshelf.png";
 
 export default function OurStory() {
