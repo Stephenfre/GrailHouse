@@ -44,7 +44,7 @@ export function selectShoe(id, name) {
     };
 }
 
-export function searchShoes(searchValue) {
+export function searchingShoes(searchValue) {
     return (dispatch) => {
         dispatch({ type: SEARCHING_SHOE });
 
@@ -67,7 +67,6 @@ export function searchShoes(searchValue) {
 }
 
 export function getLinkShoes(shoeName) {
-    console.log(shoeName);
     return (dispatch) => {
         dispatch({ type: GETTING_LINK_SHOES });
 

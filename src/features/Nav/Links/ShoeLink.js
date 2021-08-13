@@ -37,7 +37,7 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
 
     useEffect(() => {
         getLinkShoes(shoeName);
-    }, [getLinkShoes]);
+    }, []);
 
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;

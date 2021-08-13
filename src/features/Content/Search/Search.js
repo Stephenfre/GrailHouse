@@ -29,12 +29,12 @@ function Search({ searchResults, searchShoes, shoeName }) {
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
 
-    // Get Current Shoes
+    //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
     const currentShoes = searchResults.slice(indexOfFirstShoe, indexofLastShoe);
 
-    // Change page
+    //* Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
