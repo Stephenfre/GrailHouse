@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
-import ConditionPopUp from "../PopUps/ConditionPopUp";
+// import ConditionPopUp from "../PopUps/ConditionPopUp";
 import "./TopTenShoeCards.css";
 
 const Button = styled.button`
@@ -14,8 +14,8 @@ const Button = styled.button`
     color: white;
     font-size: 10px;
     padding: 0rem;
-    height: 70%;
-    width: 100%;
+    height: 35px;
+    width: 100px;
     border-radius: 5px;
     border: none;
     text-align: center;
@@ -23,10 +23,15 @@ const Button = styled.button`
 
 function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
     const [isActive, setIsActive] = useState(false);
+    const [isDeadstock, setIsDeadstock] = useState(false);
     let history = useHistory();
 
     const gotThemHandler = () => {
         setIsActive(!isActive);
+    };
+
+    const conditonHandler = () => {
+        setIsDeadstock(!isDeadstock);
     };
 
     const clickHandler = (id) => {
@@ -36,10 +41,8 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
 
     return (
         <div className="topten-shoes-card">
-            {/* <WornPopUp /> */}
-            {/* <ConditionPopUp /> */}
             <div className="topten-shoes">
-                <div className="topten-shoes-img">
+                <div className="topten-shoes-img" onClick={(e) => clickHandler(id)}>
                     <img src={thumbnail} alt="shoe pic" />
                 </div>
                 <div className="topten-shoes-wrap">
@@ -51,15 +54,24 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>
                         <div className={`add-to-closet ${isActive ? "inactive " : "active"}`}>
-                            <Button onClick={() => setIsActive(!isActive)}>ADD TO CLOSET</Button>
+                            <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
                         </div>
-                        <button
-                            onClick={() => setIsActive(!isActive)}
-                            className={`topten-got-them ${isActive ? "active" : "inactive "}`}
-                        ></button>
+                        <div className={`topten-got-them ${isActive ? "active" : "inactive "}`}>
+                            <button
+                                onClick={gotThemHandler}
+                                className={`topten-got-them-btn ${isActive ? "active" : "inactive "}`}
+                            ></button>
+                            <button className="condition-btn" onClick={conditonHandler}>
+                                Deadstock
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div className={`popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
+                <WornPopUp />
+            </div>
+            {/* <ConditionPopUp /> */}
         </div>
     );
 }
