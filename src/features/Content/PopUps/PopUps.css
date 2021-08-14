@@ -3,9 +3,6 @@
     border-radius: 7px;
     width: 450px;
     height: 200px;
-    /* position: fixed; */
-    left: 510px;
-    bottom: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;

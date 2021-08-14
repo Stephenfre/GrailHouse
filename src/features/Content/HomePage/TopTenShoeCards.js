@@ -62,7 +62,7 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
                                 className={`topten-got-them-btn ${isActive ? "active" : "inactive "}`}
                             ></button>
                             <button className="condition-btn" onClick={conditonHandler}>
-                                Deadstock
+                                *Deadstock
                             </button>
                         </div>
                     </div>
