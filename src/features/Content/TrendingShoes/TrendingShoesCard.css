@@ -1,204 +1,204 @@
 .trending {
-	height: 320px;
-	width: 22%;
-	display: flex;
-	flex-direction: column;
-	margin: 0 25px 40px 0;
-	background: white;
-	/* border: red solid 1px; */
+    height: 320px;
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 25px 40px 0;
+    background: white;
+    /* border: red solid 1px; */
 }
 
 .trending.active {
-	height: 320px;
-	width: 94.6%;
-	display: flex;
-	flex-direction: column;
-	margin: 0 25px 27px 0;
-	background: white;
-	/* border: red solid 1px; */
+    height: 320px;
+    width: 94.6%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 25px 27px 0;
+    background: white;
+    /* border: red solid 1px; */
 }
 
 .trending-shoes {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid rgb(247 247 247);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(247 247 247);
 }
 
 .trending-shoes.active {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid rgb(247 247 247);
-	margin-left: 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(247 247 247);
+    margin-left: 10px;
 }
 
 .trending-shoes-img {
-	width: 74%;
-	height: 47%;
+    width: 74%;
+    height: 47%;
 }
 
 .trending-shoes-img.active {
-	width: 20%;
-	height: 100%;
-	margin-left: 20px;
+    width: 20%;
+    height: 100%;
+    margin-left: 20px;
 }
 
 .trending-shoes-img img {
-	width: 100%;
+    width: 100%;
 }
 
 .trending-shoes-wrap {
-	height: 60%;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	background: rgb(247, 247, 247);
-	border-radius: 0 0 6px 6px;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgb(247, 247, 247);
+    border-radius: 0 0 6px 6px;
 }
 
 .trending-shoes-wrap.active {
-	background: none;
+    background: none;
 }
 
 .trending-shoes-details {
-	height: 100%;
-	width: 87%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
+    height: 100%;
+    width: 87%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .trending-shoes-details p {
-	font-size: 14px;
-	font-weight: 600;
-	font-family: "Source Sans Pro", sans-serif;
-	margin: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Source Sans Pro", sans-serif;
+    margin: 10px;
 }
 
 .prices {
-	height: 45%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .prices.active {
-	display: none;
+    display: none;
 }
 
 .prices p {
-	font-weight: 300;
-	margin: 0 10px;
+    font-weight: 300;
+    margin: 0 10px;
 }
 
 .add-to-closet {
-	width: 50%;
-	height: 33%;
-	display: flex;
-	align-items: flex-end;
-	margin: 0 0 10px 10px;
+    width: 50%;
+    height: 33%;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 0 10px 10px;
 }
 
-.add-to-closet.active {
+/* .add-to-closet.active {
 	display: none;
-}
+} */
 
 .got-them {
-	width: 5%;
-	border: 2px black solid;
-	height: 6%;
-	border-radius: 13px;
-	margin-left: 10px;
+    width: 5%;
+    border: 2px black solid;
+    height: 6%;
+    border-radius: 13px;
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 600px) {
-	.trending {
-		height: 250px;
-		width: 42%;
-		display: flex;
-		flex-direction: column;
-		margin: 0 25px 40px 0;
-		background: white;
-		/* border: red solid 1px; */
-	}
+    .trending {
+        height: 250px;
+        width: 42%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 25px 40px 0;
+        background: white;
+        /* border: red solid 1px; */
+    }
 
-	.trending-shoes {
-		height: 100%;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		border: 1px solid rgb(247 247 247);
-	}
+    .trending-shoes {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(247 247 247);
+    }
 
-	.trending-shoes-img {
-		width: 74%;
-		height: 40%;
-	}
+    .trending-shoes-img {
+        width: 74%;
+        height: 40%;
+    }
 
-	.trending-shoes-img img {
-		width: 100%;
-	}
+    .trending-shoes-img img {
+        width: 100%;
+    }
 
-	.trending-shoes-wrap {
-		height: 60%;
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		background: rgb(247, 247, 247);
-		border-radius: 0 0 6px 6px;
-	}
+    .trending-shoes-wrap {
+        height: 60%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: rgb(247, 247, 247);
+        border-radius: 0 0 6px 6px;
+    }
 
-	.trending-shoes-details {
-		height: 100%;
-		width: 87%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
-	}
+    .trending-shoes-details {
+        height: 100%;
+        width: 87%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
 
-	.trending-shoes-details p {
-		font-size: 14px;
-		font-weight: 600;
-		font-family: "Source Sans Pro", sans-serif;
-		margin: 10px;
-	}
+    .trending-shoes-details p {
+        font-size: 14px;
+        font-weight: 600;
+        font-family: "Source Sans Pro", sans-serif;
+        margin: 10px;
+    }
 
-	.prices {
-		height: 45%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
+    .prices {
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
-	.prices p {
-		font-weight: 300;
-		margin: 0 10px;
-	}
+    .prices p {
+        font-weight: 300;
+        margin: 0 10px;
+    }
 
-	.got-them {
-		width: 5%;
-		border: 2px black solid;
-		height: 6%;
-		border-radius: 13px;
-		margin-left: 10px;
-	}
+    .got-them {
+        width: 5%;
+        border: 2px black solid;
+        height: 6%;
+        border-radius: 13px;
+        margin-left: 10px;
+    }
 
-	.add-to-closet {
-		display: none;
-	}
+    .add-to-closet {
+        display: none;
+    }
 
-	.add-to-closet-btn button {
-		display: none;
-	}
+    .add-to-closet-btn button {
+        display: none;
+    }
 }

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 import { selectShoe } from "../../../actions";
+import WornPopUp from "../PopUps/WornPopUp";
+import ConditionPopUp from "../PopUps/ConditionPopUp";
 import "./TopTenShoeCards.css";
 
 const Button = styled.button`
@@ -20,7 +22,12 @@ const Button = styled.button`
 `;
 
 function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
+    const [isActive, setIsActive] = useState(false);
     let history = useHistory();
+
+    const gotThemHandler = () => {
+        setIsActive(!isActive);
+    };
 
     const clickHandler = (id) => {
         selectShoe(id, type);
@@ -29,7 +36,9 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
 
     return (
         <div className="topten-shoes-card">
-            <div className="topten-shoes" onClick={(e) => clickHandler(id)}>
+            {/* <WornPopUp /> */}
+            {/* <ConditionPopUp /> */}
+            <div className="topten-shoes">
                 <div className="topten-shoes-img">
                     <img src={thumbnail} alt="shoe pic" />
                 </div>
@@ -41,9 +50,13 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
 
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>
-                        <div className="add-to-closet">
-                            <Button>ADD TO CLOSET</Button>
+                        <div className={`add-to-closet ${isActive ? "inactive " : "active"}`}>
+                            <Button onClick={() => setIsActive(!isActive)}>ADD TO CLOSET</Button>
                         </div>
+                        <button
+                            onClick={() => setIsActive(!isActive)}
+                            className={`topten-got-them ${isActive ? "active" : "inactive "}`}
+                        ></button>
                     </div>
                 </div>
             </div>

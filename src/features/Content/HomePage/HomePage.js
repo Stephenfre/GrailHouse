@@ -12,8 +12,7 @@ import Cta from "../../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
 import TopTenHoverBox from "../TopTenHoverBox";
 import HomeSkeletonCards from "../Skeletons/HomeSkeletonCards";
-// import WornPopUp from "../PopUps/WornPopUp";
-// import ConditionPopUp from "../PopUps/ConditionPopUp";
+
 import Footer from "../../Footer/Footer";
 import "./HomePage.css";
 
@@ -50,8 +49,7 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
         <div className="main-container">
             <NavBar />
             <Cta />
-            {/* <WornPopUp /> */}
-            {/* <ConditionPopUp /> */}
+
             <div className="content">
                 <div className="title-topten">
                     <div className="title-hover-icon">
