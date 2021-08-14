@@ -6,20 +6,21 @@ import "./Settings.css";
 import Footer from "../../Footer/Footer";
 
 export default function Profile() {
-	return (
-		<div className="main-container">
-			<NavBar />
-			<div className="settings">
-				<SideNavBar />
-				<div className="settings-content">
-					<div>
-						<h2>Settings</h2>
-					</div>
-					<p>Dark Mode</p>
-					<button>on/off</button>
-				</div>
-			</div>
-			<Footer />
-		</div>
-	);
+    return (
+        <div className="main-container">
+            <NavBar />
+            <div className="settings">
+                <SideNavBar />
+                <div className="settings-content">
+                    <div className="title">
+                        <h2>Settings</h2>
+                    </div>
+                    <div className="coming-soon-alert" style={{ marginTop: "150px" }}>
+                        <h1>Coming Soon!</h1>
+                    </div>
+                </div>
+            </div>
+            <Footer />
+        </div>
+    );
 }

@@ -241,6 +241,11 @@
   "resolved" "https://registry.npmjs.org/@iconify/icons-carbon/-/icons-carbon-1.1.5.tgz"
   "version" "1.1.5"
 
+"@iconify/icons-fontisto@^1.1.0":
+  "integrity" "sha512-yGoo8ZZf/LefU30TRs6rZxtCq+6Bk0RlndJDZGvpw5YCvMRRgivwbcDMRBQMjwHBL9NsXQdqCxpX30igmQRBAQ=="
+  "resolved" "https://registry.npmjs.org/@iconify/icons-fontisto/-/icons-fontisto-1.1.0.tgz"
+  "version" "1.1.0"
+
 "@iconify/icons-gridicons@^1.1.1":
   "integrity" "sha512-yOAIhxGwmoj2z2+EEi0/5nsUHxOwUcWJMFxodPGffCpK7NCJl+YY28iPG15+elVmvR6Fs9SFyHkBjdgWFRWI2w=="
   "resolved" "https://registry.npmjs.org/@iconify/icons-gridicons/-/icons-gridicons-1.1.1.tgz"

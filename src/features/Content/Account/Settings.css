@@ -1,11 +1,10 @@
 .settings {
-	height: 100vh;
-	width: 100%;
-	display: flex;
+    height: 100vh;
+    width: 100%;
+    display: flex;
 }
 
 .settings-content {
-	height: 100%;
-	width: 80%;
-	border-left: 1px solid black;
+    height: 100%;
+    width: 80%;
 }
