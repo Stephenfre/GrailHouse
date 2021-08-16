@@ -16,7 +16,7 @@ export function getShoes() {
         dispatch({ type: GETTING_SHOES });
 
         return axios
-            .get("https://grailhouse.herokuapp.com/api/home")
+            .get("https://grailhouse.herokuapp.com/api/sneakers/home")
             .then((res) => {
                 console.log("get shoes", res.data);
                 dispatch({
@@ -49,7 +49,7 @@ export function searchingShoes(searchValue) {
         dispatch({ type: SEARCHING_SHOE });
 
         return axios
-            .get(`https://grailhouse.herokuapp.com/api/search/${searchValue}`)
+            .get(`https://grailhouse.herokuapp.com/api/sneakers/search/${searchValue}`)
             .then((res) => {
                 console.log("search shoe", res.data);
                 dispatch({
@@ -71,7 +71,7 @@ export function getLinkShoes(shoeName) {
         dispatch({ type: GETTING_LINK_SHOES });
 
         return axios
-            .get(`https://grailhouse.herokuapp.com/api/search/${shoeName}`)
+            .get(`https://grailhouse.herokuapp.com/api/sneakers/search/${shoeName}`)
             .then((res) => {
                 if (res.data) {
                     dispatch({

@@ -1,5 +1,5 @@
 .topten-shoes-card {
-    height: 23rem;
+    height: 22rem;
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -56,6 +56,11 @@ img {
     margin: 10px;
 }
 
+.topten-shoes-prices {
+    position: absolute;
+    margin-top: 63px;
+}
+
 .topten-shoes-prices p {
     font-size: 12px;
     font-weight: 300;
@@ -64,10 +69,11 @@ img {
 
 .add-to-closet.active {
     width: 7%;
-    height: 24.5%;
+    height: 22.5%;
     display: flex;
     align-items: flex-end;
     position: absolute;
+    margin-left: 10px;
 }
 
 .add-to-closet.inactive {
@@ -80,7 +86,7 @@ img {
     justify-content: space-between;
     position: absolute;
     width: 15%;
-    height: 45%;
+    height: 42%;
     margin-left: 10px;
 }
 
@@ -98,7 +104,7 @@ img {
 
 .condition-btn {
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 600;
     font-family: "Source Sans Pro", sans-serif;
     margin: 0px;
     color: grey;
