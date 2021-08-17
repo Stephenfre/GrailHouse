@@ -14,8 +14,8 @@ const HoverDiv = styled.div`
     @media only screen and (max-width: 600px) {
         width: 60%;
         height: 10%;
-        bottom: 24.8rem;
-        left: 5rem;
+        bottom: 28.8rem;
+        left: 6rem;
     }
     box-shadow: 0px 4px 5px #c7c7c7;
 `;

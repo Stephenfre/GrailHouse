@@ -51,7 +51,9 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
                         <div className="topten-shoes-prices">
                             <p> Lowest Price</p>
 
-                            <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
+                            <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0", color: "black" }}>
+                                ${lowestPrice}
+                            </p>
                         </div>
                         <div className={`add-to-closet ${isActive ? "inactive " : "active"}`}>
                             <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>

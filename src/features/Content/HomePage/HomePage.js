@@ -23,7 +23,7 @@ const StyledLinks = styled(Link)`
     width: 100%;
     text-align: center;
     @media only screen and (max-width: 600px) {
-        font-size: 15px;
+        font-size: 16px;
     }
     &:hover {
         color: black;
@@ -49,7 +49,6 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
         <div className="main-container">
             <NavBar />
             <Cta />
-
             <div className="content">
                 <div className="title-topten">
                     <div className="title-hover-icon">
@@ -57,6 +56,7 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
 
                         <Icon
                             icon={questionMarkCircle}
+                            style={{ width: "1.5rem", height: "4rem", marginBottom: " 0.4rem" }}
                             onMouseEnter={() => setHover(true)}
                             onMouseLeave={() => setHover(false)}
                         />
