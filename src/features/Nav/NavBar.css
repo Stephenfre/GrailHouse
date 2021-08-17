@@ -6,6 +6,7 @@
     background-color: black;
     align-items: center;
     position: fixed;
+    z-index: 1;
 }
 
 .menu.inactive {
