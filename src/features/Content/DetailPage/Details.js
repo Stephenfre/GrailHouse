@@ -169,7 +169,7 @@ export default function Details(props) {
             // >
             <div className="main-container">
                 <NavBar />
-                <div className="shoe-details-container" style={{ marginTop: "200px" }}>
+                <div className="shoe-details-container">
                     <div className="shoe-details-content">
                         <div className="shoe-img">
                             <Carousel variant="dark" indicator="true" controls="true" interval={10000}>

@@ -1,3 +1,7 @@
+.shoe-details-container {
+    margin-top: 0;
+}
+
 .shoe-details-content {
     display: flex;
     width: 100%;
@@ -26,7 +30,19 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 200px 0 30px 0;
+    margin: 100px 0 30px 0;
+}
+
+.tabs {
+    display: none;
+}
+
+.prices-prices {
+    display: none;
+}
+
+.shoe-details h2 {
+    font-size: 1.6rem;
 }
 
 .add-btn {
@@ -38,6 +54,10 @@
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1600px) {
+    .shoe-details-container {
+        margin-top: 200px;
+    }
+
     .details-tab h5 {
         margin: 0;
         padding: 0;
