@@ -89,7 +89,7 @@
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    margin: -50px;
+    margin-top: -50px;
 }
 
 .prices.active {
