@@ -18,7 +18,6 @@ export function getShoes() {
         return axios
             .get("https://grailhouse.herokuapp.com/api/sneakers/home")
             .then((res) => {
-                console.log("get shoes", res.data);
                 dispatch({
                     type: GETTING_SHOES_SUCCESS,
                     payload: res.data,
