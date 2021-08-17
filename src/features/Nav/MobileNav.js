@@ -16,6 +16,7 @@ import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
+import Account from "../Content/Account/Account";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,12 +31,17 @@ const useStyles = makeStyles((theme) => ({
         color: "black",
         fontSize: "24px",
     },
+    sublinktext: {
+        fontSize: "20px",
+        color: "#afafaf",
+    },
 }));
 
 const Ul = styled.ul`
     list-style: none;
     display: flex;
     flex-flow: row nowrap;
+    overflow: auto;
     li {
         padding: 18px 10px;
     }
@@ -58,6 +64,30 @@ const Ul = styled.ul`
     z-index: 9998;
 `;
 
+const StyledLinkBtn = styled(Link)`
+    text-decoration: none;
+    background: black;
+    color: white;
+    font-size: 18px;
+    padding: 1rem;
+    width: 89%;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+
+    &:hover {
+        background: rgb(41, 41, 41);
+        color: rgb(235, 235, 235);
+        text-decoration: none;
+    }
+`;
+
+const SubLinks = styled(Link)`
+    text-decoration: none;
+    color: #afafaf;
+    font-size: 20px;
+`;
+
 const MobileNav = ({ open }) => {
     const classes = useStyles();
     const [openNike, setOpenNike] = useState(false);
@@ -65,6 +95,7 @@ const MobileNav = ({ open }) => {
     const [openAdidas, setOpenAdidas] = useState(false);
     const [openNewBalance, setOpenNewBalance] = useState(false);
     const [openMore, setOpenMore] = useState(false);
+    const [openAccount, setOpenAccount] = useState(false);
 
     const nikeHandle = () => {
         setOpenNike(!openNike);
@@ -86,6 +117,10 @@ const MobileNav = ({ open }) => {
         setOpenMore(!openMore);
     };
 
+    const accountHandle = () => {
+        setOpenAccount(!openAccount);
+    };
+
     return (
         <Ul open={open}>
             <Link to="/trendingshoes" style={{ margin: "0 0 1.5rem 1rem", color: "black", fontSize: "1.75rem" }}>
@@ -97,7 +132,7 @@ const MobileNav = ({ open }) => {
                     <ListItemText classes={{ primary: classes.listItemText }} primary="Nike" />
                     {openNike ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-                <Collapse in={openNike} timeout="auto" unmountOnExit>
+                <Collapse in={openNike} timeout="auto" unmountOnExit className={classes.height}>
                     <List component="div" disablePadding>
                         <ListItem button className={classes.nested}>
                             <NikeLinks />
@@ -162,6 +197,37 @@ const MobileNav = ({ open }) => {
                 </Collapse>
             </List>
             <Divider />
+            <List>
+                <ListItem button onClick={accountHandle}>
+                    <ListItemText classes={{ primary: classes.listItemText }} primary="Account" />
+                    {openAccount ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openAccount} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                            <SubLinks to="/account/profile">
+                                <ListItemText classes={{ primary: classes.sublinktext }} primary="My Account" />
+                            </SubLinks>
+                        </ListItem>
+                        <ListItem button className={classes.nested}>
+                            <SubLinks to="/account/profile">
+                                <ListItemText classes={{ primary: classes.sublinktext }} primary="My Closet" />
+                            </SubLinks>
+                        </ListItem>
+                        <ListItem button className={classes.nested}>
+                            <SubLinks to="/account/profile">
+                                <ListItemText classes={{ primary: classes.sublinktext }} primary="Settings" />
+                            </SubLinks>
+                        </ListItem>
+                    </List>
+                </Collapse>
+            </List>
+            <Divider />
+            <div className="sign-in-bttn" style={{ height: "25%" }}>
+                <StyledLinkBtn to="/SignUp" className="trending-btn">
+                    Sign Up / Sign In
+                </StyledLinkBtn>
+            </div>
         </Ul>
     );
 };
