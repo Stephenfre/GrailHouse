@@ -1,58 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        height: "13rem",
-        backgroundColor: theme.palette.background.paper,
-    },
-}));
-
-function ListItemLink(props) {
-    return <ListItem button component={Link} {...props} />;
-}
+import "./Links.css";
 
 export default function NikeLinks() {
-    const classes = useStyles();
-
     return (
-        <div className={classes.root}>
-            <List component="nike-links-list" style={{ width: "50%" }}>
-                <ListItemLink to={"/airforce"}>
-                    <ListItemText primary="Air Force 1" />
-                </ListItemLink>
-                <ListItemLink to={"/airmax"}>
-                    <ListItemText primary="Air Max" />
-                </ListItemLink>
-                <ListItemLink to={"/dunks"}>
-                    <ListItemText primary="Dunks" />
-                </ListItemLink>
-                <ListItemLink to={"/kobe"}>
-                    <ListItemText primary="Kobe" />
-                </ListItemLink>
-            </List>
-            <List component="nike-links-list" style={{ width: "50%" }}>
-                <ListItemLink to={"/leborn"}>
-                    <ListItemText primary="LeBron" />
-                </ListItemLink>
-                <ListItemLink to={"/offwhite"}>
-                    <ListItemText primary="Off-White" />
-                </ListItemLink>
-                <ListItemLink to={"/kyrie"}>
-                    <ListItemText primary="Kyrie" />
-                </ListItemLink>
-                <ListItemLink to={"/nike"}>
-                    <ListItemText primary="More Nikes" />
-                </ListItemLink>
-            </List>
+        <div className="shoe-links-mobile-list">
+            <ul component="all-links-list" style={{ width: "50%" }}>
+                <Link to="/airforce">
+                    <li className="mobile-nav-li"> Air Force 1 </li>
+                </Link>
+                <Link to="/airmax">
+                    <li className="mobile-nav-li"> Air Max </li>
+                </Link>
+                <Link to="/dunks">
+                    <li className="mobile-nav-li"> Dunks </li>
+                </Link>
+                <Link to="/kobe">
+                    <li className="mobile-nav-li"> Kobe </li>
+                </Link>
+                <Link to="/leborn">
+                    <li className="mobile-nav-li"> LeBron </li>
+                </Link>
+                <Link to="/offwhite">
+                    <li className="mobile-nav-li"> Off-White </li>
+                </Link>
+                <Link to="/kyrie">
+                    <li className="mobile-nav-li"> Kyrie </li>
+                </Link>
+                <Link to="/nike">
+                    <li className="mobile-nav-li"> All Nikes </li>
+                </Link>
+            </ul>
         </div>
     );
 }

@@ -1,53 +1,35 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-
-const useStyles = makeStyles((theme) => ({
-	root: {
-		width: "100%",
-		display: "flex",
-		alignItems: "center",
-		height: "13rem",
-		backgroundColor: theme.palette.background.paper,
-	},
-}));
-
-function ListItemLink(props) {
-	return <ListItem button component="a" {...props} />;
-}
+import { Link } from "react-router-dom";
 
 export default function MoreSneakLinks() {
-	const classes = useStyles();
-
-	return (
-		<div className={classes.root}>
-			<List component="nike-links-list" style={{ width: "50%" }}>
-				<ListItemLink href="">
-					<ListItemText primary="Asics" />
-				</ListItemLink>
-				<ListItemLink href="">
-					<ListItemText primary="New Balance" />
-				</ListItemLink>
-				<ListItemLink href="">
-					<ListItemText primary="Reebok" />
-				</ListItemLink>
-				<ListItemLink href="">
-					<ListItemText primary="Vans" />
-				</ListItemLink>
-			</List>
-			<List component="nike-links-list" style={{ width: "50%" }}>
-				<ListItemLink href="">
-					<ListItemText primary="A Bathing Ape" />
-				</ListItemLink>
-				<ListItemLink href="">
-					<ListItemText primary="Converse" />
-				</ListItemLink>
-				<ListItemLink href="">
-					<ListItemText primary="Puma" />
-				</ListItemLink>
-			</List>
-		</div>
-	);
+    return (
+        <div className="shoe-links-mobile-list">
+            <ul component="all-links-list" style={{ width: "50%" }}>
+                <Link to="/asics">
+                    <li className="mobile-nav-li"> Asics </li>
+                </Link>
+                <Link to="/newbalance">
+                    <li className="mobile-nav-li"> New Balance </li>
+                </Link>
+                <Link to="/reebok">
+                    <li className="mobile-nav-li"> Reebok </li>
+                </Link>
+                <Link to="/vans">
+                    <li className="mobile-nav-li"> Vans </li>
+                </Link>
+                <Link to="/abathingape">
+                    <li className="mobile-nav-li"> A Bathing Ape </li>
+                </Link>
+                <Link to="/converse">
+                    <li className="mobile-nav-li"> Converse </li>
+                </Link>
+                <Link to="/puma">
+                    <li className="mobile-nav-li"> Puma </li>
+                </Link>
+                <Link to="/kyrie">
+                    <li className="mobile-nav-li"> All More Sneakers</li>
+                </Link>
+            </ul>
+        </div>
+    );
 }

@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
+
 import NikeLinks from "./Links/NikeLinks";
 import JordanLinks from "./Links/JordanLinks";
 import AdidasLink from "./Links/AdidasLink";
 import YeezyLinks from "./Links/YeezyLinks";
 import MoreSneakLinks from "./Links/MoreSneakLinks";
+
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Collapse from "@material-ui/core/Collapse";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import Divider from "@material-ui/core/Divider";
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: "100%",
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
+    },
+    nested: {
+        paddingLeft: theme.spacing(4),
+    },
+    listItemText: {
+        color: "black",
+        fontSize: "24px",
+    },
+}));
 
 const Ul = styled.ul`
     list-style: none;
@@ -22,34 +48,120 @@ const Ul = styled.ul`
         right: 0;
         height: 100vh;
         width: 100%;
-        padding-top: 3.5rem;
+        padding-top: 1.5rem;
         margin-top: 64px;
         transition: transform 0.3s ease-in-out;
         li {
-            color: black;
+            color: #afafaf;
         }
     }
     z-index: 9998;
 `;
 
 const MobileNav = ({ open }) => {
+    const classes = useStyles();
+    const [openNike, setOpenNike] = useState(false);
+    const [openJordan, setOpenJordan] = useState(false);
+    const [openAdidas, setOpenAdidas] = useState(false);
+    const [openNewBalance, setOpenNewBalance] = useState(false);
+    const [openMore, setOpenMore] = useState(false);
+
+    const nikeHandle = () => {
+        setOpenNike(!openNike);
+    };
+
+    const jordanHandle = () => {
+        setOpenJordan(!openJordan);
+    };
+
+    const adidasHandle = () => {
+        setOpenAdidas(!openAdidas);
+    };
+
+    const newBalanceHandle = () => {
+        setOpenNewBalance(!openNewBalance);
+    };
+
+    const moreHandle = () => {
+        setOpenMore(!openMore);
+    };
+
     return (
         <Ul open={open}>
-            <li>
-                <NikeLinks />
-            </li>
-            <li>
-                <JordanLinks />
-            </li>
-            <li>
-                <AdidasLink />
-            </li>
-            <li>
-                <YeezyLinks />
-            </li>
-            <li>
-                <MoreSneakLinks />
-            </li>
+            <Link to="/trendingshoes" style={{ margin: "0 0 1.5rem 1rem", color: "black", fontSize: "1.75rem" }}>
+                Browser All
+            </Link>
+            <Divider />
+            <List>
+                <ListItem button onClick={nikeHandle}>
+                    <ListItemText classes={{ primary: classes.listItemText }} primary="Nike" />
+                    {openNike ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openNike} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                            <NikeLinks />
+                        </ListItem>
+                    </List>
+                </Collapse>
+            </List>
+            <Divider />
+            <List>
+                <ListItem button onClick={jordanHandle}>
+                    <ListItemText classes={{ primary: classes.listItemText }} primary="Jordan" />
+                    {openJordan ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openJordan} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                            <JordanLinks />
+                        </ListItem>
+                    </List>
+                </Collapse>
+            </List>
+            <Divider />
+            <List>
+                <ListItem button onClick={adidasHandle}>
+                    <ListItemText classes={{ primary: classes.listItemText }} primary="Adidas" />
+                    {openAdidas ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openAdidas} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                            <AdidasLink />
+                        </ListItem>
+                    </List>
+                </Collapse>
+            </List>
+            <Divider />
+            <List>
+                <ListItem button onClick={newBalanceHandle}>
+                    <ListItemText classes={{ primary: classes.listItemText }} primary="Yeezy" />
+                    {openNewBalance ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openNewBalance} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                            <YeezyLinks />
+                        </ListItem>
+                    </List>
+                </Collapse>
+            </List>
+            <Divider />
+            <List>
+                <ListItem button onClick={moreHandle}>
+                    <ListItemText classes={{ primary: classes.listItemText }} primary="More Sneakers" />
+                    {openMore ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openMore} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                            <MoreSneakLinks />
+                        </ListItem>
+                    </List>
+                </Collapse>
+            </List>
+            <Divider />
         </Ul>
     );
 };

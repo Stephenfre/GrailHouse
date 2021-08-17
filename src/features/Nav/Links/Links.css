@@ -1,0 +1,13 @@
+.shoe-links-mobile-list {
+    width: 100%;
+}
+
+.all-links-list {
+    list-style: none;
+}
+
+.mobile-nav-li {
+    font-size: 20px;
+    list-style: none;
+    color: #afafaf;
+}
