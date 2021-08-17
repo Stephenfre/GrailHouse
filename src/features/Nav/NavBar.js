@@ -59,18 +59,6 @@ const DropDownLi = styled(StyledLi)`
     }
 `;
 
-// const StyledLinks = styled(Link)`
-// 	padding: 5px;
-// 	text-align: center;
-// 	text-decoration: none;
-// 	font-size: 15px;
-// 	color: white;
-
-// 	&:hover {
-// 		border-bottom: black solid 1px;
-// 	}
-// `;
-
 export default function NavBar(props) {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
@@ -103,7 +91,7 @@ export default function NavBar(props) {
                     <Icon icon={magnifyIcon} style={{ height: "2.5rem", width: "2.2rem", color: "white" }} />
                 </div>
                 <div className="search-bar-mobile">{openSearch && <SearchForm search={SearchForm} />}</div>
-                <div className="nav-logo">
+                <div className={`nav-logo ${!openSearch ? "" : "inactive"}`}>
                     <Link to="/">
                         <img src={GrailHouse} alt="logo" />
                     </Link>

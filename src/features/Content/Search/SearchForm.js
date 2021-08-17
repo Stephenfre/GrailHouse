@@ -4,7 +4,8 @@ import { useHistory, withRouter } from "react-router-dom";
 
 import { searchingShoes } from "../../../actions";
 
-import "./Search.css";
+// import "./Search.css";
+import "./SearchForm.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { Icon } from "@iconify/react";
 import magnifyIcon from "@iconify/icons-mdi/magnify";
@@ -19,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Search(props) {
     const [searchValue, setSearchValue] = useState("");
-    const classes = useStyles();
 
     let history = useHistory();
 
@@ -32,53 +32,21 @@ function Search(props) {
     };
 
     const callSearchFunction = () => {
-        // e.preventDefault();
         props.searchingShoes(searchValue);
         history.push(`search/${searchValue}`);
         resetInputField();
     };
 
     return (
-        <form
-            className={classes.root}
-            noValidate
-            autoComplete="off"
-            onSubmit={(e) => callSearchFunction()}
-            style={{
-                display: "flex",
-                width: "90%",
-                justifyContent: "space-around",
-                alignItems: "center",
-                height: "100%",
-            }}
-        >
+        <form className="search-form-main" noValidate autoComplete="off" onSubmit={(e) => callSearchFunction()}>
             <input
+                className="search-input"
                 value={searchValue}
                 onChange={handleSearchInputChanges}
                 type="text"
                 placeholder="Search..."
-                style={{
-                    background: "white",
-                    width: "75%",
-                    height: "50%",
-                    borderRadius: "15px",
-                    color: "black",
-                    padding: "10px",
-                }}
             />
-            <button
-                type="submit"
-                style={{
-                    position: "absolute",
-                    background: "none",
-                    right: "10.5rem",
-                    top: "1.7rem",
-                    margin: "0",
-                    padding: "0",
-                    width: "0",
-                    color: "black",
-                }}
-            >
+            <button className="nav-search-button" type="submit">
                 <Icon icon={magnifyIcon} style={{ height: "1.5rem", width: "1.5rem" }} />
             </button>
         </form>
