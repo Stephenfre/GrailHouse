@@ -182,11 +182,13 @@
 
 @media only screen and (max-width: 600px) {
     .search-content {
+        height: 2750px;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 495px;
+        margin-bottom: 100px;
+        overflow: hidden;
     }
 
     .title-details {
