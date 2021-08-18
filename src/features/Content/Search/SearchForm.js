@@ -4,19 +4,9 @@ import { useHistory, withRouter } from "react-router-dom";
 
 import { searchingShoes } from "../../../actions";
 
-// import "./Search.css";
 import "./SearchForm.css";
-import { makeStyles } from "@material-ui/core/styles";
 import { Icon } from "@iconify/react";
 import magnifyIcon from "@iconify/icons-mdi/magnify";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        "& > *": {
-            margin: theme.spacing(1),
-        },
-    },
-}));
 
 function Search(props) {
     const [searchValue, setSearchValue] = useState("");

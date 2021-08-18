@@ -16,7 +16,6 @@ import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
-import Account from "../Content/Account/Account";
 
 const useStyles = makeStyles((theme) => ({
     root: {
