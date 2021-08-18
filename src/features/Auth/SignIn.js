@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 
 import GrailHouseBlack from "../../Svgs/GrailHouseBlack.svg";
 import GoogleIcon from "../../Svgs/GoogleIcon.svg";
+import { Icon } from "@iconify/react";
+import arrowIosBackFill from "@iconify/icons-eva/arrow-ios-back-fill";
 
 const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
 
@@ -75,6 +77,12 @@ export default function SignIn() {
 
     return (
         <div className="main-container">
+            <div className="back-button">
+                <Icon icon={arrowIosBackFill} color="black" style={{ width: "2rem", height: "2rem" }} />
+                <Link to="/" style={{ fontSize: "1.25rem", textDecoration: "none", color: "black" }}>
+                    Go Back
+                </Link>
+            </div>
             <div className="sign-in-container">
                 <div className="sign-in-content">
                     <div className="sign-in-imgs">

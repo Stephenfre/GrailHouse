@@ -246,6 +246,11 @@
   "resolved" "https://registry.npmjs.org/@iconify/icons-carbon/-/icons-carbon-1.1.5.tgz"
   "version" "1.1.5"
 
+"@iconify/icons-eva@^1.1.0":
+  "integrity" "sha512-a2wCJw+6UebrsoJ2WhpHUcdr4PJljwk0tdu1GfpjzwVyiJBC7y6sc2h7as1npJPLwgMIc/q8YFJf5iFl7Ik3NA=="
+  "resolved" "https://registry.npmjs.org/@iconify/icons-eva/-/icons-eva-1.1.0.tgz"
+  "version" "1.1.0"
+
 "@iconify/icons-fontisto@^1.1.0":
   "integrity" "sha512-yGoo8ZZf/LefU30TRs6rZxtCq+6Bk0RlndJDZGvpw5YCvMRRgivwbcDMRBQMjwHBL9NsXQdqCxpX30igmQRBAQ=="
   "resolved" "https://registry.npmjs.org/@iconify/icons-fontisto/-/icons-fontisto-1.1.0.tgz"

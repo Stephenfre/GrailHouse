@@ -148,6 +148,20 @@ input {
 }
 
 @media only screen and (max-width: 600px) {
+    .back-button {
+        display: flex;
+        position: absolute;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        left: 11px;
+        margin-top: 10px;
+    }
+
+    .back-button h5 {
+        margin: 0px;
+    }
+
     .sign-up-content {
         height: 80%;
         width: 90%;
