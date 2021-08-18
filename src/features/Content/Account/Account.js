@@ -41,7 +41,7 @@ export default function Account() {
                 <StyledLinks to="/settings">Settings</StyledLinks>
             </div>
             <div className="sign-in-bttn">
-                <StyledLinkBtn to="/SignUp" className="trending-btn">
+                <StyledLinkBtn to="/signup" className="trending-btn">
                     Sign Up / Sign In
                 </StyledLinkBtn>
             </div>
