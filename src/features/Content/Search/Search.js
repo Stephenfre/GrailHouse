@@ -45,7 +45,7 @@ function Search({ searchResults, searchShoes, shoeName }) {
                 <div className="title-details">
                     <div
                         style={{
-                            width: "75%",
+                            width: "100%",
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
@@ -61,6 +61,7 @@ function Search({ searchResults, searchShoes, shoeName }) {
                                 <h3>Search results for ""</h3>
                             </div>
                         </div>
+                        <div className="search-options-mobile">filter</div>
                         <div className="search-bar-details">
                             <SearchResultsForm search={SearchResultsForm} />
                             <Icon
