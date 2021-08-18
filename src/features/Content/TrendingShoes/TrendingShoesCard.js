@@ -51,7 +51,7 @@ function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName
                 <div className={"trending-shoes-wrap" + (isViewActive ? " active" : "")}>
                     <div className="trending-shoes-details">
                         <p>{shoeName}</p>
-                        <div className={"prices" + (isViewActive ? " active" : "")}>
+                        <div className={"trending-prices" + (isViewActive ? " active" : "")}>
                             <p>Lowest Price</p>
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>

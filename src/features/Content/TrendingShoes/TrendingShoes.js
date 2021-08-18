@@ -47,7 +47,7 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
         <div className="main-container">
             <NavBar />
             <div className="cta-trending-img">
-                <img src={TrendingBackground} alt="cta-logo" />
+                <img src={TrendingBackground} alt="cta-logo" style={{ marginTop: "130px" }} />
             </div>
             <div className="trending-content">
                 <div className="title-details">

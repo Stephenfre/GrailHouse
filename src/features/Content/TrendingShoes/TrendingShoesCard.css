@@ -83,7 +83,7 @@
     margin: 10px 10px 0px 10px;
 }
 
-.prices {
+.trending-prices {
     height: 35%;
     display: flex;
     flex-direction: column;
@@ -92,11 +92,11 @@
     margin-top: -50px;
 }
 
-.prices.active {
+.trending-prices.active {
     display: none;
 }
 
-.prices p {
+.trending-prices p {
     font-weight: 300;
     margin: 0 10px;
 }
@@ -226,14 +226,14 @@
         margin: 5px 0 0 10px;
     }
 
-    .prices {
+    .trending-prices {
         height: 0;
         display: flex;
         position: absolute;
         margin-top: 105px;
     }
 
-    .prices p {
+    .trending-prices p {
         font-weight: 300;
         margin: 0 10px;
     }
