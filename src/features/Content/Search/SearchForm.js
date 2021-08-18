@@ -44,7 +44,7 @@ function Search(props) {
                 value={searchValue}
                 onChange={handleSearchInputChanges}
                 type="text"
-                placeholder="Search..."
+                placeholder="Search for brand, color, etc"
             />
             <button className="nav-search-button" type="submit">
                 <Icon icon={magnifyIcon} style={{ height: "1.5rem", width: "1.5rem" }} />

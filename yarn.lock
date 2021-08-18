@@ -226,6 +226,11 @@
   "resolved" "https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz"
   "version" "0.2.5"
 
+"@iconify/icons-akar-icons@^1.1.22":
+  "integrity" "sha512-FKePxXRdYY93CU3MYxYa/MQ8ni9skye1tXK/KTmxITkmDRL68AAdFbZKzqYpA72bT2Kg67lV6jMlM3jG0D2oEw=="
+  "resolved" "https://registry.npmjs.org/@iconify/icons-akar-icons/-/icons-akar-icons-1.1.22.tgz"
+  "version" "1.1.22"
+
 "@iconify/icons-ant-design@^1.1.0":
   "integrity" "sha512-sE4NKXMfN9arTFmfvt4zARoS+hjhd8P0z5osjWYxVkQPCri1RYpF+NRa9MsDh3ScqAcSU9wfUeQ3X4Gf8GrcNQ=="
   "resolved" "https://registry.npmjs.org/@iconify/icons-ant-design/-/icons-ant-design-1.1.0.tgz"

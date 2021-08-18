@@ -15,6 +15,8 @@ import GrailHouse from "../../Svgs/GrailHouse.svg";
 import "./NavBar.css";
 import { Icon } from "@iconify/react";
 import magnifyIcon from "@iconify/icons-mdi/magnify";
+// import circleXFill from "@iconify/icons-akar-icons/circle-x-fill";
+import circleX from "@iconify/icons-akar-icons/circle-x";
 
 const StyledUl = styled.ul`
     list-style-type: none;
@@ -87,8 +89,17 @@ export default function NavBar(props) {
     return (
         <div className="nav-container">
             <div className="nav-bar">
-                <div className="nav-icon-mobile" onClick={() => setOpenSearch(!openSearch)}>
+                <div
+                    className={`nav-icon-magnify-mobile ${!openSearch ? "active" : "inactive"}`}
+                    onClick={() => setOpenSearch(!openSearch)}
+                >
                     <Icon icon={magnifyIcon} style={{ height: "2.5rem", width: "2.2rem", color: "white" }} />
+                </div>
+                <div
+                    className={`nav-icon-x-mobile ${openSearch ? "active" : "inactive"}`}
+                    onClick={() => setOpenSearch(!openSearch)}
+                >
+                    <Icon icon={circleX} color="white" style={{ height: "2rem", width: "2rem", color: "white" }} />
                 </div>
                 <div className="search-bar-mobile">{openSearch && <SearchForm search={SearchForm} />}</div>
                 <div className={`nav-logo ${!openSearch ? "" : "inactive"}`}>

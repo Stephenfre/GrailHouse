@@ -40,10 +40,24 @@
     display: none;
 }
 
-.nav-icon-mobile {
+.nav-icon-magnify-mobile.active {
     position: absolute;
     right: 15px;
     top: 10px;
+}
+
+.nav-icon-magnify-mobile.inactive {
+    display: none;
+}
+
+.nav-icon-x-mobile.active {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.nav-icon-x-mobile.inactive {
+    display: none;
 }
 
 .nav-links-container {
