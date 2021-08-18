@@ -49,7 +49,7 @@ const Ul = styled.ul`
         background-color: #fff;
         position: fixed;
         transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-200%)")};
-        top: 0;
+        top: -2;
         right: 0;
         height: 100vh;
         width: 100%;

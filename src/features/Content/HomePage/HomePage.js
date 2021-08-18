@@ -12,7 +12,6 @@ import Cta from "../../Cta/Cta";
 import TopTenShoeCards from "./TopTenShoeCards";
 import TopTenHoverBox from "../TopTenHoverBox";
 import HomeSkeletonCards from "../Skeletons/HomeSkeletonCards";
-
 import Footer from "../../Footer/Footer";
 import "./HomePage.css";
 
@@ -33,10 +32,11 @@ const StyledLinks = styled(Link)`
 
 function HomePage({ getShoes, shoes, gettingShoes }) {
     const [hover, setHover] = useState(false);
+    const [iconClicked, setIconClicked] = useState(false);
     const [currentPage] = useState(1);
     const [shoesPerPage] = useState(8);
 
-    // Get Current Shoes
+    //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
     const homeCurrentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
@@ -61,6 +61,18 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
                             onMouseLeave={() => setHover(false)}
                         />
                         {hover && <TopTenHoverBox />}
+                    </div>
+                    <div className="title-hover-icon-mobile">
+                        <h1>Most Popular</h1>
+
+                        <Icon
+                            icon={questionMarkCircle}
+                            style={{ width: "1.5rem", height: "4rem", marginBottom: " 0.4rem" }}
+                            onClick={() => setIconClicked(!iconClicked)}
+                        />
+                        <div className={`hover-icon-mobile ${!iconClicked ? "inactive" : ""}`}>
+                            <TopTenHoverBox />
+                        </div>
                     </div>
                     <div className="topten-link-con">
                         <StyledLinks to="trendingshoes" className="trending-btn">

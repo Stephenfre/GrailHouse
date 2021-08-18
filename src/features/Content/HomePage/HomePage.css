@@ -13,11 +13,23 @@
 }
 
 .title-hover-icon {
+    display: none;
+}
+
+.title-hover-icon-mobile {
     display: flex;
     align-items: center;
     width: 55%;
     height: 100%;
     justify-content: space-between;
+}
+
+.title-hover-icon-mobile h1 {
+    font-size: 1.7rem;
+}
+
+.hover-icon-mobile.inactive {
+    display: none;
 }
 
 .hover-box {
