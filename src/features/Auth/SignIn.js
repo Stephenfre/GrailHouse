@@ -2,10 +2,12 @@ import React from "react";
 import "./SignForms.css";
 import useInput from "./CustomHooks/useInput";
 import { refreshTokenSetup } from "./refreshTokenSetup";
-
 import { useGoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useHistory } from "react-router";
 
+// import { axiosWithAuth } from "./axiosWithAuth";
 import GrailHouseBlack from "../../Svgs/GrailHouseBlack.svg";
 import GoogleIcon from "../../Svgs/GoogleIcon.svg";
 import { Icon } from "@iconify/react";
@@ -14,13 +16,15 @@ import arrowIosBackFill from "@iconify/icons-eva/arrow-ios-back-fill";
 const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
 
 export default function SignIn() {
+    let history = useHistory();
+
     const {
-        value: enteredUsername,
-        isValid: enteredUsernameIsValid,
-        hasError: usernameInputHasError,
-        valueChangeHandler: usernameChangedHandler,
-        inputBlurHandler: usernameBlurHandler,
-        reset: resetUsernameInput,
+        value: enteredEmail,
+        isValid: enteredEmailIsValid,
+        hasError: emailInputHasError,
+        valueChangeHandler: emailChangedHandler,
+        inputBlurHandler: emailBlurHandler,
+        reset: resetEmailInput,
     } = useInput((value) => value.trim() !== "");
 
     const {
@@ -30,29 +34,59 @@ export default function SignIn() {
         valueChangeHandler: passwordChangedHandler,
         inputBlurHandler: passwordBlurHandler,
         reset: resetPasswordInput,
-    } = useInput((value) => value.includes("@"));
+    } = useInput((value) => value.includes(""));
 
     // eslint-disable-next-line
     let formIsValid = false;
 
-    if (enteredUsernameIsValid && enteredPasswordIsValid) {
+    if (enteredEmailIsValid && enteredPasswordIsValid) {
         formIsValid = true;
     } else {
         formIsValid = false;
     }
 
+    const headers = {
+        "Content-Type": "application/json",
+        Accept: "application//json",
+    };
+
     const formSubmit = (e) => {
         e.preventDefault();
 
-        if (!enteredUsernameIsValid || !enteredPasswordIsValid) {
-            return;
-        }
+        axios
+            .post(
+                "http://localhost:5001/api/login",
+                {
+                    email: enteredEmail,
+                    password: enteredPassword,
+                },
+                {
+                    headers: headers,
+                }
+            )
+            .then((res) => {
+                console.log(res);
+                console.log(res.data.token);
+                if (res.data.token) {
+                    localStorage.setItem("user", JSON.strigify(res.data));
+                }
+                return res.data;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
-        resetUsernameInput();
+        // console.log(enteredEmail);
+        // console.log(enteredPassword);
+        // console.log("Submitted");
+
+        resetEmailInput();
         resetPasswordInput();
+
+        history.push("/");
     };
 
-    const usernameInputClasses = usernameInputHasError ? "sign-in-inputs invaild" : "sign-in-inputs";
+    const emailInputClasses = emailInputHasError ? "sign-in-inputs invaild" : "sign-in-inputs";
     const passwordInputClasses = passwordInputHasError ? "sign-in-inputs invaild" : "sign-in-inputs";
 
     // * Google Sign Up (Below)
@@ -117,16 +151,16 @@ export default function SignIn() {
                     </div>
                     <form className="sign-in-form" onSubmit={formSubmit}>
                         <div className="sign-in-inputs-container">
-                            <div className={usernameInputClasses}>
+                            <div className={emailInputClasses}>
                                 <input
                                     type="text"
-                                    name="username"
-                                    placeholder="Username"
-                                    onChange={usernameChangedHandler}
-                                    onBlur={usernameBlurHandler}
-                                    value={enteredUsername}
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={emailChangedHandler}
+                                    onBlur={emailBlurHandler}
+                                    value={enteredEmail}
                                 />
-                                {usernameInputHasError && <p className="error-text">Must enter Username</p>}
+                                {emailInputHasError && <p className="error-text">Must enter Username</p>}
                             </div>
                             <div className={passwordInputClasses}>
                                 <input
@@ -139,7 +173,7 @@ export default function SignIn() {
                                 />
                                 {passwordInputHasError && <p className="error-text">Must enter a vaild Password</p>}
                             </div>
-                            <button className="sign-in-btn" type="submit">
+                            <button disabled={!formIsValid} className="sign-in-btn" type="submit">
                                 Sign In
                             </button>
                             <p>

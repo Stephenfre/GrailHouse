@@ -147,6 +147,12 @@ input {
     color: black;
 }
 
+button:disabled,
+button[disabled] {
+    background-color: #cccccc;
+    color: #666666;
+}
+
 @media only screen and (max-width: 600px) {
     .back-button {
         display: flex;

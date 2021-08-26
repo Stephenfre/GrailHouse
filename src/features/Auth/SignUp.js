@@ -2,9 +2,10 @@ import React from "react";
 import "./SignForms.css";
 import useInput from "./CustomHooks/useInput";
 import { refreshTokenSetup } from "./refreshTokenSetup";
-
 import { useGoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useHistory } from "react-router";
 
 import GrailHouseBlack from "../../Svgs/GrailHouseBlack.svg";
 import GoogleIcon from "../../Svgs/GoogleIcon.svg";
@@ -14,34 +15,9 @@ import arrowIosBackFill from "@iconify/icons-eva/arrow-ios-back-fill";
 const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
 
 export default function SignUp() {
-    const {
-        value: enteredUsername,
-        isValid: enteredUsernameIsValid,
-        hasError: usernameInputHasError,
-        valueChangeHandler: usernameChangedHandler,
-        inputBlurHandler: usernameBlurHandler,
-        reset: resetUsernameInput,
-    } = useInput((value) => value.trim() !== "");
+    let history = useHistory();
 
-    const {
-        value: enteredEmail,
-        isValid: enteredEmailIsValid,
-        hasError: emailInputHasError,
-        valueChangeHandler: emailChangedHandler,
-        inputBlurHandler: emailBlurHandler,
-        reset: resetEmailInput,
-    } = useInput((value) => value.includes("@"));
-
-    const {
-        value: enteredPassword,
-        isValid: enteredPasswordIsValid,
-        hasError: passwordInputHasError,
-        valueChangeHandler: passwordChangedHandler,
-        inputBlurHandler: passwordBlurHandler,
-        reset: resetPasswordInput,
-    } = useInput((value) => value.includes("@"));
-
-    // * Google Sign Up (Below)
+    // * Google Sign Up
     const onSuccess = (res) => {
         console.log("[Login Success} currentUser", res.profileObj);
         refreshTokenSetup(res);
@@ -59,7 +35,33 @@ export default function SignUp() {
         accessType: "offline",
     });
 
-    // * Google Sign Up (Above)
+    // * Sign Up form and validation
+    const {
+        value: enteredUsername,
+        isValid: enteredUsernameIsValid,
+        hasError: usernameInputHasError,
+        valueChangeHandler: usernameChangedHandler,
+        inputBlurHandler: usernameBlurHandler,
+        reset: resetUsernameInput,
+    } = useInput((value) => value.trim() !== "");
+
+    const {
+        value: enteredEmail,
+        isValid: enteredEmailIsValid,
+        hasError: emailInputHasError,
+        valueChangeHandler: emailChangedHandler,
+        inputBlurHandler: emailBlurHandler,
+        reset: resetEmailInput,
+    } = useInput((value) => value.includes(""));
+
+    const {
+        value: enteredPassword,
+        isValid: enteredPasswordIsValid,
+        hasError: passwordInputHasError,
+        valueChangeHandler: passwordChangedHandler,
+        inputBlurHandler: passwordBlurHandler,
+        reset: resetPasswordInput,
+    } = useInput((value) => value.includes(""));
 
     // eslint-disable-next-line
     var formIsValid = false;
@@ -70,16 +72,41 @@ export default function SignUp() {
         formIsValid = false;
     }
 
+    const headers = {
+        "Content-Type": "application/json",
+        Accept: "application//json",
+    };
+
     const formSubmit = (e) => {
         e.preventDefault();
 
-        if (!enteredUsernameIsValid || !enteredEmailIsValid || !enteredPasswordIsValid) {
-            return;
-        }
+        axios
+            .post(
+                "http://localhost:5001/api/register",
+                {
+                    name: enteredUsername,
+                    email: enteredEmail,
+                    password: enteredPassword,
+                },
+                {
+                    headers: headers,
+                }
+            )
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
-        resetUsernameInput();
+        // console.log(enteredEmail);
+        // console.log(enteredPassword);
+        // console.log("Submitted");
+
         resetEmailInput();
         resetPasswordInput();
+
+        history.push("/");
     };
 
     const usernameInputClasses = usernameInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
@@ -161,7 +188,7 @@ export default function SignUp() {
                                 />
                                 {passwordInputHasError && <p className="error-text">Must enter a vaild Password</p>}
                             </div>
-                            <button className="sign-up-btn" type="submit">
+                            <button disabled={!formIsValid} className="sign-up-btn" type="submit">
                                 Sign Up
                             </button>
                             <p>
