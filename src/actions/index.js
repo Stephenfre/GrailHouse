@@ -10,12 +10,14 @@ export const SEARCHING_SHOE_FAIL = "SEARCHING_SHOE_FAIL";
 export const GETTING_LINK_SHOES = "GETTING_LINK_SHOES";
 export const GETTING_LINK_SHOES_SUCCESS = "GETTING_LINK_SHOES_SUCCESS";
 export const GETTING_LINK_SHOES_FAIL = "GETTING_LINK_SHOES_FAIL";
-// export const REGISTER = "REGISTER";
-// export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-// export const REGISTER_FAIL = "REGISTER_FAIL";
-// export const LOGIN = "LOGIN";
-// export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-// export const LOGIN_FAIL = "LOGIN_FAIL";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGOUT = "LOGOUT";
+
+export const SET_MESSAGE = "SET_MESSAGE";
+export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
 export function getShoes() {
     return (dispatch) => {

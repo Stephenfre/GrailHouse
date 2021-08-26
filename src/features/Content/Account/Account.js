@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
+import { logout } from "../../../actions/auth";
+import { connect } from "react-redux";
 
 const StyledLinks = styled(Link)`
     padding: 10px 0px 0px 0px;
@@ -32,7 +34,11 @@ const StyledLinkBtn = styled(Link)`
     }
 `;
 
-export default function Account() {
+function Account({ dispatch }) {
+    const logOut = () => {
+        dispatch(logout());
+    };
+
     return (
         <div className="account-content-container">
             <div className="account-content">
@@ -44,7 +50,18 @@ export default function Account() {
                 <StyledLinkBtn to="/signup" className="trending-btn">
                     Sign Up / Sign In
                 </StyledLinkBtn>
+                <StyledLinkBtn onClick={logOut} to="/signup" className="trending-btn">
+                    Logout
+                </StyledLinkBtn>
             </div>
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(Account));

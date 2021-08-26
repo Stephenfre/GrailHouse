@@ -3,9 +3,10 @@ import "./SignForms.css";
 import useInput from "./CustomHooks/useInput";
 import { refreshTokenSetup } from "./refreshTokenSetup";
 import { useGoogleLogin } from "react-google-login";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
+import { connect } from "react-redux";
+import { register } from "../../actions/auth";
 
 import GrailHouseBlack from "../../Svgs/GrailHouseBlack.svg";
 import GoogleIcon from "../../Svgs/GoogleIcon.svg";
@@ -14,7 +15,7 @@ import arrowIosBackFill from "@iconify/icons-eva/arrow-ios-back-fill";
 
 const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
 
-export default function SignUp() {
+function SignUp({ dispatch }) {
     let history = useHistory();
 
     // * Google Sign Up
@@ -72,38 +73,47 @@ export default function SignUp() {
         formIsValid = false;
     }
 
-    const headers = {
-        "Content-Type": "application/json",
-        Accept: "application//json",
-    };
+    // const headers = {
+    //     "Content-Type": "application/json",
+    //     Accept: "application//json",
+    // };
 
     const formSubmit = (e) => {
         e.preventDefault();
 
-        axios
-            .post(
-                "http://localhost:5001/api/register",
-                {
-                    name: enteredUsername,
-                    email: enteredEmail,
-                    password: enteredPassword,
-                },
-                {
-                    headers: headers,
-                }
-            )
-            .then((res) => {
-                console.log(res);
+        dispatch(register(enteredUsername, enteredEmail, enteredPassword))
+            .then(() => {
+                console.log(enteredUsername, enteredEmail, enteredPassword);
+                history.push("/");
             })
             .catch((err) => {
                 console.log(err);
             });
 
+        // axios
+        //     .post(
+        //         "http://localhost:5001/api/register",
+        //         {
+        //             name: enteredUsername,
+        //             email: enteredEmail,
+        //             password: enteredPassword,
+        //         },
+        //         {
+        //             headers: headers,
+        //         }
+        //     )
+        //     .then((res) => {
+        //         console.log(res);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
+
         resetEmailInput();
         resetPasswordInput();
         resetUsernameInput();
 
-        history.push("/");
+        // history.push("/");
     };
 
     const usernameInputClasses = usernameInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
@@ -201,3 +211,11 @@ export default function SignUp() {
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        message: state.message,
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(SignUp));

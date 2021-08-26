@@ -9,14 +9,9 @@ import {
     GETTING_LINK_SHOES,
     GETTING_LINK_SHOES_SUCCESS,
     GETTING_LINK_SHOES_FAIL,
-    // REGISTER_SUCCESS,
-    // REGISTER_FAIL,
-    // LOGIN_SUCCESS,
-    // LOGIN_FAIL,
 } from "../actions";
 
 const initialState = {
-    profile: null,
     shoes: [],
     gettingShoes: false,
     gettingShoesError: null,
@@ -29,12 +24,6 @@ const initialState = {
     gettingLinkShoesSucces: false,
     linkShoesResults: [],
     gettingLinkShoesError: null,
-    logginingIn: false,
-    loggedIn: false,
-    loggedInFail: false,
-    registering: false,
-    registered: false,
-    registeredError: null,
 };
 
 // eslint-disable-next-line

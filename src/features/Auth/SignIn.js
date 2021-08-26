@@ -3,11 +3,11 @@ import "./SignForms.css";
 import useInput from "./CustomHooks/useInput";
 import { refreshTokenSetup } from "./refreshTokenSetup";
 import { useGoogleLogin } from "react-google-login";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
+import { connect } from "react-redux";
+import { login } from "../../actions/auth";
 
-// import { axiosWithAuth } from "./axiosWithAuth";
 import GrailHouseBlack from "../../Svgs/GrailHouseBlack.svg";
 import GoogleIcon from "../../Svgs/GoogleIcon.svg";
 import { Icon } from "@iconify/react";
@@ -15,7 +15,7 @@ import arrowIosBackFill from "@iconify/icons-eva/arrow-ios-back-fill";
 
 const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
 
-export default function SignIn() {
+function SignIn({ dispatch, isLoggedIn, message }) {
     let history = useHistory();
 
     const {
@@ -45,32 +45,14 @@ export default function SignIn() {
         formIsValid = false;
     }
 
-    const headers = {
-        "Content-Type": "application/json",
-        Accept: "application//json",
-    };
-
     const formSubmit = (e) => {
         e.preventDefault();
 
-        axios
-            .post(
-                "http://localhost:5001/api/login",
-                {
-                    email: enteredEmail,
-                    password: enteredPassword,
-                },
-                {
-                    headers: headers,
-                }
-            )
-            .then((res) => {
-                console.log(res);
-                console.log(res.data.token);
-                if (res.data.token) {
-                    localStorage.setItem("user", JSON.strigify(res.data));
-                }
-                return res.data;
+        dispatch(login(enteredEmail, enteredPassword))
+            .then(() => {
+                console.log(enteredEmail, enteredPassword);
+                history.push("/");
+                // window.location.reload();
             })
             .catch((err) => {
                 console.log(err);
@@ -78,8 +60,6 @@ export default function SignIn() {
 
         resetEmailInput();
         resetPasswordInput();
-
-        history.push("/");
     };
 
     const emailInputClasses = emailInputHasError ? "sign-in-inputs invaild" : "sign-in-inputs";
@@ -104,6 +84,10 @@ export default function SignIn() {
     });
 
     // * Google Sign Up (Above)
+
+    if (isLoggedIn) {
+        return <Redirect to="/" />;
+    }
 
     return (
         <div className="main-container">
@@ -185,3 +169,12 @@ export default function SignIn() {
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.isLoggedIn,
+        message: state.message,
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(SignIn));
