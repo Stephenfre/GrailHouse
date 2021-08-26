@@ -76,10 +76,6 @@ export default function SignIn() {
                 console.log(err);
             });
 
-        // console.log(enteredEmail);
-        // console.log(enteredPassword);
-        // console.log("Submitted");
-
         resetEmailInput();
         resetPasswordInput();
 

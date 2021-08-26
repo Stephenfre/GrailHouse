@@ -99,12 +99,9 @@ export default function SignUp() {
                 console.log(err);
             });
 
-        // console.log(enteredEmail);
-        // console.log(enteredPassword);
-        // console.log("Submitted");
-
         resetEmailInput();
         resetPasswordInput();
+        resetUsernameInput();
 
         history.push("/");
     };
