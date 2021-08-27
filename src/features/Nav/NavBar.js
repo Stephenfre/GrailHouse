@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 import JordanLinks from "./Links/JordanLinks";
 import NikeLinks from "./Links/NikeLinks";
@@ -10,13 +11,12 @@ import MoreSneakLinks from "./Links/MoreSneakLinks";
 import Account from "../Content/Account/Account";
 import Burger from "./Burger";
 import SearchForm from "../Content/Search/SearchForm";
-
-import GrailHouse from "../../Svgs/GrailHouse.svg";
 import "./NavBar.css";
+
 import { Icon } from "@iconify/react";
 import magnifyIcon from "@iconify/icons-mdi/magnify";
-// import circleXFill from "@iconify/icons-akar-icons/circle-x-fill";
 import circleX from "@iconify/icons-akar-icons/circle-x";
+import GrailHouse from "../../Svgs/GrailHouse.svg";
 
 const StyledUl = styled.ul`
     list-style-type: none;
@@ -61,7 +61,25 @@ const DropDownLi = styled(StyledLi)`
     }
 `;
 
-export default function NavBar(props) {
+const StyledLinkBtn = styled(Link)`
+    text-decoration: none;
+    background: white;
+    color: black;
+    font-size: 18px;
+    padding: 1rem;
+    width: 89%;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+
+    &:hover {
+        background: rgb(41, 41, 41);
+        color: rgb(235, 235, 235);
+        text-decoration: none;
+    }
+`;
+
+function NavBar(props) {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
@@ -145,7 +163,10 @@ export default function NavBar(props) {
                     <Burger />
                 </div>
                 <div className="other-content">
-                    <Dropbtn onClick={menuClicked} className="menu-trigger">
+                    <StyledLinkBtn to="/signup" className={`trending-btn ${!props.isLoggedIn ? "" : "inactive"}`}>
+                        Sign Up / Sign In
+                    </StyledLinkBtn>
+                    <Dropbtn onClick={menuClicked} className={`menu-trigger ${props.isLoggedIn ? "" : "inactive"}`}>
                         Account
                     </Dropbtn>
                     <nav ref={dropdownRef} className={`menu ${isActive ? "active" : "inactive"}`}>
@@ -156,3 +177,11 @@ export default function NavBar(props) {
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.isLoggedIn,
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(NavBar));

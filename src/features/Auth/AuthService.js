@@ -18,11 +18,19 @@ class AuthService {
     }
 
     register(name, email, password) {
-        return axios.post(API_URL + "register", {
-            name,
-            email,
-            password,
-        });
+        return axios
+            .post(API_URL + "register", {
+                name,
+                email,
+                password,
+            })
+            .then((res) => {
+                if (res.data.token) {
+                    localStorage.setItem("new user", JSON.stringify(res.data));
+                }
+
+                return res.data;
+            });
     }
 }
 

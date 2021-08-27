@@ -5,7 +5,7 @@ import NavBar from "../../Nav/NavBar";
 import "./Closet.css";
 import Footer from "../../Footer/Footer";
 
-export default function Profile() {
+export default function Closet() {
     return (
         <div className="main-container">
             <NavBar />

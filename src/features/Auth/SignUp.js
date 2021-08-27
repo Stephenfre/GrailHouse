@@ -83,37 +83,15 @@ function SignUp({ dispatch }) {
 
         dispatch(register(enteredUsername, enteredEmail, enteredPassword))
             .then(() => {
-                console.log(enteredUsername, enteredEmail, enteredPassword);
                 history.push("/");
             })
             .catch((err) => {
                 console.log(err);
             });
 
-        // axios
-        //     .post(
-        //         "http://localhost:5001/api/register",
-        //         {
-        //             name: enteredUsername,
-        //             email: enteredEmail,
-        //             password: enteredPassword,
-        //         },
-        //         {
-        //             headers: headers,
-        //         }
-        //     )
-        //     .then((res) => {
-        //         console.log(res);
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
-
         resetEmailInput();
         resetPasswordInput();
         resetUsernameInput();
-
-        // history.push("/");
     };
 
     const usernameInputClasses = usernameInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";

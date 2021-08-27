@@ -158,6 +158,14 @@ button:hover {
         align-items: center;
     }
 
+    .menu-trigger.inactive {
+        display: none;
+    }
+
+    .trending-btn.inactive {
+        display: none;
+    }
+
     .account {
         height: 25%;
         width: 17%;

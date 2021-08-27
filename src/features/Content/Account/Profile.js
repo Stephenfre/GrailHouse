@@ -1,43 +1,56 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 import SideNavBar from "./SideNavBar";
 import NavBar from "../../Nav/NavBar";
 import "./Profile.css";
 import Footer from "../../Footer/Footer";
 
-export default function Profile() {
-	return (
-		<div className="main-container">
-			<NavBar />
-			<div className="profile">
-				<SideNavBar />
-				<div className="profile-content">
-					<div className="title">
-						<h2>Profile</h2>
-					</div>
-					<div className="profile-info">
-						<div className="username-shoesize">
-							<div className="profile-username">
-								Username: <br /> Stephen Freeman
-							</div>
-							<div className="profile-shoesize">
-								Shoe Size: <br /> 11.5 - 12
-							</div>
-						</div>
-						<div className="email-password">
-							<div className="profile-Email">
-								Email: <br /> stephen.freeman.dev@gmail.com
-							</div>
-							<div className="profile-reset-password">
-								Reset Password: <br />
-								<Link to="">Reset Password</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<Footer />
-		</div>
-	);
+function Profile({ user: currentUser }) {
+    // if (!currentUser) {
+    //     return <Redirect to="/login" />;
+    // }
+    console.log(currentUser);
+    return (
+        <div className="main-container">
+            <NavBar />
+            <div className="profile">
+                <SideNavBar />
+                <div className="profile-content">
+                    <div className="title">
+                        <h2>Profile</h2>
+                    </div>
+                    <div className="profile-info">
+                        <div className="username-shoesize">
+                            <div className="profile-username">
+                                Username: <br /> {currentUser.name}
+                            </div>
+                            <div className="profile-shoesize">
+                                Shoe Size: <br /> 11.5 - 12
+                            </div>
+                        </div>
+                        <div className="email-password">
+                            <div className="profile-Email">
+                                Email: <br /> {currentUser.email}
+                            </div>
+                            <div className="profile-reset-password">
+                                Reset Password: <br />
+                                <Link to="">Reset Password</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Footer />
+        </div>
+    );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(Profile));

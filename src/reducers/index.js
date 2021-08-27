@@ -9,7 +9,14 @@ import {
     GETTING_LINK_SHOES,
     GETTING_LINK_SHOES_SUCCESS,
     GETTING_LINK_SHOES_FAIL,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
+    LOGIN_SUCCESS,
+    LOGOUT,
+    LOGIN_FAIL,
 } from "../actions";
+
+// const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
     shoes: [],
@@ -24,10 +31,14 @@ const initialState = {
     gettingLinkShoesSucces: false,
     linkShoesResults: [],
     gettingLinkShoesError: null,
+    isLoggedIn: false,
+    user: null,
 };
 
 // eslint-disable-next-line
 export default (state = initialState, action) => {
+    console.log("i work too");
+
     switch (action.type) {
         case GETTING_SHOES:
             return {
@@ -44,6 +55,7 @@ export default (state = initialState, action) => {
                 shoe.lowestPrice = min;
                 shoes.push(shoe);
             });
+            console.log("shoes", shoes);
             return {
                 ...state,
                 shoes: shoes,
@@ -142,17 +154,36 @@ export default (state = initialState, action) => {
                 gettingLinkShoesError: action.payload.message,
             };
 
-        // case LOGIN:
-        //     return {
-        //         ...state,
-        //         logginingIn: true
-        //     }
-
-        // case LOGIN_SUCCESS:
-        //     return {
-        //         logginingIn: false,
-        //         loggedIn: true,
-        //     }
+        case REGISTER_SUCCESS:
+            return {
+                ...state,
+                isLoggedIn: true,
+                user: action.payload,
+            };
+        case REGISTER_FAIL:
+            return {
+                ...state,
+                isLoggedIn: false,
+            };
+        case LOGIN_SUCCESS:
+            console.log(action.payload, "user");
+            return {
+                ...state,
+                isLoggedIn: true,
+                user: action.payload,
+            };
+        case LOGIN_FAIL:
+            return {
+                ...state,
+                isLoggedIn: false,
+                user: null,
+            };
+        case LOGOUT:
+            return {
+                ...state,
+                isLoggedIn: false,
+                user: null,
+            };
 
         default:
             return state;
