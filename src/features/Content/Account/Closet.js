@@ -32,8 +32,30 @@ export default function Closet() {
         getClosetShoes();
     }, []);
 
+    const closetShoes = JSON.parse(localStorage.getItem("user"));
+    console.log(closetShoes.user.closet);
+
+    if (closetShoes.user.closet.length === 0) {
+        return (
+            <React.Fragment>
+                <NavBar />
+                <div className="closet">
+                    <SideNavBar />
+                    <div className="closet-content">
+                        <div className="title">
+                            <h2>Closet</h2>
+                        </div>
+                        <div className="coming-soon-alert" style={{ marginTop: "150px" }}>
+                            <h2>Add shoes to closet</h2>
+                        </div>
+                    </div>
+                </div>
+                <Footer />
+            </React.Fragment>
+        );
+    }
     return (
-        <div className="main-container">
+        <React.Fragment>
             <NavBar />
             <div className="closet">
                 <SideNavBar />
@@ -58,6 +80,6 @@ export default function Closet() {
                 </div>
             </div>
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }
