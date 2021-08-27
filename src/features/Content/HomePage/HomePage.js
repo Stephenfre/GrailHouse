@@ -21,7 +21,7 @@ const StyledLinks = styled(Link)`
     font-size: 17px;
     width: 100%;
     text-align: center;
-    @media only screen and (max-width: 600px) {
+    @media (max-width: 600px) {
         font-size: 16px;
     }
     &:hover {
@@ -46,7 +46,7 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
     }, [getShoes]);
 
     return (
-        <div className="main-container">
+        <React.Fragment>
             <NavBar />
             <Cta />
             <div className="content">
@@ -97,7 +97,7 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
                 </div>
             </div>
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }
 

@@ -70,11 +70,15 @@
     color: black;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
     .cta-trending-img {
         height: 40%;
         width: 100%;
         background: black;
+    }
+
+    .cta-trending-img img {
+        margin-top: 130px;
     }
 
     .title-details {

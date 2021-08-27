@@ -1,121 +1,4 @@
-.nav-container {
-    height: 7%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    align-items: center;
-    position: fixed;
-    z-index: 1;
-}
-
-.menu.inactive {
-    display: none;
-}
-
-.menu.active {
-    position: absolute;
-    top: 75px;
-    width: 240px;
-    height: 230px;
-    right: 40px;
-}
-
-.nav-bar {
-    height: 100%;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-}
-
-.nav-logo {
-    height: 100%;
-    width: 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-logo.inactive {
-    display: none;
-}
-
-.nav-icon-magnify-mobile.active {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-}
-
-.nav-icon-magnify-mobile.inactive {
-    display: none;
-}
-
-.nav-icon-x-mobile.active {
-    position: absolute;
-    right: 15px;
-    top: 14px;
-}
-
-.nav-icon-x-mobile.inactive {
-    display: none;
-}
-
-.nav-links-container {
-    display: none;
-}
-
-.other-content {
-    display: none;
-}
-
-.account {
-    display: none;
-}
-
-.account-content-container {
-    width: 100%;
-    height: 100%;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 0 0 5px 5px;
-}
-
-.account-content {
-    width: 90%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.sign-in-bttn {
-    height: 45%;
-    width: 100%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-button {
-    text-decoration: none;
-    background: black;
-    color: white;
-    font-size: 18px;
-    padding: 1rem;
-    width: 90%;
-    border-radius: 5px;
-    border: none;
-}
-
-button:hover {
-    background: rgb(41, 41, 41);
-    color: rgb(235, 235, 235);
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1600px) {
+@media only screen and (min-width: 1200px) {
     .nav-container {
         height: 9%;
         width: 100%;
@@ -163,6 +46,10 @@ button:hover {
     }
 
     .trending-btn.inactive {
+        display: none;
+    }
+
+    .menu.inactive {
         display: none;
     }
 
@@ -227,5 +114,132 @@ button:hover {
 
     .nav-links-container-mobile {
         display: none;
+    }
+
+    .nav-icon-magnify-mobile {
+        display: none;
+    }
+
+    .nav-icon-x-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .nav-container {
+        height: 7%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+        align-items: center;
+        position: fixed;
+        z-index: 1;
+    }
+
+    .menu.inactive {
+        display: none;
+    }
+
+    .menu.active {
+        position: absolute;
+        top: 75px;
+        width: 240px;
+        height: 230px;
+        right: 40px;
+    }
+
+    .nav-bar {
+        height: 100%;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-logo {
+        height: 100%;
+        width: 45%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-logo.inactive {
+        display: none;
+    }
+
+    .nav-icon-magnify-mobile.active {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+    }
+
+    .nav-icon-magnify-mobile.inactive {
+        display: none;
+    }
+
+    .nav-icon-x-mobile.active {
+        position: absolute;
+        right: 15px;
+        top: 14px;
+    }
+
+    .nav-icon-x-mobile.inactive {
+        display: none;
+    }
+
+    .nav-links-container {
+        display: none;
+    }
+
+    .other-content {
+        display: none;
+    }
+
+    .account {
+        display: none;
+    }
+
+    .account-content-container {
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .account-content {
+        width: 90%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .sign-in-bttn {
+        height: 45%;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        text-decoration: none;
+        background: black;
+        color: white;
+        font-size: 18px;
+        padding: 1rem;
+        width: 90%;
+        border-radius: 5px;
+        border: none;
+    }
+
+    button:hover {
+        background: rgb(41, 41, 41);
+        color: rgb(235, 235, 235);
     }
 }

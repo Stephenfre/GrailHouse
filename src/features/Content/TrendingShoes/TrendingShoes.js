@@ -44,10 +44,10 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className="main-container">
+        <React.Fragment>
             <NavBar />
             <div className="cta-trending-img">
-                <img src={TrendingBackground} alt="cta-logo" style={{ marginTop: "130px" }} />
+                <img src={TrendingBackground} alt="cta-logo" />
             </div>
             <div className="trending-content">
                 <div className="title-details">
@@ -107,7 +107,7 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
             </div>
             <Pagination shoesPerPage={shoesPerPage} totalShoes={shoes.length} paginate={paginate} />
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }
 

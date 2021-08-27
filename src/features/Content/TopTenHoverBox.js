@@ -11,7 +11,7 @@ const HoverDiv = styled.div`
     bottom: 20.5rem;
     left: 25rem;
     background: white;
-    @media only screen and (max-width: 600px) {
+    @media (max-width: 600px) {
         width: 60%;
         height: 10%;
         bottom: 29rem;
@@ -30,7 +30,7 @@ const Paper = styled.div`
 const P = styled.p`
     font-size: 20px;
     padding: 10px;
-    @media only screen and (max-width: 600px) {
+    @media (max-width: 600px) {
         font-size: 15px;
     }
 `;

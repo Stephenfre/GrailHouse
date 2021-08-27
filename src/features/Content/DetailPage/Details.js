@@ -34,7 +34,7 @@ const StyledLinks = styled(Link)`
         background: rgb(41, 41, 41);
         color: rgb(235, 235, 235);
     }
-    @media only screen and (max-width: 600px) {
+    @media (max-width: 600px) {
         width: 100%;
     }
 `;

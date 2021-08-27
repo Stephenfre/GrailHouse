@@ -64,7 +64,7 @@
     margin-bottom: 15px;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1600px) {
+@media (min-device-width: 768px) and (max-device-width: 1600px) {
     .skeleton-wrap-home {
         width: 90%;
         display: flex;
