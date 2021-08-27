@@ -16,7 +16,7 @@ import {
     LOGIN_FAIL,
 } from "../actions";
 
-// const user = JSON.parse(localStorage.getItem("user"));
+const token = localStorage.getItem("token");
 
 const initialState = {
     shoes: [],
@@ -31,13 +31,14 @@ const initialState = {
     gettingLinkShoesSucces: false,
     linkShoesResults: [],
     gettingLinkShoesError: null,
-    isLoggedIn: false,
+    token: token,
+    isLoggedIn: localStorage.getItem("token") ? true : false,
     user: null,
 };
 
 // eslint-disable-next-line
 export default (state = initialState, action) => {
-    console.log("i work too");
+    // console.log(token, "token");
 
     switch (action.type) {
         case GETTING_SHOES:

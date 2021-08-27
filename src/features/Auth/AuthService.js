@@ -7,6 +7,7 @@ class AuthService {
         return axios.post(API_URL + "login", { email, password }).then((res) => {
             if (res.data.token) {
                 localStorage.setItem("user", JSON.stringify(res.data));
+                localStorage.setItem("token", res.data.token);
             }
 
             return res.data;
@@ -15,6 +16,7 @@ class AuthService {
 
     logout() {
         localStorage.removeItem("user");
+        localStorage.removeItem("token");
     }
 
     register(name, email, password) {

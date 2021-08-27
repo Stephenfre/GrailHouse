@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import SideNavBar from "./SideNavBar";
@@ -7,11 +7,15 @@ import NavBar from "../../Nav/NavBar";
 import "./Profile.css";
 import Footer from "../../Footer/Footer";
 
-function Profile({ user: currentUser }) {
-    // if (!currentUser) {
-    //     return <Redirect to="/login" />;
-    // }
-    console.log(currentUser);
+function Profile() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const currentUser = user.user;
+
+    if (!currentUser) {
+        return <Redirect to="/signin" />;
+    }
+    console.log(currentUser, "profile");
+    console.log(currentUser.name, "name");
     return (
         <div className="main-container">
             <NavBar />

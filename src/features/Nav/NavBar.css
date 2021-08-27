@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-device-width: 1400px) {
     .nav-container {
         height: 9%;
         width: 100%;
@@ -80,6 +80,14 @@
         justify-content: space-evenly;
     }
 
+    .menu.active {
+        position: absolute;
+        top: 75px;
+        width: 240px;
+        height: 230px;
+        right: 40px;
+    }
+
     .sign-in-bttn {
         height: 45%;
         width: 100%;
@@ -125,7 +133,7 @@
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-device-width: 500px) {
     .nav-container {
         height: 7%;
         width: 100%;
