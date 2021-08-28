@@ -31,7 +31,7 @@ export default function Footer() {
                             <Links to="/jordan1">Jordan 1</Links>
                         </li>
                         <li>
-                            <Links to="offwhite">Off-White Sneakers</Links>
+                            <Links to="/offwhite">Off-White Sneakers</Links>
                         </li>
                     </ul>
                 </div>

@@ -14,8 +14,6 @@ function Profile() {
     if (!currentUser) {
         return <Redirect to="/signin" />;
     }
-    console.log(currentUser, "profile");
-    console.log(currentUser.name, "name");
     return (
         <div className="main-container">
             <NavBar />
@@ -40,7 +38,7 @@ function Profile() {
                             </div>
                             <div className="profile-reset-password">
                                 Reset Password: <br />
-                                <Link to="">Reset Password</Link>
+                                <Link to="/">Reset Password</Link>
                             </div>
                         </div>
                     </div>

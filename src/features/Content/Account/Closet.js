@@ -6,10 +6,10 @@ import NavBar from "../../Nav/NavBar";
 import "./Closet.css";
 import Footer from "../../Footer/Footer";
 import ClosetItems from "./ClosetItems";
+import ShoeBoxes from "../../../Svgs/ShoeBoxes.svg";
 
 export default function Closet() {
     const [getShoeCloset, setGetShoeCloset] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
     const getClosetShoes = () => {
         const currentCloset = JSON.parse(localStorage.getItem("user"));
@@ -33,7 +33,6 @@ export default function Closet() {
     }, []);
 
     const closetShoes = JSON.parse(localStorage.getItem("user"));
-    console.log(closetShoes.user.closet);
 
     if (closetShoes.user.closet.length === 0) {
         return (
@@ -45,8 +44,10 @@ export default function Closet() {
                         <div className="title">
                             <h2>Closet</h2>
                         </div>
-                        <div className="coming-soon-alert" style={{ marginTop: "150px" }}>
-                            <h2>Add shoes to closet</h2>
+                        <div className="coming-soon-alert" style={{ marginTop: "100px" }}>
+                            <img src={ShoeBoxes} alt="empty shoe boxes" />
+                            <h2>Your closet is empty.</h2>
+                            <p>To add shoes to your closet click the “Add To Closet” button.</p>
                         </div>
                     </div>
                 </div>
@@ -64,18 +65,16 @@ export default function Closet() {
                         <h2>Closet</h2>
                     </div>
                     <div className="coming-soon-alert" style={{ marginTop: "150px" }}>
-                        {!isLoading && <div>loading...</div>}
-                        {isLoading &&
-                            getShoeCloset.map((shoe, i) => (
-                                <ClosetItems
-                                    key={i}
-                                    id={shoe._id}
-                                    thumbnail={shoe.thumbnail}
-                                    shoeName={shoe.shoeName}
-                                    // lowestPrice={shoe.lowestPrice}
-                                    // styleId={shoe.styleID}
-                                />
-                            ))}
+                        {getShoeCloset.map((shoe, i) => (
+                            <ClosetItems
+                                key={i}
+                                id={shoe._id}
+                                thumbnail={shoe.thumbnail}
+                                shoeName={shoe.shoeName}
+                                // lowestPrice={shoe.lowestPrice}
+                                // styleId={shoe.styleID}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

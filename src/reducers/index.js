@@ -34,6 +34,7 @@ const initialState = {
     token: token,
     isLoggedIn: localStorage.getItem("token") ? true : false,
     user: null,
+    closetId: {},
 };
 
 // eslint-disable-next-line
@@ -168,10 +169,17 @@ export default (state = initialState, action) => {
             };
         case LOGIN_SUCCESS:
             console.log(action.payload, "user");
+            let dictionary = {};
+            // eslint-disable-next-line
+            action.payload.closet.map((shoe) => {
+                dictionary[shoe.shoeName] = 0;
+            });
+            localStorage.setItem("closetId", JSON.stringify(dictionary));
             return {
                 ...state,
                 isLoggedIn: true,
                 user: action.payload,
+                closetId: dictionary,
             };
         case LOGIN_FAIL:
             return {

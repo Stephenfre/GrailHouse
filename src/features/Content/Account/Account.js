@@ -50,7 +50,7 @@ function Account({ dispatch }) {
                 {/* <StyledLinkBtn to="/signup" className="trending-btn">
                     Sign Up / Sign In
                 </StyledLinkBtn> */}
-                <StyledLinkBtn onClick={logOut} to="/signup" className="trending-btn">
+                <StyledLinkBtn onClick={logOut} to="/" className="trending-btn">
                     Logout
                 </StyledLinkBtn>
             </div>

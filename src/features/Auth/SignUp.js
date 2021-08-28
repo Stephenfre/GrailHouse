@@ -178,7 +178,7 @@ function SignUp({ dispatch }) {
                             </button>
                             <p>
                                 Don't have an account?{" "}
-                                <Link to="signin" className="sign-in-link">
+                                <Link to="/signin" className="sign-in-link">
                                     Sign In
                                 </Link>
                             </p>

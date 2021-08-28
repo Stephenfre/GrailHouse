@@ -8,3 +8,18 @@
     height: 100%;
     width: 80%;
 }
+
+.coming-soon-alert img {
+    width: 15%;
+    margin-bottom: 30px;
+}
+
+.coming-soon-alert h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+.coming-soon-alert p {
+    font-size: 1rem;
+    font-weight: 300;
+}

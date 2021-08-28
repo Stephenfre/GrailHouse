@@ -3,7 +3,7 @@ import "./SignForms.css";
 import useInput from "./CustomHooks/useInput";
 import { refreshTokenSetup } from "./refreshTokenSetup";
 import { useGoogleLogin } from "react-google-login";
-import { Link, withRouter } from "react-router-dom";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth";
@@ -84,9 +84,9 @@ function SignIn({ dispatch, isLoggedIn, message }) {
 
     // * Google Sign Up (Above)
 
-    // if (!isLoggedIn) {
-    //     return <Redirect to="/" />;
-    // }
+    if (isLoggedIn) {
+        return <Redirect to="/" />;
+    }
 
     return (
         <div className="main-container">
@@ -157,7 +157,7 @@ function SignIn({ dispatch, isLoggedIn, message }) {
                             </button>
                             <p>
                                 Don't have an account?{" "}
-                                <Link to="signup" className="sign-up-link">
+                                <Link to="/signup" className="sign-up-link">
                                     Sign Up
                                 </Link>
                             </p>

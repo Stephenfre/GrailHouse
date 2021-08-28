@@ -41,6 +41,8 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
     const homeCurrentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
 
+    const closetId = JSON.parse(localStorage.getItem("closetId"));
+
     useEffect(() => {
         getShoes();
     }, [getShoes]);
@@ -92,6 +94,7 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
                                 shoeName={shoe.shoeName}
                                 lowestPrice={shoe.lowestPrice}
                                 type="shoes"
+                                inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                             />
                         ))}
                 </div>

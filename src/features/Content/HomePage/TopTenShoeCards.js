@@ -21,7 +21,7 @@ const Button = styled.button`
     text-align: center;
 `;
 
-function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
+function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice, inCloset }) {
     const [isActive, setIsActive] = useState(false);
     const [isDeadstock, setIsDeadstock] = useState(false);
     let history = useHistory();
@@ -55,13 +55,13 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
                                 ${lowestPrice}
                             </p>
                         </div>
-                        <div className={`add-to-closet ${isActive ? "inactive " : "active"}`}>
+                        <div className={`add-to-closet ${inCloset ? "inactive " : "active"}`}>
                             <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
                         </div>
-                        <div className={`topten-got-them ${isActive ? "active" : "inactive "}`}>
+                        <div className={`topten-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button
                                 onClick={gotThemHandler}
-                                className={`topten-got-them-btn ${isActive ? "active" : "inactive "}`}
+                                className={`topten-got-them-btn ${inCloset ? "active" : "inactive "}`}
                             ></button>
                             <button className="condition-btn" onClick={conditonHandler}>
                                 *Deadstock
@@ -81,6 +81,7 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
 const mapStateToProps = (state) => {
     return {
         shoes: state.shoes,
+        isLoggedIn: state.isLoggedIn,
     };
 };
 
