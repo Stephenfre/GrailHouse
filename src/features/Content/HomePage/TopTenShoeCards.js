@@ -21,12 +21,15 @@ const Button = styled.button`
     text-align: center;
 `;
 
-function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice, inCloset }) {
+function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
     const [isActive, setIsActive] = useState(false);
     const [isDeadstock, setIsDeadstock] = useState(false);
     let history = useHistory();
 
     const gotThemHandler = () => {
+        if (!isLoggedIn) {
+            history.push("/signin");
+        }
         setIsActive(!isActive);
     };
 
