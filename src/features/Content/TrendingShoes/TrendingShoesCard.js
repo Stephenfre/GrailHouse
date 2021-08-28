@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
@@ -21,13 +22,53 @@ const Button = styled.button`
     text-align: center;
 `;
 
-function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
-    const [isActive, setIsActive] = useState(false);
+function TrendingShoesCard({
+    isViewActive,
+    selectShoe,
+    type,
+    thumbnail,
+    shoeName,
+    id,
+    styleId,
+    lowestPrice,
+    lowestResellPrice,
+    isLoggedIn,
+    inCloset,
+}) {
     const [isDeadstock, setIsDeadstock] = useState(false);
-    const gotThemHandler = () => {
-        setIsActive(!isActive);
-    };
+    const [shoeInfo, setShoeInfo] = useState({
+        shoeId: id,
+        shoeName: shoeName,
+        lowestPrice: lowestPrice,
+        lowestResellPrice: lowestResellPrice,
+        thumbnail: thumbnail,
+        deadstock: isDeadstock,
+    });
 
+    const gotThemHandler = () => {
+        if (!isLoggedIn) {
+            history.push("/signin");
+        }
+
+        const currentCloset = JSON.parse(localStorage.getItem("user"));
+
+        const parsedItem = currentCloset.user._id;
+
+        // const userShoes = JSON.stringify(currentCloset);
+
+        axios
+            .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
+            .then((res) => {
+                setShoeInfo(res.data);
+
+                // localStorage.setItem("user", userShoes);
+                console.log("Data", res.data);
+                // console.log("user closet", userShoes);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
     const conditonHandler = () => {
         setIsDeadstock(!isDeadstock);
     };
@@ -55,13 +96,13 @@ function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName
                             <p>Lowest Price</p>
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>
-                        <div className={`trending-add-to-closet ${isActive ? "inactive " : "active"}`}>
+                        <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
                             <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
                         </div>
-                        <div className={`trending-got-them ${isActive ? "active" : "inactive "}`}>
+                        <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button
                                 onClick={gotThemHandler}
-                                className={`trending-got-them-btn ${isActive ? "active" : "inactive "}`}
+                                className={`trending-got-them-btn ${inCloset ? "active" : "inactive "}`}
                             ></button>
                             <button className="trending-condition-btn" onClick={conditonHandler}>
                                 *Deadstock
@@ -80,6 +121,7 @@ function TrendingShoesCard({ isViewActive, selectShoe, type, thumbnail, shoeName
 const mapStateToProps = (state) => {
     return {
         shoes: state.shoes,
+        isLoggedIn: state.isLoggedIn,
     };
 };
 

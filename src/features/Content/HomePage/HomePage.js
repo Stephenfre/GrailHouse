@@ -93,6 +93,7 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
                                 thumbnail={shoe.thumbnail}
                                 shoeName={shoe.shoeName}
                                 lowestPrice={shoe.lowestPrice}
+                                lowestResellPrice={shoe.lowestResellPrice}
                                 type="shoes"
                                 inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                             />

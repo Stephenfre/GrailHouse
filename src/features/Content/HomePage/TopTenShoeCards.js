@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
@@ -21,16 +22,52 @@ const Button = styled.button`
     text-align: center;
 `;
 
-function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
-    const [isActive, setIsActive] = useState(false);
+function TopTenShoeCards({
+    selectShoe,
+    type,
+    thumbnail,
+    shoeName,
+    id,
+    styleId,
+    lowestPrice,
+    lowestResellPrice,
+    inCloset,
+    isLoggedIn,
+}) {
     const [isDeadstock, setIsDeadstock] = useState(false);
+    const [shoeInfo, setShoeInfo] = useState({
+        shoeId: id,
+        shoeName: shoeName,
+        lowestPrice: lowestPrice,
+        lowestResellPrice: lowestResellPrice,
+        thumbnail: thumbnail,
+        deadstock: isDeadstock,
+    });
     let history = useHistory();
 
     const gotThemHandler = () => {
         if (!isLoggedIn) {
             history.push("/signin");
         }
-        setIsActive(!isActive);
+
+        const currentCloset = JSON.parse(localStorage.getItem("user"));
+
+        const parsedItem = currentCloset.user._id;
+
+        // const userShoes = JSON.stringify(currentCloset);
+
+        axios
+            .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
+            .then((res) => {
+                setShoeInfo(res.data);
+
+                // localStorage.setItem("user", userShoes);
+                console.log("Data", res.data);
+                // console.log("user closet", userShoes);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     const conditonHandler = () => {

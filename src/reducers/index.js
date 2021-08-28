@@ -57,7 +57,6 @@ export default (state = initialState, action) => {
                 shoe.lowestPrice = min;
                 shoes.push(shoe);
             });
-            console.log("shoes", shoes);
             return {
                 ...state,
                 shoes: shoes,

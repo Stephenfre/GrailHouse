@@ -44,7 +44,7 @@ export default function Closet() {
                         <div className="title">
                             <h2>Closet</h2>
                         </div>
-                        <div className="coming-soon-alert" style={{ marginTop: "100px" }}>
+                        <div className="closet-shoes" style={{ marginTop: "100px" }}>
                             <img src={ShoeBoxes} alt="empty shoe boxes" />
                             <h2>Your closet is empty.</h2>
                             <p>To add shoes to your closet click the “Add To Closet” button.</p>
@@ -64,14 +64,14 @@ export default function Closet() {
                     <div className="title">
                         <h2>Closet</h2>
                     </div>
-                    <div className="coming-soon-alert" style={{ marginTop: "150px" }}>
+                    <div className="closet-shoes">
                         {getShoeCloset.map((shoe, i) => (
                             <ClosetItems
                                 key={i}
                                 id={shoe._id}
                                 thumbnail={shoe.thumbnail}
                                 shoeName={shoe.shoeName}
-                                // lowestPrice={shoe.lowestPrice}
+                                lowestPrice={shoe.lowestPrice}
                                 // styleId={shoe.styleID}
                             />
                         ))}

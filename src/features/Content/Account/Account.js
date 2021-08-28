@@ -36,7 +36,7 @@ const StyledLinkBtn = styled(Link)`
 
 function Account({ dispatch }) {
     const logOut = () => {
-        dispatch(logout());
+        dispatch(logout(window.location.reload()));
     };
 
     return (
