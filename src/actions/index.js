@@ -109,7 +109,7 @@ export function getLinkShoes(shoeName) {
 }
 
 export function addToCloset(shoeInfo) {
-    const currentCloset = JSON.parse(localStorage.getItem("user"));
+    const currentCloset = JSON.parse(localStorage.getItem("user") || []);
 
     const parsedItem = currentCloset.user._id;
 
