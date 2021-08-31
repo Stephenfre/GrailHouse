@@ -131,11 +131,11 @@ export default function Details(props) {
                 setIsLoading(true);
                 if (res.data) {
                     setShoeDetails(res.data);
-                    localStorage.setItem("detail prices", JSON.stringify(res.data.resellPrices));
                 } else {
                     setTimeout(() => {
                         setShoeDetails(res.data);
                     }, 30000);
+                    localStorage.setItem("detail prices", JSON.stringify(res.data.resellPrices));
                     setIsLoading(true);
                 }
                 setIsLoading(false);
