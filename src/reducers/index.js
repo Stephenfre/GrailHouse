@@ -89,7 +89,7 @@ export default (state = initialState, action) => {
             localStorage.setItem("selectedThumbnail", shoe.thumbnail);
             localStorage.setItem("selectedShoeName", shoe.shoeName);
             localStorage.setItem("selectedDescription", shoe.description);
-            localStorage.setItem("selectedLowestResellPrice", shoe.lowestResellPrice.stockX);
+            localStorage.setItem("selectedLowestResellPrice", shoe.lowestResellPrice);
             localStorage.setItem("selectedStyleID", shoe.styleID);
             localStorage.setItem("selectedColorway", shoe.colorway);
             localStorage.setItem("selectedReleaseDate", shoe.releaseDate);

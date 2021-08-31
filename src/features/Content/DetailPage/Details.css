@@ -1,59 +1,4 @@
-.shoe-details-container {
-    margin-top: 0;
-}
-
-.shoe-details-content {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.shoe-img {
-    display: none;
-}
-
-.shoe-img-mobile {
-    width: 75%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3rem 0;
-}
-
-.shoe-details {
-    width: 90%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin: 100px 0 30px 0;
-}
-
-.tabs {
-    display: none;
-}
-
-.prices-prices {
-    display: none;
-}
-
-.shoe-details h2 {
-    font-size: 1.6rem;
-}
-
-.add-btn {
-    width: 87%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 2rem;
-}
-
-@media (min-device-width: 768px) and (max-device-width: 1600px) {
+@media only screen and (min-width: 1440px) {
     .shoe-details-container {
         margin-top: 200px;
     }
@@ -177,10 +122,12 @@
 
     .details-description.active {
         width: 70%;
+        margin-left: 20px;
     }
 
     .prices-prices.active {
         width: 70%;
+        margin-left: 27px;
     }
 
     .details-description.inactive {
@@ -253,7 +200,7 @@
         padding: 0;
         margin: 20px 0 0 0;
         display: flex;
-        width: 600px;
+        width: 560px;
         height: 220px;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -281,21 +228,130 @@
     .stockx-li,
     .goat-li,
     .stadiumgoods-li {
-        width: 105px;
+        width: 93px;
         height: 47px;
         background-color: black;
+    }
+
+    .details-in-stock {
+        padding: 8px;
+        color: white;
+    }
+
+    .details-na {
+        color: black;
+        background: white;
+        border: 1px dashed #aaaaaa;
     }
 
     .flightclub-li p,
     .stockx-li p,
     .goat-li p,
     .stadiumgoods-li p {
-        text-align: center;
         padding: 8px;
-        color: white;
+        text-align: center;
     }
 
     .carousel-indicators li {
         background-color: black;
+    }
+
+    .add-btn {
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .add-btn.inactive {
+        display: none;
+    }
+
+    .details-got-them.active {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        height: 10%;
+        margin-top: 2rem;
+        margin-left: 70px;
+    }
+
+    .details-got-them.inactive {
+        display: none;
+    }
+
+    .details-condition-btn {
+        font-size: 15px;
+        /* font-weight: 600; */
+        font-family: "Source Sans Pro", sans-serif;
+        margin: 0px;
+        color: white;
+        background: black;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+    .details-condition-btn:hover {
+        background: rgb(34, 34, 34);
+        color: white(31, 31, 31);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .shoe-details-container {
+        margin-top: 0;
+    }
+
+    .shoe-details-content {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .shoe-img {
+        display: none;
+    }
+
+    .shoe-img-mobile {
+        width: 75%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 3rem 0;
+    }
+
+    .shoe-details {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 100px 0 30px 0;
+    }
+
+    .tabs {
+        display: none;
+    }
+
+    .prices-prices {
+        display: none;
+    }
+
+    .shoe-details h2 {
+        font-size: 1.6rem;
+    }
+
+    .add-btn {
+        width: 87%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 2rem;
     }
 }
