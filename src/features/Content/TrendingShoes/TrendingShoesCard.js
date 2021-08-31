@@ -54,16 +54,10 @@ function TrendingShoesCard({
 
         const parsedItem = currentCloset.user._id;
 
-        // const userShoes = JSON.stringify(currentCloset);
-
         axios
             .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
             .then((res) => {
                 setShoeInfo(res.data);
-
-                // localStorage.setItem("user", userShoes);
-                console.log("Data", res.data);
-                // console.log("user closet", userShoes);
             })
             .catch((err) => {
                 console.log(err);
@@ -105,7 +99,7 @@ function TrendingShoesCard({
                                 className={`trending-got-them-btn ${inCloset ? "active" : "inactive "}`}
                             ></button>
                             <button className="trending-condition-btn" onClick={conditonHandler}>
-                                *Deadstock
+                                Deadstock
                             </button>
                         </div>
                     </div>

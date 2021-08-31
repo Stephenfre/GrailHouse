@@ -14,6 +14,9 @@ import {
     LOGIN_SUCCESS,
     LOGOUT,
     LOGIN_FAIL,
+    ADD_SHOE,
+    ADD_SHOE_SUCCESS,
+    ADD_SHOE_FAIL,
 } from "../actions";
 
 const token = localStorage.getItem("token");
@@ -29,12 +32,15 @@ const initialState = {
     searchShoesError: null,
     gettingLinkShoes: false,
     gettingLinkShoesSucces: false,
+    addingShoe: false,
+    addingShoeError: null,
     linkShoesResults: [],
     gettingLinkShoesError: null,
     token: token,
     isLoggedIn: localStorage.getItem("token") ? true : false,
     user: null,
     closetId: {},
+    shoeCloset: [],
 };
 
 // eslint-disable-next-line
@@ -167,7 +173,6 @@ export default (state = initialState, action) => {
                 isLoggedIn: false,
             };
         case LOGIN_SUCCESS:
-            console.log(action.payload, "user");
             let dictionary = {};
             // eslint-disable-next-line
             action.payload.closet.map((shoe) => {
@@ -193,6 +198,26 @@ export default (state = initialState, action) => {
                 user: null,
             };
 
+        case ADD_SHOE:
+            return {
+                ...state,
+                addingShoe: true,
+            };
+
+        case ADD_SHOE_SUCCESS:
+            // let dictionary = {};
+            // // eslint-disable-next-line
+            // action.payload.closet.map((shoe) => {
+            //     dictionary[shoe.shoeName] = 0;
+            // });
+            // localStorage.setItem("closetId", JSON.stringify(dictionary));
+            return [...state, action.payload];
+
+        case ADD_SHOE_FAIL:
+            return {
+                ...state,
+                addingShoe: false,
+            };
         default:
             return state;
     }

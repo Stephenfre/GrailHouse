@@ -15,6 +15,9 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
+export const ADD_SHOE = "ADD_SHOE";
+export const ADD_SHOE_SUCCESS = "ADD_SHOE_SUCCESS";
+export const ADD_SHOE_FAIL = "ADD_SHOE_FAIL";
 
 export const SET_MESSAGE = "SET_MESSAGE";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
@@ -99,6 +102,32 @@ export function getLinkShoes(shoeName) {
             .catch((err) => {
                 dispatch({
                     type: GETTING_LINK_SHOES_FAIL,
+                    payload: err,
+                });
+            });
+    };
+}
+
+export function addToCloset(shoeInfo) {
+    const currentCloset = JSON.parse(localStorage.getItem("user"));
+
+    const parsedItem = currentCloset.user._id;
+
+    return (dispatch) => {
+        dispatch({ type: ADD_SHOE });
+
+        return axios
+            .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
+            .then((res) => {
+                console.log(res.data);
+                dispatch({
+                    type: ADD_SHOE_SUCCESS,
+                    payload: res.data,
+                });
+            })
+            .catch((err) => {
+                dispatch({
+                    type: ADD_SHOE_FAIL,
                     payload: err,
                 });
             });

@@ -146,6 +146,7 @@ export default function Details(props) {
     }, [styleId]);
 
     const allShoePrices = JSON.parse(localStorage.getItem("detail prices"));
+    console.log(allShoePrices);
 
     const closetId = JSON.parse(localStorage.getItem("closetId"));
 
@@ -248,7 +249,7 @@ export default function Details(props) {
                                             </button>
                                         </div>
 
-                                        <div className={`stockx-sizes ${stores.stockX.active ? "active" : "inactive"}`}>
+                                        {/* <div className={`stockx-sizes ${stores.stockX.active ? "active" : "inactive"}`}>
                                             <ul className="stockx-ul">
                                                 <a href={shoeDetails.resellLinks.stockX}>
                                                     <li className="stockx-li">
@@ -497,7 +498,7 @@ export default function Details(props) {
                                                     </li>
                                                 </a>
                                             </ul>
-                                        </div>
+                                        </div> */}
 
                                         {/* <div
                                             className={`flightclub-sizes ${

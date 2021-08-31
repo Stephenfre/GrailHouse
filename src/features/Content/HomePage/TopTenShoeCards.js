@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { connect } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
+import { addToCloset } from "../../../actions";
 import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 // import ConditionPopUp from "../PopUps/ConditionPopUp";
@@ -22,52 +24,47 @@ const Button = styled.button`
     text-align: center;
 `;
 
-function TopTenShoeCards({
-    selectShoe,
-    type,
-    thumbnail,
-    shoeName,
-    id,
-    styleId,
-    lowestPrice,
-    lowestResellPrice,
-    inCloset,
-    isLoggedIn,
-}) {
+function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
-    const [shoeInfo, setShoeInfo] = useState({
-        shoeId: id,
-        shoeName: shoeName,
-        lowestPrice: lowestPrice,
-        lowestResellPrice: lowestResellPrice,
-        thumbnail: thumbnail,
-        deadstock: isDeadstock,
-    });
+    // const [shoeInfo, setShoeInfo] = useState({
+    //     shoeId: id,
+    //     shoeName: shoeName,
+    //     lowestPrice: lowestPrice,
+    //     thumbnail: thumbnail,
+    //     deadstock: isDeadstock,
+    // });
     let history = useHistory();
+
+    const dispatch = useDispatch();
 
     const gotThemHandler = () => {
         if (!isLoggedIn) {
             history.push("/signin");
         }
 
-        const currentCloset = JSON.parse(localStorage.getItem("user"));
-
-        const parsedItem = currentCloset.user._id;
-
-        // const userShoes = JSON.stringify(currentCloset);
-
-        axios
-            .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
-            .then((res) => {
-                setShoeInfo(res.data);
-
-                // localStorage.setItem("user", userShoes);
-                console.log("Data", res.data);
-                // console.log("user closet", userShoes);
+        dispatch(
+            addToCloset({
+                shoeId: id,
+                shoeName: shoeName,
+                lowestPrice: lowestPrice,
+                thumbnail: thumbnail,
+                deadstock: isDeadstock,
             })
-            .catch((err) => {
-                console.log(err);
-            });
+        );
+        console.log("clicked");
+
+        // const currentCloset = JSON.parse(localStorage.getItem("user"));
+
+        // const parsedItem = currentCloset.user._id;
+
+        // axios
+        //     .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
+        //     .then((res) => {
+        //         setShoeInfo(res.data);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
     };
 
     const conditonHandler = () => {
@@ -99,12 +96,9 @@ function TopTenShoeCards({
                             <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
                         </div>
                         <div className={`topten-got-them ${inCloset ? "active" : "inactive "}`}>
-                            <button
-                                onClick={gotThemHandler}
-                                className={`topten-got-them-btn ${inCloset ? "active" : "inactive "}`}
-                            ></button>
+                            <button className={`topten-got-them-btn ${inCloset ? "active" : "inactive "}`}></button>
                             <button className="condition-btn" onClick={conditonHandler}>
-                                *Deadstock
+                                Deadstock
                             </button>
                         </div>
                     </div>
@@ -127,6 +121,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToPros = {
     selectShoe,
+    addToCloset,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(TopTenShoeCards));
