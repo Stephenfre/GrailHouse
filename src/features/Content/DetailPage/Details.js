@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import styled from "styled-components";
+// import styled from "styled-components";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -19,25 +19,25 @@ import StadiumGoodsColored from "../../../Svgs/StadiumGoods-colored.svg";
 
 import "./Details.css";
 
-const StyledLinks = styled(Link)`
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    background: black;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 5px;
-    border: none;
-    &:hover {
-        background: rgb(41, 41, 41);
-        color: rgb(235, 235, 235);
-    }
-    @media (max-width: 600px) {
-        width: 100%;
-    }
-`;
+// const StyledLinks = styled(Link)`
+//     padding: 5px;
+//     text-align: center;
+//     text-decoration: none;
+//     font-size: 18px;
+//     color: white;
+//     background: black;
+//     width: 100%;
+//     padding: 1rem;
+//     border-radius: 5px;
+//     border: none;
+//     &:hover {
+//         background: rgb(41, 41, 41);
+//         color: rgb(235, 235, 235);
+//     }
+//     @media (max-width: 600px) {
+//         width: 100%;
+//     }
+// `;
 
 export default function Details(props) {
     const [shoeDetails, setShoeDetails] = useState([]);
@@ -148,9 +148,9 @@ export default function Details(props) {
     const allShoePrices = JSON.parse(localStorage.getItem("detail prices"));
     console.log(allShoePrices);
 
-    const closetId = JSON.parse(localStorage.getItem("closetId"));
+    // const closetId = JSON.parse(localStorage.getItem("closetId"));
 
-    const inCloset = closetId ? closetId.hasOwnProperty(shoeDetails.shoeName) : false;
+    // const inCloset = closetId ? closetId.hasOwnProperty(shoeDetails.shoeName) : false;
 
     if (isLoading && shoeDetails.length < 1) {
         return (
@@ -639,7 +639,7 @@ export default function Details(props) {
                             >
                                 {shoeDetails.styleID} | {shoeDetails.colorway} | {shoeDetails.releaseDate}
                             </span>
-                            <div className={`add-btn ${inCloset ? "inactive " : ""}`}>
+                            {/* <div className={`add-btn ${inCloset ? "inactive " : ""}`}>
                                 <StyledLinks>Add to closet</StyledLinks>
                             </div>
                             <div className={`details-got-them ${inCloset ? "active" : "inactive "}`}>
@@ -649,7 +649,7 @@ export default function Details(props) {
                                 >
                                     Remove from closet
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     {/* <SimilarShoes /> */}
