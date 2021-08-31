@@ -135,7 +135,7 @@ export default function Details(props) {
                     setTimeout(() => {
                         setShoeDetails(res.data);
                     }, 30000);
-                    localStorage.setItem("detail prices", JSON.stringify(res.data.resellPrices));
+                    // localStorage.setItem("detail prices", JSON.stringify(res.data.resellPrices));
                     setIsLoading(true);
                 }
                 setIsLoading(false);
@@ -145,8 +145,8 @@ export default function Details(props) {
             });
     }, [styleId]);
 
-    const allShoePrices = JSON.parse(localStorage.getItem("detail prices"));
-    console.log(allShoePrices);
+    // const allShoePrices = JSON.parse(localStorage.getItem("detail prices"));
+    // console.log(allShoePrices);
 
     // const closetId = JSON.parse(localStorage.getItem("closetId"));
 
