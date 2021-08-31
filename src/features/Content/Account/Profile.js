@@ -15,7 +15,7 @@ function Profile() {
         return <Redirect to="/signin" />;
     }
     return (
-        <div className="main-container">
+        <React.Fragment>
             <NavBar />
             <div className="profile">
                 <SideNavBar />
@@ -45,7 +45,7 @@ function Profile() {
                 </div>
             </div>
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }
 

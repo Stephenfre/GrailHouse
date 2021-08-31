@@ -107,6 +107,7 @@ function NavBar(props) {
     return (
         <div className="nav-container">
             <div className="nav-bar">
+                {/* MOBILE HTML LINE 110 - 123 */}
                 <div
                     className={`nav-icon-magnify-mobile ${!openSearch ? "active" : "inactive"}`}
                     onClick={() => setOpenSearch(!openSearch)}

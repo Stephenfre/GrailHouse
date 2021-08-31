@@ -153,15 +153,15 @@ export default function Details(props) {
 
     if (isLoading && shoeDetails.length < 1) {
         return (
-            <div className="main-container">
+            <React.Fragment>
                 <NavBar />
                 <DetailsSkeleton />
                 <Footer />
-            </div>
+            </React.Fragment>
         );
     } else {
         return (
-            <div className="main-container">
+            <React.Fragment>
                 <NavBar />
                 <div className="shoe-details-container">
                     <div className="shoe-details-content">
@@ -654,7 +654,7 @@ export default function Details(props) {
                     {/* <SimilarShoes /> */}
                 </div>
                 <Footer />
-            </div>
+            </React.Fragment>
         );
     }
 }

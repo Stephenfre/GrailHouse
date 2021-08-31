@@ -9,7 +9,7 @@ import pieChart2 from "@iconify/icons-fontisto/pie-chart-2";
 
 export default function Profile() {
     return (
-        <div className="main-container">
+        <React.Fragment>
             <NavBar />
             <div className="portfolio">
                 <SideNavBar />
@@ -28,6 +28,6 @@ export default function Profile() {
                 </div>
             </div>
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }

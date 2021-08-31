@@ -24,7 +24,7 @@ export function getShoes() {
         dispatch({ type: GETTING_SHOES });
 
         return axios
-            .get("http://localhost:5001/api/sneakers/home")
+            .get("https://grailhouse.herokuapp.com/api/sneakers/home")
             .then((res) => {
                 dispatch({
                     type: GETTING_SHOES_SUCCESS,

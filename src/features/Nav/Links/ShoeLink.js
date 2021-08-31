@@ -48,7 +48,7 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className="main-container">
+        <React.Fragment>
             <NavBar />
             <div className="cta-trending-img">
                 <img src={TrendingBackground} alt="cta-logo" />
@@ -111,7 +111,7 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
             </div>
             <LinksPagination shoesPerPage={shoesPerPage} totalShoes={linkShoesResults.length} paginate={paginate} />
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }
 

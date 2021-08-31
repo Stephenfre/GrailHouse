@@ -7,7 +7,7 @@ import Footer from "../../Footer/Footer";
 
 export default function Profile() {
     return (
-        <div className="main-container">
+        <React.Fragment>
             <NavBar />
             <div className="settings">
                 <SideNavBar />
@@ -21,6 +21,6 @@ export default function Profile() {
                 </div>
             </div>
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }

@@ -99,7 +99,7 @@ function SignUp({ dispatch }) {
     const passwordInputClasses = passwordInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
 
     return (
-        <div className="main-container">
+        <React.Fragment>
             <div className="back-button">
                 <Icon icon={arrowIosBackFill} color="black" style={{ width: "2rem", height: "2rem" }} />
                 <Link to="/" style={{ fontSize: "1.25rem", textDecoration: "none", color: "black" }}>
@@ -186,7 +186,7 @@ function SignUp({ dispatch }) {
                     </form>
                 </div>
             </div>
-        </div>
+        </React.Fragment>
     );
 }
 

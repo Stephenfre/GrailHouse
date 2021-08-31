@@ -7,7 +7,7 @@ import SneakerOnShelf from "../../../Svgs/Sneakersonshelf.png";
 
 export default function OurStory() {
     return (
-        <div className="main-container">
+        <React.Fragment>
             <Navbar />
             <div className="ourstory">
                 <div className="ourstory-content">
@@ -28,6 +28,6 @@ export default function OurStory() {
                 </div>
             </div>
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }

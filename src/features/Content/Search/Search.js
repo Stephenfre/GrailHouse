@@ -38,7 +38,7 @@ function Search({ searchResults, searchShoes, shoeName }) {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className="main-container">
+        <React.Fragment>
             <NavBar />
             <SearchCta />
             <div className="search-content">
@@ -111,7 +111,7 @@ function Search({ searchResults, searchShoes, shoeName }) {
             </div>
             <SearchPaginate shoesPerPage={shoesPerPage} totalShoes={searchResults.length} paginate={paginate} />
             <Footer />
-        </div>
+        </React.Fragment>
     );
 }
 
