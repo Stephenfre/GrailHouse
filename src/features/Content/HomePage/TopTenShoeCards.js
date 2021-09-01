@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 // import axios from "axios";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
 
 import { addToCloset } from "../../../actions";
+import { removeFromCloset } from "../../../actions";
 import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 // import ConditionPopUp from "../PopUps/ConditionPopUp";
@@ -26,13 +26,6 @@ const Button = styled.button`
 
 function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
-    // const [shoeInfo, setShoeInfo] = useState({
-    //     shoeId: id,
-    //     shoeName: shoeName,
-    //     lowestPrice: lowestPrice,
-    //     thumbnail: thumbnail,
-    //     deadstock: isDeadstock,
-    // });
     let history = useHistory();
 
     const dispatch = useDispatch();
@@ -52,19 +45,10 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
             })
         );
         console.log("clicked");
+    };
 
-        // const currentCloset = JSON.parse(localStorage.getItem("user"));
-
-        // const parsedItem = currentCloset.user._id;
-
-        // axios
-        //     .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
-        //     .then((res) => {
-        //         setShoeInfo(res.data);
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
+    const removeShoe = (closetShoeId) => {
+        dispatch(removeFromCloset(closetShoeId));
     };
 
     const conditonHandler = () => {
@@ -96,7 +80,10 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
                             <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
                         </div>
                         <div className={`topten-got-them ${inCloset ? "active" : "inactive "}`}>
-                            <button className={`topten-got-them-btn ${inCloset ? "active" : "inactive "}`}></button>
+                            <button
+                                onClick={() => removeShoe(id)}
+                                className={`topten-got-them-btn ${inCloset ? "active" : "inactive "}`}
+                            ></button>
                             <button className="condition-btn" onClick={conditonHandler}>
                                 Deadstock
                             </button>
@@ -122,6 +109,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToPros = {
     selectShoe,
     addToCloset,
+    removeFromCloset,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(TopTenShoeCards));

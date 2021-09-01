@@ -18,6 +18,9 @@ export const LOGOUT = "LOGOUT";
 export const ADD_SHOE = "ADD_SHOE";
 export const ADD_SHOE_SUCCESS = "ADD_SHOE_SUCCESS";
 export const ADD_SHOE_FAIL = "ADD_SHOE_FAIL";
+export const REMOVE_SHOE = "REMOVE_SHOE";
+export const REMOVE_SHOE_SUCCESS = "REMOVE_SHOE_SUCCESS";
+export const REMOVE_SHOE_FAIL = "REMOVE_SHOE_FAIL";
 
 export const SET_MESSAGE = "SET_MESSAGE";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
@@ -109,15 +112,13 @@ export function getLinkShoes(shoeName) {
 }
 
 export function addToCloset(shoeInfo) {
-    const currentCloset = JSON.parse(localStorage.getItem("user") || []);
-
-    const parsedItem = currentCloset.user._id;
+    const userId = localStorage.getItem("id");
 
     return (dispatch) => {
         dispatch({ type: ADD_SHOE });
 
         return axios
-            .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
+            .post(`https://grailhouse.herokuapp.com/api/closet/${userId}`, shoeInfo)
             .then((res) => {
                 console.log(res.data);
                 dispatch({
@@ -128,6 +129,29 @@ export function addToCloset(shoeInfo) {
             .catch((err) => {
                 dispatch({
                     type: ADD_SHOE_FAIL,
+                    payload: err,
+                });
+            });
+    };
+}
+
+export function removeFromCloset(closetShoeId) {
+    const userId = localStorage.getItem("id");
+
+    return (dispatch) => {
+        dispatch({ type: REMOVE_SHOE });
+
+        return axios
+            .delete(`http://localhost:5001/api/closet/${userId}/${closetShoeId}`)
+            .then((res) => {
+                dispatch({
+                    type: REMOVE_SHOE_SUCCESS,
+                    payload: res.data,
+                });
+            })
+            .catch((err) => {
+                dispatch({
+                    type: REMOVE_SHOE_FAIL,
                     payload: err,
                 });
             });

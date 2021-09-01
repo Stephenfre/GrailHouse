@@ -30,7 +30,7 @@ const StyledLinks = styled(Link)`
     }
 `;
 
-function HomePage({ getShoes, shoes, gettingShoes }) {
+function HomePage({ getShoes, shoes, gettingShoes, closet }) {
     const [hover, setHover] = useState(false);
     const [iconClicked, setIconClicked] = useState(false);
     const [currentPage] = useState(1);
@@ -41,11 +41,15 @@ function HomePage({ getShoes, shoes, gettingShoes }) {
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
     const homeCurrentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
 
-    const closetId = JSON.parse(localStorage.getItem("closetId"));
+    let closetId = JSON.parse(localStorage.getItem("closetId"));
 
     useEffect(() => {
         getShoes();
     }, [getShoes]);
+
+    useEffect(() => {
+        closetId = JSON.parse(localStorage.getItem("closetId"));
+    }, [closet]);
 
     return (
         <React.Fragment>
@@ -110,6 +114,7 @@ const mapStateToProps = (state) => {
         shoes: state.shoes,
         gettingShoes: state.gettingShoes,
         gettingShoesError: state.gettingShoesError,
+        closet: state.user.closet,
     };
 };
 

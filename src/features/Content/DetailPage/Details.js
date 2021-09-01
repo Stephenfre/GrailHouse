@@ -126,12 +126,14 @@ export default function Details(props) {
     //* FETCH HERE
     useEffect(() => {
         axios
-            .get(`https://grailhouse.herokuapp.com/api/sneakers/id/${styleId}/prices`)
+            .get(`http://localhost:5001/api/sneakers/id/${styleId}/prices`)
             .then((res) => {
                 setIsLoading(true);
+                console.log(res.data);
                 if (res.data) {
                     console.log(res.data);
                     setShoeDetails(res.data);
+                    localStorage.setItem("detail prices", JSON.stringify(res.data));
                 } else {
                     setTimeout(() => {
                         setShoeDetails(res.data);
@@ -146,7 +148,7 @@ export default function Details(props) {
             });
     }, [styleId]);
 
-    const allShoePrices = JSON.parse(localStorage.getItem("detail prices") || {});
+    const allShoePrices = JSON.parse(localStorage.getItem("detail prices"));
     console.log(allShoePrices);
 
     const resell = allShoePrices.resellPrices;
@@ -496,33 +498,33 @@ export default function Details(props) {
                                             </ul>
                                         </div>
 
-                                        {/* <div
+                                        <div
                                             className={`flightclub-sizes ${
                                                 stores.flightClub.active ? "active" : "inactive"
                                             }`}
                                         >
                                             <ul className="flightclub-ul">
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>6 | ${resell.flightClub["6"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>7 | ${resell.flightClub["7"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>8 | ${resell.flightClub["8"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>9 | ${resell.flightClub["9"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>10 | ${resell.flightClub["10"]}</p>
                                                     </li>
@@ -532,33 +534,33 @@ export default function Details(props) {
                                                         <p>11 | ${resell.flightClub["11"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>12 | ${resell.flightClub["12"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>13 | ${resell.flightClub["13"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>14 | ${resell.flightClub["14"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>15 | ${resell.flightClub["15"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.flightClub}>
+                                                <a href={resell.flightClub}>
                                                     <li className="flightclub-li">
                                                         <p>16 | ${resell.flightClub["16"]}</p>
                                                     </li>
                                                 </a>
                                             </ul>
-                                        </div> */}
+                                        </div>
 
                                         {/* <div
                                             className={`stadiumgoods-sizes ${

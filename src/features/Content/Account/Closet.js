@@ -12,14 +12,10 @@ export default function Closet() {
     const [getShoeCloset, setGetShoeCloset] = useState([]);
 
     const getClosetShoes = () => {
-        const currentCloset = JSON.parse(localStorage.getItem("user"));
+        const userId = localStorage.getItem("id");
 
-        const parsedItem = currentCloset.user._id;
-
-        console.log(currentCloset);
-        console.log(parsedItem);
         axios
-            .get(`http://localhost:5001/api/closet/${parsedItem}`)
+            .get(`http://localhost:5001/api/closet/${userId}`)
             .then((res) => {
                 setGetShoeCloset(res.data);
             })
@@ -32,9 +28,9 @@ export default function Closet() {
         getClosetShoes();
     }, []);
 
-    const closetShoes = JSON.parse(localStorage.getItem("user"));
+    const closetShoes = JSON.parse(localStorage.getItem("closet"));
 
-    if (closetShoes.user.closet.length === 0) {
+    if (closetShoes.length === 0) {
         return (
             <React.Fragment>
                 <NavBar />
@@ -44,7 +40,7 @@ export default function Closet() {
                         <div className="title">
                             <h2>Closet</h2>
                         </div>
-                        <div className="closet-shoes" style={{ marginTop: "100px" }}>
+                        <div className="closet-empty-shoes" style={{ marginTop: "100px" }}>
                             <img src={ShoeBoxes} alt="empty shoe boxes" />
                             <h2>Your closet is empty.</h2>
                             <p>To add shoes to your closet click the “Add To Closet” button.</p>

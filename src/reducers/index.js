@@ -17,6 +17,9 @@ import {
     ADD_SHOE,
     ADD_SHOE_SUCCESS,
     ADD_SHOE_FAIL,
+    REMOVE_SHOE,
+    REMOVE_SHOE_SUCCESS,
+    REMOVE_SHOE_FAIL,
 } from "../actions";
 
 const token = localStorage.getItem("token");
@@ -38,9 +41,14 @@ const initialState = {
     gettingLinkShoesError: null,
     token: token,
     isLoggedIn: localStorage.getItem("token") ? true : false,
-    user: null,
+    user: {
+        name: "",
+        email: "",
+        closet: [],
+    },
     closetId: {},
     shoeCloset: [],
+    removingShoe: false,
 };
 
 // eslint-disable-next-line
@@ -205,19 +213,56 @@ export default (state = initialState, action) => {
             };
 
         case ADD_SHOE_SUCCESS:
-            // let dictionary = {};
-            // // eslint-disable-next-line
-            // action.payload.closet.map((shoe) => {
-            //     dictionary[shoe.shoeName] = 0;
-            // });
-            // localStorage.setItem("closetId", JSON.stringify(dictionary));
-            return [...state, action.payload];
+            let newDictionary = {};
+            // eslint-disable-next-line
+            action.payload.map((shoe) => {
+                newDictionary[shoe.shoeName] = 0;
+            });
+            localStorage.setItem("closetId", JSON.stringify(newDictionary));
+            localStorage.setItem("closet", JSON.stringify(action.payload));
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    closet: action.payload,
+                },
+                closetId: newDictionary,
+            };
 
         case ADD_SHOE_FAIL:
             return {
                 ...state,
                 addingShoe: false,
             };
+
+        case REMOVE_SHOE:
+            return {
+                ...state,
+                removingShoe: true,
+            };
+
+        case REMOVE_SHOE_SUCCESS:
+            let removeDictionary = {};
+            // eslint-disable-next-line
+            action.payload.map((shoe) => {
+                removeDictionary[shoe.shoeName] = 0;
+            });
+            localStorage.setItem("closetId", JSON.stringify(removeDictionary));
+            localStorage.setItem("closet", JSON.stringify(action.payload));
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    closet: action.payload,
+                },
+            };
+
+        case REMOVE_SHOE_FAIL:
+            return {
+                ...state,
+                removingShoe: false,
+            };
+
         default:
             return state;
     }

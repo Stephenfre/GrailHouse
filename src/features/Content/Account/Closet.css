@@ -9,6 +9,16 @@
     width: 80%;
 }
 
+.closet-empty-shoes {
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 91%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .closet-shoes {
     margin-top: 50px;
     margin-left: 50px;
@@ -17,7 +27,7 @@
     flex-wrap: wrap;
 }
 
-.closet-shoes img {
+.closet-empty-shoes img {
     width: 15%;
     margin-bottom: 30px;
 }

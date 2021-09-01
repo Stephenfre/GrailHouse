@@ -7,13 +7,18 @@ import NavBar from "../../Nav/NavBar";
 import "./Profile.css";
 import Footer from "../../Footer/Footer";
 
-function Profile() {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const currentUser = user.user;
+function Profile({ user }) {
+    const currentUser = localStorage.getItem("id");
+
+    const userName = JSON.parse(localStorage.getItem("name"));
+    console.log(userName);
+    const email = JSON.parse(localStorage.getItem("email"));
+    console.log(email);
 
     if (!currentUser) {
         return <Redirect to="/signin" />;
     }
+
     return (
         <React.Fragment>
             <NavBar />
@@ -26,7 +31,7 @@ function Profile() {
                     <div className="profile-info">
                         <div className="username-shoesize">
                             <div className="profile-username">
-                                Username: <br /> {currentUser.name}
+                                Username: <br /> {userName}
                             </div>
                             <div className="profile-shoesize">
                                 Shoe Size: <br /> 11.5 - 12
@@ -34,7 +39,7 @@ function Profile() {
                         </div>
                         <div className="email-password">
                             <div className="profile-Email">
-                                Email: <br /> {currentUser.email}
+                                Email: <br /> {email}
                             </div>
                             <div className="profile-reset-password">
                                 Reset Password: <br />
