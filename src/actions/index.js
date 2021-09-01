@@ -118,7 +118,7 @@ export function addToCloset(shoeInfo) {
         dispatch({ type: ADD_SHOE });
 
         return axios
-            .post(`https://grailhouse.herokuapp.com/api/closet/${userId}`, shoeInfo)
+            .post(`http://localhost:5001/api/closet/${userId}`, shoeInfo)
             .then((res) => {
                 console.log(res.data);
                 dispatch({

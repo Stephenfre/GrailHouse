@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
+import { addToCloset } from "../../../actions";
+import { removeFromCloset } from "../../../actions";
 import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 
@@ -31,43 +32,37 @@ function TrendingShoesCard({
     id,
     styleId,
     lowestPrice,
-    lowestResellPrice,
     isLoggedIn,
     inCloset,
 }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
-    const [shoeInfo, setShoeInfo] = useState({
-        shoeId: id,
-        shoeName: shoeName,
-        lowestPrice: lowestPrice,
-        lowestResellPrice: lowestResellPrice,
-        thumbnail: thumbnail,
-        deadstock: isDeadstock,
-    });
+
+    let history = useHistory();
+    const dispatch = useDispatch();
 
     const gotThemHandler = () => {
         if (!isLoggedIn) {
             history.push("/signin");
         }
 
-        const currentCloset = JSON.parse(localStorage.getItem("user"));
-
-        const parsedItem = currentCloset.user._id;
-
-        axios
-            .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
-            .then((res) => {
-                setShoeInfo(res.data);
+        dispatch(
+            addToCloset({
+                shoeId: id,
+                shoeName: shoeName,
+                lowestPrice: lowestPrice,
+                thumbnail: thumbnail,
+                deadstock: isDeadstock,
             })
-            .catch((err) => {
-                console.log(err);
-            });
+        );
     };
+
+    const removeShoe = (closetShoeId) => {
+        dispatch(removeFromCloset(closetShoeId));
+    };
+
     const conditonHandler = () => {
         setIsDeadstock(!isDeadstock);
     };
-
-    let history = useHistory();
 
     const clickHandler = (id) => {
         selectShoe(id, "trending");
@@ -95,7 +90,7 @@ function TrendingShoesCard({
                         </div>
                         <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button
-                                onClick={gotThemHandler}
+                                onClick={removeShoe}
                                 className={`trending-got-them-btn ${inCloset ? "active" : "inactive "}`}
                             ></button>
                             <button className="trending-condition-btn" onClick={conditonHandler}>
@@ -121,6 +116,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToPros = {
     selectShoe,
+    addToCloset,
+    removeFromCloset,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(TrendingShoesCard));

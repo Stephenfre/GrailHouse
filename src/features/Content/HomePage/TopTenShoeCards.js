@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import axios from "axios";
 import { connect, useDispatch } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
@@ -44,7 +43,6 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
                 deadstock: isDeadstock,
             })
         );
-        console.log("clicked");
     };
 
     const removeShoe = (closetShoeId) => {

@@ -26,7 +26,7 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function TrendingShoes({ getShoes, shoes, gettingShoes }) {
+function TrendingShoes({ getShoes, shoes, gettingShoes, closet }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
@@ -35,12 +35,18 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
         getShoes();
     }, [getShoes]);
 
-    // Get Current Shoes
+    useEffect(() => {
+        closetId = JSON.parse(localStorage.getItem("closetId"));
+    }, [closet]);
+
+    //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
     const currentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
 
-    // Change page
+    let closetId = JSON.parse(localStorage.getItem("closetId"));
+
+    //* Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
@@ -100,6 +106,7 @@ function TrendingShoes({ getShoes, shoes, gettingShoes }) {
                                     styleId={shoe.styleID}
                                     type="trending"
                                     isViewActive={isViewActive}
+                                    inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                                 />
                             ))}
                     </div>
@@ -116,6 +123,7 @@ const mapStateToProps = (state) => {
         shoes: state.shoes,
         gettingShoes: state.gettingShoes,
         gettingShoesError: state.gettingShoesError,
+        closet: state.user.closet,
     };
 };
 
