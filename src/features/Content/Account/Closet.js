@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import SideNavBar from "./SideNavBar";
 import NavBar from "../../Nav/NavBar";
@@ -8,8 +10,10 @@ import Footer from "../../Footer/Footer";
 import ClosetItems from "./ClosetItems";
 import ShoeBoxes from "../../../Svgs/ShoeBoxes.svg";
 
-export default function Closet() {
+function Closet({ closet }) {
     const [getShoeCloset, setGetShoeCloset] = useState([]);
+
+    let closetId = JSON.parse(localStorage.getItem("closetId"));
 
     const getClosetShoes = () => {
         const userId = localStorage.getItem("id");
@@ -27,6 +31,10 @@ export default function Closet() {
     useEffect(() => {
         getClosetShoes();
     }, []);
+
+    useEffect(() => {
+        closetId = JSON.parse(localStorage.getItem("closetId"));
+    }, [closet]);
 
     const closetShoes = JSON.parse(localStorage.getItem("closet"));
 
@@ -68,7 +76,7 @@ export default function Closet() {
                                 thumbnail={shoe.thumbnail}
                                 shoeName={shoe.shoeName}
                                 lowestPrice={shoe.lowestPrice}
-                                // styleId={shoe.styleID}
+                                inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                             />
                         ))}
                     </div>
@@ -78,3 +86,11 @@ export default function Closet() {
         </React.Fragment>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        closet: state.user.closet,
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(Closet));

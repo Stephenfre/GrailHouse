@@ -1,74 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { useHistory, withRouter } from "react-router-dom";
-// import styled from "styled-components";
 
+import { removeFromCloset } from "../../../actions";
 import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 
 import "../TrendingShoes/TrendingShoesCard.css";
 
-// const Button = styled.button`
-//     text-decoration: none;
-//     background: black;
-//     color: white;
-//     font-size: 10px;
-//     padding: 0rem;
-//     height: 35px;
-//     width: 100px;
-//     border-radius: 5px;
-//     border: none;
-//     text-align: center;
-// `;
-
-function ClosetItems({
-    isViewActive,
-    selectShoe,
-    type,
-    thumbnail,
-    shoeName,
-    id,
-    styleId,
-    lowestPrice,
-    lowestResellPrice,
-    isLoggedIn,
-    inCloset,
-}) {
+function ClosetItems({ isViewActive, selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
-    const [shoeInfo, setShoeInfo] = useState({
-        shoeId: id,
-        shoeName: shoeName,
-        lowestPrice: lowestPrice,
-        lowestResellPrice: lowestResellPrice,
-        thumbnail: thumbnail,
-        deadstock: isDeadstock,
-    });
 
-    const gotThemHandler = () => {
-        if (!isLoggedIn) {
-            history.push("/signin");
-        }
+    const dispatch = useDispatch();
 
-        const currentCloset = JSON.parse(localStorage.getItem("user"));
-
-        const parsedItem = currentCloset.user._id;
-
-        // const userShoes = JSON.stringify(currentCloset);
-
-        axios
-            .post(`http://localhost:5001/api/closet/${parsedItem}`, shoeInfo)
-            .then((res) => {
-                setShoeInfo(res.data);
-
-                // localStorage.setItem("user", userShoes);
-                console.log("Data", res.data);
-                // console.log("user closet", userShoes);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+    const removeShoe = (closetShoeId) => {
+        dispatch(removeFromCloset(closetShoeId));
     };
+
     const conditonHandler = () => {
         setIsDeadstock(!isDeadstock);
     };
@@ -97,7 +45,7 @@ function ClosetItems({
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>
                         <div className="trending-got-them active">
-                            <button onClick={gotThemHandler} className="trending-got-them-btn active"></button>
+                            <button onClick={() => removeShoe(id)} className="trending-got-them-btn active"></button>
                             <button className="trending-condition-btn" onClick={conditonHandler}>
                                 *Deadstock
                             </button>
