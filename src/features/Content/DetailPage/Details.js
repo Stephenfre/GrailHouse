@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, withRouter, useHistory } from "react-router-dom";
+import { connect, useDispatch } from "react-redux";
 import axios from "axios";
 import styled from "styled-components";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.css";
 
+import { addToCloset } from "../../../actions";
+import { removeFromCloset } from "../../../actions";
 import NavBar from "../../Nav/NavBar";
 import DetailsSkeleton from "../Skeletons/DetailsSkeleton";
 import Footer from "../../Footer/Footer";
@@ -39,10 +42,11 @@ const StyledLinks = styled(Link)`
     }
 `;
 
-export default function Details(props) {
+function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
     const [shoeDetails, setShoeDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [detailsTabActive, setDetailsTabActive] = useState(false);
+    const [isDeadstock] = useState(false);
     const [stores, setStores] = useState({
         flightClub: {
             active: false,
@@ -123,6 +127,38 @@ export default function Details(props) {
         }
     };
 
+    let history = useHistory();
+
+    const dispatch = useDispatch();
+
+    const gotThemHandler = () => {
+        if (!isLoggedIn) {
+            history.push("/signin");
+        }
+
+        dispatch(
+            addToCloset({
+                shoeId: id,
+                shoeName: shoeName,
+                lowestPrice: lowestPrice,
+                thumbnail: thumbnail,
+                deadstock: isDeadstock,
+            })
+        );
+    };
+
+    const removeShoe = (closetShoeId) => {
+        dispatch(removeFromCloset(closetShoeId));
+    };
+
+    // const conditonHandler = () => {
+    //     setIsDeadstock(!isDeadstock);
+    // };
+
+    useEffect(() => {
+        closetId = JSON.parse(localStorage.getItem("closetId"));
+    }, [closet]);
+
     //* FETCH HERE
     useEffect(() => {
         axios
@@ -148,15 +184,20 @@ export default function Details(props) {
             });
     }, [styleId]);
 
-    const allShoePrices = JSON.parse(localStorage.getItem("detail prices"));
-    console.log(allShoePrices);
+    let closetId = JSON.parse(localStorage.getItem("closetId"));
 
-    const resell = allShoePrices.resellPrices;
-    console.log(resell.stockX["7"]);
+    let inCloset = closetId ? closetId.hasOwnProperty(shoeDetails.shoeName) : false;
+    console.log(inCloset);
 
-    const closetId = JSON.parse(localStorage.getItem("closetId"));
+    // const allShoePrices = JSON.parse(localStorage.getItem("detail prices"));
+    // console.log(allShoePrices);
 
-    const inCloset = closetId ? closetId.hasOwnProperty(shoeDetails.shoeName) : false;
+    // const resell = allShoePrices.resellPrices;
+    // console.log(resell.stockX["7"]);
+
+    // const closetId = JSON.parse(localStorage.getItem("closetId"));
+
+    // const inCloset = closetId ? closetId.hasOwnProperty(shoeDetails.shoeName) : false;
 
     if (isLoading && shoeDetails.length < 1) {
         return (
@@ -255,7 +296,7 @@ export default function Details(props) {
                                             </button>
                                         </div>
 
-                                        <div className={`stockx-sizes ${stores.stockX.active ? "active" : "inactive"}`}>
+                                        {/* <div className={`stockx-sizes ${stores.stockX.active ? "active" : "inactive"}`}>
                                             <ul className="stockx-ul">
                                                 <a href={shoeDetails.resellLinks.stockX}>
                                                     <li className="stockx-li">
@@ -560,7 +601,7 @@ export default function Details(props) {
                                                     </li>
                                                 </a>
                                             </ul>
-                                        </div>
+                                        </div> */}
 
                                         {/* <div
                                             className={`stadiumgoods-sizes ${
@@ -637,14 +678,11 @@ export default function Details(props) {
                             >
                                 {shoeDetails.styleID} | {shoeDetails.colorway} | {shoeDetails.releaseDate}
                             </span>
-                            <div className={`add-btn ${inCloset ? "inactive " : ""}`}>
+                            <div onClick={gotThemHandler} className={`add-btn ${inCloset ? "inactive " : ""}`}>
                                 <StyledLinks>Add to closet</StyledLinks>
                             </div>
                             <div className={`details-got-them ${inCloset ? "active" : "inactive "}`}>
-                                <button
-                                    className="details-condition-btn"
-                                    // onClick={conditonHandler}
-                                >
+                                <button className="details-condition-btn" onClick={() => removeShoe(id)}>
                                     Remove from closet
                                 </button>
                             </div>
@@ -657,3 +695,17 @@ export default function Details(props) {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        closet: state.user.closet,
+        isLoggedIn: state.isLoggedIn,
+    };
+};
+
+const mapDispatchToPros = {
+    addToCloset,
+    removeFromCloset,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToPros)(Details));

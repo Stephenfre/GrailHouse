@@ -11,26 +11,7 @@ import ClosetItems from "./ClosetItems";
 import ShoeBoxes from "../../../Svgs/ShoeBoxes.svg";
 
 function Closet({ closet }) {
-    const [getShoeCloset, setGetShoeCloset] = useState([]);
-
     let closetId = JSON.parse(localStorage.getItem("closetId"));
-
-    const getClosetShoes = () => {
-        const userId = localStorage.getItem("id");
-
-        axios
-            .get(`http://localhost:5001/api/closet/${userId}`)
-            .then((res) => {
-                setGetShoeCloset(res.data);
-            })
-            .catch((err) => {
-                console.log(err, "couldn't get data");
-            });
-    };
-
-    useEffect(() => {
-        getClosetShoes();
-    }, []);
 
     useEffect(() => {
         closetId = JSON.parse(localStorage.getItem("closetId"));
@@ -69,13 +50,14 @@ function Closet({ closet }) {
                         <h2>Closet</h2>
                     </div>
                     <div className="closet-shoes">
-                        {getShoeCloset.map((shoe, i) => (
+                        {closet.map((shoe, i) => (
                             <ClosetItems
                                 key={i}
                                 id={shoe._id}
                                 thumbnail={shoe.thumbnail}
                                 shoeName={shoe.shoeName}
                                 lowestPrice={shoe.lowestPrice}
+                                deadStock={shoe.deadStock}
                                 inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                             />
                         ))}
