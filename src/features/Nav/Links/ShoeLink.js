@@ -29,16 +29,20 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes, shoeName }) {
+function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
+    const { shoeName } = useParams();
+
     const params = useParams();
-    console.log(params.shoeName);
+
+    const shoeParams = params.shoeName.toUpperCase();
+    console.log(shoeParams);
 
     useEffect(() => {
-        getLinkShoes(params.shoeName);
-    }, []);
+        getLinkShoes(shoeName);
+    }, [shoeName]);
 
     console.log(getLinkShoes);
 
@@ -63,6 +67,8 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes, shoeName }
                             <StyledLinks to="/">HOME</StyledLinks>
                             {" / "}
                             <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
+                            {" / "}
+                            <StyledLinks to={`/${params.shoeName}`}>{shoeParams}</StyledLinks>
                         </div>
                         <div className="options-mobile">filter</div>
                         <div className="search-bar-details">

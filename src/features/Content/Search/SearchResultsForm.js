@@ -34,7 +34,7 @@ function Search(props) {
     const callSearchFunction = () => {
         // e.preventDefault();
         props.searchingShoes(searchValue);
-        history.push(`search/${searchValue}`);
+        history.push(`/search/${searchValue}`);
         resetInputField();
     };
 

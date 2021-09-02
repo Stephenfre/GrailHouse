@@ -23,7 +23,7 @@ function Search(props) {
 
     const callSearchFunction = () => {
         props.searchingShoes(searchValue);
-        history.push(`search/${searchValue}`);
+        history.push(`/search/${searchValue}`);
         resetInputField();
     };
 

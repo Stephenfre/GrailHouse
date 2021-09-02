@@ -79,7 +79,7 @@ const StyledLinkBtn = styled(Link)`
     }
 `;
 
-function NavBar(props) {
+function NavBar(isLoggedIn) {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
@@ -164,10 +164,10 @@ function NavBar(props) {
                     <Burger />
                 </div>
                 <div className="other-content">
-                    <StyledLinkBtn to="/signup" className={`trending-btn ${!props.isLoggedIn ? "" : "inactive"}`}>
+                    <StyledLinkBtn to="/signup" className={`trending-btn ${!isLoggedIn ? "" : "inactive"}`}>
                         Sign Up / Sign In
                     </StyledLinkBtn>
-                    <Dropbtn onClick={menuClicked} className={`menu-trigger ${props.isLoggedIn ? "" : "inactive"}`}>
+                    <Dropbtn onClick={menuClicked} className={`menu-trigger ${isLoggedIn ? "" : "inactive"}`}>
                         Account
                     </Dropbtn>
                     <nav ref={dropdownRef} className={`menu ${isActive ? "active" : "inactive"}`}>
@@ -182,6 +182,7 @@ function NavBar(props) {
 const mapStateToProps = (state) => {
     return {
         isLoggedIn: state.isLoggedIn,
+        linkShoeResults: state.linkShoeResults,
     };
 };
 

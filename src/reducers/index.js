@@ -128,6 +128,7 @@ export default (state = initialState, action) => {
                 shoe.lowestPrice = min;
                 linkShoesResults.push(shoe);
             });
+            localStorage.setItem("link shoes", JSON.stringify(linkShoesResults));
             return {
                 ...state,
                 gettingLinkShoes: false,
