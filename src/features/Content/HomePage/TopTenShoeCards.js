@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import { useHistory, withRouter } from "react-router-dom";
+import { useHistory, withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
@@ -53,17 +53,21 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
         setIsDeadstock(!isDeadstock);
     };
 
-    const clickHandler = (id) => {
-        selectShoe(id, type);
-        history.push(`/details/${id}/${styleId}`);
-    };
+    // const clickHandler = (id) => {
+    //     selectShoe(id, type);
+    //     history.push(`/details/${id}/${styleId}`);
+    // };
 
     return (
         <div className="topten-shoes-card">
             <div className="topten-shoes">
-                <div className="topten-shoes-img" onClick={(e) => clickHandler(id)}>
+                <Link
+                    to={`details/${id}/${styleId}`}
+                    className="topten-shoes-img"
+                    // onClick={(e) => clickHandler(id)}
+                >
                     <img src={thumbnail} alt="shoe pic" />
-                </div>
+                </Link>
                 <div className="topten-shoes-wrap">
                     <div className="topten-shoes-details">
                         <p>{shoeName}</p>

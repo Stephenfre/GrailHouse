@@ -29,15 +29,18 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
+function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes, shoeName }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
-    const { shoeName } = useParams();
+    const params = useParams();
+    console.log(params.shoeName);
 
     useEffect(() => {
-        getLinkShoes(shoeName);
+        getLinkShoes(params.shoeName);
     }, []);
+
+    console.log(getLinkShoes);
 
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;

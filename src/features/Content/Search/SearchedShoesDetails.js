@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { useHistory, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 import { selectShoe } from "../../../actions";
@@ -32,22 +32,15 @@ function SearchedShoesDetails({ isViewActive, selectShoe, type, thumbnail, shoeN
     const conditonHandler = () => {
         setIsDeadstock(!isDeadstock);
     };
-
-    let history = useHistory();
-
-    const clickHandler = (id) => {
-        selectShoe(id, "search");
-        history.push(`/details/${id}/${styleId}`);
-    };
     return (
         <div className={"trending" + (isViewActive ? " active" : "")}>
             <div className={"trending-shoes" + (isViewActive ? " active" : "")}>
-                <div
+                <Link
                     className={"trending-shoes-img" + (isViewActive ? " active" : "")}
-                    onClick={(e) => clickHandler(id)}
+                    to={`details/${id}/${styleId}`}
                 >
                     <img src={thumbnail} alt="shoe pic" />
-                </div>
+                </Link>
                 <div className={"trending-shoes-wrap" + (isViewActive ? " active" : "")}>
                     <div className="trending-shoes-details">
                         <p>{shoeName}</p>

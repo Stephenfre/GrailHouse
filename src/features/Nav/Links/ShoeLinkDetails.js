@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useHistory, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 import { selectShoe } from "../../../actions";
@@ -21,19 +21,22 @@ const Button = styled.button`
 `;
 
 function ShoeLinkDetails({ isViewActive, selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
-    let history = useHistory();
+    // let history = useHistory();
 
-    const clickHandler = (id) => {
-        selectShoe(id, "shoeLinks");
-        history.push(`/details/id/${styleId}`);
-    };
+    // const clickHandler = (id) => {
+    //     selectShoe(id, "shoeLinks");
+    //     history.push(`/details/id/${styleId}`);
+    // };
 
     return (
-        <div className={"trending" + (isViewActive ? " active" : "")} onClick={(e) => clickHandler(id)}>
+        <div className={"trending" + (isViewActive ? " active" : "")}>
             <div className={"trending-shoes" + (isViewActive ? " active" : "")}>
-                <div className={"trending-shoes-img" + (isViewActive ? " active" : "")}>
+                <Link
+                    to={`details/${id}/${styleId}`}
+                    className={"trending-shoes-img" + (isViewActive ? " active" : "")}
+                >
                     <img src={thumbnail} alt="shoe pic" />
-                </div>
+                </Link>
                 <div className={"trending-shoes-wrap" + (isViewActive ? " active" : "")}>
                     <div className="trending-shoes-details">
                         <p>{shoeName}</p>

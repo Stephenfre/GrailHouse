@@ -42,11 +42,14 @@ const StyledLinks = styled(Link)`
     }
 `;
 
-function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
+function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, styleId }) {
     const [shoeDetails, setShoeDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [detailsTabActive, setDetailsTabActive] = useState(false);
     const [isDeadstock] = useState(false);
+    const params = useParams();
+    let style = params.styleId;
+
     const [stores, setStores] = useState({
         flightClub: {
             active: false,
@@ -61,7 +64,6 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
             active: false,
         },
     });
-    let { styleId } = useParams();
 
     const toggleMe = (store) => {
         if (store === "stockX") {
@@ -162,7 +164,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
     //* FETCH HERE
     useEffect(() => {
         axios
-            .get(`http://localhost:5001/api/sneakers/id/${styleId}/prices`)
+            .get(`http://localhost:5001/api/sneakers/id/${style}/prices`)
             .then((res) => {
                 setIsLoading(true);
                 console.log(res.data);
@@ -194,10 +196,6 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
 
     // const resell = allShoePrices.resellPrices;
     // console.log(resell.stockX["7"]);
-
-    // const closetId = JSON.parse(localStorage.getItem("closetId"));
-
-    // const inCloset = closetId ? closetId.hasOwnProperty(shoeDetails.shoeName) : false;
 
     if (isLoading && shoeDetails.length < 1) {
         return (
@@ -304,7 +302,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na">6 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                6 | $ {resell.stockX["6"]}
+                                                                6 | ${resell.stockX["6"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -315,7 +313,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 7 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                7 | $ {resell.stockX["7"]}
+                                                                7 | ${resell.stockX["7"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -326,7 +324,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 8 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                8 | $ {resell.stockX["8"]}
+                                                                8 | ${resell.stockX["8"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -337,7 +335,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 9 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                9 | $ {resell.stockX["9"]}
+                                                                9 | ${resell.stockX["9"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -348,7 +346,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 10 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                10 | $ {resell.stockX["10"]}
+                                                                10 | ${resell.stockX["10"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -359,7 +357,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 11 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                11 | $ {resell.stockX["11"]}
+                                                                11 | ${resell.stockX["11"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -370,7 +368,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 12 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                12 | $ {resell.stockX["12"]}
+                                                                12 | ${resell.stockX["12"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -381,7 +379,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 13 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                13 | $ {resell.stockX["13"]}
+                                                                13 | ${resell.stockX["13"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -392,7 +390,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 14 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                14 | $ {resell.stockX["14"]}
+                                                                14 | ${resell.stockX["14"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -403,7 +401,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 15 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                15 | $ {resell.stockX["15"]}
+                                                                15 | ${resell.stockX["15"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -414,7 +412,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 16 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                16 | $ {resell.stockX["16"]}
+                                                                16 | ${resell.stockX["16"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -428,7 +426,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                         {resell.goat["6"] === undefined ? (
                                                             <p className="details-na"> 6 | N/A</p>
                                                         ) : (
-                                                            <p className="details-in-stock">6 | $ {resell.goat["6"]}</p>
+                                                            <p className="details-in-stock">6 | ${resell.goat["6"]}</p>
                                                         )}
                                                     </li>
                                                 </a>
@@ -437,7 +435,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                         {resell.goat["7"] === undefined ? (
                                                             <p className="details-na"> 7 | N/A</p>
                                                         ) : (
-                                                            <p className="details-in-stock">7 | $ {resell.goat["7"]}</p>
+                                                            <p className="details-in-stock">7 | ${resell.goat["7"]}</p>
                                                         )}
                                                     </li>
                                                 </a>
@@ -446,7 +444,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                         {resell.goat["8"] === undefined ? (
                                                             <p className="details-na"> 8 | N/A</p>
                                                         ) : (
-                                                            <p className="details-in-stock">8 | $ {resell.goat["8"]}</p>
+                                                            <p className="details-in-stock">8 | ${resell.goat["8"]}</p>
                                                         )}
                                                     </li>
                                                 </a>
@@ -455,7 +453,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                         {resell.goat["9"] === undefined ? (
                                                             <p className="details-na"> 9 | N/A</p>
                                                         ) : (
-                                                            <p className="details-in-stock">9 | $ {resell.goat["9"]}</p>
+                                                            <p className="details-in-stock">9 | ${resell.goat["9"]}</p>
                                                         )}
                                                     </li>
                                                 </a>
@@ -465,7 +463,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 10 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                10 | $ {resell.goat["10"]}
+                                                                10 | ${resell.goat["10"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -476,7 +474,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 11 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                11 | $ {resell.goat["11"]}
+                                                                11 | ${resell.goat["11"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -487,7 +485,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 12 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                12 | $ {resell.goat["12"]}
+                                                                12 | ${resell.goat["12"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -498,7 +496,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 13 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                13 | $ {resell.goat["13"]}
+                                                                13 | ${resell.goat["13"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -509,7 +507,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 14 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                14 | $ {resell.goat["14"]}
+                                                                14 | ${resell.goat["14"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -520,7 +518,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 15 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                15 | $ {resell.goat["15"]}
+                                                                15 | ${resell.goat["15"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -531,7 +529,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet }) {
                                                             <p className="details-na"> 16 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                16 | $ {resell.goat["16"]}
+                                                                16 | ${resell.goat["16"]}
                                                             </p>
                                                         )}
                                                     </li>

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
 import { Icon } from "@iconify/react";
 import gridIcon from "@iconify/icons-gridicons/grid";
 import menuIcon from "@iconify/icons-vaadin/menu";
 
+import { searchingShoes } from "../../../actions";
 import NavBar from "../../Nav/NavBar";
 import SearchCta from "./SearchCta";
 import SearchResultsForm from "./SearchResultsForm";
@@ -28,6 +28,8 @@ function Search({ searchResults, searchShoes, shoeName }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
+
+    // let location = useLocation();
 
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
@@ -124,7 +126,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (state) => {
-    return {};
+    return {
+        searchingShoes,
+    };
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
