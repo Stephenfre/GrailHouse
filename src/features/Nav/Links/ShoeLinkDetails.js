@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
-import { selectShoe } from "../../../actions";
-
 import "../../Content/TrendingShoes/TrendingShoesCard.css";
 
 const Button = styled.button`
@@ -61,8 +59,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToPros = {
-    selectShoe,
-};
+const mapDispatchToPros = {};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(ShoeLinkDetails));

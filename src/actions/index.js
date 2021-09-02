@@ -3,7 +3,6 @@ import axios from "axios";
 export const GETTING_SHOES = "GETTING_SHOES_START";
 export const GETTING_SHOES_SUCCESS = "GETTING_SHOES_SUCCESS";
 export const GETTING_SHOES_FAIL = "GETTING_SHOES_FAIL";
-export const SELECTED_SHOE = "SELECTED_SHOE";
 export const SEARCHING_SHOE = "SEARCHING_SHOE";
 export const SEARCHING_SHOE_SUCCESS = "SEARCHING_SHOE_SUCCESS";
 export const SEARCHING_SHOE_FAIL = "SEARCHING_SHOE_FAIL";
@@ -43,17 +42,6 @@ export function getShoes() {
                     payload: err,
                 });
             });
-    };
-}
-
-export function selectShoe(id, name) {
-    return (dispatch) => {
-        console.log(name);
-        dispatch({
-            type: SELECTED_SHOE,
-            payload: id,
-            name: name,
-        });
     };
 }
 

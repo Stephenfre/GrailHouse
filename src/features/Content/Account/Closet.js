@@ -53,6 +53,7 @@ function Closet({ closet }) {
                             <ClosetItems
                                 key={i}
                                 id={shoe._id}
+                                styleId={shoe.styleId}
                                 thumbnail={shoe.thumbnail}
                                 shoeName={shoe.shoeName}
                                 lowestPrice={shoe.lowestPrice}

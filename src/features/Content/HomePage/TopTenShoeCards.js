@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
-import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 // import ConditionPopUp from "../PopUps/ConditionPopUp";
 import "./TopTenShoeCards.css";
@@ -23,7 +22,18 @@ const Button = styled.button`
     text-align: center;
 `;
 
-function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
+function TopTenShoeCards({
+    selectShoe,
+    type,
+    thumbnail,
+    shoeName,
+    id,
+    styleId,
+    styleID,
+    lowestPrice,
+    inCloset,
+    isLoggedIn,
+}) {
     const [isDeadstock, setIsDeadstock] = useState(false);
     let history = useHistory();
 
@@ -37,6 +47,7 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
         dispatch(
             addToCloset({
                 shoeId: id,
+                styleId: styleId,
                 shoeName: shoeName,
                 lowestPrice: lowestPrice,
                 thumbnail: thumbnail,
@@ -53,19 +64,10 @@ function TopTenShoeCards({ selectShoe, type, thumbnail, shoeName, id, styleId, l
         setIsDeadstock(!isDeadstock);
     };
 
-    // const clickHandler = (id) => {
-    //     selectShoe(id, type);
-    //     history.push(`/details/${id}/${styleId}`);
-    // };
-
     return (
         <div className="topten-shoes-card">
             <div className="topten-shoes">
-                <Link
-                    to={`details/${id}/${styleId}`}
-                    className="topten-shoes-img"
-                    // onClick={(e) => clickHandler(id)}
-                >
+                <Link to={`details/${id}/${styleId}`} className="topten-shoes-img">
                     <img src={thumbnail} alt="shoe pic" />
                 </Link>
                 <div className="topten-shoes-wrap">
@@ -109,7 +111,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToPros = {
-    selectShoe,
     addToCloset,
     removeFromCloset,
 };

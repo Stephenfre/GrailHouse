@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
-import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 
 import "./Search.css";
@@ -76,8 +75,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToPros = {
-    selectShoe,
-};
+const mapDispatchToPros = {};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(SearchedShoesDetails));

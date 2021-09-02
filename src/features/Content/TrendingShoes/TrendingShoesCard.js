@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
-import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 
 import "./TrendingShoesCard.css";
@@ -115,7 +114,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToPros = {
-    selectShoe,
     addToCloset,
     removeFromCloset,
 };

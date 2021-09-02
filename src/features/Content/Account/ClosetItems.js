@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import { useHistory, withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import { removeFromCloset } from "../../../actions";
-import { selectShoe } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 
 import "../TrendingShoes/TrendingShoesCard.css";
@@ -21,22 +20,15 @@ function ClosetItems({ isViewActive, selectShoe, type, thumbnail, shoeName, id, 
         setIsDeadstock(!isDeadstock);
     };
 
-    let history = useHistory();
-
-    const clickHandler = (id) => {
-        selectShoe(id, "trending");
-        history.push(`/trendingshoes/details/id/${styleId}`);
-    };
-
     return (
         <div className={"trending" + (isViewActive ? " active" : "")}>
             <div className={"trending-shoes" + (isViewActive ? " active" : "")}>
-                <div
+                <Link
                     className={"trending-shoes-img" + (isViewActive ? " active" : "")}
-                    onClick={(e) => clickHandler(id)}
+                    to={`/account/closet/details/${id}/${styleId}`}
                 >
                     <img src={thumbnail} alt="shoe pic" />
-                </div>
+                </Link>
                 <div className={"trending-shoes-wrap" + (isViewActive ? " active" : "")}>
                     <div className="trending-shoes-details">
                         <p>{shoeName}</p>
@@ -67,8 +59,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToPros = {
-    selectShoe,
-};
+const mapDispatchToPros = {};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(ClosetItems));
