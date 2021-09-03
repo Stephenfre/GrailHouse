@@ -8,17 +8,17 @@ import { withRouter, useParams } from "react-router-dom";
 // import menuIcon from "@iconify/icons-vaadin/menu";
 
 import { getLinkShoes } from "../../../actions";
-import NavBar from "../NavBar";
+// import NavBar from "../NavBar";
 // import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
 // import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 // import ShoeLinkDetails from "./ShoeLinkDetails";
 // import SearchResultsForm from "../../Content/Search/SearchResultsForm";
 // import LinksPagination from "./LinksPagination";
 // import SideBar from "../../Content/SideBar/SideBar";
-import Footer from "../../Footer/Footer";
+// import Footer from "../../Footer/Footer";
 
-import "../../Content/TrendingShoes/TrendingShoes.css";
-import "../../Content/Search/Search.css";
+// import "../../Content/TrendingShoes/TrendingShoes.css";
+// import "../../Content/Search/Search.css";
 
 import "./ShoeLink.css";
 
@@ -53,8 +53,8 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
 
     return (
         <React.Fragment>
-            <NavBar />
-            {/* <div className="cta-trending-img">
+            {/* <NavBar />
+            <div className="cta-trending-img">
                 <img src={TrendingBackground} alt="cta-logo" />
             </div>
             <div className="trending-content">
@@ -114,9 +114,9 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
                             ))}
                     </div>
                 </div>
-            </div> */}
-            {/* <LinksPagination shoesPerPage={shoesPerPage} totalShoes={linkShoesResults.length} paginate={paginate} /> */}
-            <Footer />
+            </div>
+            <LinksPagination shoesPerPage={shoesPerPage} totalShoes={linkShoesResults.length} paginate={paginate} />
+            <Footer /> */}
         </React.Fragment>
     );
 }
