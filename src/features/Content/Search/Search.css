@@ -1,176 +1,352 @@
-.search-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 495px;
+@media only screen and (min-width: 1920px) {
+    .search-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 495px;
+    }
+
+    .title-details {
+        width: 85%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        margin-top: 3.5rem;
+        justify-content: flex-end;
+    }
+
+    .search-links-results-details {
+        width: 50%;
+    }
+
+    .search-bar-details {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 48%;
+    }
+
+    .search-shoes-container.inactive {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .search-shoes-container.active {
+        height: 1700px;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .search-options {
+        width: 20%;
+    }
+
+    .search-options-mobile {
+        display: none;
+    }
+
+    .search-shoes-content.inactive {
+        height: 700px;
+        width: 68%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .search-shoes-content.active {
+        height: 700px;
+        width: 68%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .searched-shoes {
+        height: 320px;
+        width: 22%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 25px 40px 0;
+        background: white;
+        /* border: red solid 1px; */
+    }
+
+    .searched-shoes-details {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(247 247 247);
+    }
+
+    .searched-shoes-details-img {
+        width: 74%;
+        height: 47%;
+    }
+
+    .searched-shoes-details-img img {
+        width: 100%;
+    }
+
+    .searched-shoes-details-wrap {
+        height: 53%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: rgb(247, 247, 247);
+        border-radius: 0 0 6px 6px;
+    }
+
+    .searched-shoes-details-details {
+        height: 100%;
+        width: 87%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .searched-shoes-details-details p {
+        font-size: 14px;
+        font-weight: 600;
+        font-family: "Source Sans Pro", sans-serif;
+        margin: 10px;
+    }
+
+    .prices {
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .prices p {
+        font-weight: 300;
+        margin: 0 10px;
+    }
+
+    .got-them {
+        width: 5%;
+        border: 2px black solid;
+        height: 6%;
+        border-radius: 13px;
+        margin-left: 10px;
+    }
+
+    .searched-shoes.active {
+        height: 320px;
+        width: 94.6%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 25px 27px 0;
+        background: white;
+        /* border: red solid 1px; */
+    }
+    .searched-shoes-details.active {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(247 247 247);
+        margin-left: 10px;
+    }
+    .searched-shoes-details-img.active {
+        width: 20%;
+        height: 100%;
+        margin-left: 20px;
+    }
+    .searched-shoes-details-wrap.active {
+        background: none;
+    }
+    .prices.active {
+        display: none;
+    }
 }
 
-.title-details {
-    width: 85%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    margin-top: 3.5rem;
-    justify-content: flex-end;
+@media only screen and (min-width: 1440px) {
+    .search-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 495px;
+    }
+
+    .title-details {
+        width: 85%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        margin-top: 3.5rem;
+        justify-content: flex-end;
+    }
+
+    .search-links-results-details {
+        width: 50%;
+    }
+
+    .search-bar-details {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 48%;
+    }
+
+    .search-shoes-container.inactive {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .search-shoes-container.active {
+        height: 1700px;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .search-options {
+        width: 20%;
+    }
+
+    .search-options-mobile {
+        display: none;
+    }
+
+    .search-shoes-content.inactive {
+        height: 700px;
+        width: 68%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .search-shoes-content.active {
+        height: 700px;
+        width: 68%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .searched-shoes {
+        height: 320px;
+        width: 22%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 25px 40px 0;
+        background: white;
+        /* border: red solid 1px; */
+    }
+
+    .searched-shoes-details {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(247 247 247);
+    }
+
+    .searched-shoes-details-img {
+        width: 74%;
+        height: 47%;
+    }
+
+    .searched-shoes-details-img img {
+        width: 100%;
+    }
+
+    .searched-shoes-details-wrap {
+        height: 53%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: rgb(247, 247, 247);
+        border-radius: 0 0 6px 6px;
+    }
+
+    .searched-shoes-details-details {
+        height: 100%;
+        width: 87%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .searched-shoes-details-details p {
+        font-size: 14px;
+        font-weight: 600;
+        font-family: "Source Sans Pro", sans-serif;
+        margin: 10px;
+    }
+
+    .prices {
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .prices p {
+        font-weight: 300;
+        margin: 0 10px;
+    }
+
+    .got-them {
+        width: 5%;
+        border: 2px black solid;
+        height: 6%;
+        border-radius: 13px;
+        margin-left: 10px;
+    }
+
+    .searched-shoes.active {
+        height: 320px;
+        width: 94.6%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 25px 27px 0;
+        background: white;
+        /* border: red solid 1px; */
+    }
+    .searched-shoes-details.active {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(247 247 247);
+        margin-left: 10px;
+    }
+    .searched-shoes-details-img.active {
+        width: 20%;
+        height: 100%;
+        margin-left: 20px;
+    }
+    .searched-shoes-details-wrap.active {
+        background: none;
+    }
+    .prices.active {
+        display: none;
+    }
 }
 
-.search-links-results-details {
-    width: 50%;
-}
-
-.search-bar-details {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 48%;
-}
-
-.search-shoes-container.inactive {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.search-shoes-container.active {
-    height: 1700px;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.search-options {
-    width: 20%;
-}
-
-.search-options-mobile {
-    display: none;
-}
-
-.search-shoes-content.inactive {
-    height: 700px;
-    width: 68%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.search-shoes-content.active {
-    height: 700px;
-    width: 68%;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.searched-shoes {
-    height: 320px;
-    width: 22%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 25px 40px 0;
-    background: white;
-    /* border: red solid 1px; */
-}
-
-.searched-shoes-details {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgb(247 247 247);
-}
-
-.searched-shoes-details-img {
-    width: 74%;
-    height: 47%;
-}
-
-.searched-shoes-details-img img {
-    width: 100%;
-}
-
-.searched-shoes-details-wrap {
-    height: 53%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: rgb(247, 247, 247);
-    border-radius: 0 0 6px 6px;
-}
-
-.searched-shoes-details-details {
-    height: 100%;
-    width: 87%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.searched-shoes-details-details p {
-    font-size: 14px;
-    font-weight: 600;
-    font-family: "Source Sans Pro", sans-serif;
-    margin: 10px;
-}
-
-.prices {
-    height: 45%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.prices p {
-    font-weight: 300;
-    margin: 0 10px;
-}
-
-.got-them {
-    width: 5%;
-    border: 2px black solid;
-    height: 6%;
-    border-radius: 13px;
-    margin-left: 10px;
-}
-
-.searched-shoes.active {
-    height: 320px;
-    width: 94.6%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 25px 27px 0;
-    background: white;
-    /* border: red solid 1px; */
-}
-.searched-shoes-details.active {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgb(247 247 247);
-    margin-left: 10px;
-}
-.searched-shoes-details-img.active {
-    width: 20%;
-    height: 100%;
-    margin-left: 20px;
-}
-.searched-shoes-details-wrap.active {
-    background: none;
-}
-.prices.active {
-    display: none;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .search-content {
         height: 2750px;
         width: 100%;

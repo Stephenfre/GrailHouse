@@ -1,43 +1,137 @@
-.closet {
-    height: 100vh;
-    width: 100%;
-    display: flex;
+@media only screen and (min-width: 1440px) {
+    .closet {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    }
+
+    .closet-content {
+        height: 100%;
+        width: 80%;
+    }
+
+    .closet-empty-shoes {
+        margin-top: 50px;
+        margin-left: 50px;
+        width: 91%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .closet-shoes {
+        margin-top: 50px;
+        margin-left: 50px;
+        width: 91%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .closet-empty-shoes img {
+        width: 15%;
+        margin-bottom: 30px;
+    }
+
+    .closet-shoes h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
+
+    .closet-shoes p {
+        font-size: 1rem;
+        font-weight: 300;
+    }
 }
 
-.closet-content {
-    height: 100%;
-    width: 80%;
+@media only screen and (min-width: 1920px) {
+    .closet {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    }
+
+    .closet-content {
+        height: 100%;
+        width: 80%;
+    }
+
+    .closet-empty-shoes {
+        margin-top: 50px;
+        margin-left: 50px;
+        width: 91%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .closet-shoes {
+        margin-top: 50px;
+        margin-left: 50px;
+        width: 91%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .closet-empty-shoes img {
+        width: 15%;
+        margin-bottom: 30px;
+    }
+
+    .closet-shoes h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
+
+    .closet-shoes p {
+        font-size: 1rem;
+        font-weight: 300;
+    }
 }
 
-.closet-empty-shoes {
-    margin-top: 50px;
-    margin-left: 50px;
-    width: 91%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+@media only screen and (max-width: 500px) {
+    .closet {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    }
 
-.closet-shoes {
-    margin-top: 50px;
-    margin-left: 50px;
-    width: 91%;
-    display: flex;
-    flex-wrap: wrap;
-}
+    .closet-content {
+        height: 100%;
+        width: 80%;
+    }
 
-.closet-empty-shoes img {
-    width: 15%;
-    margin-bottom: 30px;
-}
+    .closet-empty-shoes {
+        margin-top: 50px;
+        margin-left: 50px;
+        width: 91%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-.closet-shoes h2 {
-    font-size: 2.5rem;
-    margin-bottom: 0;
-}
+    .closet-shoes {
+        margin-top: 50px;
+        margin-left: 50px;
+        width: 91%;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-.closet-shoes p {
-    font-size: 1rem;
-    font-weight: 300;
+    .closet-empty-shoes img {
+        width: 15%;
+        margin-bottom: 30px;
+    }
+
+    .closet-shoes h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
+
+    .closet-shoes p {
+        font-size: 1rem;
+        font-weight: 300;
+    }
 }

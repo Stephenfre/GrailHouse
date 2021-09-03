@@ -1,11 +1,38 @@
-.profile {
-    height: 100vh;
-    width: 100%;
-    display: flex;
+@media only screen and (min-width: 1920px) {
+    .profile {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    }
+
+    .profile-content {
+        height: 100%;
+        width: 80%;
+    }
 }
 
-.profile-content {
-    height: 100%;
-    width: 80%;
-    /* border-left: 1px solid black; */
+@media only screen and (min-width: 1440px) {
+    .profile {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    }
+
+    .profile-content {
+        height: 100%;
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .profile {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    }
+
+    .profile-content {
+        height: 100%;
+        width: 80%;
+    }
 }

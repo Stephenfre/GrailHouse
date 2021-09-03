@@ -1,30 +1,4 @@
-.pagination {
-    position: relative;
-    top: 40px;
-    margin: 0px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.pagination-list {
-    list-style: none;
-    display: flex;
-    margin: 0px;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-
-.trending-page-link {
-    border: 1px solid black;
-    margin: 0px 5px;
-}
-
-.page-item {
-    padding: 10px 15px;
-}
-@media (min-device-width: 768px) and (max-device-width: 1600px) {
+@media only screen and (min-width: 1920px) {
     .pagination {
         position: relative;
         top: 290px;
@@ -51,5 +25,64 @@
     .trending-page-link {
         border: 1px solid black;
         margin: 0px 5px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .pagination {
+        position: relative;
+        top: 290px;
+        margin: 0px 0px 60px 0;
+        display: flex;
+        justify-content: center;
+        width: 65%;
+        left: 460px;
+    }
+
+    .pagination-list {
+        list-style: none;
+        display: flex;
+        margin: 0px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .page-item {
+        padding: 10px 15px;
+    }
+
+    .trending-page-link {
+        border: 1px solid black;
+        margin: 0px 5px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .pagination {
+        position: relative;
+        top: 40px;
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .pagination-list {
+        list-style: none;
+        display: flex;
+        margin: 0px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .trending-page-link {
+        border: 1px solid black;
+        margin: 0px 5px;
+    }
+
+    .page-item {
+        padding: 10px 15px;
     }
 }
