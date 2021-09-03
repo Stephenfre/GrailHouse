@@ -38,13 +38,10 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
     const params = useParams();
 
     const shoeParams = params.shoeName.toUpperCase();
-    console.log(shoeParams);
 
     useEffect(() => {
         getLinkShoes(shoeName);
     }, [shoeName]);
-
-    console.log(getLinkShoes);
 
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;

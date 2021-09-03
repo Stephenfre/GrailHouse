@@ -24,17 +24,18 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function Search({ searchResults, searchShoes, shoeName }) {
+function Search({ searchResults, searchShoes, shoeName, searchValue }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
 
-    // let location = useLocation();
+    const results = JSON.parse(localStorage.getItem("search results"));
+    console.log(results);
 
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
-    const currentShoes = searchResults.slice(indexOfFirstShoe, indexofLastShoe);
+    const currentShoes = results.slice(indexOfFirstShoe, indexofLastShoe);
 
     //* Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -111,7 +112,7 @@ function Search({ searchResults, searchShoes, shoeName }) {
                     </div>
                 </div>
             </div>
-            <SearchPaginate shoesPerPage={shoesPerPage} totalShoes={searchResults.length} paginate={paginate} />
+            <SearchPaginate shoesPerPage={shoesPerPage} totalShoes={results.length} paginate={paginate} />
             <Footer />
         </React.Fragment>
     );
@@ -125,10 +126,8 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (state) => {
-    return {
-        searchingShoes,
-    };
+const mapDispatchToProps = {
+    searchingShoes,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));

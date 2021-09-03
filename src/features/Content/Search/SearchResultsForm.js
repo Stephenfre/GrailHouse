@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Search(props) {
+function Search({ searchingShoes }) {
     const [searchValue, setSearchValue] = useState("");
     const classes = useStyles();
 
@@ -31,9 +31,9 @@ function Search(props) {
         setSearchValue("");
     };
 
-    const callSearchFunction = () => {
-        // e.preventDefault();
-        props.searchingShoes(searchValue);
+    const callSearchFunction = (e) => {
+        e.preventDefault();
+        searchingShoes(searchValue);
         history.push(`/search/${searchValue}`);
         resetInputField();
     };
@@ -43,7 +43,7 @@ function Search(props) {
             className={classes.root}
             noValidate
             autoComplete="off"
-            onSubmit={(e) => callSearchFunction()}
+            onSubmit={(e) => callSearchFunction(e)}
             style={{
                 display: "flex",
                 width: "90%",
