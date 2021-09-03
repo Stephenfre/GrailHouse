@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { logout } from "../../../actions/auth";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 
 const StyledLinks = styled(Link)`
     padding: 10px 0px 0px 0px;
@@ -34,7 +34,8 @@ const StyledLinkBtn = styled(Link)`
     }
 `;
 
-function Account({ dispatch }) {
+function Account() {
+    const dispatch = useDispatch();
     const logOut = () => {
         dispatch(logout(window.location.reload()));
     };

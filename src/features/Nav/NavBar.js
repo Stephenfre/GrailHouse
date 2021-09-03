@@ -79,7 +79,7 @@ const StyledLinkBtn = styled(Link)`
     }
 `;
 
-function NavBar(isLoggedIn) {
+function NavBar({ isLoggedIn }) {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
