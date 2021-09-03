@@ -53,7 +53,7 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
 
     return (
         <React.Fragment>
-            <NavBar />
+            {/* <NavBar />
             <div className="cta-trending-img">
                 <img src={TrendingBackground} alt="cta-logo" />
             </div>
@@ -116,7 +116,7 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
                 </div>
             </div>
             <LinksPagination shoesPerPage={shoesPerPage} totalShoes={linkShoesResults.length} paginate={paginate} />
-            <Footer />
+            <Footer /> */}
         </React.Fragment>
     );
 }
