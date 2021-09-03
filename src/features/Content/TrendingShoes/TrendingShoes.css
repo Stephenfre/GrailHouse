@@ -85,7 +85,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 33px;
+        margin-top: 73px;
         margin-bottom: 0px;
     }
 
@@ -115,7 +115,7 @@
 
     .trending-shoes-container.inactive {
         height: 1900%;
-        width: 100%px;
+        width: 90%;
         display: flex;
         justify-content: space-evenly;
     }
@@ -141,7 +141,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        margin-left: 220px;
+        margin-left: 200px;
     }
 
     .trending-shoes-content.active {
