@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { withRouter, useParams, Link } from "react-router-dom";
-import styled from "styled-components";
+import { withRouter, useParams } from "react-router-dom";
+// import styled from "styled-components";
 
-import { Icon } from "@iconify/react";
-import gridIcon from "@iconify/icons-gridicons/grid";
-import menuIcon from "@iconify/icons-vaadin/menu";
+// import { Icon } from "@iconify/react";
+// import gridIcon from "@iconify/icons-gridicons/grid";
+// import menuIcon from "@iconify/icons-vaadin/menu";
 
 import { getLinkShoes } from "../../../actions";
 import NavBar from "../NavBar";
-import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
-import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
-import ShoeLinkDetails from "./ShoeLinkDetails";
-import SearchResultsForm from "../../Content/Search/SearchResultsForm";
-import LinksPagination from "./LinksPagination";
-import SideBar from "../../Content/SideBar/SideBar";
+// import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
+// import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
+// import ShoeLinkDetails from "./ShoeLinkDetails";
+// import SearchResultsForm from "../../Content/Search/SearchResultsForm";
+// import LinksPagination from "./LinksPagination";
+// import SideBar from "../../Content/SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 
 import "../../Content/TrendingShoes/TrendingShoes.css";
@@ -22,39 +22,39 @@ import "../../Content/Search/Search.css";
 
 import "./ShoeLink.css";
 
-const StyledLinks = styled(Link)`
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
-    text-align: center;
-`;
+// const StyledLinks = styled(Link)`
+//     text-decoration: none;
+//     color: black;
+//     font-size: 15px;
+//     text-align: center;
+// `;
 
 function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [shoesPerPage] = useState(16);
-    const [isViewActive, setIsViewActive] = useState(false);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [shoesPerPage] = useState(16);
+    // const [isViewActive, setIsViewActive] = useState(false);
     const { shoeName } = useParams();
 
-    const params = useParams();
+    // const params = useParams();
 
-    const shoeParams = params.shoeName.toUpperCase();
+    // const shoeParams = params.shoeName.toUpperCase();
 
     useEffect(() => {
         getLinkShoes(shoeName);
     }, [shoeName]);
 
     //* Get Current Shoes
-    const indexofLastShoe = currentPage * shoesPerPage;
-    const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
-    const currentShoes = linkShoesResults.slice(indexOfFirstShoe, indexofLastShoe);
+    // const indexofLastShoe = currentPage * shoesPerPage;
+    // const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
+    // const currentShoes = linkShoesResults.slice(indexOfFirstShoe, indexofLastShoe);
 
     //* Change page
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <React.Fragment>
-            {/* <NavBar />
-            <div className="cta-trending-img">
+            <NavBar />
+            {/* <div className="cta-trending-img">
                 <img src={TrendingBackground} alt="cta-logo" />
             </div>
             <div className="trending-content">
@@ -114,9 +114,9 @@ function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
                             ))}
                     </div>
                 </div>
-            </div>
-            <LinksPagination shoesPerPage={shoesPerPage} totalShoes={linkShoesResults.length} paginate={paginate} />
-            <Footer /> */}
+            </div> */}
+            {/* <LinksPagination shoesPerPage={shoesPerPage} totalShoes={linkShoesResults.length} paginate={paginate} /> */}
+            <Footer />
         </React.Fragment>
     );
 }
