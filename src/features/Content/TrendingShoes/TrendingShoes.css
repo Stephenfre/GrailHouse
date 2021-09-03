@@ -89,17 +89,17 @@
         margin-bottom: 0px;
     }
 
-    /* .title-details {
+    .title-details {
         width: 85%;
         height: 8%;
         display: flex;
         align-items: center;
         margin-top: 0rem;
         justify-content: flex-end;
-    } */
+    }
 
     .title-links-filters-view {
-        width: 75%;
+        width: 76.3%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -115,7 +115,7 @@
 
     .trending-shoes-container.inactive {
         height: 1900%;
-        width: 100%;
+        width: 1870px;
         display: flex;
         justify-content: space-evenly;
     }
@@ -128,20 +128,20 @@
     }
 
     .options {
-        width: 20%;
+        width: 410px;
     }
 
-    /* .options-mobile {
-    display: none;
-} */
+    .options-mobile {
+        display: none;
+    }
 
     .trending-shoes-content.inactive {
         height: 700px;
-        width: 100%;
+        width: 1900px;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        margin-left: 220px;
+        margin-left: 180px;
     }
 
     .trending-shoes-content.active {
