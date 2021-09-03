@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, withRouter, useHistory } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-import axios from "axios";
+// import axios from "axios";
 import styled from "styled-components";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.css";
 
 import { addToCloset } from "../../../actions";
+import { getDetails } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
 import NavBar from "../../Nav/NavBar";
 import DetailsSkeleton from "../Skeletons/DetailsSkeleton";
@@ -42,13 +43,13 @@ const StyledLinks = styled(Link)`
     }
 `;
 
-function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, styleId }) {
-    const [shoeDetails, setShoeDetails] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, styleId, detailShoe, gettingDetailShoe }) {
     const [detailsTabActive, setDetailsTabActive] = useState(false);
     const [isDeadstock] = useState(false);
     const params = useParams();
     let style = params.styleId;
+
+    console.log(style);
 
     const [stores, setStores] = useState({
         flightClub: {
@@ -158,46 +159,26 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
     // };
 
     useEffect(() => {
+        dispatch(getDetails(style));
+    }, [style]);
+
+    useEffect(() => {
         closetId = JSON.parse(localStorage.getItem("closetId"));
     }, [closet]);
 
-    //* FETCH HERE
-    useEffect(() => {
-        axios
-            .get(`http://localhost:5001/api/sneakers/id/${style}/prices`)
-            .then((res) => {
-                setIsLoading(true);
-                console.log(res.data);
-                if (res.data) {
-                    console.log(res.data);
-                    setShoeDetails(res.data);
-                    localStorage.setItem("detail prices", JSON.stringify(res.data));
-                } else {
-                    setTimeout(() => {
-                        setShoeDetails(res.data);
-                    }, 30000);
-                    localStorage.setItem("detail prices", JSON.stringify(res.data));
-                    setIsLoading(true);
-                }
-                setIsLoading(false);
-            })
-            .catch((err) => {
-                setIsLoading(false);
-            });
-    }, [styleId]);
-
     let closetId = JSON.parse(localStorage.getItem("closetId"));
 
-    let inCloset = closetId ? closetId.hasOwnProperty(shoeDetails.shoeName) : false;
+    let inCloset = closetId ? closetId.hasOwnProperty(detailShoe.shoeName) : false;
     console.log(inCloset);
 
     // const allShoePrices = JSON.parse(localStorage.getItem("detail prices"));
-    // console.log(allShoePrices);
+    // console.log(allShoePrices.goat["6"]);
 
-    // const resell = allShoePrices.resellPrices;
-    // console.log(resell.stockX["7"]);
+    // const allShoeImages = JSON.parse(localStorage.getItem("detail images"));
 
-    if (isLoading && shoeDetails.length < 1) {
+    console.log(detailShoe);
+
+    if (!gettingDetailShoe && detailShoe.length < 1) {
         return (
             <React.Fragment>
                 <NavBar />
@@ -212,28 +193,29 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                 <div className="shoe-details-container">
                     <div className="shoe-details-content">
                         <div className="shoe-img">
+                            <img src={detailShoe.thumbnail} alt="shoe pic" />
                             <Carousel variant="dark" indicator="true" controls="true" interval={10000}>
                                 <Carousel.Item>
-                                    <img className="d-block w-100" src={shoeDetails.imageLinks[0]} alt="First slide" />
+                                    <img className="d-block w-100" src={detailShoe.imageLinks[0]} alt="First slide" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <img className="d-block w-100" src={shoeDetails.imageLinks[1]} alt="Second slide" />
+                                    <img className="d-block w-100" src={detailShoe.imageLinks[1]} alt="Second slide" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <img className="d-block w-100" src={shoeDetails.imageLinks[2]} alt="Third slide" />
+                                    <img className="d-block w-100" src={detailShoe.imageLinks[2]} alt="Third slide" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <img className="d-block w-100" src={shoeDetails.imageLinks[3]} alt="Third slide" />
+                                    <img className="d-block w-100" src={detailShoe.imageLinks[3]} alt="Third slide" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <img className="d-block w-100" src={shoeDetails.imageLinks[4]} alt="Third slide" />
+                                    <img className="d-block w-100" src={detailShoe.imageLinks[4]} alt="Third slide" />
                                 </Carousel.Item>
                             </Carousel>
                         </div>
                         <div className="shoe-details">
-                            <h2>{shoeDetails.shoeName}</h2>
+                            <h2>{detailShoe.shoeName}</h2>
                             <div className="shoe-img-mobile">
-                                <img src={shoeDetails.thumbnail} alt="shoe pic" />
+                                <img src={detailShoe.thumbnail} alt="shoe pic" />
                             </div>
                             <div className="details-prices-tabs">
                                 <div className="tabs">
@@ -252,7 +234,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                 </div>
                                 <div className="details-box">
                                     <div className={`details-description ${!detailsTabActive ? "active" : "inactive"}`}>
-                                        <p>{shoeDetails.description}</p>
+                                        <p>{detailShoe.description}</p>
                                     </div>
                                     <div className={`prices-prices ${detailsTabActive ? "active" : "inactive"}`}>
                                         <div className="prices-stores">
@@ -296,123 +278,123 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
 
                                         {/* <div className={`stockx-sizes ${stores.stockX.active ? "active" : "inactive"}`}>
                                             <ul className="stockx-ul">
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["6"] === undefined ? (
+                                                        {allShoePrices.stockX["6"] === undefined ? (
                                                             <p className="details-na">6 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                6 | ${resell.stockX["6"]}
+                                                                6 | ${allShoePrices.stockX["6"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["7"] === undefined ? (
+                                                        {allShoePrices.stockX["7"] === undefined ? (
                                                             <p className="details-na"> 7 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                7 | ${resell.stockX["7"]}
+                                                                7 | ${allShoePrices.stockX["7"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["8"] === undefined ? (
+                                                        {allShoePrices.stockX["8"] === undefined ? (
                                                             <p className="details-na"> 8 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                8 | ${resell.stockX["8"]}
+                                                                8 | ${allShoePrices.stockX["8"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["9"] === undefined ? (
+                                                        {allShoePrices.stockX["9"] === undefined ? (
                                                             <p className="details-na"> 9 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                9 | ${resell.stockX["9"]}
+                                                                9 | ${allShoePrices.stockX["9"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["10"] === undefined ? (
+                                                        {allShoePrices.stockX["10"] === undefined ? (
                                                             <p className="details-na"> 10 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                10 | ${resell.stockX["10"]}
+                                                                10 | ${allShoePrices.stockX["10"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["11"] === undefined ? (
+                                                        {allShoePrices.stockX["11"] === undefined ? (
                                                             <p className="details-na"> 11 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                11 | ${resell.stockX["11"]}
+                                                                11 | ${allShoePrices.stockX["11"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["12"] === undefined ? (
+                                                        {allShoePrices.stockX["12"] === undefined ? (
                                                             <p className="details-na"> 12 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                12 | ${resell.stockX["12"]}
+                                                                12 | ${allShoePrices.stockX["12"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["13"] === undefined ? (
+                                                        {allShoePrices.stockX["13"] === undefined ? (
                                                             <p className="details-na"> 13 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                13 | ${resell.stockX["13"]}
+                                                                13 | ${allShoePrices.stockX["13"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["14"] === undefined ? (
+                                                        {allShoePrices.stockX["14"] === undefined ? (
                                                             <p className="details-na"> 14 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                14 | ${resell.stockX["14"]}
+                                                                14 | ${allShoePrices.stockX["14"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["15"] === undefined ? (
+                                                        {allShoePrices.stockX["15"] === undefined ? (
                                                             <p className="details-na"> 15 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                15 | ${resell.stockX["15"]}
+                                                                15 | ${allShoePrices.stockX["15"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stockX}>
+                                                <a href={detailShoe.resellLinks.stockX}>
                                                     <li className="stockx-li">
-                                                        {resell.stockX["16"] === undefined ? (
+                                                        {allShoePrices.stockX["16"] === undefined ? (
                                                             <p className="details-na"> 16 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                16 | ${resell.stockX["16"]}
+                                                                16 | ${allShoePrices.stockX["16"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -421,115 +403,115 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                         </div>
                                         <div className={`goat-sizes ${stores.goat.active ? "active" : "inactive"}`}>
                                             <ul className="goat-ul">
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["6"] === undefined ? (
+                                                        {allShoePrices.goat["6"] === undefined ? (
                                                             <p className="details-na"> 6 | N/A</p>
                                                         ) : (
-                                                            <p className="details-in-stock">6 | ${resell.goat["6"]}</p>
+                                                            <p className="details-in-stock">6 | ${allShoePrices.goat["6"]}</p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["7"] === undefined ? (
+                                                        {allShoePrices.goat["7"] === undefined ? (
                                                             <p className="details-na"> 7 | N/A</p>
                                                         ) : (
-                                                            <p className="details-in-stock">7 | ${resell.goat["7"]}</p>
+                                                            <p className="details-in-stock">7 | ${allShoePrices.goat["7"]}</p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["8"] === undefined ? (
+                                                        {allShoePrices.goat["8"] === undefined ? (
                                                             <p className="details-na"> 8 | N/A</p>
                                                         ) : (
-                                                            <p className="details-in-stock">8 | ${resell.goat["8"]}</p>
+                                                            <p className="details-in-stock">8 | ${allShoePrices.goat["8"]}</p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["9"] === undefined ? (
+                                                        {allShoePrices.goat["9"] === undefined ? (
                                                             <p className="details-na"> 9 | N/A</p>
                                                         ) : (
-                                                            <p className="details-in-stock">9 | ${resell.goat["9"]}</p>
+                                                            <p className="details-in-stock">9 | ${allShoePrices.goat["9"]}</p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["10"] === undefined ? (
+                                                        {allShoePrices.goat["10"] === undefined ? (
                                                             <p className="details-na"> 10 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                10 | ${resell.goat["10"]}
+                                                                10 | ${allShoePrices.goat["10"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["11"] === undefined ? (
+                                                        {allShoePrices.goat["11"] === undefined ? (
                                                             <p className="details-na"> 11 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                11 | ${resell.goat["11"]}
+                                                                11 | ${allShoePrices.goat["11"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["12"] === undefined ? (
+                                                        {allShoePrices.goat["12"] === undefined ? (
                                                             <p className="details-na"> 12 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                12 | ${resell.goat["12"]}
+                                                                12 | ${allShoePrices.goat["12"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["13"] === undefined ? (
+                                                        {allShoePrices.goat["13"] === undefined ? (
                                                             <p className="details-na"> 13 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                13 | ${resell.goat["13"]}
+                                                                13 | ${allShoePrices.goat["13"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["14"] === undefined ? (
+                                                        {allShoePrices.goat["14"] === undefined ? (
                                                             <p className="details-na"> 14 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                14 | ${resell.goat["14"]}
+                                                                14 | ${allShoePrices.goat["14"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
                                                 <a href="">
                                                     <li className="goat-li">
-                                                        {resell.goat["15"] === undefined ? (
+                                                        {allShoePrices.goat["15"] === undefined ? (
                                                             <p className="details-na"> 15 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                15 | ${resell.goat["15"]}
+                                                                15 | ${allShoePrices.goat["15"]}
                                                             </p>
                                                         )}
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.goat}>
+                                                <a href={detailShoe.resellLinks.goat}>
                                                     <li className="goat-li">
-                                                        {resell.goat["16"] === undefined ? (
+                                                        {allShoePrices.goat["16"] === undefined ? (
                                                             <p className="details-na"> 16 | N/A</p>
                                                         ) : (
                                                             <p className="details-in-stock">
-                                                                16 | ${resell.goat["16"]}
+                                                                16 | ${allShoePrices.goat["16"]}
                                                             </p>
                                                         )}
                                                     </li>
@@ -543,59 +525,59 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                             }`}
                                         >
                                             <ul className="flightclub-ul">
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>6 | ${resell.flightClub["6"]}</p>
+                                                        <p>6 | ${allShoePrices.flightClub["6"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>7 | ${resell.flightClub["7"]}</p>
+                                                        <p>7 | ${allShoePrices.flightClub["7"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>8 | ${resell.flightClub["8"]}</p>
+                                                        <p>8 | ${allShoePrices.flightClub["8"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>9 | ${resell.flightClub["9"]}</p>
+                                                        <p>9 | ${allShoePrices.flightClub["9"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>10 | ${resell.flightClub["10"]}</p>
+                                                        <p>10 | ${allShoePrices.flightClub["10"]}</p>
                                                     </li>
                                                 </a>
                                                 <a href="">
                                                     <li className="flightclub-li">
-                                                        <p>11 | ${resell.flightClub["11"]}</p>
+                                                        <p>11 | ${allShoePrices.flightClub["11"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>12 | ${resell.flightClub["12"]}</p>
+                                                        <p>12 | ${allShoePrices.flightClub["12"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>13 | ${resell.flightClub["13"]}</p>
+                                                        <p>13 | ${allShoePrices.flightClub["13"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>14 | ${resell.flightClub["14"]}</p>
+                                                        <p>14 | ${allShoePrices.flightClub["14"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>15 | ${resell.flightClub["15"]}</p>
+                                                        <p>15 | ${allShoePrices.flightClub["15"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={resell.flightClub}>
+                                                <a href={allShoePrices.flightClub}>
                                                     <li className="flightclub-li">
-                                                        <p>16 | ${resell.flightClub["16"]}</p>
+                                                        <p>16 | ${allShoePrices.flightClub["16"]}</p>
                                                     </li>
                                                 </a>
                                             </ul>
@@ -607,59 +589,59 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                             }`}
                                         >
                                             <ul className="stadiumgoods-ul">
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>6 | ${resell.stadiumGoods["6"]}</p>
+                                                        <p>6 | ${allShoePrices.stadiumGoods["6"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>7 | ${resell.stadiumGoods["7"]}</p>
+                                                        <p>7 | ${allShoePrices.stadiumGoods["7"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>8 | ${resell.stadiumGoods["8"]}</p>
+                                                        <p>8 | ${allShoePrices.stadiumGoods["8"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>9 | ${resell.stadiumGoods["9"]}</p>
+                                                        <p>9 | ${allShoePrices.stadiumGoods["9"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>10 | ${resell.stadiumGoods["10"]}</p>
+                                                        <p>10 | ${allShoePrices.stadiumGoods["10"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>11 | ${resell.stadiumGoods["11"]}</p>
+                                                        <p>11 | ${allShoePrices.stadiumGoods["11"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>12 | ${resell.stadiumGoods["12"]}</p>
+                                                        <p>12 | ${allShoePrices.stadiumGoods["12"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>13 | ${resell.stadiumGoods["13"]}</p>
+                                                        <p>13 | ${allShoePrices.stadiumGoods["13"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>14 | ${resell.stadiumGoods["14"]}</p>
+                                                        <p>14 | ${allShoePrices.stadiumGoods["14"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>15 | ${resell.stadiumGoods["15"]}</p>
+                                                        <p>15 | ${allShoePrices.stadiumGoods["15"]}</p>
                                                     </li>
                                                 </a>
-                                                <a href={shoeDetails.resellLinks.stadiumGoods}>
+                                                <a href={detailShoe.resellLinks.stadiumGoods}>
                                                     <li className="stadiumgoods-li">
-                                                        <p>16 | ${resell.stadiumGoods["16"]}</p>
+                                                        <p>16 | ${allShoePrices.stadiumGoods["16"]}</p>
                                                     </li>
                                                 </a>
                                             </ul>
@@ -674,7 +656,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                         : { fontSize: "9px", margin: "49px 140px 0 0" }
                                 }
                             >
-                                {shoeDetails.styleID} | {shoeDetails.colorway} | {shoeDetails.releaseDate}
+                                {detailShoe.styleID} | {detailShoe.colorway} | {detailShoe.releaseDate}
                             </span>
                             <div onClick={gotThemHandler} className={`add-btn ${inCloset ? "inactive " : ""}`}>
                                 <StyledLinks>Add to closet</StyledLinks>
@@ -698,10 +680,13 @@ const mapStateToProps = (state) => {
     return {
         closet: state.user.closet,
         isLoggedIn: state.isLoggedIn,
+        detailShoe: state.detailShoe,
+        gettingDetailShoe: state.gettingDetailShoe,
     };
 };
 
 const mapDispatchToPros = {
+    getDetails,
     addToCloset,
     removeFromCloset,
 };

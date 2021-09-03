@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
@@ -24,18 +24,19 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function Search({ searchResults, searchShoes, shoeName, searchValue }) {
+function Search({ searchResults, searchShoes, shoeName }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
+    let params = useParams();
 
-    const results = JSON.parse(localStorage.getItem("search results"));
-    console.log(results);
+    // const results = JSON.parse(localStorage.getItem("search results"));
+    // console.log(params);
 
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
-    const currentShoes = results.slice(indexOfFirstShoe, indexofLastShoe);
+    const currentShoes = searchResults.slice(indexOfFirstShoe, indexofLastShoe);
 
     //* Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -59,9 +60,9 @@ function Search({ searchResults, searchShoes, shoeName, searchValue }) {
                             {" / "}
                             <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
                             {" / "}
-                            <StyledLinks to={`/${shoeName}`}>{shoeName}</StyledLinks>
+                            <StyledLinks to={`/${params.shoe}`}>{params.shoe}</StyledLinks>
                             <div>
-                                <h3>Search results for ""</h3>
+                                <h3>Search results for {params.shoe}</h3>
                             </div>
                         </div>
                         <div className="search-options-mobile">filter</div>
@@ -112,7 +113,7 @@ function Search({ searchResults, searchShoes, shoeName, searchValue }) {
                     </div>
                 </div>
             </div>
-            <SearchPaginate shoesPerPage={shoesPerPage} totalShoes={results.length} paginate={paginate} />
+            <SearchPaginate shoesPerPage={shoesPerPage} totalShoes={searchResults.length} paginate={paginate} />
             <Footer />
         </React.Fragment>
     );

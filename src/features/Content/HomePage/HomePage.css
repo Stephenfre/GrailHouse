@@ -1,6 +1,7 @@
 .app {
     height: 100vh;
     width: 100%;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 .main-container {

@@ -19,6 +19,9 @@ import {
     REMOVE_SHOE,
     REMOVE_SHOE_SUCCESS,
     REMOVE_SHOE_FAIL,
+    DETAIL_SHOE,
+    DETAIL_SHOE_SUCCESS,
+    DETAIL_SHOE_FAIL,
 } from "../actions";
 
 const token = localStorage.getItem("token");
@@ -48,6 +51,9 @@ const initialState = {
     closetId: {},
     shoeCloset: [],
     removingShoe: false,
+    gettingDetailShoe: false,
+    gettingDetailShoeError: null,
+    detailShoe: {},
 };
 
 // eslint-disable-next-line
@@ -236,6 +242,28 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 removingShoe: false,
+            };
+
+        case DETAIL_SHOE:
+            return {
+                ...state,
+                gettingDetailShoe: true,
+            };
+
+        case DETAIL_SHOE_SUCCESS:
+            localStorage.setItem("detail prices", JSON.stringify(action.payload.resellPrices));
+            localStorage.setItem("detail links", JSON.stringify(action.payload.resellLinks));
+            localStorage.setItem("detail images", JSON.stringify(action.payload.imageLinks));
+            return {
+                ...state,
+                gettingDetailShoe: false,
+                detailShoe: action.payload,
+            };
+
+        case DETAIL_SHOE_FAIL:
+            return {
+                ...state,
+                gettingDetailShoeError: action.payload,
             };
 
         default:

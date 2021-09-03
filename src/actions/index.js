@@ -1,5 +1,10 @@
 import axios from "axios";
 
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGOUT = "LOGOUT";
 export const GETTING_SHOES = "GETTING_SHOES_START";
 export const GETTING_SHOES_SUCCESS = "GETTING_SHOES_SUCCESS";
 export const GETTING_SHOES_FAIL = "GETTING_SHOES_FAIL";
@@ -9,11 +14,9 @@ export const SEARCHING_SHOE_FAIL = "SEARCHING_SHOE_FAIL";
 export const GETTING_LINK_SHOES = "GETTING_LINK_SHOES";
 export const GETTING_LINK_SHOES_SUCCESS = "GETTING_LINK_SHOES_SUCCESS";
 export const GETTING_LINK_SHOES_FAIL = "GETTING_LINK_SHOES_FAIL";
-export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-export const REGISTER_FAIL = "REGISTER_FAIL";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGIN_FAIL = "LOGIN_FAIL";
-export const LOGOUT = "LOGOUT";
+export const DETAIL_SHOE = "DETAIL_SHOE";
+export const DETAIL_SHOE_SUCCESS = "DETAIL_SHOE_SUCCESS";
+export const DETAIL_SHOE_FAIL = "DETAIL_SHOE_FAIL";
 export const ADD_SHOE = "ADD_SHOE";
 export const ADD_SHOE_SUCCESS = "ADD_SHOE_SUCCESS";
 export const ADD_SHOE_FAIL = "ADD_SHOE_FAIL";
@@ -93,6 +96,49 @@ export function getLinkShoes(shoeName) {
             .catch((err) => {
                 dispatch({
                     type: GETTING_LINK_SHOES_FAIL,
+                    payload: err,
+                });
+            });
+    };
+}
+
+export function getDetails(styleId) {
+    console.log("hello");
+    return (dispatch) => {
+        dispatch({ type: DETAIL_SHOE });
+
+        return axios
+            .get(`http://localhost:5001/api/sneakers/id/${styleId}/prices`)
+            .then((res) => {
+                setTimeout(() => {
+                    dispatch(
+                        {
+                            type: DETAIL_SHOE_FAIL,
+                            payload: res.data,
+                        },
+                        10000
+                    );
+                });
+                // if (res.data) {
+                //     dispatch({
+                //         type: DETAIL_SHOE_SUCCESS,
+                //         payload: res.data,
+                //     });
+                // } else {
+                //     setTimeout(() => {
+                //         dispatch(
+                //             {
+                //                 type: DETAIL_SHOE_FAIL,
+                //                 payload: res.data,
+                //             },
+                //             4000
+                //         );
+                //     });
+                // }
+            })
+            .catch((err) => {
+                dispatch({
+                    type: DETAIL_SHOE_FAIL,
                     payload: err,
                 });
             });
