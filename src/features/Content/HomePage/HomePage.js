@@ -31,7 +31,7 @@ const StyledLinks = styled(Link)`
 `;
 
 function HomePage({ getShoes, shoes, gettingShoes, closet }) {
-    const [hover, setHover] = useState(false);
+    const [hover, setHover] = useState(true);
     const [iconClicked, setIconClicked] = useState(false);
     const [currentPage] = useState(1);
     const [shoesPerPage] = useState(8);
