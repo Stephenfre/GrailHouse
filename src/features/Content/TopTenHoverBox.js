@@ -5,11 +5,11 @@ import "./HomePage/HomePage.css";
 
 const HoverDiv = styled.div`
     width: 20%;
-    height: 13%;
-    zindex: 9999;
+    height: 10%;
+    z-index: 9999;
     position: absolute;
-    bottom: 20.5rem;
-    left: 25rem;
+    bottom: 27.5rem;
+    left: 27rem;
     background: white;
     @media (max-width: 600px) {
         width: 60%;

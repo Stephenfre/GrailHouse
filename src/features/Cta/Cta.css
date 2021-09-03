@@ -1,4 +1,4 @@
-/* @media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
     .cta-img {
         height: 47%;
         width: 100%;
@@ -17,7 +17,7 @@
         width: 40%;
         left: 510px;
     }
-} */
+}
 
 @media only screen and (min-width: 1920px) {
     .cta-img {
@@ -36,7 +36,7 @@
         height: 7%;
         bottom: 240px;
         width: 40%;
-        left: 613px;
+        left: 684px;
     }
 }
 

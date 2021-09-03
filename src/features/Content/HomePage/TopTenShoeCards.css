@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1440px) {
     .topten-shoes-card {
         height: 22rem;
         width: 20%;
@@ -137,10 +137,10 @@
     }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1920px) {
     .topten-shoes-card {
         height: 22rem;
-        width: 20%;
+        width: 19%;
         display: flex;
         flex-direction: column;
         margin: 0 25px 40px 0;
@@ -212,7 +212,7 @@
 
     .add-to-closet.active {
         width: 7%;
-        height: 20.5%;
+        height: 16.5%;
         display: flex;
         align-items: flex-end;
         position: absolute;
