@@ -99,7 +99,7 @@
     }
 
     .title-links-filters-view {
-        width: 76.3%;
+        width: 75%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -115,7 +115,7 @@
 
     .trending-shoes-container.inactive {
         height: 1900%;
-        width: 1870px;
+        width: 100%px;
         display: flex;
         justify-content: space-evenly;
     }
@@ -141,7 +141,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        margin-left: 180px;
+        margin-left: 220px;
     }
 
     .trending-shoes-content.active {
