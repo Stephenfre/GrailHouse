@@ -31,7 +31,7 @@ const StyledLinks = styled(Link)`
 `;
 
 function HomePage({ getShoes, shoes, gettingShoes, closet }) {
-    const [hover, setHover] = useState(true);
+    const [hover, setHover] = useState(false);
     const [iconClicked, setIconClicked] = useState(false);
     const [currentPage] = useState(1);
     const [shoesPerPage] = useState(8);
@@ -62,7 +62,7 @@ function HomePage({ getShoes, shoes, gettingShoes, closet }) {
 
                         <Icon
                             icon={questionMarkCircle}
-                            style={{ width: "1.5rem", height: "4rem", marginBottom: " 0.4rem" }}
+                            style={{ width: "1.5rem", height: "4rem" }}
                             onMouseEnter={() => setHover(true)}
                             onMouseLeave={() => setHover(false)}
                         />
