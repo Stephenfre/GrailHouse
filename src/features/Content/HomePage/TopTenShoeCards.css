@@ -136,6 +136,7 @@
         display: none;
     }
 }
+
 @media (max-width: 1440px) {
     .topten-shoes-card {
         height: 22rem;
