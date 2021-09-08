@@ -70,11 +70,16 @@ export function searchingShoes(searchValue) {
 }
 
 export function getLinkShoes(shoeName) {
+    const headers = {
+        "Content-Type": "application/json",
+        Accept: "application//json",
+    };
+
     return (dispatch) => {
         dispatch({ type: GETTING_LINK_SHOES });
 
         return axios
-            .get(`https://grailhouse.herokuapp.com/api/sneakers/search/${shoeName}`)
+            .get(`http://localhost:5001/api/sneakers/search/${shoeName}`, { headers })
             .then((res) => {
                 if (res.data) {
                     dispatch({
@@ -108,7 +113,7 @@ export function getDetails(styleId) {
         dispatch({ type: DETAIL_SHOE });
 
         return axios
-            .get(`http://localhost:5001/api/sneakers/id/${styleId}/prices`)
+            .get(`https://grailhouse.herokuapp.com/api/sneakers/id/${styleId}/prices`)
             .then((res) => {
                 setTimeout(() => {
                     dispatch(
@@ -152,7 +157,7 @@ export function addToCloset(shoeInfo) {
         dispatch({ type: ADD_SHOE });
 
         return axios
-            .post(`http://localhost:5001/api/closet/${userId}`, shoeInfo)
+            .post(`https://grailhouse.herokuapp.com/api/closet/${userId}`, shoeInfo)
             .then((res) => {
                 console.log(res.data);
                 dispatch({
@@ -176,7 +181,7 @@ export function removeFromCloset(closetShoeId) {
         dispatch({ type: REMOVE_SHOE });
 
         return axios
-            .delete(`http://localhost:5001/api/closet/${userId}/${closetShoeId}`)
+            .delete(`https://grailhouse.herokuapp.com/api/closet/${userId}/${closetShoeId}`)
             .then((res) => {
                 dispatch({
                     type: REMOVE_SHOE_SUCCESS,
