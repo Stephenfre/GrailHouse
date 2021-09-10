@@ -129,25 +129,25 @@ function NavBar({ isLoggedIn }) {
                 <div className="nav-links-container">
                     <StyledUl className="nav-list-ul">
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to={"/nike"}>Nike</Dropbtn>
+                            <Dropbtn to="/shoe/nike">Nike</Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <NikeLinks />
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to={"/jordan"}>Jordan</Dropbtn>
+                            <Dropbtn to="/shoe/jordan">Jordan</Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <JordanLinks />
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to={"/adidas"}>Adidas</Dropbtn>
+                            <Dropbtn to="/shoe/adidas">Adidas</Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <AdidasLinks />
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to={"/yeezy"}>Yeezy</Dropbtn>
+                            <Dropbtn to="/shoe/yeezy">Yeezy</Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <YeezyLinks />
                             </DropDownContent>
