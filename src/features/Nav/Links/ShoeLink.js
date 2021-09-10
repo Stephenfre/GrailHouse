@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { withRouter, useParams, Link } from "react-router-dom";
 import styled from "styled-components";
@@ -17,7 +17,6 @@ import LinksPagination from "./LinksPagination";
 import SideBar from "../../Content/SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 
-// import "../../Content/TrendingShoes/TrendingShoes.css";
 import "../../Content/Search/Search.css";
 
 import "./ShoeLink.css";
@@ -29,19 +28,14 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function ShoeLink({ getLinkShoes, linkShoesResults, findingLinkShoes }) {
+function ShoeLink({ linkShoesResults, findingLinkShoes }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
-    const { shoeName } = useParams();
 
     const params = useParams();
 
     const shoeParams = params.shoeName.toUpperCase();
-
-    useEffect(() => {
-        getLinkShoes(shoeName);
-    }, [shoeName]);
 
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;

@@ -33,6 +33,8 @@ function Search({ searchResults, searchShoes, shoeName }) {
     // const results = JSON.parse(localStorage.getItem("search results"));
     // console.log(params);
 
+    const newShoeName = params.shoe.toUpperCase();
+
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
@@ -47,22 +49,15 @@ function Search({ searchResults, searchShoes, shoeName }) {
             <SearchCta />
             <div className="search-content">
                 <div className="title-details">
-                    <div
-                        style={{
-                            width: "100%",
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                        }}
-                    >
+                    <div className="title-links-filters-view">
                         <div className="search-links-results-details">
                             <StyledLinks to="/">HOME</StyledLinks>
                             {" / "}
                             <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
                             {" / "}
-                            <StyledLinks to={`/${params.shoe}`}>{params.shoe}</StyledLinks>
+                            <StyledLinks to={`/${params.shoe}`}>{newShoeName}</StyledLinks>
                             <div>
-                                <h3>Search results for {params.shoe}</h3>
+                                <h3>Search results for " {newShoeName} "</h3>
                             </div>
                         </div>
                         <div className="search-options-mobile">filter</div>

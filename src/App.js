@@ -40,7 +40,7 @@ export default function App() {
                         <Route exact path="/search/details/:id/:styleId" component={Details} />
                         <Route exact path="/account/settings" component={Settings} />
                         <Route exact path="/shoe/:shoeName" component={ShoeLink} />
-                        <Route exact path="/:shoeName/:pageNumber" component={ShoeLink} />
+                        <Route exact path="/shoe/:shoeName/:pageNumber" component={ShoeLink} />
                     </Suspense>
                 </Switch>
             </div>

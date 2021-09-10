@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
+import { getLinkShoes } from "../../actions";
 import JordanLinks from "./Links/JordanLinks";
 import NikeLinks from "./Links/NikeLinks";
 import AdidasLinks from "./Links/AdidasLink";
@@ -79,7 +80,7 @@ const StyledLinkBtn = styled(Link)`
     }
 `;
 
-function NavBar({ isLoggedIn }) {
+function NavBar({ isLoggedIn, getLinkShoes }) {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
@@ -129,25 +130,33 @@ function NavBar({ isLoggedIn }) {
                 <div className="nav-links-container">
                     <StyledUl className="nav-list-ul">
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to="/shoe/nike">Nike</Dropbtn>
+                            <Dropbtn onClick={() => getLinkShoes("nike")} to="/shoe/nike">
+                                Nike
+                            </Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <NikeLinks />
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to="/shoe/jordan">Jordan</Dropbtn>
+                            <Dropbtn onClick={() => getLinkShoes("jordan")} to="/shoe/jordan">
+                                Jordan
+                            </Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <JordanLinks />
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to="/shoe/adidas">Adidas</Dropbtn>
+                            <Dropbtn onClick={() => getLinkShoes("adidas")} to="/shoe/adidas">
+                                Adidas
+                            </Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <AdidasLinks />
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn to="/shoe/yeezy">Yeezy</Dropbtn>
+                            <Dropbtn onClick={() => getLinkShoes("yeezy")} to="/shoe/yeezy">
+                                Yeezy
+                            </Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <YeezyLinks />
                             </DropDownContent>
@@ -186,4 +195,8 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+const mapDispatchToProps = {
+    getLinkShoes,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));

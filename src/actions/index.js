@@ -70,33 +70,16 @@ export function searchingShoes(searchValue) {
 }
 
 export function getLinkShoes(shoeName) {
-    const headers = {
-        "Content-Type": "application/json",
-        Accept: "application//json",
-    };
-
     return (dispatch) => {
         dispatch({ type: GETTING_LINK_SHOES });
 
         return axios
-            .get(`http://localhost:5001/api/sneakers/search/${shoeName}`, { headers })
+            .get(`https://grailhouse.herokuapp.com/api/sneakers/search/${shoeName}`)
             .then((res) => {
-                if (res.data) {
-                    dispatch({
-                        type: GETTING_LINK_SHOES_SUCCESS,
-                        payload: res.data,
-                    });
-                } else {
-                    setTimeout(() => {
-                        dispatch(
-                            {
-                                type: GETTING_LINK_SHOES_SUCCESS,
-                                payload: res.data,
-                            },
-                            4000
-                        );
-                    });
-                }
+                dispatch({
+                    type: GETTING_LINK_SHOES_SUCCESS,
+                    payload: res.data,
+                });
             })
             .catch((err) => {
                 dispatch({
