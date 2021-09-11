@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
-import WornPopUp from "../PopUps/WornPopUp";
+// import WornPopUp from "../PopUps/WornPopUp";
 // import ConditionPopUp from "../PopUps/ConditionPopUp";
 import "./TopTenShoeCards.css";
 
@@ -20,6 +20,14 @@ const Button = styled.button`
     border-radius: 5px;
     border: none;
     text-align: center;
+    @media (max-width: 500px) {
+        width: 23%;
+        height: 9%;
+        border-radius: 13px;
+        background-color: white;
+        padding: 0px;
+        border: 1px solid black;
+    }
 `;
 
 function TopTenShoeCards({
@@ -83,6 +91,9 @@ function TopTenShoeCards({
                         <div className={`add-to-closet ${inCloset ? "inactive " : "active"}`}>
                             <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
                         </div>
+                        <div className={`add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
+                            <Button onClick={gotThemHandler}></Button>
+                        </div>
                         <div className={`topten-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button
                                 onClick={() => removeShoe(id)}
@@ -95,9 +106,7 @@ function TopTenShoeCards({
                     </div>
                 </div>
             </div>
-            <div className={`popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
-                <WornPopUp />
-            </div>
+            <div className={`popup-box-container ${isDeadstock ? "active" : "inactive "}`}>{/* <WornPopUp /> */}</div>
             {/* <ConditionPopUp /> */}
         </div>
     );

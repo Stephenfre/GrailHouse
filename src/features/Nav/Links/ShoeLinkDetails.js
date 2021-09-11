@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
-import WornPopUp from "../../Content/PopUps/WornPopUp";
+// import WornPopUp from "../../Content/PopUps/WornPopUp";
 
 import "../../Content/TrendingShoes/TrendingShoesCard.css";
 
@@ -94,9 +94,9 @@ function ShoeLinkDetails({
                     </div>
                 </div>
             </div>
-            <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
+            {/* <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
                 <WornPopUp />
-            </div>
+            </div> */}
         </div>
     );
 }

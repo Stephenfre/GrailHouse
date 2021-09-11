@@ -142,13 +142,13 @@
     .title-hover-icon-mobile {
         display: flex;
         align-items: center;
-        width: 55%;
+        width: 46%;
         height: 100%;
         justify-content: space-between;
     }
 
     .title-hover-icon-mobile h1 {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
     }
 
     .hover-icon-mobile.inactive {
@@ -187,7 +187,7 @@
     }
 
     .topten-link-con {
-        width: 18%;
+        width: 21%;
         height: 6rem;
         display: flex;
         justify-content: center;

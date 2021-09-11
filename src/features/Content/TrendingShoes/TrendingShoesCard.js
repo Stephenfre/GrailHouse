@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
-import WornPopUp from "../PopUps/WornPopUp";
+// import WornPopUp from "../PopUps/WornPopUp";
 
 import "./TrendingShoesCard.css";
 
@@ -20,6 +20,14 @@ const Button = styled.button`
     border-radius: 5px;
     border: none;
     text-align: center;
+    @media (max-width: 500px) {
+        width: 23%;
+        height: 9%;
+        border-radius: 13px;
+        background-color: white;
+        padding: 0px;
+        border: 1px solid black;
+    }
 `;
 
 function TrendingShoesCard({
@@ -82,10 +90,15 @@ function TrendingShoesCard({
                         <p>{shoeName}</p>
                         <div className={"trending-prices" + (isViewActive ? " active" : "")}>
                             <p>Lowest Price</p>
-                            <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
+                            <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0", color: "black" }}>
+                                ${lowestPrice}
+                            </p>
                         </div>
                         <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
                             <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
+                        </div>
+                        <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
+                            <Button onClick={gotThemHandler}></Button>
                         </div>
                         <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button
@@ -100,7 +113,7 @@ function TrendingShoesCard({
                 </div>
             </div>
             <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
-                <WornPopUp />
+                {/* <WornPopUp /> */}
             </div>
         </div>
     );
