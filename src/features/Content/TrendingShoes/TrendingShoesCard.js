@@ -30,18 +30,7 @@ const Button = styled.button`
     }
 `;
 
-function TrendingShoesCard({
-    isViewActive,
-    selectShoe,
-    type,
-    thumbnail,
-    shoeName,
-    id,
-    styleId,
-    lowestPrice,
-    isLoggedIn,
-    inCloset,
-}) {
+function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, lowestPrice, isLoggedIn, inCloset }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
 
     let history = useHistory();
@@ -70,11 +59,6 @@ function TrendingShoesCard({
     const conditonHandler = () => {
         setIsDeadstock(!isDeadstock);
     };
-
-    // const clickHandler = (id) => {
-    //     selectShoe(id, "trending");
-    //     history.push(`/trendingshoes/details/id/${styleId}`);
-    // };
 
     return (
         <div className={"trending" + (isViewActive ? " active" : "")}>
@@ -112,9 +96,9 @@ function TrendingShoesCard({
                     </div>
                 </div>
             </div>
-            <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
-                {/* <WornPopUp /> */}
-            </div>
+            {/* <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
+                <WornPopUp />
+            </div> */}
         </div>
     );
 }

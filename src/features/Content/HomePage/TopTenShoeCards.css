@@ -84,6 +84,14 @@
         display: none;
     }
 
+    .add-to-closet-mobile.active {
+        display: none;
+    }
+
+    .add-to-closet-mobile.inactive {
+        display: none;
+    }
+
     .topten-got-them.active {
         display: flex;
         align-items: center;
@@ -220,6 +228,14 @@
     }
 
     .add-to-closet.inactive {
+        display: none;
+    }
+
+    .add-to-closet-mobile.active {
+        display: none;
+    }
+
+    .add-to-closet-mobile.inactive {
         display: none;
     }
 

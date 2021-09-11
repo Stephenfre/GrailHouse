@@ -8,12 +8,16 @@ import "./Profile.css";
 import Footer from "../../Footer/Footer";
 
 function Profile({ user }) {
+    const getStorage = JSON.parse(localStorage.getItem("persist:root"));
+    console.log(getStorage);
+
+    const User = JSON.parse(getStorage.user);
+    console.log(User);
+
     const currentUser = localStorage.getItem("id");
 
-    const userName = JSON.parse(localStorage.getItem("name"));
-    console.log(userName);
-    const email = JSON.parse(localStorage.getItem("email"));
-    console.log(email);
+    const userName = User.name;
+    const userEmail = User.email;
 
     if (!currentUser) {
         return <Redirect to="/signin" />;
@@ -39,7 +43,7 @@ function Profile({ user }) {
                         </div>
                         <div className="email-password">
                             <div className="profile-Email">
-                                Email: <br /> {email}
+                                Email: <br /> {userEmail}
                             </div>
                             <div className="profile-reset-password">
                                 Reset Password: <br />

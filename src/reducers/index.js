@@ -106,7 +106,7 @@ export default (state = initialState, action) => {
                 shoe.lowestPrice = min;
                 searchResults.push(shoe);
             });
-            localStorage.setItem("search results", JSON.stringify(searchResults));
+            // localStorage.setItem("search results", JSON.stringify(searchResults));
 
             return {
                 ...state,
@@ -137,7 +137,7 @@ export default (state = initialState, action) => {
                 shoe.lowestPrice = min;
                 linkShoesResults.push(shoe);
             });
-            localStorage.setItem("link shoes", JSON.stringify(linkShoesResults));
+            // localStorage.setItem("link shoes", JSON.stringify(linkShoesResults));
             return {
                 ...state,
                 gettingLinkShoes: false,
@@ -173,7 +173,7 @@ export default (state = initialState, action) => {
                 ...state,
                 isLoggedIn: true,
                 user: action.payload,
-                closetId: dictionary,
+                // closetId: dictionary,
             };
         case LOGIN_FAIL:
             return {
@@ -252,9 +252,9 @@ export default (state = initialState, action) => {
             };
 
         case DETAIL_SHOE_SUCCESS:
-            localStorage.setItem("detail prices", JSON.stringify(action.payload.resellPrices));
-            localStorage.setItem("detail links", JSON.stringify(action.payload.resellLinks));
-            localStorage.setItem("detail images", JSON.stringify(action.payload.imageLinks));
+            // localStorage.setItem("detail prices", JSON.stringify(action.payload.resellPrices));
+            // localStorage.setItem("detail links", JSON.stringify(action.payload.resellLinks));
+            // localStorage.setItem("detail images", JSON.stringify(action.payload.imageLinks));
             return {
                 ...state,
                 gettingDetailShoe: false,
@@ -264,6 +264,7 @@ export default (state = initialState, action) => {
         case DETAIL_SHOE_FAIL:
             return {
                 ...state,
+                gettingDetailShoe: false,
                 gettingDetailShoeError: action.payload,
             };
 

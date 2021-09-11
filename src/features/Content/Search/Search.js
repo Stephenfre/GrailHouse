@@ -30,9 +30,6 @@ function Search({ searchResults, searchShoes, shoeName }) {
     const [isViewActive, setIsViewActive] = useState(false);
     let params = useParams();
 
-    // const results = JSON.parse(localStorage.getItem("search results"));
-    // console.log(params);
-
     const newShoeName = params.shoe.toUpperCase();
 
     //* Get Current Shoes

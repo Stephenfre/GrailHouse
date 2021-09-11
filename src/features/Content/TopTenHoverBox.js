@@ -11,11 +11,11 @@ const HoverDiv = styled.div`
     bottom: 24.5rem;
     left: 24rem;
     background: white;
-    @media (max-width: 600px) {
+    @media (max-width: 500px) {
         width: 60%;
         height: 10%;
-        bottom: 29rem;
-        left: 5rem;
+        bottom: 26rem;
+        left: 3rem;
     }
     box-shadow: 0px 4px 5px #c7c7c7;
 `;

@@ -54,7 +54,7 @@ const Ul = styled.ul`
         height: 100vh;
         width: 100%;
         padding-top: 1.5rem;
-        margin-top: 64px;
+        margin-top: 57px;
         transition: transform 0.3s ease-in-out;
         li {
             color: #afafaf;

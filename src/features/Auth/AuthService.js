@@ -8,9 +8,9 @@ class AuthService {
             if (res.data.token) {
                 localStorage.setItem("id", res.data.user._id);
                 localStorage.setItem("token", res.data.token);
-                localStorage.setItem("closet", JSON.stringify(res.data.user.closet));
-                localStorage.setItem("name", JSON.stringify(res.data.user.name));
-                localStorage.setItem("email", JSON.stringify(res.data.user.email));
+                // localStorage.setItem("closet", JSON.stringify(res.data.user.closet));
+                // localStorage.setItem("name", JSON.stringify(res.data.user.name));
+                // localStorage.setItem("email", JSON.stringify(res.data.user.email));
             }
 
             return res.data;
@@ -22,6 +22,7 @@ class AuthService {
         localStorage.removeItem("token");
         localStorage.removeItem("closet");
         localStorage.removeItem("closetId");
+        localStorage.removeItem("persist:root");
     }
 
     register(name, email, password) {

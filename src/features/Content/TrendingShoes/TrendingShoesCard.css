@@ -296,6 +296,14 @@
         display: none;
     }
 
+    .trending-add-to-closet-mobile.active {
+        display: none;
+    }
+
+    .trending-add-to-closet-mobile.inactive {
+        display: none;
+    }
+
     .trending-got-them.active {
         display: flex;
         align-items: flex-end;
@@ -462,6 +470,14 @@
     }
 
     .trending-condition-btn {
+        display: none;
+    }
+
+    .trending-popup-box-container.active {
+        display: none;
+    }
+
+    .trending-popup-box-container.inactive {
         display: none;
     }
 }

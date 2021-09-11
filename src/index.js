@@ -2,24 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import rootReducer from "./reducers";
+import { PersistGate } from "redux-persist/integration/react";
+// import { createStore, applyMiddleware } from "redux";
+// import { composeWithDevTools } from "redux-devtools-extension";
+// import rootReducer from "./reducers";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import logger from "redux-logger";
+// import thunk from "redux-thunk";
+// import logger from "redux-logger";
 import { BrowserRouter as Router } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
-
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
+import { persistor, store } from "./configureStore";
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
-            <ScrollToTop>
-                <App />
-            </ScrollToTop>
-        </Router>
+        <PersistGate loading={null} persistor={persistor}>
+            <Router>
+                <ScrollToTop>
+                    <App />
+                </ScrollToTop>
+            </Router>
+        </PersistGate>
     </Provider>,
     document.getElementById("root")
 );

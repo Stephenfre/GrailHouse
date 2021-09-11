@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import { connect, useDispatch } from "react-redux";
+import { useHistory, withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 
+import { addToCloset } from "../../../actions";
+import { removeFromCloset } from "../../../actions";
 import WornPopUp from "../PopUps/WornPopUp";
 
-import "./Search.css";
+// import "./Search.css";
 import "../TrendingShoes/TrendingShoesCard.css";
 
 const Button = styled.button`
@@ -19,13 +21,40 @@ const Button = styled.button`
     border-radius: 5px;
     border: none;
     text-align: center;
+    @media (max-width: 500px) {
+        width: 23%;
+        height: 9%;
+        border-radius: 13px;
+        background-color: white;
+        padding: 0px;
+        border: 1px solid black;
+    }
 `;
 
-function SearchedShoesDetails({ isViewActive, selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
-    const [isActive, setIsActive] = useState(false);
+function SearchedShoesDetails({ isViewActive, thumbnail, shoeName, id, styleId, lowestPrice, isLoggedIn, inCloset }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
+
+    let history = useHistory();
+    const dispatch = useDispatch();
+
     const gotThemHandler = () => {
-        setIsActive(!isActive);
+        if (!isLoggedIn) {
+            history.push("/signin");
+        }
+
+        dispatch(
+            addToCloset({
+                shoeId: id,
+                shoeName: shoeName,
+                lowestPrice: lowestPrice,
+                thumbnail: thumbnail,
+                deadstock: isDeadstock,
+            })
+        );
+    };
+
+    const removeShoe = (closetShoeId) => {
+        dispatch(removeFromCloset(closetShoeId));
     };
 
     const conditonHandler = () => {
@@ -35,8 +64,8 @@ function SearchedShoesDetails({ isViewActive, selectShoe, type, thumbnail, shoeN
         <div className={"trending" + (isViewActive ? " active" : "")}>
             <div className={"trending-shoes" + (isViewActive ? " active" : "")}>
                 <Link
+                    to={`/trendingshoes/details/${id}/${styleId}`}
                     className={"trending-shoes-img" + (isViewActive ? " active" : "")}
-                    to={`details/${id}/${styleId}`}
                 >
                     <img src={thumbnail} alt="shoe pic" />
                 </Link>
@@ -45,26 +74,31 @@ function SearchedShoesDetails({ isViewActive, selectShoe, type, thumbnail, shoeN
                         <p>{shoeName}</p>
                         <div className={"trending-prices" + (isViewActive ? " active" : "")}>
                             <p>Lowest Price</p>
-                            <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
+                            <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0", color: "black" }}>
+                                ${lowestPrice}
+                            </p>
                         </div>
-                        <div className={`trending-add-to-closet ${isActive ? "inactive " : "active"}`}>
+                        <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
                             <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
                         </div>
-                        <div className={`trending-got-them ${isActive ? "active" : "inactive "}`}>
+                        <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
+                            <Button onClick={gotThemHandler}></Button>
+                        </div>
+                        <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button
-                                onClick={gotThemHandler}
-                                className={`trending-got-them-btn ${isActive ? "active" : "inactive "}`}
+                                onClick={removeShoe}
+                                className={`trending-got-them-btn ${inCloset ? "active" : "inactive "}`}
                             ></button>
                             <button className="trending-condition-btn" onClick={conditonHandler}>
-                                *Deadstock
+                                Deadstock
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
+            {/* <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
                 <WornPopUp />
-            </div>
+            </div> */}
         </div>
     );
 }
@@ -72,9 +106,13 @@ function SearchedShoesDetails({ isViewActive, selectShoe, type, thumbnail, shoeN
 const mapStateToProps = (state) => {
     return {
         shoes: state.shoes,
+        isLoggedIn: state.isLoggedIn,
     };
 };
 
-const mapDispatchToPros = {};
+const mapDispatchToPros = {
+    addToCloset,
+    removeFromCloset,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToPros)(SearchedShoesDetails));

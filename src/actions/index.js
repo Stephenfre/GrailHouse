@@ -91,38 +91,16 @@ export function getLinkShoes(shoeName) {
 }
 
 export function getDetails(styleId) {
-    console.log("hello");
     return (dispatch) => {
         dispatch({ type: DETAIL_SHOE });
 
         return axios
             .get(`https://grailhouse.herokuapp.com/api/sneakers/id/${styleId}/prices`)
             .then((res) => {
-                setTimeout(() => {
-                    dispatch(
-                        {
-                            type: DETAIL_SHOE_FAIL,
-                            payload: res.data,
-                        },
-                        10000
-                    );
+                dispatch({
+                    type: DETAIL_SHOE_SUCCESS,
+                    payload: res.data,
                 });
-                // if (res.data) {
-                //     dispatch({
-                //         type: DETAIL_SHOE_SUCCESS,
-                //         payload: res.data,
-                //     });
-                // } else {
-                //     setTimeout(() => {
-                //         dispatch(
-                //             {
-                //                 type: DETAIL_SHOE_FAIL,
-                //                 payload: res.data,
-                //             },
-                //             4000
-                //         );
-                //     });
-                // }
             })
             .catch((err) => {
                 dispatch({
@@ -135,12 +113,13 @@ export function getDetails(styleId) {
 
 export function addToCloset(shoeInfo) {
     const userId = localStorage.getItem("id");
+    console.log(userId);
 
     return (dispatch) => {
         dispatch({ type: ADD_SHOE });
 
         return axios
-            .post(`https://grailhouse.herokuapp.com/api/closet/${userId}`, shoeInfo)
+            .post(`http://localhost:5001/api/closet/${userId}`, shoeInfo)
             .then((res) => {
                 console.log(res.data);
                 dispatch({
