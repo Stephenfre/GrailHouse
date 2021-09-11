@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
-import WornPopUp from "../PopUps/WornPopUp";
+// import WornPopUp from "../PopUps/WornPopUp";
 
 // import "./Search.css";
 import "../TrendingShoes/TrendingShoesCard.css";
