@@ -368,11 +368,10 @@
 
     .tabs {
         display: flex;
-        width: 70%;
+        width: 578px;
         height: 40px;
         justify-content: center;
-        /* box-shadow: 0 5px 18px 1px #b1b1b1; */
-        margin-left: 105px;
+        margin-left: 145px;
     }
 
     .details-box {
@@ -395,7 +394,7 @@
         background: white;
         color: grey;
         font-size: 15px;
-        width: 50%;
+        width: 400px;
         border: none;
         border-radius: 0;
     }
@@ -424,13 +423,13 @@
     }
 
     .details-description.active {
-        width: 70%;
-        margin-left: 20px;
+        width: 77%;
+        margin-left: 27px;
     }
 
     .prices-prices.active {
         width: 70%;
-        margin-left: 27px;
+        margin-left: 77px;
     }
 
     .details-description.inactive {
@@ -443,7 +442,7 @@
 
     .prices-stores {
         height: 47px;
-        width: 100%;
+        width: 578px;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -503,7 +502,7 @@
         padding: 0;
         margin: 20px 0 0 0;
         display: flex;
-        width: 560px;
+        width: 645px;
         height: 220px;
         flex-wrap: wrap;
         justify-content: flex-start;
