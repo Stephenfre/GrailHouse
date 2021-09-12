@@ -423,8 +423,8 @@
     }
 
     .details-description.active {
-        width: 64%;
-        margin-left: 27px;
+        width: 70%;
+        margin-left: 100px;
     }
 
     .prices-prices.active {
