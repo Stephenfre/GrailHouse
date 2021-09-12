@@ -323,7 +323,7 @@
     }
 
     .shoe-details h2 {
-        margin: 30px 0;
+        margin: 30px 0 30px 90px;
         padding: 0;
         font-weight: 700;
         font-size: 1.5rem;
@@ -429,7 +429,7 @@
 
     .prices-prices.active {
         width: 70%;
-        margin-left: 77px;
+        margin-left: 108px;
     }
 
     .details-description.inactive {
@@ -598,6 +598,21 @@
     .details-condition-btn:hover {
         background: rgb(34, 34, 34);
         color: white(31, 31, 31);
+    }
+
+    .details-the-little-things {
+        font-size: 9px;
+        margin: 0;
+        position: relative;
+        right: 160px;
+    }
+
+    .details-the-little-things.active {
+        font-size: 9px;
+        margin: 0;
+        position: relative;
+        right: 160px;
+        top: 30px;
     }
 }
 

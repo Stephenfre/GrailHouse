@@ -817,19 +817,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                     </div>
                                 </div>
                             </div>
-                            <span
-                                style={
-                                    !detailsTabActive
-                                        ? { fontSize: "9px", margin: "0", position: "relative", right: "190px" }
-                                        : {
-                                              fontSize: "9px",
-                                              margin: "0",
-                                              position: "relative",
-                                              right: "190px",
-                                              top: "29",
-                                          }
-                                }
-                            >
+                            <span className={`details-the-little-things ${!detailsTabActive ? "" : "active"}`}>
                                 {detailShoe.styleID} | {detailShoe.colorway} | {detailShoe.releaseDate}
                             </span>
                             <div onClick={gotThemHandler} className={`add-btn ${inCloset ? "inactive " : ""}`}>
