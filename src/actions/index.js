@@ -91,6 +91,7 @@ export function getLinkShoes(shoeName) {
 }
 
 export function getDetails(styleId) {
+    console.log("hello");
     return (dispatch) => {
         dispatch({ type: DETAIL_SHOE });
 

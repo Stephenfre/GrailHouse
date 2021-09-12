@@ -20,7 +20,7 @@ class AuthService {
     logout() {
         localStorage.removeItem("id");
         localStorage.removeItem("token");
-        localStorage.removeItem("closet");
+        // localStorage.removeItem("closet");
         localStorage.removeItem("closetId");
         localStorage.removeItem("persist:root");
     }

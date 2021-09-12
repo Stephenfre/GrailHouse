@@ -25,12 +25,10 @@ import {
 } from "../actions";
 
 const token = localStorage.getItem("token");
-
 const initialState = {
     shoes: [],
     gettingShoes: false,
     gettingShoesError: null,
-    selectedShoe: null,
     searchShoes: false,
     searchShoesSuccess: false,
     searchResults: [],
@@ -185,7 +183,33 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 isLoggedIn: false,
-                user: null,
+                shoes: [],
+                gettingShoes: false,
+                gettingShoesError: null,
+                searchShoes: false,
+                searchShoesSuccess: false,
+                searchResults: [],
+                searchShoesError: null,
+                gettingLinkShoes: false,
+                gettingLinkShoesSucces: false,
+                addingShoe: false,
+                addingShoeError: null,
+                linkShoesResults: [],
+                gettingLinkShoesError: null,
+                token: token,
+                // eslint-disable-next-line
+                isLoggedIn: localStorage.getItem("token") ? true : false,
+                user: {
+                    name: "",
+                    email: "",
+                    closet: [],
+                },
+                closetId: {},
+                shoeCloset: [],
+                removingShoe: false,
+                gettingDetailShoe: false,
+                gettingDetailShoeError: null,
+                detailShoe: {},
             };
 
         case ADD_SHOE:

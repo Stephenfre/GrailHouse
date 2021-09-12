@@ -9,6 +9,21 @@ import rootReducer from "./reducers";
 const persistConfig = {
     key: "root",
     storage,
+    blacklist: [
+        "gettingShoesError",
+        "gettingShoes",
+        "gettingDetailShoe",
+        "gettingDetailShoeError",
+        "gettingLinkShoes",
+        "gettingLinkShoesError",
+        "gettingLinkShoesSucces",
+        "addingShoe",
+        "addingShoeError",
+        "removingShoe",
+        "searchShoes",
+        "searchShoesSuccess",
+        "searchShoesError",
+    ],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

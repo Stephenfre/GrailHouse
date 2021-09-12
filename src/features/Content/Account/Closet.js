@@ -18,7 +18,7 @@ function Closet({ closet }) {
 
     const closetShoes = JSON.parse(localStorage.getItem("closet"));
 
-    if (closetShoes.length === 0) {
+    if (closetShoes.length === 0 || undefined) {
         return (
             <React.Fragment>
                 <NavBar />
