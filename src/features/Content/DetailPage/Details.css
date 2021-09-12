@@ -1,6 +1,7 @@
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1440px) {
     .shoe-details-container {
         margin-top: 200px;
+        margin-top: 300px;
     }
 
     .details-tab h5 {
@@ -299,9 +300,10 @@
     }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1920px) {
     .shoe-details-container {
         margin-top: 200px;
+        margin-top: 300px;
     }
 
     .details-tab h5 {
