@@ -371,7 +371,7 @@
         width: 578px;
         height: 40px;
         justify-content: center;
-        margin-left: 145px;
+        margin-left: 177px;
     }
 
     .details-box {
@@ -404,7 +404,7 @@
         background: white;
         color: grey;
         font-size: 15px;
-        width: 50%;
+        width: 400px;
         border: none;
         border-radius: 0;
     }
@@ -513,7 +513,7 @@
     .stockx-ul a,
     .goat-ul a,
     .stadiumgoods-ul a {
-        margin-right: 21px;
+        margin-right: 68px;
     }
 
     .flightclub-ul a,
