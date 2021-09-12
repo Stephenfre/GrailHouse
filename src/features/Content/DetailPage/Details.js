@@ -594,7 +594,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                                 stores.flightClub.active ? "active" : "inactive"
                                             }`}
                                         >
-                                            {detailShoe.resellPrices.flightClub === undefined || null || 0 ? (
+                                            {detailShoe.resellPrices === undefined || null || 0 ? (
                                                 <div> Coming soon </div>
                                             ) : (
                                                 <ul className="goat-ul">
@@ -750,7 +750,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                                 stores.stadiumGoods.active ? "active" : "inactive"
                                             }`}
                                         >
-                                            {detailShoe.resellPrices.stadiumGoods === undefined || null || 0 ? (
+                                            {detailShoe.resellPrices === undefined || null || 0 ? (
                                                 <div> Coming soon </div>
                                             ) : (
                                                 <ul className="stadiumgoods-ul">
