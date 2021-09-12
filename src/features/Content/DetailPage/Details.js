@@ -597,8 +597,9 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                             {detailShoe.resellPrices === undefined || null || 0 ? (
                                                 <div> Coming soon </div>
                                             ) : (
-                                                <ul className="goat-ul">
-                                                    <a href={detailShoe.resellLinks.flightClub}>
+                                                <ul className="flightClub-ul">
+                                                    <div> Coming soon </div>
+                                                    {/* <a href={detailShoe.resellLinks.flightClub}>
                                                         <li className="goat-li">
                                                             {detailShoe.resellPrices.flightClub["6"] === undefined ||
                                                             null ||
@@ -740,7 +741,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                                                 </p>
                                                             )}
                                                         </li>
-                                                    </a>
+                                                    </a> */}
                                                 </ul>
                                             )}
                                         </div>
@@ -754,7 +755,8 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                                 <div> Coming soon </div>
                                             ) : (
                                                 <ul className="stadiumgoods-ul">
-                                                    <a href={detailShoe.resellLinks.stadiumGoods}>
+                                                    <div> Coming soon </div>
+                                                    {/* <a href={detailShoe.resellLinks.stadiumGoods}>
                                                         <li className="stadiumgoods-li">
                                                             <p>6 | ${detailShoe.stadiumGoods["6"]}</p>
                                                         </li>
@@ -808,7 +810,7 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                                                         <li className="stadiumgoods-li">
                                                             <p>16 | ${detailShoe.stadiumGoods["16"]}</p>
                                                         </li>
-                                                    </a>
+                                                    </a> */}
                                                 </ul>
                                             )}
                                         </div>
