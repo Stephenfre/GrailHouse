@@ -114,15 +114,13 @@ export function getDetails(styleId) {
 
 export function addToCloset(shoeInfo) {
     const userId = localStorage.getItem("id");
-    console.log(userId);
 
     return (dispatch) => {
         dispatch({ type: ADD_SHOE });
 
         return axios
-            .post(`http://localhost:5001/api/closet/${userId}`, shoeInfo)
+            .post(`https://grailhouse.herokuapp.com/api/closet/${userId}`, shoeInfo)
             .then((res) => {
-                console.log(res.data);
                 dispatch({
                     type: ADD_SHOE_SUCCESS,
                     payload: res.data,

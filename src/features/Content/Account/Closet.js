@@ -16,10 +16,6 @@ function Closet({ closet }) {
         closetId = JSON.parse(localStorage.getItem("closetId"));
     }, [closet]);
 
-    // const closetShoes = JSON.parse(localStorage.getItem("closet") || 0);
-
-    // console.log(closetShoes, "closet shoes");
-
     if (closet.length === 0 || undefined || null) {
         return (
             <React.Fragment>

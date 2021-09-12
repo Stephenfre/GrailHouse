@@ -56,8 +56,6 @@ const initialState = {
 
 // eslint-disable-next-line
 export default (state = initialState, action) => {
-    // console.log(token, "token");
-
     switch (action.type) {
         case GETTING_SHOES:
             return {
@@ -126,7 +124,6 @@ export default (state = initialState, action) => {
             };
 
         case GETTING_LINK_SHOES_SUCCESS:
-            console.log("shoelink request", action.payload);
             let linkShoesResults = [];
             // eslint-disable-next-line
             action.payload.map((shoe) => {

@@ -8,11 +8,9 @@ import "./Profile.css";
 import Footer from "../../Footer/Footer";
 
 function Profile({ user }) {
-    const getStorage = JSON.parse(localStorage.getItem("persist:root"));
-    console.log(getStorage);
+    const getStorageData = JSON.parse(localStorage.getItem("persist:root"));
 
-    const User = JSON.parse(getStorage.user);
-    console.log(User);
+    const User = JSON.parse(getStorageData.user);
 
     const currentUser = localStorage.getItem("id");
 
