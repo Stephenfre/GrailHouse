@@ -31,7 +31,7 @@
 @media only screen and (min-width: 1920px) {
     .search-form-main {
         height: 100%;
-        width: 90%;
+        width: 88%;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -39,7 +39,7 @@
 
     .search-input {
         background: white;
-        width: 570px;
+        width: 510px;
         height: 20px;
         border-radius: 15px;
         color: black;
@@ -49,12 +49,17 @@
     .nav-search-button {
         position: absolute;
         background: none;
-        right: 12.5rem;
-        top: 0.3rem;
+        right: 12rem;
+        top: 0.2rem;
         margin: 0;
         padding: 0;
         width: 0;
         color: black;
+    }
+
+    .nav-search-button:hover {
+        color: black;
+        cursor: pointer;
     }
 }
 

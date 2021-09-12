@@ -559,11 +559,12 @@
     }
 
     .add-btn {
-        width: 70%;
+        width: 578px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         margin-top: 2rem;
+        margin-left: 6.5rem;
     }
 
     .add-btn.inactive {

@@ -176,7 +176,7 @@
 @media only screen and (min-width: 1920px) {
     .trending {
         height: 320px;
-        width: 318px;
+        width: 281px;
         display: flex;
         flex-direction: column;
         margin: 0 25px 40px 0;

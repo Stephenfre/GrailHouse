@@ -51,7 +51,7 @@
 
     .search-shoes-content.inactive {
         height: 700px;
-        width: 68%;
+        width: 66%;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -240,7 +240,7 @@
 
     .search-shoes-content.inactive {
         height: 700px;
-        width: 68%;
+        width: 66%;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;

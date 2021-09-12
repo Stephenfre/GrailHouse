@@ -72,8 +72,8 @@ function Search({ searchingShoes }) {
                 style={{
                     position: "absolute",
                     background: "none",
-                    right: "17.5rem",
-                    bottom: "420px",
+                    right: "16.4rem",
+                    bottom: "343px",
                     margin: "0",
                     padding: "4px 0 0 0",
                     width: "0",
