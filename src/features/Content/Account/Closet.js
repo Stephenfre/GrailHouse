@@ -16,11 +16,11 @@ function Closet({ closet }) {
         closetId = JSON.parse(localStorage.getItem("closetId"));
     }, [closet]);
 
-    const closetShoes = JSON.parse(localStorage.getItem("closet"));
+    const closetShoes = JSON.parse(localStorage.getItem("closet") || null);
 
     console.log(closetShoes, "closet shoes");
 
-    if (closetShoes.length === null || undefined || 0) {
+    if (closetShoes.length == null || undefined || 0) {
         return (
             <React.Fragment>
                 <NavBar />
