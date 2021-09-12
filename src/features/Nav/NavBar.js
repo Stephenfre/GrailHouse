@@ -49,10 +49,11 @@ const DropDownContent = styled.div`
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    width: 60%;
+    width: 1184px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 4;
     right: 270px;
+    height: auto;
 `;
 
 const DropDownLi = styled(StyledLi)`

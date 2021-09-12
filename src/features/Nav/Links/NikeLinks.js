@@ -1,39 +1,49 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import { getLinkShoes } from "../../../actions";
 
 import "./Links.css";
 
+const Links = styled(Link)`
+    height: 100%;
+    border-bottom: 2px solid #efefef;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    text-decoration: none;
+`;
+
 function NikeLinks({ getLinkShoes }) {
     return (
-        <div className="shoe-links-mobile-list">
-            <ul component="all-links-list" style={{ width: "50%" }}>
-                <Link onClick={() => getLinkShoes("airforce")} to="/shoe/airforce">
+        <div className="shoe-links-mobile-list" style={{ height: "400px" }}>
+            <ul className="all-links-list">
+                <Links onClick={() => getLinkShoes("airforce")} to="/shoe/airforce">
                     <li className="mobile-nav-li"> Air Force 1 </li>
-                </Link>
-                <Link onClick={() => getLinkShoes("airmax")} to="/shoe/airmax">
+                </Links>
+                <Links onClick={() => getLinkShoes("airmax")} to="/shoe/airmax">
                     <li className="mobile-nav-li"> Air Max </li>
-                </Link>
-                <Link onClick={() => getLinkShoes("dunks")} to="/shoe/dunks">
+                </Links>
+                <Links onClick={() => getLinkShoes("dunks")} to="/shoe/dunks">
                     <li className="mobile-nav-li"> Dunks </li>
-                </Link>
-                <Link onClick={() => getLinkShoes("kobe")} to="/shoe/kobe">
+                </Links>
+                <Links onClick={() => getLinkShoes("kobe")} to="/shoe/kobe">
                     <li className="mobile-nav-li"> Kobe </li>
-                </Link>
-                <Link onClick={() => getLinkShoes("leborn")} to="/shoe/leborn">
+                </Links>
+                <Links onClick={() => getLinkShoes("leborn")} to="/shoe/leborn">
                     <li className="mobile-nav-li"> LeBron </li>
-                </Link>
-                <Link onClick={() => getLinkShoes("offwhite")} to="/shoe/offwhite">
+                </Links>
+                <Links onClick={() => getLinkShoes("offwhite")} to="/shoe/offwhite">
                     <li className="mobile-nav-li"> Off-White </li>
-                </Link>
-                <Link onClick={() => getLinkShoes("kyrie")} to="/shoe/kyrie">
+                </Links>
+                <Links onClick={() => getLinkShoes("kyrie")} to="/shoe/kyrie">
                     <li className="mobile-nav-li"> Kyrie </li>
-                </Link>
-                <Link onClick={() => getLinkShoes("nike")} to="/shoe/nike">
+                </Links>
+                <Links onClick={() => getLinkShoes("nike")} to="/shoe/nike">
                     <li className="mobile-nav-li"> All Nikes </li>
-                </Link>
+                </Links>
             </ul>
         </div>
     );
