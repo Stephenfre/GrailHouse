@@ -20,7 +20,7 @@ function Closet({ closet }) {
 
     console.log(closetShoes, "closet shoes");
 
-    if (closetShoes.length === 0 || undefined || null) {
+    if (closetShoes.length === null || undefined || 0) {
         return (
             <React.Fragment>
                 <NavBar />
