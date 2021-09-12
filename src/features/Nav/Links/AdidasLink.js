@@ -19,7 +19,7 @@ const Links = styled(Link)`
 
 function AdidasLinks({ getLinkShoes }) {
     return (
-        <div className="shoe-links-mobile-list" style={{ height: "300px" }}>
+        <div className="shoe-links-mobile-list" style={{ height: "250px" }}>
             <ul className="all-links-list">
                 <Links onClick={() => getLinkShoes("yeezy")} to="/shoe/yeezy">
                     <li className="mobile-nav-li"> Yeezy </li>
