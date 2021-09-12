@@ -820,8 +820,14 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                             <span
                                 style={
                                     !detailsTabActive
-                                        ? { fontSize: "9px", margin: "19px 140px 0 0" }
-                                        : { fontSize: "9px", margin: "49px 140px 0 0" }
+                                        ? { fontSize: "9px", margin: "0", position: "relative", right: "190px" }
+                                        : {
+                                              fontSize: "9px",
+                                              margin: "0",
+                                              position: "relative",
+                                              right: "190px",
+                                              top: "29",
+                                          }
                                 }
                             >
                                 {detailShoe.styleID} | {detailShoe.colorway} | {detailShoe.releaseDate}
