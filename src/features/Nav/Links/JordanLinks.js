@@ -12,8 +12,10 @@ const Links = styled(Link)`
     align-items: center;
     padding-left: 10px;
     text-decoration: none;
+    &:hover {
+        background: #efefef;
+    }
 `;
-
 function JordanLinks({ getLinkShoes }) {
     return (
         <div className="shoe-links-mobile-list" style={{ height: "600px" }}>

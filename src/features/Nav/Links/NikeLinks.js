@@ -14,6 +14,9 @@ const Links = styled(Link)`
     align-items: center;
     padding-left: 10px;
     text-decoration: none;
+    &:hover {
+        background: #efefef;
+    }
 `;
 
 function NikeLinks({ getLinkShoes }) {

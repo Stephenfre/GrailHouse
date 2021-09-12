@@ -12,12 +12,15 @@ const Links = styled(Link)`
     align-items: center;
     padding-left: 10px;
     text-decoration: none;
+    &:hover {
+        background: #efefef;
+    }
 `;
 
 function YeezyLinks({ getLinkShoes }) {
     return (
         <div className="shoe-links-mobile-list" style={{ height: "400px" }}>
-            <ul className="all-links-list" style={{ width: "50%" }}>
+            <ul className="all-links-list">
                 <Links onClick={() => getLinkShoes("yeezy350")} to="/shoe/yeezy350">
                     <li className="mobile-nav-li"> Yeezy Boost 350 </li>
                 </Links>
