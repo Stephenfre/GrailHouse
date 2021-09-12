@@ -16,7 +16,7 @@ function Closet({ closet }) {
         closetId = JSON.parse(localStorage.getItem("closetId"));
     }, [closet]);
 
-    const closetShoes = JSON.parse(localStorage.getItem("closet") || 0);
+    const closetShoes = JSON.parse(localStorage.getItem("closet"));
 
     console.log(closetShoes, "closet shoes");
 
