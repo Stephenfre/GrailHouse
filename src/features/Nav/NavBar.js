@@ -69,7 +69,7 @@ const StyledLinkBtn = styled(Link)`
     color: black;
     font-size: 18px;
     padding: 1rem;
-    width: 89%;
+    width: 170px;
     border-radius: 5px;
     border: none;
     text-align: center;
@@ -174,8 +174,8 @@ function NavBar({ isLoggedIn, getLinkShoes }) {
                     <Burger />
                 </div>
                 <div className="other-content">
-                    <StyledLinkBtn to="/signup" className={`trending-btn ${!isLoggedIn ? "" : "inactive"}`}>
-                        Sign Up / Sign In
+                    <StyledLinkBtn to="/signin" className={`trending-btn ${!isLoggedIn ? "" : "inactive"}`}>
+                        Sign In
                     </StyledLinkBtn>
                     <Dropbtn onClick={menuClicked} className={`menu-trigger ${isLoggedIn ? "" : "inactive"}`}>
                         Account
