@@ -24,8 +24,6 @@ import {
     DETAIL_SHOE_FAIL,
 } from "../actions";
 
-// const token = localStorage.getItem("token");
-// console.log(token);
 const initialState = {
     shoes: [],
     gettingShoes: false,

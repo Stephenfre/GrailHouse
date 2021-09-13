@@ -34,7 +34,6 @@ function Profile({ user }) {
     // const resetInputField = () => {
     //     setUsernameValue("");
     // };
-    console.log("username", user.username);
 
     const currentUser = localStorage.getItem("id");
 

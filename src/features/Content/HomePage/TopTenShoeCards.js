@@ -37,8 +37,6 @@ function TopTenShoeCards({ thumbnail, shoeName, id, styleId, lowestPrice, inClos
 
     const dispatch = useDispatch();
 
-    console.log("styleId", styleId);
-
     const addShoeToCloset = () => {
         if (!isLoggedIn) {
             history.push("/signin");
