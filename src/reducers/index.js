@@ -24,7 +24,8 @@ import {
     DETAIL_SHOE_FAIL,
 } from "../actions";
 
-const token = localStorage.getItem("token");
+// const token = localStorage.getItem("token");
+// console.log(token);
 const initialState = {
     shoes: [],
     gettingShoes: false,
@@ -39,11 +40,13 @@ const initialState = {
     addingShoeError: null,
     linkShoesResults: [],
     gettingLinkShoesError: null,
-    token: token,
+    token: localStorage.getItem("token"),
     isLoggedIn: localStorage.getItem("token") ? true : false,
     user: {
         name: "",
+        username: "",
         email: "",
+        shoeSize: "",
         closet: [],
     },
     closetId: {},
@@ -193,12 +196,14 @@ export default (state = initialState, action) => {
                 addingShoeError: null,
                 linkShoesResults: [],
                 gettingLinkShoesError: null,
-                token: token,
+                token: localStorage.getItem("token"),
                 // eslint-disable-next-line
                 isLoggedIn: localStorage.getItem("token") ? true : false,
                 user: {
                     name: "",
+                    username: "",
                     email: "",
+                    shoeSize: "",
                     closet: [],
                 },
                 closetId: {},

@@ -139,7 +139,7 @@ function SignIn({ dispatch, isLoggedIn, message }) {
                                     onBlur={emailBlurHandler}
                                     value={enteredEmail}
                                 />
-                                {emailInputHasError && <p className="error-text">Must enter Username</p>}
+                                {emailInputHasError && <p className="error-text">Must enter a valid</p>}
                             </div>
                             <div className={passwordInputClasses}>
                                 <input

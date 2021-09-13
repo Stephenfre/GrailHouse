@@ -2,17 +2,17 @@ import { REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, SET
 
 import AuthService from "../features/Auth/AuthService";
 
-export const register = (name, email, password) => (dispatch) => {
-    return AuthService.register(name, email, password).then(
+export const register = (name, username, email, password, shoeSize) => (dispatch) => {
+    return AuthService.register(name, username, email, password, shoeSize).then(
         (response) => {
             dispatch({
                 type: REGISTER_SUCCESS,
             });
 
-            dispatch({
-                type: SET_MESSAGE,
-                payload: response.data.message,
-            });
+            // dispatch({
+            //     type: SET_MESSAGE,
+            //     payload: response.data.message,
+            // });
             return Promise.resolve();
         },
         (error) => {
@@ -42,8 +42,10 @@ export const login = (email, password) => (dispatch) => {
                 type: LOGIN_SUCCESS,
                 payload: {
                     name: data.user.name,
+                    username: data.user.username,
                     email: data.user.email,
                     closet: data.user.closet,
+                    shoeSize: data.user.shoeSize,
                 },
             });
 

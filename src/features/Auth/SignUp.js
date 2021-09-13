@@ -37,6 +37,16 @@ function SignUp({ dispatch }) {
     });
 
     // * Sign Up form and validation
+
+    const {
+        value: enteredName,
+        isValid: enteredNameIsValid,
+        hasError: nameInputHasError,
+        valueChangeHandler: nameChangedHandler,
+        inputBlurHandler: nameBlurHandler,
+        reset: resetNameInput,
+    } = useInput((value) => value.trim() !== "");
+
     const {
         value: enteredUsername,
         isValid: enteredUsernameIsValid,
@@ -53,7 +63,7 @@ function SignUp({ dispatch }) {
         valueChangeHandler: emailChangedHandler,
         inputBlurHandler: emailBlurHandler,
         reset: resetEmailInput,
-    } = useInput((value) => value.includes(""));
+    } = useInput((value) => value.includes("@"));
 
     const {
         value: enteredPassword,
@@ -64,10 +74,22 @@ function SignUp({ dispatch }) {
         reset: resetPasswordInput,
     } = useInput((value) => value.includes(""));
 
+    const {
+        value: enteredShoeSize,
+        isValid: enteredShoeSizeIsValid,
+        hasError: shoeSizeInputHasError,
+        valueChangeHandler: shoeSizeChangedHandler,
+        inputBlurHandler: shoeSizeBlurHandler,
+        reset: resetShoeSizeInput,
+    } = useInput((value) => value.includes(""));
+
     // eslint-disable-next-line
     var formIsValid = false;
 
-    if (enteredUsernameIsValid && enteredEmailIsValid && enteredPasswordIsValid) {
+    if (
+        (enteredNameIsValid,
+        enteredUsernameIsValid && enteredEmailIsValid && enteredPasswordIsValid && enteredShoeSizeIsValid)
+    ) {
         formIsValid = true;
     } else {
         formIsValid = false;
@@ -81,7 +103,7 @@ function SignUp({ dispatch }) {
     const formSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(register(enteredUsername, enteredEmail, enteredPassword))
+        dispatch(register(enteredName, enteredUsername, enteredEmail, enteredPassword, enteredShoeSize))
             .then(() => {
                 history.push("/");
             })
@@ -89,14 +111,18 @@ function SignUp({ dispatch }) {
                 console.log(err);
             });
 
+        resetNameInput();
+        resetUsernameInput();
         resetEmailInput();
         resetPasswordInput();
-        resetUsernameInput();
+        resetShoeSizeInput();
     };
 
+    const nameInputClasses = nameInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
     const usernameInputClasses = usernameInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
     const emailInputClasses = emailInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
     const passwordInputClasses = passwordInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
+    const shoeSizeInputClasses = shoeSizeInputHasError ? "sign-up-inputs invaild" : "sign-up-inputs";
 
     return (
         <React.Fragment>
@@ -140,6 +166,17 @@ function SignUp({ dispatch }) {
                     </div>
                     <form className="sign-up-form" onSubmit={formSubmit}>
                         <div className="sign-up-inputs-container">
+                            <div className={nameInputClasses}>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Full Name"
+                                    onChange={nameChangedHandler}
+                                    onBlur={nameBlurHandler}
+                                    value={enteredName}
+                                />
+                                {nameInputHasError && <p className="error-text">Must enter Full Name</p>}
+                            </div>
                             <div className={usernameInputClasses}>
                                 <input
                                     type="text"
@@ -172,6 +209,18 @@ function SignUp({ dispatch }) {
                                     value={enteredPassword}
                                 />
                                 {passwordInputHasError && <p className="error-text">Must enter a vaild Password</p>}
+                            </div>
+                            <div className={shoeSizeInputClasses}>
+                                <input
+                                    style={{ width: "60px" }}
+                                    type="shoe size"
+                                    name="shoe size"
+                                    placeholder="Shoe size"
+                                    onChange={shoeSizeChangedHandler}
+                                    onBlur={shoeSizeBlurHandler}
+                                    value={enteredShoeSize}
+                                />
+                                {shoeSizeInputHasError && <p className="error-text">Must enter a vaild Password</p>}
                             </div>
                             <button disabled={!formIsValid} className="sign-up-btn" type="submit">
                                 Sign Up

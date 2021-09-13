@@ -58,6 +58,13 @@ input {
     background-color: white;
     border: 1px solid #c5c5c5;
     color: #c5c5c5;
+    padding: 0 10px;
+}
+
+.error-text {
+    padding: 5px 0;
+    font-size: 11px;
+    color: red;
 }
 
 .google-btn {
