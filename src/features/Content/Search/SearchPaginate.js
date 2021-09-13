@@ -30,7 +30,7 @@ const SearchPaginate = ({ shoesPerPage, totalShoes, paginate }) => {
                         onClick={() => clickHandler(number)}
                         className="trending-page-link"
                     >
-                        <li key={number} className="page-item" style={{ padding: "5px 8px" }}>
+                        <li key={number} className="page-item">
                             {number}
                         </li>
                     </Links>

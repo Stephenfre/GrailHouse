@@ -30,7 +30,7 @@ const LinksPagination = ({ shoesPerPage, totalShoes, paginate }) => {
             <ul className="links-pagination-list">
                 {pageNumbers.map((number) => (
                     <Links
-                        to={`/${shoeName}/${number}`}
+                        to={`/shoe/${shoeName}/${number}`}
                         onClick={() => clickHandler(number)}
                         className="link-page-link"
                     >

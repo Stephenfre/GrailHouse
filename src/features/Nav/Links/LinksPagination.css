@@ -1,31 +1,4 @@
-.links-pagination {
-    position: relative;
-    top: 160px;
-    margin: 0px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.links-pagination-list {
-    list-style: none;
-    display: flex;
-    margin: 0px;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-
-.link-page-link {
-    border: 1px solid black;
-    margin: 0px 5px;
-}
-
-.links-page-item {
-    padding: 10px 15px;
-}
-
-@media (min-device-width: 768px) and (max-device-width: 1600px) {
+@media only screen and (min-width: 1440px) {
     .links-pagination {
         position: relative;
         top: 290px;
@@ -45,6 +18,65 @@
         padding: 0;
     }
 
+    .link-page-item {
+        padding: 10px 15px;
+    }
+
+    .link-page-link {
+        border: 1px solid black;
+        margin: 0px 5px;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .links-pagination {
+        position: relative;
+        top: -90px;
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+        width: 65%;
+        left: 545px;
+    }
+
+    .links-pagination-list {
+        list-style: none;
+        display: flex;
+        margin: 0px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .link-page-item {
+        padding: 10px 15px;
+    }
+
+    .link-page-link {
+        border: 1px solid black;
+        margin: 0px 5px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .links-pagination {
+        position: relative;
+        top: 40px;
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .links-pagination-list {
+        list-style: none;
+        display: flex;
+        margin: 0px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
     .link-page-link {
         border: 1px solid black;
         margin: 0px 5px;
@@ -52,10 +84,5 @@
 
     .link-page-item {
         padding: 10px 15px;
-    }
-
-    .link-page-item:hover {
-        text-decoration: none;
-        color: black;
     }
 }

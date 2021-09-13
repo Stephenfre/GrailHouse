@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../../Nav/NavBar";
 import Footer from "../../Footer/Footer";
 import "./Story.css";
-import SneakerOnShelf from "../../../Svgs/Sneakersonshelf.png";
+import SneakerOnShelf from "../../../Svgs/Sneakersonshelf.svg";
 
 export default function OurStory() {
     return (

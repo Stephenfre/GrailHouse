@@ -22,16 +22,16 @@ export default function Footer() {
                     <ul>
                         <li style={{ paddingTop: "0", fontWeight: "bold", color: "white" }}>Trending Shoes</li>
                         <li>
-                            <Links to="/airforce">Nike Air Force 1</Links>
+                            <Links to="shoe/airforce">Nike Air Force 1</Links>
                         </li>
                         <li>
-                            <Links to="/dunks">Nike Dunks</Links>
+                            <Links to="/shoe/dunks">Nike Dunks</Links>
                         </li>
                         <li>
-                            <Links to="/jordan1">Jordan 1</Links>
+                            <Links to="/shoe/jordan1">Jordan 1</Links>
                         </li>
                         <li>
-                            <Links to="/offwhite">Off-White Sneakers</Links>
+                            <Links to="/shoe/offwhite">Off-White Sneakers</Links>
                         </li>
                     </ul>
                 </div>
