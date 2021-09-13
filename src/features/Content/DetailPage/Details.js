@@ -28,15 +28,16 @@ const StyledLinks = styled(Link)`
     text-align: center;
     text-decoration: none;
     font-size: 18px;
-    color: white;
-    background: black;
+    color: black;
+    background: white;
     width: 100%;
     padding: 1rem;
     border-radius: 5px;
-    border: none;
+    border: 1px solid black;
     &:hover {
-        background: rgb(41, 41, 41);
-        color: rgb(235, 235, 235);
+        background: #f5f5f5;
+        color: black;
+        text-decoration: none;
     }
     @media (max-width: 600px) {
         width: 100%;
@@ -45,7 +46,7 @@ const StyledLinks = styled(Link)`
 
 function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, styleId, detailShoe, gettingDetailShoe }) {
     const [detailsTabActive, setDetailsTabActive] = useState(false);
-    const [isDeadstock] = useState(false);
+    // const [isDeadstock, setIsDeadstock] = useState(false);
     const params = useParams();
     let style = params.styleId;
 
@@ -132,18 +133,19 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
 
     const dispatch = useDispatch();
 
-    const gotThemHandler = () => {
+    const addShoeToCloset = () => {
         if (!isLoggedIn) {
             history.push("/signin");
         }
 
         dispatch(
             addToCloset({
-                shoeId: id,
-                shoeName: shoeName,
-                lowestPrice: lowestPrice,
-                thumbnail: thumbnail,
-                deadstock: isDeadstock,
+                shoeId: detailShoe._id,
+                styleID: detailShoe.styleID,
+                shoeName: detailShoe.shoeName,
+                lowestPrice: detailShoe.lowestPrice,
+                thumbnail: detailShoe.thumbnail,
+                deadstock: detailShoe.isDeadstock,
             })
         );
     };
@@ -820,13 +822,17 @@ function Details({ id, shoeName, lowestPrice, thumbnail, isLoggedIn, closet, sty
                             <span className={`details-the-little-things ${!detailsTabActive ? "" : "active"}`}>
                                 {detailShoe.styleID} | {detailShoe.colorway} | {detailShoe.releaseDate}
                             </span>
-                            <div onClick={gotThemHandler} className={`add-btn ${inCloset ? "inactive " : ""}`}>
+                            <div onClick={addShoeToCloset} className={`add-btn ${inCloset ? "inactive " : ""}`}>
                                 <StyledLinks>Add to closet</StyledLinks>
                             </div>
                             <div className={`details-got-them ${inCloset ? "active" : "inactive "}`}>
-                                <button className="details-condition-btn" onClick={() => removeShoe(id)}>
+                                <StyledLinks
+                                    style={{ color: "white", background: "black" }}
+                                    className="details-condition-btn"
+                                    onClick={() => removeShoe(id)}
+                                >
                                     Remove from closet
-                                </button>
+                                </StyledLinks>
                             </div>
                         </div>
                     </div>

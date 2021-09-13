@@ -39,12 +39,12 @@ function TrendingShoes({ getShoes, shoes, gettingShoes, closet }) {
         closetId = JSON.parse(localStorage.getItem("closetId"));
     }, [closet]);
 
+    let closetId = JSON.parse(localStorage.getItem("closetId"));
+
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
     const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
     const currentShoes = shoes.slice(indexOfFirstShoe, indexofLastShoe);
-
-    let closetId = JSON.parse(localStorage.getItem("closetId"));
 
     //* Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);

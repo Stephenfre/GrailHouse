@@ -20,6 +20,7 @@ const Button = styled.button`
     border-radius: 5px;
     border: none;
     text-align: center;
+    cursor: pointer;
     @media (max-width: 500px) {
         width: 23%;
         height: 9%;
@@ -36,7 +37,7 @@ function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, low
     let history = useHistory();
     const dispatch = useDispatch();
 
-    const gotThemHandler = () => {
+    const addShoeToCloset = () => {
         if (!isLoggedIn) {
             history.push("/signin");
         }
@@ -79,10 +80,10 @@ function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, low
                             </p>
                         </div>
                         <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
+                            <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
                         </div>
                         <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={gotThemHandler}></Button>
+                            <Button onClick={addShoeToCloset}></Button>
                         </div>
                         <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button

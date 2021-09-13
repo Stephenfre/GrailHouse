@@ -37,7 +37,7 @@ function SearchedShoesDetails({ isViewActive, thumbnail, shoeName, id, styleId, 
     let history = useHistory();
     const dispatch = useDispatch();
 
-    const gotThemHandler = () => {
+    const addShoeToCloset = () => {
         if (!isLoggedIn) {
             history.push("/signin");
         }
@@ -79,10 +79,10 @@ function SearchedShoesDetails({ isViewActive, thumbnail, shoeName, id, styleId, 
                             </p>
                         </div>
                         <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
+                            <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
                         </div>
                         <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={gotThemHandler}></Button>
+                            <Button onClick={addShoeToCloset}></Button>
                         </div>
                         <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button

@@ -31,9 +31,9 @@ function Profile({ user }) {
         setShoeSizeValue(e.target.value);
     };
 
-    const resetInputField = () => {
-        setUsernameValue("");
-    };
+    // const resetInputField = () => {
+    //     setUsernameValue("");
+    // };
     console.log("username", user.username);
 
     const currentUser = localStorage.getItem("id");

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter, useParams, Link } from "react-router-dom";
 import styled from "styled-components";
@@ -28,7 +28,7 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function ShoeLink({ linkShoesResults, findingLinkShoes }) {
+function ShoeLink({ linkShoesResults, findingLinkShoes, closet }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
@@ -44,6 +44,12 @@ function ShoeLink({ linkShoesResults, findingLinkShoes }) {
 
     //* Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    useEffect(() => {
+        closetId = JSON.parse(localStorage.getItem("closetId"));
+    }, [closet]);
+
+    let closetId = JSON.parse(localStorage.getItem("closetId"));
 
     return (
         <React.Fragment>
@@ -104,6 +110,7 @@ function ShoeLink({ linkShoesResults, findingLinkShoes }) {
                                     styleId={shoe.styleID}
                                     type="shoeLinks"
                                     isViewActive={isViewActive}
+                                    inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                                 />
                             ))}
                     </div>
@@ -120,6 +127,7 @@ const mapStateToProps = (state) => {
         linkShoesResults: state.linkShoesResults,
         findingLinkShoes: state.findingLinkShoes,
         findingLinkShoesError: state.findingLinkShoesError,
+        closet: state.user.closet,
     };
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { withRouter, Link, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -24,13 +24,18 @@ const StyledLinks = styled(Link)`
     text-align: center;
 `;
 
-function Search({ searchResults, searchShoes, shoeName }) {
+function Search({ searchResults, searchShoes, shoeName, closet }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [shoesPerPage] = useState(16);
     const [isViewActive, setIsViewActive] = useState(false);
     let params = useParams();
-
     const newShoeName = params.shoe.toUpperCase();
+
+    useEffect(() => {
+        closetId = JSON.parse(localStorage.getItem("closetId"));
+    }, [closet]);
+
+    let closetId = JSON.parse(localStorage.getItem("closetId"));
 
     //* Get Current Shoes
     const indexofLastShoe = currentPage * shoesPerPage;
@@ -100,6 +105,7 @@ function Search({ searchResults, searchShoes, shoeName }) {
                                     styleId={shoe.styleID}
                                     type="shoe"
                                     isViewActive={isViewActive}
+                                    inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                                 />
                             ))}
                     </div>
@@ -116,6 +122,7 @@ const mapStateToProps = (state) => {
         searchShoes: state.searchShoes,
         searchShoesError: state.searchShoesError,
         searchResults: state.searchResults,
+        closet: state.user.closet,
     };
 };
 

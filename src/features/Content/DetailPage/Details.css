@@ -572,13 +572,12 @@
     }
 
     .details-got-them.active {
+        width: 578px;
         display: flex;
+        justify-content: flex-end;
         align-items: center;
-        justify-content: space-between;
-        width: 80%;
-        height: 10%;
         margin-top: 2rem;
-        margin-left: 70px;
+        margin-left: 6.5rem;
     }
 
     .details-got-them.inactive {

@@ -20,6 +20,7 @@ const Button = styled.button`
     border-radius: 5px;
     border: none;
     text-align: center;
+    cursor: pointer;
 `;
 
 function ShoeLinkDetails({
@@ -39,7 +40,7 @@ function ShoeLinkDetails({
     let history = useHistory();
     const dispatch = useDispatch();
 
-    const gotThemHandler = () => {
+    const addShoeToCloset = () => {
         if (!isLoggedIn) {
             history.push("/signin");
         }
@@ -80,7 +81,7 @@ function ShoeLinkDetails({
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>
                         <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
+                            <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
                         </div>
                         <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button

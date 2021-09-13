@@ -20,6 +20,7 @@ const Button = styled.button`
     border-radius: 5px;
     border: none;
     text-align: center;
+    cursor: pointer;
     @media (max-width: 500px) {
         width: 23%;
         height: 9%;
@@ -30,24 +31,15 @@ const Button = styled.button`
     }
 `;
 
-function TopTenShoeCards({
-    selectShoe,
-    type,
-    thumbnail,
-    shoeName,
-    id,
-    styleId,
-    styleID,
-    lowestPrice,
-    inCloset,
-    isLoggedIn,
-}) {
+function TopTenShoeCards({ thumbnail, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
     let history = useHistory();
 
     const dispatch = useDispatch();
 
-    const gotThemHandler = () => {
+    console.log("styleId", styleId);
+
+    const addShoeToCloset = () => {
         if (!isLoggedIn) {
             history.push("/signin");
         }
@@ -89,10 +81,10 @@ function TopTenShoeCards({
                             </p>
                         </div>
                         <div className={`add-to-closet ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={gotThemHandler}>ADD TO CLOSET</Button>
+                            <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
                         </div>
                         <div className={`add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={gotThemHandler}></Button>
+                            <Button onClick={addShoeToCloset}></Button>
                         </div>
                         <div className={`topten-got-them ${inCloset ? "active" : "inactive "}`}>
                             <button
