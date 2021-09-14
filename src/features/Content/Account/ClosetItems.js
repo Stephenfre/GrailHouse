@@ -3,7 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
 import { removeFromCloset } from "../../../actions";
-import WornPopUp from "../PopUps/WornPopUp";
+import ConditionPopUp from "../PopUps/ConditionPopUp";
 
 import "../TrendingShoes/TrendingShoesCard.css";
 
@@ -47,7 +47,7 @@ function ClosetItems({ isViewActive, selectShoe, type, thumbnail, shoeName, id, 
                 </div>
             </div>
             <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
-                <WornPopUp />
+                <ConditionPopUp />
             </div>
         </div>
     );

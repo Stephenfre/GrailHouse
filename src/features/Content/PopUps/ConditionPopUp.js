@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./PopUps.css";
 
-export default function conditionPopUp() {
+export default function ConditionPopUp() {
     const [answerYes, setAnswerYes] = useState(false);
 
     const yesClick = () => {
