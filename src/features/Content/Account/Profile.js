@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect, withRouter, useHistory } from "react-router-dom";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { updateUser } from "../../../actions";
@@ -15,9 +15,6 @@ function Profile({ user, updateUser, getUser }) {
     const [usernameValue, setUsernameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
     const [shoeSizeValue, setShoeSizeValue] = useState("");
-
-    let history = useHistory();
-
     const changeInfo = () => {
         setUpdateActive(!updateActive);
     };
