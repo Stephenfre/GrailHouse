@@ -4,9 +4,17 @@ import AuthService from "../features/Auth/AuthService";
 
 export const register = (name, username, email, password, shoeSize) => (dispatch) => {
     return AuthService.register(name, username, email, password, shoeSize).then(
-        (response) => {
+        (res) => {
+            console.log(res);
             dispatch({
                 type: REGISTER_SUCCESS,
+                payload: {
+                    name: res.user.name,
+                    username: res.user.username,
+                    email: res.user.email,
+                    closet: res.user.closet,
+                    shoeSize: res.user.shoeSize,
+                },
             });
 
             // dispatch({

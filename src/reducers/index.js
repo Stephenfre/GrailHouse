@@ -13,6 +13,12 @@ import {
     LOGIN_SUCCESS,
     LOGOUT,
     LOGIN_FAIL,
+    GETTING_USER,
+    GETTING_USER_SUCCESS,
+    GETTING_USER_FAIL,
+    UPDATING_USER,
+    UPDATING_USER_SUCCESS,
+    UPDATING_USER_FAIL,
     ADD_SHOE,
     ADD_SHOE_SUCCESS,
     ADD_SHOE_FAIL,
@@ -45,7 +51,7 @@ const initialState = {
         username: "",
         email: "",
         shoeSize: "",
-        closet: [],
+        closet: {},
     },
     closetId: {},
     shoeCloset: [],
@@ -53,11 +59,126 @@ const initialState = {
     gettingDetailShoe: false,
     gettingDetailShoeError: null,
     detailShoe: {},
+    gettingUser: false,
+    gettingUserError: false,
+    updatingUser: false,
+    updatingUserSucces: false,
+    updatingUserError: null,
 };
 
 // eslint-disable-next-line
 export default (state = initialState, action) => {
     switch (action.type) {
+        case REGISTER_SUCCESS:
+            return {
+                ...state,
+                isLoggedIn: true,
+                user: action.payload,
+            };
+        case REGISTER_FAIL:
+            return {
+                ...state,
+                isLoggedIn: false,
+            };
+        case LOGIN_SUCCESS:
+            let dictionary = {};
+            // eslint-disable-next-line
+            action.payload.closet.map((shoe) => {
+                dictionary[shoe.shoeName] = 0;
+            });
+            localStorage.setItem("closetId", JSON.stringify(dictionary));
+            return {
+                ...state,
+                isLoggedIn: true,
+                user: action.payload,
+                // closetId: dictionary,
+            };
+        case LOGIN_FAIL:
+            return {
+                ...state,
+                isLoggedIn: false,
+                user: null,
+            };
+        case LOGOUT:
+            return {
+                ...state,
+                isLoggedIn: false,
+                shoes: [],
+                gettingShoes: false,
+                gettingShoesError: null,
+                searchShoes: false,
+                searchShoesSuccess: false,
+                searchResults: [],
+                searchShoesError: null,
+                gettingLinkShoes: false,
+                gettingLinkShoesSucces: false,
+                addingShoe: false,
+                addingShoeError: null,
+                linkShoesResults: [],
+                gettingLinkShoesError: null,
+                token: localStorage.getItem("token"),
+                // eslint-disable-next-line
+                isLoggedIn: localStorage.getItem("token") ? true : false,
+                user: {
+                    name: "",
+                    username: "",
+                    email: "",
+                    shoeSize: "",
+                    closet: [],
+                },
+                closetId: {},
+                shoeCloset: [],
+                removingShoe: false,
+                gettingDetailShoe: false,
+                gettingDetailShoeError: null,
+                detailShoe: {},
+                gettingUser: false,
+                gettingUserError: false,
+                updatingUser: false,
+                updatingUserSucces: false,
+                updatingUserError: null,
+            };
+
+        case GETTING_USER:
+            return {
+                ...state,
+                gettingUser: true,
+            };
+
+        case GETTING_USER_SUCCESS:
+            return {
+                ...state,
+                gettingUser: false,
+                user: action.payload,
+            };
+
+        case GETTING_USER_FAIL:
+            return {
+                ...state,
+                gettingUser: false,
+                gettingUserError: action.payload,
+            };
+
+        case UPDATING_USER:
+            return {
+                ...state,
+                updatingUser: true,
+            };
+
+        case UPDATING_USER_SUCCESS:
+            return {
+                ...state,
+                updatingUser: false,
+                user: action.payload,
+            };
+
+        case UPDATING_USER_FAIL:
+            return {
+                ...state,
+                updatingUser: false,
+                updatingUserError: action.payload,
+            };
+
         case GETTING_SHOES:
             return {
                 ...state,
@@ -147,69 +268,24 @@ export default (state = initialState, action) => {
                 gettingLinkShoesError: action.payload.message,
             };
 
-        case REGISTER_SUCCESS:
+        case DETAIL_SHOE:
             return {
                 ...state,
-                isLoggedIn: true,
-                user: action.payload,
+                gettingDetailShoe: true,
             };
-        case REGISTER_FAIL:
+
+        case DETAIL_SHOE_SUCCESS:
             return {
                 ...state,
-                isLoggedIn: false,
-            };
-        case LOGIN_SUCCESS:
-            let dictionary = {};
-            // eslint-disable-next-line
-            action.payload.closet.map((shoe) => {
-                dictionary[shoe.shoeName] = 0;
-            });
-            localStorage.setItem("closetId", JSON.stringify(dictionary));
-            return {
-                ...state,
-                isLoggedIn: true,
-                user: action.payload,
-                // closetId: dictionary,
-            };
-        case LOGIN_FAIL:
-            return {
-                ...state,
-                isLoggedIn: false,
-                user: null,
-            };
-        case LOGOUT:
-            return {
-                ...state,
-                isLoggedIn: false,
-                shoes: [],
-                gettingShoes: false,
-                gettingShoesError: null,
-                searchShoes: false,
-                searchShoesSuccess: false,
-                searchResults: [],
-                searchShoesError: null,
-                gettingLinkShoes: false,
-                gettingLinkShoesSucces: false,
-                addingShoe: false,
-                addingShoeError: null,
-                linkShoesResults: [],
-                gettingLinkShoesError: null,
-                token: localStorage.getItem("token"),
-                // eslint-disable-next-line
-                isLoggedIn: localStorage.getItem("token") ? true : false,
-                user: {
-                    name: "",
-                    username: "",
-                    email: "",
-                    shoeSize: "",
-                    closet: [],
-                },
-                closetId: {},
-                shoeCloset: [],
-                removingShoe: false,
                 gettingDetailShoe: false,
-                gettingDetailShoeError: null,
-                detailShoe: {},
+                detailShoe: action.payload,
+            };
+
+        case DETAIL_SHOE_FAIL:
+            return {
+                ...state,
+                gettingDetailShoe: false,
+                gettingDetailShoeError: action.payload,
             };
 
         case ADD_SHOE:
@@ -267,29 +343,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 removingShoe: false,
-            };
-
-        case DETAIL_SHOE:
-            return {
-                ...state,
-                gettingDetailShoe: true,
-            };
-
-        case DETAIL_SHOE_SUCCESS:
-            // localStorage.setItem("detail prices", JSON.stringify(action.payload.resellPrices));
-            // localStorage.setItem("detail links", JSON.stringify(action.payload.resellLinks));
-            // localStorage.setItem("detail images", JSON.stringify(action.payload.imageLinks));
-            return {
-                ...state,
-                gettingDetailShoe: false,
-                detailShoe: action.payload,
-            };
-
-        case DETAIL_SHOE_FAIL:
-            return {
-                ...state,
-                gettingDetailShoe: false,
-                gettingDetailShoeError: action.payload,
             };
 
         default:

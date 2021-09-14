@@ -5,6 +5,12 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
+export const GETTING_USER = "GETTING_USER";
+export const GETTING_USER_SUCCESS = "GETTING_USER_SUCCESS";
+export const GETTING_USER_FAIL = "GETTING_USER_FAIL";
+export const UPDATING_USER = "UPDATING_USER";
+export const UPDATING_USER_SUCCESS = "UPDATING_USER_SUCCESS";
+export const UPDATING_USER_FAIL = "UPDATING_USER_FAIL";
 export const GETTING_SHOES = "GETTING_SHOES_START";
 export const GETTING_SHOES_SUCCESS = "GETTING_SHOES_SUCCESS";
 export const GETTING_SHOES_FAIL = "GETTING_SHOES_FAIL";
@@ -151,6 +157,52 @@ export function removeFromCloset(closetShoeId) {
             .catch((err) => {
                 dispatch({
                     type: REMOVE_SHOE_FAIL,
+                    payload: err,
+                });
+            });
+    };
+}
+
+export function getUser() {
+    const userId = localStorage.getItem("id");
+
+    return (dispatch) => {
+        dispatch({ type: GETTING_USER });
+
+        return axios
+            .get(`http://localhost:5001/api/${userId}`)
+            .then((res) => {
+                dispatch({
+                    type: GETTING_USER_SUCCESS,
+                    payload: res.data,
+                });
+            })
+            .catch((err) => {
+                dispatch({
+                    type: GETTING_USER_FAIL,
+                    payload: err,
+                });
+            });
+    };
+}
+
+export function updateUser(updatedInfo) {
+    const userId = localStorage.getItem("id");
+
+    return (dispatch) => {
+        dispatch({ type: UPDATING_USER });
+
+        return axios
+            .put(`http://localhost:5001/api/${userId}`, updatedInfo)
+            .then((res) => {
+                dispatch({
+                    type: UPDATING_USER_SUCCESS,
+                    payload: res.data.user,
+                });
+            })
+            .catch((err) => {
+                dispatch({
+                    type: UPDATING_USER_FAIL,
                     payload: err,
                 });
             });

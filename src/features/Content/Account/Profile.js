@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { Link, Redirect, withRouter } from "react-router-dom";
+import { Link, Redirect, withRouter, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { updateUser } from "../../../actions";
+import { getUser } from "../../../actions";
 import SideNavBar from "./SideNavBar";
 import NavBar from "../../Nav/NavBar";
 import "./Profile.css";
 import Footer from "../../Footer/Footer";
 
-function Profile({ user }) {
+function Profile({ user, updateUser, getUser }) {
     const [updateActive, setUpdateActive] = useState(false);
     const [nameValue, setNameValue] = useState("");
     const [usernameValue, setUsernameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
     const [shoeSizeValue, setShoeSizeValue] = useState("");
+
+    let history = useHistory();
 
     const changeInfo = () => {
         setUpdateActive(!updateActive);
@@ -31,9 +35,19 @@ function Profile({ user }) {
         setShoeSizeValue(e.target.value);
     };
 
-    // const resetInputField = () => {
-    //     setUsernameValue("");
-    // };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let updatedInfo = {
+            name: nameValue === "" ? user.name : nameValue,
+            username: usernameValue === "" ? user.username : usernameValue,
+            email: emailValue === "" ? user.email : emailValue,
+            shoeSize: shoeSizeValue === "" ? user.shoeSize : shoeSizeValue,
+        };
+
+        updateUser(updatedInfo);
+        setUpdateActive(false);
+    };
 
     const currentUser = localStorage.getItem("id");
 
@@ -71,13 +85,14 @@ function Profile({ user }) {
                     </div>
                     <div className={`profile-info-forms ${!updateActive ? "inactive" : "active"}`}>
                         <div className="edit-container">
-                            <form className="edit-form" noValidate autoComplete>
+                            <form className="edit-form" onSubmit={(e) => handleSubmit(e)} noValidate autoComplete>
                                 <input
                                     className="name-input"
                                     value={nameValue}
                                     onChange={handleNameInputChanges}
                                     type="text"
                                     placeholder={user.name}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 <input
                                     className="username-input"
@@ -85,6 +100,7 @@ function Profile({ user }) {
                                     onChange={handleUsernameInputChanges}
                                     type="text"
                                     placeholder={user.username}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 <input
                                     className="email-input"
@@ -92,6 +108,7 @@ function Profile({ user }) {
                                     onChange={handleEmailInputChanges}
                                     type="text"
                                     placeholder={user.email}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 <input
                                     className="shoeSize-input"
@@ -99,12 +116,13 @@ function Profile({ user }) {
                                     onChange={handleShoeSizeInputChanges}
                                     type="text"
                                     placeholder={user.shoeSize}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 <div className="edit-buttons">
                                     <button className="edit-submit-button" type="submit">
                                         Submit
                                     </button>
-                                    <button className="edit-cancel-button" onClick={changeInfo}>
+                                    <button className="edit-cancel-button" type="button" onClick={changeInfo}>
                                         Cancel
                                     </button>
                                 </div>
@@ -127,4 +145,9 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default withRouter(connect(mapStateToProps)(Profile));
+const mapDispatchToProps = {
+    updateUser,
+    getUser,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Profile));

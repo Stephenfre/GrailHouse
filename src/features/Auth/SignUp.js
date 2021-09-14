@@ -174,6 +174,7 @@ function SignUp({ dispatch }) {
                                     onChange={nameChangedHandler}
                                     onBlur={nameBlurHandler}
                                     value={enteredName}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 {nameInputHasError && <p className="error-text">Must enter Full Name</p>}
                             </div>
@@ -185,6 +186,7 @@ function SignUp({ dispatch }) {
                                     onChange={usernameChangedHandler}
                                     onBlur={usernameBlurHandler}
                                     value={enteredUsername}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 {usernameInputHasError && <p className="error-text">Must enter Username</p>}
                             </div>
@@ -196,6 +198,7 @@ function SignUp({ dispatch }) {
                                     onChange={emailChangedHandler}
                                     onBlur={emailBlurHandler}
                                     value={enteredEmail}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 {emailInputHasError && <p className="error-text">Must enter a valid Email</p>}
                             </div>
@@ -207,6 +210,7 @@ function SignUp({ dispatch }) {
                                     onChange={passwordChangedHandler}
                                     onBlur={passwordBlurHandler}
                                     value={enteredPassword}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 {passwordInputHasError && <p className="error-text">Must enter a vaild Password</p>}
                             </div>

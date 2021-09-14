@@ -66,6 +66,7 @@ function Search({ searchingShoes }) {
                     padding: "10px",
                     fontSize: "13px",
                 }}
+                onFocus={(e) => (e.target.placeholder = "")}
             />
             <button
                 type="submit"

@@ -23,6 +23,11 @@
         width: 80%;
     }
 
+    ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #afafaf;
+    }
+
     .edit-button.inactive {
         display: none;
     }
@@ -71,7 +76,7 @@
         width: 100%;
         background-color: white;
         border: 1px solid #c5c5c5;
-        color: #c5c5c5;
+        color: black;
         margin: 20px 0;
         padding: 0px 10px;
     }

@@ -138,6 +138,7 @@ function SignIn({ dispatch, isLoggedIn, message }) {
                                     onChange={emailChangedHandler}
                                     onBlur={emailBlurHandler}
                                     value={enteredEmail}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 {emailInputHasError && <p className="error-text">Must enter a valid</p>}
                             </div>
@@ -149,6 +150,7 @@ function SignIn({ dispatch, isLoggedIn, message }) {
                                     onChange={passwordChangedHandler}
                                     onBlur={passwordBlurHandler}
                                     value={enteredPassword}
+                                    onFocus={(e) => (e.target.placeholder = "")}
                                 />
                                 {passwordInputHasError && <p className="error-text">Must enter a vaild Password</p>}
                             </div>

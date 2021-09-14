@@ -35,6 +35,7 @@ function Search(props) {
                 onChange={handleSearchInputChanges}
                 type="text"
                 placeholder="Search for brand, color, etc"
+                onFocus={(e) => (e.target.placeholder = "")}
             />
             <button className="nav-search-button" type="submit">
                 <Icon icon={magnifyIcon} style={{ height: "1.5rem", width: "1.5rem" }} />
