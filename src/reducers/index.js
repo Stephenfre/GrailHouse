@@ -51,7 +51,7 @@ const initialState = {
         username: "",
         email: "",
         shoeSize: null,
-        closet: {},
+        closet: [],
     },
     closetId: {},
     shoeCloset: [],
