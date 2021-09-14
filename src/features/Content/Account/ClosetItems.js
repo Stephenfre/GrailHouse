@@ -13,6 +13,7 @@ function ClosetItems({ isViewActive, selectShoe, type, thumbnail, shoeName, id, 
     const dispatch = useDispatch();
 
     const removeShoe = (closetShoeId) => {
+        console.log("closet id", closetShoeId);
         dispatch(removeFromCloset(closetShoeId));
     };
 

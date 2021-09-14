@@ -42,9 +42,9 @@ function MoreSneakLinks({ getLinkShoes }) {
                 <Links onClick={() => getLinkShoes("puma")} to="/shoe/puma">
                     <li className="mobile-nav-li"> Puma </li>
                 </Links>
-                <Links onClick={() => getLinkShoes("kyrie")} to="/shoe/kyrie">
+                {/* <Links onClick={() => getLinkShoes("kyrie")} to="/shoe/kyrie">
                     <li className="mobile-nav-li"> All More Sneakers</li>
-                </Links>
+                </Links> */}
             </ul>
         </div>
     );

@@ -90,7 +90,6 @@
         flex-direction: column;
         justify-content: center;
         position: absolute;
-        margin-top: -50px;
     }
 
     .trending-prices.active {
@@ -186,8 +185,8 @@
     }
 
     .trending.active {
-        height: 320px;
-        width: 94.6%;
+        height: auto;
+        width: auto;
         display: flex;
         flex-direction: column;
         margin: 0 25px 27px 0;
@@ -206,14 +205,14 @@
     }
 
     .trending-shoes.active {
-        height: 100%;
-        width: 100%;
+        height: 110px;
+        width: 1200px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         border: 1px solid rgb(247 247 247);
-        margin-left: 10px;
+        margin-left: 0px;
     }
 
     .trending-shoes-img {
@@ -263,12 +262,11 @@
     }
 
     .trending-prices {
-        height: 27%;
+        height: 20%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         position: absolute;
-        margin-top: -50px;
     }
 
     .trending-prices.active {
@@ -282,7 +280,7 @@
 
     .trending-add-to-closet.active {
         width: 7%;
-        height: 15%;
+        height: 160px;
         display: flex;
         align-items: flex-end;
         position: absolute;
@@ -310,8 +308,8 @@
         align-items: flex-end;
         justify-content: space-between;
         position: absolute;
-        width: 14%;
-        height: 15%;
+        width: 13%;
+        height: 17%;
         margin-left: 10px;
     }
 
@@ -320,7 +318,7 @@
     }
 
     .trending-got-them-btn.active {
-        width: 5.7%;
+        width: 6%;
         height: 10%;
         border-radius: 13px;
         background-color: rgb(0, 189, 0);

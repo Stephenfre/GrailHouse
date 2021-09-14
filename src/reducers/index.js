@@ -50,7 +50,7 @@ const initialState = {
         name: "",
         username: "",
         email: "",
-        shoeSize: "",
+        shoeSize: null,
         closet: {},
     },
     closetId: {},

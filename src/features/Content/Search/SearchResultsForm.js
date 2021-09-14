@@ -71,10 +71,9 @@ function Search({ searchingShoes }) {
             <button
                 type="submit"
                 style={{
-                    position: "absolute",
+                    position: "relative",
                     background: "none",
-                    right: "16.4rem",
-                    bottom: "343px",
+                    right: "2.8rem",
                     margin: "0",
                     padding: "4px 0 0 0",
                     width: "0",

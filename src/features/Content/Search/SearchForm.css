@@ -17,9 +17,9 @@
     }
 
     .nav-search-button {
-        position: absolute;
+        position: relative;
         background: none;
-        right: 10.5rem;
+        right: 6.5rem;
         top: 1.7rem;
         margin: 0;
         padding: 0;
@@ -47,9 +47,9 @@
     }
 
     .nav-search-button {
-        position: absolute;
+        position: relative;
         background: none;
-        right: 12rem;
+        right: 6.5rem;
         top: 0.2rem;
         margin: 0;
         padding: 0;

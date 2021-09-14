@@ -163,7 +163,9 @@ function NavBar({ isLoggedIn, getLinkShoes }) {
                             </DropDownContent>
                         </DropDownLi>
                         <DropDownLi className="nav-list-li">
-                            <Dropbtn>More Sneakers</Dropbtn>
+                            <Dropbtn onClick={() => getLinkShoes("yeezy")} to="/shoe/asics">
+                                More Sneakers
+                            </Dropbtn>
                             <DropDownContent className="dropdown-content">
                                 <MoreSneakLinks />
                             </DropDownContent>

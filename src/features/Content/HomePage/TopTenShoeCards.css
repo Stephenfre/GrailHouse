@@ -215,8 +215,9 @@
 
     .topten-shoes-prices p {
         font-size: 12px;
-        font-weight: 300;
+        font-weight: 500;
         margin: 10px 10px 5px 10px;
+        color: #b9b9b9;
     }
 
     .add-to-closet.active {

@@ -5,8 +5,7 @@ import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
-// import WornPopUp from "../PopUps/WornPopUp";
-// import ConditionPopUp from "../PopUps/ConditionPopUp";
+import ConditionPopUp from "../PopUps/ConditionPopUp";
 import "./TopTenShoeCards.css";
 
 const Button = styled.button`
@@ -96,8 +95,9 @@ function TopTenShoeCards({ thumbnail, shoeName, id, styleId, lowestPrice, inClos
                     </div>
                 </div>
             </div>
-            <div className={`popup-box-container ${isDeadstock ? "active" : "inactive "}`}>{/* <WornPopUp /> */}</div>
-            {/* <ConditionPopUp /> */}
+            <div className={`popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
+                <ConditionPopUp />
+            </div>
         </div>
     );
 }

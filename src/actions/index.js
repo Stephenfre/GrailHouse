@@ -149,6 +149,7 @@ export function removeFromCloset(closetShoeId) {
         return axios
             .delete(`https://grailhouse.herokuapp.com/api/closet/${userId}/${closetShoeId}`)
             .then((res) => {
+                console.log("deleted shoe", res.data);
                 dispatch({
                     type: REMOVE_SHOE_SUCCESS,
                     payload: res.data,

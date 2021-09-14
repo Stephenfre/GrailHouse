@@ -1,12 +1,8 @@
 @media only screen and (min-width: 1440px) {
     .pagination {
-        position: relative;
-        top: 290px;
-        margin: 0px 0px 60px 0;
+        margin-left: 480px;
         display: flex;
         justify-content: center;
-        width: 65%;
-        left: 460px;
     }
 
     .pagination-list {
@@ -30,13 +26,9 @@
 
 @media only screen and (min-width: 1920px) {
     .pagination {
-        position: relative;
-        top: -90px;
-        margin: 0px;
+        margin-left: 480px;
         display: flex;
         justify-content: center;
-        width: 65%;
-        left: 545px;
     }
 
     .pagination-list {
