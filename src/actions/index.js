@@ -170,7 +170,7 @@ export function getUser() {
         dispatch({ type: GETTING_USER });
 
         return axios
-            .get(`http://localhost:5001/api/${userId}`)
+            .get(`https://grailhouse.herokuapp.com/api/${userId}`)
             .then((res) => {
                 dispatch({
                     type: GETTING_USER_SUCCESS,
@@ -193,7 +193,7 @@ export function updateUser(updatedInfo) {
         dispatch({ type: UPDATING_USER });
 
         return axios
-            .put(`http://localhost:5001/api/${userId}`, updatedInfo)
+            .put(`https://grailhouse.herokuapp.com/api/${userId}`, updatedInfo)
             .then((res) => {
                 dispatch({
                     type: UPDATING_USER_SUCCESS,
