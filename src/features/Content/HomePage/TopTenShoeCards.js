@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { useHistory, withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { addToCloset } from "../../../actions";
 import { removeFromCloset } from "../../../actions";
-import ConditionPopUp from "../PopUps/ConditionPopUp";
+// import ConditionPopUp from "../PopUps/ConditionPopUp";
 import "./TopTenShoeCards.css";
 
 const Button = styled.button`
@@ -31,7 +31,7 @@ const Button = styled.button`
 `;
 
 function TopTenShoeCards({ thumbnail, deadstock, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
-    const [isDeadstock, setIsDeadstock] = useState(false);
+    // const [isDeadstock, setIsDeadstock] = useState(false);
     let history = useHistory();
 
     const dispatch = useDispatch();
@@ -57,9 +57,9 @@ function TopTenShoeCards({ thumbnail, deadstock, shoeName, id, styleId, lowestPr
         dispatch(removeFromCloset(closetShoeId));
     };
 
-    const conditonHandler = () => {
-        setIsDeadstock(!isDeadstock);
-    };
+    // const conditonHandler = () => {
+    //     setIsDeadstock(!isDeadstock);
+    // };
 
     return (
         <div className="topten-shoes-card">
@@ -88,16 +88,16 @@ function TopTenShoeCards({ thumbnail, deadstock, shoeName, id, styleId, lowestPr
                                 onClick={() => removeShoe(id)}
                                 className={`topten-got-them-btn ${inCloset ? "active" : "inactive "}`}
                             ></button>
-                            <button className="condition-btn" onClick={conditonHandler}>
+                            {/* <button className="condition-btn" onClick={conditonHandler}>
                                 Condition: {deadstock}
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>
             </div>
-            <div className={`popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
+            {/* <div className={`popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
                 <ConditionPopUp />
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -92,14 +92,17 @@
 
 @media only screen and (max-width: 500px) {
     .closet {
-        height: 100vh;
         width: 100%;
         display: flex;
     }
 
     .closet-content {
-        height: 100%;
-        width: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding-top: 90px;
     }
 
     .closet-empty-shoes {
@@ -114,8 +117,8 @@
 
     .closet-shoes {
         margin-top: 50px;
-        margin-left: 50px;
-        width: 91%;
+        margin-left: 18px;
+        width: 396px;
         display: flex;
         flex-wrap: wrap;
     }

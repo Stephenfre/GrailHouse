@@ -14,7 +14,6 @@ import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import ShoeLinkDetails from "./ShoeLinkDetails";
 import SearchResultsForm from "../../Content/Search/SearchResultsForm";
 import LinksPagination from "./LinksPagination";
-import Pagination from "../../Content/TrendingShoes/Pagination/Pagination";
 import SideBar from "../../Content/SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 

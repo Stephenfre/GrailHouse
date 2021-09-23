@@ -7,10 +7,24 @@ import NavBar from "../../Nav/NavBar";
 import "./Closet.css";
 import Footer from "../../Footer/Footer";
 import ClosetItems from "./ClosetItems";
+// import ClosetPagination from "./ClosetPagination";
 import ShoeBoxes from "../../../Svgs/ShoeBoxes.svg";
 
 function Closet({ closet }) {
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [shoesPerPage] = useState(8);
+
+    console.log(closet);
+
     let closetId = JSON.parse(localStorage.getItem("closetId"));
+
+    //* Get Current Shoes
+    // const indexofLastShoe = currentPage * shoesPerPage;
+    // const indexOfFirstShoe = indexofLastShoe - shoesPerPage;
+    // const currentShoes = closet.slice(indexOfFirstShoe, indexofLastShoe);
+
+    //* Change page
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     useEffect(() => {
         closetId = JSON.parse(localStorage.getItem("closetId"));
@@ -59,6 +73,7 @@ function Closet({ closet }) {
                                 inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                             />
                         ))}
+                        {/* <ClosetPagination shoesPerPage={shoesPerPage} totalShoes={closet.length} paginate={paginate} /> */}
                     </div>
                 </div>
             </div>

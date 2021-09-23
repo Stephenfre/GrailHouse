@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect, useDispatch } from "react-redux";
+import { logout } from "../../actions/auth";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 
@@ -87,7 +89,7 @@ const SubLinks = styled(Link)`
     font-size: 20px;
 `;
 
-const MobileNav = ({ open }) => {
+const MobileNav = ({ open, isLoggedIn }) => {
     const classes = useStyles();
     const [openNike, setOpenNike] = useState(false);
     const [openJordan, setOpenJordan] = useState(false);
@@ -95,6 +97,11 @@ const MobileNav = ({ open }) => {
     const [openNewBalance, setOpenNewBalance] = useState(false);
     const [openMore, setOpenMore] = useState(false);
     const [openAccount, setOpenAccount] = useState(false);
+    const dispatch = useDispatch();
+
+    const logOut = () => {
+        dispatch(logout(window.location.reload()));
+    };
 
     const nikeHandle = () => {
         setOpenNike(!openNike);
@@ -122,7 +129,10 @@ const MobileNav = ({ open }) => {
 
     return (
         <Ul open={open}>
-            <Link to="/trendingshoes" style={{ margin: "0 0 1.5rem 1rem", color: "black", fontSize: "1.75rem" }}>
+            <Link
+                to="/trendingshoes"
+                style={{ margin: "0 0 1.5rem 1rem", color: "black", fontSize: "1.75rem", textDecoration: "none" }}
+            >
                 Browser All
             </Link>
             {/* <Divider /> */}
@@ -205,30 +215,41 @@ const MobileNav = ({ open }) => {
                     <List component="div" disablePadding>
                         <ListItem button className={classes.nested}>
                             <SubLinks to="/account/profile">
-                                <ListItemText classes={{ primary: classes.sublinktext }} primary="My Account" />
+                                <ListItemText classes={{ primary: classes.sublinktext }} primary="Profile" />
                             </SubLinks>
                         </ListItem>
                         <ListItem button className={classes.nested}>
-                            <SubLinks to="/account/profile">
-                                <ListItemText classes={{ primary: classes.sublinktext }} primary="My Closet" />
+                            <SubLinks to="/account/closet">
+                                <ListItemText classes={{ primary: classes.sublinktext }} primary="Closet" />
                             </SubLinks>
                         </ListItem>
-                        <ListItem button className={classes.nested}>
+                        {/* <ListItem button className={classes.nested}>
                             <SubLinks to="/account/profile">
                                 <ListItemText classes={{ primary: classes.sublinktext }} primary="Settings" />
                             </SubLinks>
-                        </ListItem>
+                        </ListItem> */}
                     </List>
                 </Collapse>
             </List>
             {/* <Divider /> */}
-            <div className="sign-in-bttn" style={{ height: "100px" }}>
+            <div className={`sign-in-bttn ${!isLoggedIn ? "" : "inactive"}`} style={{ height: "100px" }}>
                 <StyledLinkBtn to="/SignUp" className="trending-btn">
                     Sign Up / Sign In
+                </StyledLinkBtn>
+            </div>
+            <div className={`sign-out-bttn ${!isLoggedIn ? " " : " active"}`} style={{ height: "100px" }}>
+                <StyledLinkBtn onClick={logOut} to="/" className="trending-btn">
+                    Logout
                 </StyledLinkBtn>
             </div>
         </Ul>
     );
 };
 
-export default MobileNav;
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.isLoggedIn,
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(MobileNav));

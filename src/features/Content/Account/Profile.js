@@ -80,6 +80,20 @@ function Profile({ user, updateUser, getUser }) {
                             </div>
                         </div>
                     </div>
+                    <div className={`profile-info-mobile ${!updateActive ? "" : "inactive"}`}>
+                        <div className="user-info-mobile">
+                            <p>Name: {user.name}</p>
+                            <br />
+                            <p>Username: {user.username}</p>
+                            <br />
+                            <p>Email: {user.email}</p>
+                            <br />
+                            <p>Shoe Size: {user.shoeSize}</p>
+                            <br />
+                            <p>Reset Password:</p>
+                            <Link to="/">Reset Password</Link>
+                        </div>
+                    </div>
                     <div className={`profile-info-forms ${!updateActive ? "inactive" : "active"}`}>
                         <div className="edit-container">
                             <form className="edit-form" onSubmit={(e) => handleSubmit(e)} noValidate autoComplete>

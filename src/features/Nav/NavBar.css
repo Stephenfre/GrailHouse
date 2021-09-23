@@ -378,6 +378,21 @@
         justify-content: center;
     }
 
+    .sign-in-bttn.inactive {
+        display: none;
+    }
+    .sign-out-bttn {
+        display: none;
+    }
+
+    .sign-out-bttn.active {
+        height: 45%;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
     button {
         text-decoration: none;
         background: black;

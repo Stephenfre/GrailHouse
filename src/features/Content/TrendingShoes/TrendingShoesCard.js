@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { useHistory, withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
@@ -32,7 +32,7 @@ const Button = styled.button`
 `;
 
 function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, lowestPrice, isLoggedIn, inCloset }) {
-    const [isDeadstock, setIsDeadstock] = useState(false);
+    // const [isDeadstock, setIsDeadstock] = useState(false);
 
     let history = useHistory();
     const dispatch = useDispatch();
@@ -48,7 +48,7 @@ function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, low
                 shoeName: shoeName,
                 lowestPrice: lowestPrice,
                 thumbnail: thumbnail,
-                deadstock: isDeadstock,
+                // deadstock: isDeadstock,
             })
         );
     };
@@ -57,9 +57,9 @@ function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, low
         dispatch(removeFromCloset(closetShoeId));
     };
 
-    const conditonHandler = () => {
-        setIsDeadstock(!isDeadstock);
-    };
+    // const conditonHandler = () => {
+    //     setIsDeadstock(!isDeadstock);
+    // };
 
     return (
         <div className={"trending" + (isViewActive ? " active" : "")}>
@@ -92,9 +92,9 @@ function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, low
                                     onClick={removeShoe}
                                     className={`trending-got-them-btn ${inCloset ? "active" : "inactive "}`}
                                 ></button>
-                                <button className="trending-condition-btn" onClick={conditonHandler}>
+                                {/* <button className="trending-condition-btn" onClick={conditonHandler}>
                                     Deadstock
-                                </button>
+                                </button> */}
                             </div>
                         </span>
                         <span className={"list-view-add" + (isViewActive ? " " : " inactive")}>
@@ -106,9 +106,9 @@ function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, low
                                     onClick={removeShoe}
                                     className={`trending-got-them-btn-list ${inCloset ? "active" : "inactive "}`}
                                 ></button>
-                                <button className="trending-condition-btn-list" onClick={conditonHandler}>
+                                {/* <button className="trending-condition-btn-list" onClick={conditonHandler}>
                                     Deadstock
-                                </button>
+                                </button> */}
                             </div>
                         </span>
                     </div>

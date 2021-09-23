@@ -28,6 +28,7 @@ export default function App() {
                         <Route exact path="/signup" component={SignUp} />
                         <Route exact path="/account/profile" component={Profile} />
                         <Route exact path="/account/closet" component={Closet} />
+                        <Route exact path="/account/closet/:pagenumber" component={Closet} />
                         <Route exact path="/account/closet/details/:id/:styleId" component={Details} />
                         <Route exact path="/account/portfolio" component={Portfolio} />
                         <Route exact path="/ourstory" component={OurStory} />

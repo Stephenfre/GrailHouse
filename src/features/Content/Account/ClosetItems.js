@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
 import { removeFromCloset } from "../../../actions";
-import ConditionPopUp from "../PopUps/ConditionPopUp";
+// import ConditionPopUp from "../PopUps/ConditionPopUp";
 
 import "../TrendingShoes/TrendingShoesCard.css";
 
 function ClosetItems({ isViewActive, deadstock, thumbnail, shoeName, id, styleId, lowestPrice }) {
-    const [isDeadstock, setIsDeadstock] = useState(false);
+    // const [isDeadstock, setIsDeadstock] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -17,11 +17,9 @@ function ClosetItems({ isViewActive, deadstock, thumbnail, shoeName, id, styleId
         dispatch(removeFromCloset(closetShoeId));
     };
 
-    console.log("clset", deadstock, thumbnail, shoeName, id, styleId, lowestPrice);
-
-    const conditonHandler = () => {
-        setIsDeadstock(!isDeadstock);
-    };
+    // const conditonHandler = () => {
+    //     setIsDeadstock(!isDeadstock);
+    // };
 
     return (
         <div className={"trending" + (isViewActive ? " active" : "")}>
@@ -39,26 +37,26 @@ function ClosetItems({ isViewActive, deadstock, thumbnail, shoeName, id, styleId
                             <p>Lowest Price</p>
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>
-                        <div className="trending-got-them active" style={{ width: "13%", height: "20%" }}>
+                        <div className="trending-got-them active" style={{ width: "13%", height: "19%" }}>
                             <button
                                 onClick={() => removeShoe(id)}
                                 className="trending-got-them-btn active"
-                                style={{ width: "9%" }}
+                                // style={{ width: "9%" }}
                             ></button>
-                            <button
+                            {/* <button
                                 className="trending-condition-btn"
                                 onClick={conditonHandler}
                                 style={{ width: "60%" }}
                             >
                                 Condition: {deadstock}
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>
             </div>
-            <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
+            {/* <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
                 <ConditionPopUp />
-            </div>
+            </div> */}
         </div>
     );
 }
