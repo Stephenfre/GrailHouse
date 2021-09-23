@@ -112,7 +112,7 @@
 
     .grid-view-add {
         position: absolute;
-        height: 117%;
+        height: 21%;
         width: 17%;
     }
 
@@ -122,7 +122,7 @@
 
     .trending-add-to-closet.active {
         width: 50%;
-        height: 18%;
+        height: 100%;
         display: flex;
         align-items: flex-end;
         position: absolute;
@@ -139,7 +139,7 @@
         justify-content: space-between;
         position: absolute;
         width: 100%;
-        height: 18%;
+        height: 100%;
         margin-left: 10px;
     }
 
@@ -359,18 +359,21 @@
         margin: 0 10px;
     }
 
+    /* * Grid view */
+
+    .grid-view-add {
+        position: absolute;
+        height: 19%;
+        width: 13%;
+    }
     .trending-add-to-closet.active {
-        width: 7%;
-        height: 160px;
+        width: 41%;
+        height: 95%;
         display: flex;
         align-items: flex-end;
         position: absolute;
         margin-left: 10px;
     }
-
-    /* .trending-add-to-closet.active {
-    list view 
-} */
 
     .trending-add-to-closet.inactive {
         display: none;
@@ -389,8 +392,8 @@
         align-items: flex-end;
         justify-content: space-between;
         position: absolute;
-        width: 13%;
-        height: 17%;
+        width: 94%;
+        height: 95%;
         margin-left: 10px;
     }
 
@@ -399,8 +402,8 @@
     }
 
     .trending-got-them-btn.active {
-        width: 6%;
-        height: 10%;
+        width: 8%;
+        height: 11%;
         border-radius: 13px;
         background-color: rgb(0, 189, 0);
         padding: 0px;
@@ -426,6 +429,70 @@
         background: rgb(247, 247, 247);
         color: gray;
     }
+
+    /* * List view */
+
+    .grid-view-add.inactive {
+        display: none;
+    }
+
+    .trending-add-to-closet-list {
+        width: 7%;
+        height: 6%;
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        margin-left: 10px;
+    }
+
+    .trending-add-to-closet-list.inactive {
+        display: none;
+    }
+
+    .trending-got-them-list.active {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        position: absolute;
+        width: 16.5%;
+        height: 6%;
+        margin-left: 10px;
+    }
+
+    .trending-got-them-list.inactive {
+        display: none;
+    }
+
+    .trending-got-them-btn-list.active {
+        width: 5%;
+        height: 30%;
+        border-radius: 13px;
+        background-color: rgb(0, 189, 0);
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    .trending-condition-btn-list {
+        font-size: 13px;
+        font-weight: 400;
+        font-family: "Source Sans Pro", sans-serif;
+        margin: 0px;
+        color: grey;
+    }
+
+    .trending-got-them-list button {
+        background: none;
+        padding: 0;
+        width: 40%;
+        font-weight: 600;
+    }
+
+    .trending-condition-btn-list:hover {
+        background: rgb(247, 247, 247);
+        color: gray;
+    }
+
+    /* * List view ends here */
 
     .trending-popup-box-container.active {
         z-index: 1;
