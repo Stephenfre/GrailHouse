@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 import "./Pagination.css";
 
-const Links = styled(Link)`
+const Links = styled(NavLink)`
     text-decoration: none;
     color: black;
     &:hover {
         color: black;
+    }
+    &.active {
+        color: white;
     }
 `;
 
@@ -33,7 +36,8 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
                         key={index}
                         to={`/trendingshoes/${number}`}
                         onClick={() => clickHandler(number)}
-                        className={`trending-page-link ${isActive ? "active" : "inactive"}`}
+                        className="trending-page-link"
+                        activeClassName="active"
                     >
                         <li key={number} className="page-item">
                             {number}

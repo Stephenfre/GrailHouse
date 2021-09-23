@@ -9,6 +9,120 @@
         height: 100%;
         width: 80%;
     }
+
+    ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #afafaf;
+    }
+
+    .edit-button.inactive {
+        display: none;
+    }
+
+    .profile-info.inactive {
+        display: none;
+    }
+
+    .profile-info {
+        height: 20%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 3rem;
+    }
+
+    .profile-info-forms.active {
+        height: 520px;
+        margin-left: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .edit-button {
+        width: 160px;
+        margin-left: 48px;
+        margin-top: 97px;
+    }
+
+    .edit-container {
+        height: 100%;
+        width: 700px;
+    }
+
+    .edit-form {
+        height: 100%;
+    }
+
+    .name-input,
+    .username-input,
+    .email-input,
+    .email-input {
+        height: 40px;
+        width: 100%;
+        background-color: white;
+        border: 1px solid #c5c5c5;
+        color: black;
+        margin: 20px 0;
+        padding: 0px 10px;
+    }
+
+    .shoeSize-input {
+        height: 40px;
+        width: 7%;
+        background-color: white;
+        border: 1px solid #c5c5c5;
+        color: #c5c5c5;
+        margin: 20px 0;
+        padding: 0px 10px;
+    }
+
+    .edit-buttons {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .edit-submit-button,
+    .edit-cancel-button {
+        width: 30%;
+    }
+
+    .profile-info-forms.inactive {
+        display: none;
+    }
+
+    .username-shoesize {
+        display: flex;
+        width: 55%;
+        height: 50%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .email-password {
+        display: flex;
+        width: 59.4%;
+        height: 30%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .title {
+        height: 10%;
+        width: 90%;
+        text-align: center;
+        font-size: 1.3rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 3rem;
+        border-bottom: 1px solid lightgray;
+    }
 }
 
 @media only screen and (min-width: 1920px) {

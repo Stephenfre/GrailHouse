@@ -4,6 +4,7 @@
         display: flex;
         justify-content: center;
         padding-top: 50px;
+        width: 95%;
     }
 
     .pagination-list {
@@ -27,7 +28,8 @@
 
 @media only screen and (min-width: 1920px) {
     .pagination {
-        margin-left: 480px;
+        /* margin-left: 480px; */
+        width: 80%;
         display: flex;
         justify-content: center;
     }
@@ -73,6 +75,10 @@
     .trending-page-link {
         border: 1px solid black;
         margin: 0px 5px;
+    }
+
+    .trending-page-link.active {
+        background: black;
     }
 
     .page-item {

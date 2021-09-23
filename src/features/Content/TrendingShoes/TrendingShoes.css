@@ -167,7 +167,7 @@
 
 @media only screen and (max-width: 500px) {
     .cta-trending-img {
-        height: 40%;
+        height: 350px;
         width: 100%;
         background: black;
     }
@@ -178,26 +178,23 @@
 
     .title-details {
         width: 100%;
-        height: 5rem;
+        height: 2rem;
         display: flex;
         align-items: center;
-        margin: 3rem 0 0 2.1rem;
+        margin: 3rem 0 0;
         justify-content: flex-end;
     }
 
     .trending-content {
-        height: 2600px;
         width: 96%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 300px;
     }
 
     .title-links-filters-view {
         width: 100%;
         display: flex;
-        justify-content: flex-end;
         align-items: center;
         margin-bottom: 2.5rem;
     }
@@ -210,7 +207,6 @@
     }
 
     .trending-shoes-container {
-        height: 100%;
         width: 100%;
         display: flex;
         justify-content: space-evenly;
@@ -222,10 +218,11 @@
     }
 
     .options-mobile {
-        width: 100%;
+        display: none;
+        /* width: 100%;
         height: 40px;
         border: 1px solid black;
-        margin-right: 40px;
+        margin-right: 40px; */
     }
 
     .trending-shoes-content {
@@ -236,9 +233,9 @@
         justify-content: flex-start;
     }
 
-    .search-links-results-details {
+    /* .search-links-results-details {
         display: none;
-    }
+    } */
 
     .search-bar-details {
         display: none;

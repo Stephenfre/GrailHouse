@@ -82,6 +82,9 @@ function SearchedShoesDetails({ isViewActive, thumbnail, shoeName, id, styleId, 
                             <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
                                 <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
                             </div>
+                            <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
+                                <Button onClick={addShoeToCloset}></Button>
+                            </div>
 
                             <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                                 <button
@@ -107,15 +110,9 @@ function SearchedShoesDetails({ isViewActive, thumbnail, shoeName, id, styleId, 
                                 </button>
                             </div>
                         </span>
-                        <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={addShoeToCloset}></Button>
-                        </div>
                     </div>
                 </div>
             </div>
-            {/* <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
-                <WornPopUp />
-            </div> */}
         </div>
     );
 }

@@ -1,12 +1,10 @@
 @media only screen and (min-width: 1440px) {
     .links-pagination {
-        position: relative;
-        top: 290px;
-        margin: 0px 0px 60px 0;
+        margin-left: -20px;
         display: flex;
         justify-content: center;
-        width: 65%;
-        left: 460px;
+        padding-top: 50px;
+        width: 95%;
     }
 
     .links-pagination-list {
@@ -30,12 +28,9 @@
 
 @media only screen and (min-width: 1920px) {
     .links-pagination {
-        position: relative;
-        top: -90px;
-        margin: 0px;
+        width: 80%;
         display: flex;
         justify-content: center;
-        width: 65%;
         left: 545px;
     }
 
@@ -80,6 +75,10 @@
     .link-page-link {
         border: 1px solid black;
         margin: 0px 5px;
+    }
+
+    .link-page-link.active {
+        background: black;
     }
 
     .link-page-item {

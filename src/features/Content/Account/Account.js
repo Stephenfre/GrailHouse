@@ -45,12 +45,9 @@ function Account() {
             <div className="account-content">
                 <StyledLinks to="/account/profile">My Account</StyledLinks>
                 <StyledLinks to="/account/closet">My Closet</StyledLinks>
-                <StyledLinks to="/settings">Settings</StyledLinks>
+                <StyledLinks to="/account/settings">Settings</StyledLinks>
             </div>
             <div className="sign-in-bttn">
-                {/* <StyledLinkBtn to="/signup" className="trending-btn">
-                    Sign Up / Sign In
-                </StyledLinkBtn> */}
                 <StyledLinkBtn onClick={logOut} to="/" className="trending-btn">
                     Logout
                 </StyledLinkBtn>

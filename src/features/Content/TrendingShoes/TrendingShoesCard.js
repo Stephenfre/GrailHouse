@@ -22,7 +22,7 @@ const Button = styled.button`
     text-align: center;
     cursor: pointer;
     @media (max-width: 500px) {
-        width: 23%;
+        width: 28%;
         height: 9%;
         border-radius: 13px;
         background-color: white;
@@ -83,6 +83,9 @@ function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, low
                             <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
                                 <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
                             </div>
+                            <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
+                                <Button onClick={addShoeToCloset}></Button>
+                            </div>
 
                             <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                                 <button
@@ -108,15 +111,9 @@ function TrendingShoesCard({ isViewActive, thumbnail, shoeName, id, styleId, low
                                 </button>
                             </div>
                         </span>
-                        <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={addShoeToCloset}></Button>
-                        </div>
                     </div>
                 </div>
             </div>
-            {/* <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
-                <WornPopUp />
-            </div> */}
         </div>
     );
 }

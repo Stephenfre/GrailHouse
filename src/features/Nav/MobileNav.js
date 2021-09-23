@@ -15,7 +15,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import Divider from "@material-ui/core/Divider";
+// import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -125,7 +125,7 @@ const MobileNav = ({ open }) => {
             <Link to="/trendingshoes" style={{ margin: "0 0 1.5rem 1rem", color: "black", fontSize: "1.75rem" }}>
                 Browser All
             </Link>
-            <Divider />
+            {/* <Divider /> */}
             <List>
                 <ListItem button onClick={nikeHandle}>
                     <ListItemText classes={{ primary: classes.listItemText }} primary="Nike" />
@@ -139,7 +139,7 @@ const MobileNav = ({ open }) => {
                     </List>
                 </Collapse>
             </List>
-            <Divider />
+            {/* <Divider /> */}
             <List>
                 <ListItem button onClick={jordanHandle}>
                     <ListItemText classes={{ primary: classes.listItemText }} primary="Jordan" />
@@ -153,7 +153,7 @@ const MobileNav = ({ open }) => {
                     </List>
                 </Collapse>
             </List>
-            <Divider />
+            {/* <Divider /> */}
             <List>
                 <ListItem button onClick={adidasHandle}>
                     <ListItemText classes={{ primary: classes.listItemText }} primary="Adidas" />
@@ -167,7 +167,7 @@ const MobileNav = ({ open }) => {
                     </List>
                 </Collapse>
             </List>
-            <Divider />
+            {/* <Divider /> */}
             <List>
                 <ListItem button onClick={newBalanceHandle}>
                     <ListItemText classes={{ primary: classes.listItemText }} primary="Yeezy" />
@@ -181,7 +181,7 @@ const MobileNav = ({ open }) => {
                     </List>
                 </Collapse>
             </List>
-            <Divider />
+            {/* <Divider /> */}
             <List>
                 <ListItem button onClick={moreHandle}>
                     <ListItemText classes={{ primary: classes.listItemText }} primary="More Sneakers" />
@@ -195,7 +195,7 @@ const MobileNav = ({ open }) => {
                     </List>
                 </Collapse>
             </List>
-            <Divider />
+            {/* <Divider /> */}
             <List>
                 <ListItem button onClick={accountHandle}>
                     <ListItemText classes={{ primary: classes.listItemText }} primary="Account" />
@@ -221,8 +221,8 @@ const MobileNav = ({ open }) => {
                     </List>
                 </Collapse>
             </List>
-            <Divider />
-            <div className="sign-in-bttn" style={{ height: "25%" }}>
+            {/* <Divider /> */}
+            <div className="sign-in-bttn" style={{ height: "100px" }}>
                 <StyledLinkBtn to="/SignUp" className="trending-btn">
                     Sign Up / Sign In
                 </StyledLinkBtn>

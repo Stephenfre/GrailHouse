@@ -26,7 +26,7 @@ const StyledLinks = styled(Link)`
 
 function Search({ searchResults, searchShoes, shoeName, closet }) {
     const [currentPage, setCurrentPage] = useState(1);
-    const [shoesPerPage] = useState(16);
+    const [shoesPerPage] = useState(24);
     const [isViewActive, setIsViewActive] = useState(false);
     let params = useParams();
     const newShoeName = params.shoe.toUpperCase();
@@ -64,7 +64,7 @@ function Search({ searchResults, searchShoes, shoeName, closet }) {
                                     <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
                                     {" / "}
                                     <StyledLinks to={`/${params.shoe}`}>{newShoeName}</StyledLinks>
-                                    <div>
+                                    <div className="search-results-name">
                                         <h3>Search results for " {newShoeName} "</h3>
                                     </div>
                                 </div>

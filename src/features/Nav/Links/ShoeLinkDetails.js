@@ -21,6 +21,14 @@ const Button = styled.button`
     border: none;
     text-align: center;
     cursor: pointer;
+    @media (max-width: 500px) {
+        width: 28%;
+        height: 9%;
+        border-radius: 13px;
+        background-color: white;
+        padding: 0px;
+        border: 1px solid black;
+    }
 `;
 
 function ShoeLinkDetails({
@@ -86,6 +94,9 @@ function ShoeLinkDetails({
                             <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
                                 <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
                             </div>
+                            <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
+                                <Button onClick={addShoeToCloset}></Button>
+                            </div>
 
                             <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
                                 <button
@@ -111,15 +122,9 @@ function ShoeLinkDetails({
                                 </button>
                             </div>
                         </span>
-                        <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={addShoeToCloset}></Button>
-                        </div>
                     </div>
                 </div>
             </div>
-            {/* <div className={`trending-popup-box-container ${isDeadstock ? "active" : "inactive "}`}>
-                <WornPopUp />
-            </div> */}
         </div>
     );
 }

@@ -13,7 +13,7 @@ import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
 import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import ShoeLinkDetails from "./ShoeLinkDetails";
 import SearchResultsForm from "../../Content/Search/SearchResultsForm";
-// import LinksPagination from "./LinksPagination";
+import LinksPagination from "./LinksPagination";
 import Pagination from "../../Content/TrendingShoes/Pagination/Pagination";
 import SideBar from "../../Content/SideBar/SideBar";
 import Footer from "../../Footer/Footer";
@@ -31,7 +31,7 @@ const StyledLinks = styled(Link)`
 
 function ShoeLink({ linkShoesResults, findingLinkShoes, closet }) {
     const [currentPage, setCurrentPage] = useState(1);
-    const [shoesPerPage] = useState(16);
+    const [shoesPerPage] = useState(24);
     const [isViewActive, setIsViewActive] = useState(false);
 
     const params = useParams();
@@ -66,7 +66,7 @@ function ShoeLink({ linkShoesResults, findingLinkShoes, closet }) {
                     </div>
                     <div className={`shoelinks-shoes-content ${isViewActive ? "active" : "inactive"}`}>
                         <div className="title-details">
-                            <div className="shoelinks-title-links-filters-view">
+                            <div className="title-links-filters-view">
                                 <div className="shoelinks-search-links-results-details">
                                     <StyledLinks to="/">HOME</StyledLinks>
                                     {" / "}
@@ -114,7 +114,7 @@ function ShoeLink({ linkShoesResults, findingLinkShoes, closet }) {
                                     inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                                 />
                             ))}
-                        <Pagination
+                        <LinksPagination
                             shoesPerPage={shoesPerPage}
                             totalShoes={linkShoesResults.length}
                             paginate={paginate}

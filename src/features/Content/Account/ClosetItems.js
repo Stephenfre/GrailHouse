@@ -39,9 +39,17 @@ function ClosetItems({ isViewActive, deadstock, thumbnail, shoeName, id, styleId
                             <p>Lowest Price</p>
                             <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
                         </div>
-                        <div className="trending-got-them active">
-                            <button onClick={() => removeShoe(id)} className="trending-got-them-btn active"></button>
-                            <button className="trending-condition-btn" onClick={conditonHandler}>
+                        <div className="trending-got-them active" style={{ width: "13%", height: "20%" }}>
+                            <button
+                                onClick={() => removeShoe(id)}
+                                className="trending-got-them-btn active"
+                                style={{ width: "9%" }}
+                            ></button>
+                            <button
+                                className="trending-condition-btn"
+                                onClick={conditonHandler}
+                                style={{ width: "60%" }}
+                            >
                                 Condition: {deadstock}
                             </button>
                         </div>

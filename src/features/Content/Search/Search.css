@@ -362,19 +362,20 @@
     }
 }
 
-@media (max-width: 500px) {
+@media only screen and (max-width: 500px) {
+    .search-results-name {
+        padding-top: 5px;
+    }
+
     .search-content {
-        height: 2750px;
-        width: 100%;
+        width: 96%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 100px;
-        overflow: hidden;
     }
 
     .search-cta-img {
-        height: 43%;
+        height: 350px;
         width: 100%;
         background-color: black;
     }
@@ -386,16 +387,16 @@
     }
 
     .title-details {
-        width: 85%;
-        height: 20%;
+        width: 100%;
+        height: 2rem;
         display: flex;
         align-items: center;
-        margin-top: 3.5rem;
+        margin: 3rem 0 0;
         justify-content: flex-end;
     }
 
     .search-links-results-details {
-        width: 50%;
+        width: 60%;
     }
 
     .search-bar-details {
@@ -406,14 +407,13 @@
     }
 
     .search-shoes-container.inactive {
-        height: 100%;
         width: 100%;
         display: flex;
         justify-content: space-evenly;
+        margin-left: 2rem;
     }
 
     .search-shoes-container.active {
-        height: 1700px;
         width: 100%;
         display: flex;
         justify-content: space-evenly;
@@ -424,24 +424,24 @@
     }
 
     .search-options-mobile {
-        width: 100%;
+        display: none;
+        /* width: 100%;
         height: 40px;
         border: 1px solid black;
         margin-right: 40px;
         display: flex;
-        margin-bottom: 40px;
+        margin-bottom: 40px; */
     }
 
     .search-shoes-content.inactive {
-        height: 2140px;
-        width: 90%;
+        height: 100%;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
     }
 
     .search-shoes-content.active {
-        height: 700px;
         width: 68%;
         display: flex;
         flex-wrap: nowrap;

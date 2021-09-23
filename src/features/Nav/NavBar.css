@@ -86,15 +86,15 @@
 
     .menu.active {
         position: absolute;
-        top: 75px;
-        width: 240px;
-        height: 230px;
-        right: 40px;
+        top: 10%;
+        width: 16.9%;
+        height: 30.2%;
+        right: 7%;
     }
 
     .sign-in-bttn {
         height: 45%;
-        width: 100%;
+        width: 90%;
         align-items: center;
         display: flex;
         justify-content: center;

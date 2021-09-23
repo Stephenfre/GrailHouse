@@ -8,6 +8,10 @@
     width: 100%;
 }
 
+.makeStyles-nested-2 {
+    padding-bottom: 40px;
+}
+
 @media only screen and (min-width: 1440px) {
     .content {
         width: 100%;
