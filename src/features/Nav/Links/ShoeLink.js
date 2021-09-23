@@ -13,7 +13,8 @@ import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
 import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import ShoeLinkDetails from "./ShoeLinkDetails";
 import SearchResultsForm from "../../Content/Search/SearchResultsForm";
-import LinksPagination from "./LinksPagination";
+// import LinksPagination from "./LinksPagination";
+import Pagination from "../../Content/TrendingShoes/Pagination/Pagination";
 import SideBar from "../../Content/SideBar/SideBar";
 import Footer from "../../Footer/Footer";
 
@@ -58,46 +59,46 @@ function ShoeLink({ linkShoesResults, findingLinkShoes, closet }) {
                 <img src={TrendingBackground} alt="cta-logo" />
             </div>
             <div className="shoelinks-content">
-                <div className="shoelinks-title-details">
-                    <div className="shoelinks-title-links-filters-view">
-                        <div className="shoelinks-search-links-results-details">
-                            <StyledLinks to="/">HOME</StyledLinks>
-                            {" / "}
-                            <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
-                            {" / "}
-                            <StyledLinks to={`/${params.shoeName}`}>{shoeParams}</StyledLinks>
-                        </div>
-                        <div className="shoelinks-options-mobile">filter</div>
-                        <div className="search-bar-details">
-                            <SearchResultsForm search={SearchResultsForm} />
-                            <Icon
-                                icon={gridIcon}
-                                onClick={() => setIsViewActive(!isViewActive)}
-                                style={
-                                    isViewActive
-                                        ? { color: "CECECE", width: "2.5rem", height: "2.5rem" }
-                                        : { color: "000000", width: "2.5rem", height: "2.5rem" }
-                                }
-                            />
-                            <Icon
-                                icon={menuIcon}
-                                onClick={() => setIsViewActive(!isViewActive)}
-                                className={`shoelinks-menu-list-icon ${isViewActive ? "active" : "inactive"}`}
-                                style={
-                                    isViewActive
-                                        ? { color: "000000", width: "2rem", height: "3rem" }
-                                        : { color: "CECECE", width: "2rem", height: "3rem" }
-                                }
-                            />
-                        </div>
-                    </div>
-                </div>
                 <div className={`shoelinks-shoes-container ${isViewActive ? "active" : "inactive"}`}>
                     <div className="shoelinks-options">
                         <h3>FILTER</h3>
                         <SideBar />
                     </div>
                     <div className={`shoelinks-shoes-content ${isViewActive ? "active" : "inactive"}`}>
+                        <div className="title-details">
+                            <div className="shoelinks-title-links-filters-view">
+                                <div className="shoelinks-search-links-results-details">
+                                    <StyledLinks to="/">HOME</StyledLinks>
+                                    {" / "}
+                                    <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
+                                    {" / "}
+                                    <StyledLinks to={`/${params.shoeName}`}>{shoeParams}</StyledLinks>
+                                </div>
+                                <div className="shoelinks-options-mobile">filter</div>
+                                <div className="search-bar-details">
+                                    <SearchResultsForm search={SearchResultsForm} />
+                                    <Icon
+                                        icon={gridIcon}
+                                        onClick={() => setIsViewActive(!isViewActive)}
+                                        style={
+                                            isViewActive
+                                                ? { color: "CECECE", width: "2.5rem", height: "2.5rem" }
+                                                : { color: "000000", width: "2.5rem", height: "2.5rem" }
+                                        }
+                                    />
+                                    <Icon
+                                        icon={menuIcon}
+                                        onClick={() => setIsViewActive(!isViewActive)}
+                                        className={`shoelinks-menu-list-icon ${isViewActive ? "active" : "inactive"}`}
+                                        style={
+                                            isViewActive
+                                                ? { color: "000000", width: "2rem", height: "3rem" }
+                                                : { color: "CECECE", width: "2rem", height: "3rem" }
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        </div>
                         {findingLinkShoes && <SkeletonCards />}
                         {!findingLinkShoes &&
                             currentShoes.map((shoe, i) => (
@@ -113,10 +114,14 @@ function ShoeLink({ linkShoesResults, findingLinkShoes, closet }) {
                                     inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                                 />
                             ))}
+                        <Pagination
+                            shoesPerPage={shoesPerPage}
+                            totalShoes={linkShoesResults.length}
+                            paginate={paginate}
+                        />
                     </div>
                 </div>
             </div>
-            <LinksPagination shoesPerPage={shoesPerPage} totalShoes={linkShoesResults.length} paginate={paginate} />
             <Footer />
         </React.Fragment>
     );

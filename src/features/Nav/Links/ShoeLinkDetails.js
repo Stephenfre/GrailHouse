@@ -78,19 +78,41 @@ function ShoeLinkDetails({
                         <p>{shoeName}</p>
                         <div className={"trending-prices" + (isViewActive ? " active" : "")}>
                             <p>Lowest Price</p>
-                            <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0" }}>${lowestPrice}</p>
+                            <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "0", color: "black" }}>
+                                ${lowestPrice}
+                            </p>
                         </div>
-                        <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
-                            <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
-                        </div>
-                        <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
-                            <button
-                                onClick={removeShoe}
-                                className={`trending-got-them-btn ${inCloset ? "active" : "inactive "}`}
-                            ></button>
-                            <button className="trending-condition-btn" onClick={conditonHandler}>
-                                Deadstock
-                            </button>
+                        <span className={"grid-view-add" + (isViewActive ? " inactive" : "")}>
+                            <div className={`trending-add-to-closet ${inCloset ? "inactive " : "active"}`}>
+                                <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
+                            </div>
+
+                            <div className={`trending-got-them ${inCloset ? "active" : "inactive "}`}>
+                                <button
+                                    onClick={removeShoe}
+                                    className={`trending-got-them-btn ${inCloset ? "active" : "inactive "}`}
+                                ></button>
+                                <button className="trending-condition-btn" onClick={conditonHandler}>
+                                    Deadstock
+                                </button>
+                            </div>
+                        </span>
+                        <span className={"list-view-add" + (isViewActive ? " " : " inactive")}>
+                            <div className={`trending-add-to-closet-list ${inCloset ? "inactive " : "active"}`}>
+                                <Button onClick={addShoeToCloset}>ADD TO CLOSET</Button>
+                            </div>
+                            <div className={`trending-got-them-list ${inCloset ? "active" : "inactive "}`}>
+                                <button
+                                    onClick={removeShoe}
+                                    className={`trending-got-them-btn-list ${inCloset ? "active" : "inactive "}`}
+                                ></button>
+                                <button className="trending-condition-btn-list" onClick={conditonHandler}>
+                                    Deadstock
+                                </button>
+                            </div>
+                        </span>
+                        <div className={`trending-add-to-closet-mobile ${inCloset ? "inactive " : "active"}`}>
+                            <Button onClick={addShoeToCloset}></Button>
                         </div>
                     </div>
                 </div>

@@ -50,49 +50,49 @@ function Search({ searchResults, searchShoes, shoeName, closet }) {
             <NavBar />
             <SearchCta />
             <div className="search-content">
-                <div className="title-details">
-                    <div className="title-links-filters-view">
-                        <div className="search-links-results-details">
-                            <StyledLinks to="/">HOME</StyledLinks>
-                            {" / "}
-                            <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
-                            {" / "}
-                            <StyledLinks to={`/${params.shoe}`}>{newShoeName}</StyledLinks>
-                            <div>
-                                <h3>Search results for " {newShoeName} "</h3>
-                            </div>
-                        </div>
-                        <div className="search-options-mobile">filter</div>
-                        <div className="search-bar-details">
-                            <SearchResultsForm search={SearchResultsForm} />
-                            <Icon
-                                icon={gridIcon}
-                                onClick={() => setIsViewActive(!isViewActive)}
-                                style={
-                                    isViewActive
-                                        ? { color: "CECECE", width: "2.5rem", height: "2.5rem" }
-                                        : { color: "000000", width: "2.5rem", height: "2.5rem" }
-                                }
-                            />
-                            <Icon
-                                icon={menuIcon}
-                                onClick={() => setIsViewActive(!isViewActive)}
-                                className={`menu-list-icon ${isViewActive ? "active" : "inactive"}`}
-                                style={
-                                    isViewActive
-                                        ? { color: "000000", width: "2rem", height: "3rem" }
-                                        : { color: "CECECE", width: "2rem", height: "3rem" }
-                                }
-                            />
-                        </div>
-                    </div>
-                </div>
                 <div className={`search-shoes-container ${isViewActive ? "active" : "inactive"}`}>
                     <div className="search-options">
                         <h3>FILTER</h3>
                         <SideBar />
                     </div>
                     <div className={`search-shoes-content ${isViewActive ? "active" : "inactive"}`}>
+                        <div className="title-details">
+                            <div className="title-links-filters-view">
+                                <div className="search-links-results-details">
+                                    <StyledLinks to="/">HOME</StyledLinks>
+                                    {" / "}
+                                    <StyledLinks to="/trendingshoes">SNEAKERS</StyledLinks>
+                                    {" / "}
+                                    <StyledLinks to={`/${params.shoe}`}>{newShoeName}</StyledLinks>
+                                    <div>
+                                        <h3>Search results for " {newShoeName} "</h3>
+                                    </div>
+                                </div>
+                                <div className="search-options-mobile">filter</div>
+                                <div className="search-bar-details">
+                                    <SearchResultsForm search={SearchResultsForm} />
+                                    <Icon
+                                        icon={gridIcon}
+                                        onClick={() => setIsViewActive(!isViewActive)}
+                                        style={
+                                            isViewActive
+                                                ? { color: "CECECE", width: "2.5rem", height: "2.5rem" }
+                                                : { color: "000000", width: "2.5rem", height: "2.5rem" }
+                                        }
+                                    />
+                                    <Icon
+                                        icon={menuIcon}
+                                        onClick={() => setIsViewActive(!isViewActive)}
+                                        className={`menu-list-icon ${isViewActive ? "active" : "inactive"}`}
+                                        style={
+                                            isViewActive
+                                                ? { color: "000000", width: "2rem", height: "3rem" }
+                                                : { color: "CECECE", width: "2rem", height: "3rem" }
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        </div>
                         {searchShoes && <SkeletonCards />}
                         {!searchShoes &&
                             currentShoes.map((shoe, i) => (
@@ -108,10 +108,15 @@ function Search({ searchResults, searchShoes, shoeName, closet }) {
                                     inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                                 />
                             ))}
+                        <SearchPaginate
+                            shoesPerPage={shoesPerPage}
+                            totalShoes={searchResults.length}
+                            paginate={paginate}
+                        />
                     </div>
                 </div>
             </div>
-            <SearchPaginate shoesPerPage={shoesPerPage} totalShoes={searchResults.length} paginate={paginate} />
+
             <Footer />
         </React.Fragment>
     );
