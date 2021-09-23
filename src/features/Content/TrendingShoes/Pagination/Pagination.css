@@ -1,8 +1,9 @@
 @media only screen and (min-width: 1440px) {
     .pagination {
-        margin-left: 480px;
+        margin-left: -20px;
         display: flex;
         justify-content: center;
+        padding-top: 50px;
     }
 
     .pagination-list {

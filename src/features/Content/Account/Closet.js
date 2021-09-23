@@ -55,7 +55,7 @@ function Closet({ closet }) {
                                 thumbnail={shoe.thumbnail}
                                 shoeName={shoe.shoeName}
                                 lowestPrice={shoe.lowestPrice}
-                                deadStock={shoe.deadStock}
+                                deadstock={shoe.deadstock}
                                 inCloset={closetId ? closetId.hasOwnProperty(shoe.shoeName) : false}
                             />
                         ))}

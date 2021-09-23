@@ -10,15 +10,54 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 495px;
+        margin: 0;
+        padding-top: 40px;
+    }
+
+    .trending-shoes-container.inactive {
+        width: 1240px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .trending-shoes-container.active {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .trending-shoes-content.inactive {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 0 130px 0px;
+    }
+
+    .trending-shoes-content.active {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 0 70px 20px;
+    }
+
+    .title-details {
+        width: 1190px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        justify-content: center;
+        margin-bottom: 20px;
     }
 
     .title-links-filters-view {
-        width: 75%;
+        width: 98%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1.5rem;
+        margin-right: 1.3rem;
     }
 
     .title-trending-hover-icon {
@@ -28,39 +67,12 @@
         align-items: flex-end;
     }
 
-    .trending-shoes-container.inactive {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .trending-shoes-container.active {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
     .options {
-        width: 20%;
+        display: none;
     }
 
-    /* .options-mobile {
-    display: none;
-} */
-
-    .trending-shoes-content.inactive {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-
-    .trending-shoes-content.active {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        justify-content: flex-start;
+    .options-mobile {
+        display: none;
     }
 
     .menu-list-icon.active {
@@ -99,6 +111,7 @@
     }
 
     .trending-shoes-content.inactive {
+        width: 1500px;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;

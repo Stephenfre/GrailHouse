@@ -20,7 +20,6 @@ export default function ConditionPopUp() {
         {
             id: 2,
             question2: "What condition is the shoe in?",
-            answer_2a: "Perfect",
             answer_2b: "Great",
             answer_2c: "Ok",
             answer_2d: "Bad",

@@ -7,7 +7,7 @@ import ConditionPopUp from "../PopUps/ConditionPopUp";
 
 import "../TrendingShoes/TrendingShoesCard.css";
 
-function ClosetItems({ isViewActive, selectShoe, type, thumbnail, shoeName, id, styleId, lowestPrice }) {
+function ClosetItems({ isViewActive, deadstock, thumbnail, shoeName, id, styleId, lowestPrice }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
 
     const dispatch = useDispatch();
@@ -16,6 +16,8 @@ function ClosetItems({ isViewActive, selectShoe, type, thumbnail, shoeName, id, 
         console.log("closet id", closetShoeId);
         dispatch(removeFromCloset(closetShoeId));
     };
+
+    console.log("clset", deadstock, thumbnail, shoeName, id, styleId, lowestPrice);
 
     const conditonHandler = () => {
         setIsDeadstock(!isDeadstock);
@@ -40,7 +42,7 @@ function ClosetItems({ isViewActive, selectShoe, type, thumbnail, shoeName, id, 
                         <div className="trending-got-them active">
                             <button onClick={() => removeShoe(id)} className="trending-got-them-btn active"></button>
                             <button className="trending-condition-btn" onClick={conditonHandler}>
-                                *Deadstock
+                                Condition: {deadstock}
                             </button>
                         </div>
                     </div>

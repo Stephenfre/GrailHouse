@@ -30,7 +30,7 @@ const Button = styled.button`
     }
 `;
 
-function TopTenShoeCards({ thumbnail, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
+function TopTenShoeCards({ thumbnail, deadstock, shoeName, id, styleId, lowestPrice, inCloset, isLoggedIn }) {
     const [isDeadstock, setIsDeadstock] = useState(false);
     let history = useHistory();
 
@@ -48,7 +48,7 @@ function TopTenShoeCards({ thumbnail, shoeName, id, styleId, lowestPrice, inClos
                 shoeName: shoeName,
                 lowestPrice: lowestPrice,
                 thumbnail: thumbnail,
-                deadstock: isDeadstock,
+                deadstock: deadstock,
             })
         );
     };
@@ -89,7 +89,7 @@ function TopTenShoeCards({ thumbnail, shoeName, id, styleId, lowestPrice, inClos
                                 className={`topten-got-them-btn ${inCloset ? "active" : "inactive "}`}
                             ></button>
                             <button className="condition-btn" onClick={conditonHandler}>
-                                Deadstock
+                                Condition: {deadstock}
                             </button>
                         </div>
                     </div>

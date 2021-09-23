@@ -17,10 +17,10 @@
     }
 
     .nav-search-button {
-        position: relative;
+        position: absolute;
         background: none;
-        right: 6.5rem;
-        top: 1.7rem;
+        right: 16%;
+        top: 41%;
         margin: 0;
         padding: 0;
         width: 0;

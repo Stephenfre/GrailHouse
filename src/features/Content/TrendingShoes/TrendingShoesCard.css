@@ -10,8 +10,8 @@
     }
 
     .trending.active {
-        height: 320px;
-        width: 94.6%;
+        height: auto;
+        width: auto;
         display: flex;
         flex-direction: column;
         margin: 0 25px 27px 0;
@@ -30,14 +30,14 @@
     }
 
     .trending-shoes.active {
-        height: 100%;
-        width: 100%;
+        height: 110px;
+        width: 1165px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         border: 1px solid rgb(247 247 247);
-        margin-left: 10px;
+        margin-left: 0px;
     }
 
     .trending-shoes-img {
@@ -85,7 +85,7 @@
     }
 
     .trending-prices {
-        height: 35%;
+        height: 25%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -101,18 +101,33 @@
         margin: 0 10px;
     }
 
+    .trending-add-to-closet-mobile.inactive {
+        display: none;
+    }
+    .trending-add-to-closet-mobile.active {
+        display: none;
+    }
+
+    /* * Grid view */
+
+    .grid-view-add {
+        position: absolute;
+        height: 117%;
+        width: 17%;
+    }
+
+    .list-view-add.inactive {
+        display: none;
+    }
+
     .trending-add-to-closet.active {
-        width: 7%;
-        height: 30%;
+        width: 50%;
+        height: 18%;
         display: flex;
         align-items: flex-end;
         position: absolute;
         margin-left: 10px;
     }
-
-    /* .trending-add-to-closet.active {
-    list view 
-} */
 
     .trending-add-to-closet.inactive {
         display: none;
@@ -123,8 +138,8 @@
         align-items: flex-end;
         justify-content: space-between;
         position: absolute;
-        width: 12%;
-        height: 20%;
+        width: 100%;
+        height: 18%;
         margin-left: 10px;
     }
 
@@ -133,8 +148,8 @@
     }
 
     .trending-got-them-btn.active {
-        width: 8.7%;
-        height: 10%;
+        width: 7.7%;
+        height: 11%;
         border-radius: 13px;
         background-color: rgb(0, 189, 0);
         padding: 0px;
@@ -160,6 +175,72 @@
         background: rgb(247, 247, 247);
         color: gray;
     }
+
+    /* * Grid view ends here */
+
+    /* * List view */
+
+    .grid-view-add.inactive {
+        display: none;
+    }
+
+    .trending-add-to-closet-list {
+        width: 7%;
+        height: 7%;
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        margin-left: 10px;
+    }
+
+    .trending-add-to-closet-list.inactive {
+        display: none;
+    }
+
+    .trending-got-them-list.active {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        position: absolute;
+        width: 16.5%;
+        height: 7%;
+        margin-left: 10px;
+    }
+
+    .trending-got-them-list.inactive {
+        display: none;
+    }
+
+    .trending-got-them-btn-list.active {
+        width: 7.7%;
+        height: 34%;
+        border-radius: 13px;
+        background-color: rgb(0, 189, 0);
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    .trending-condition-btn-list {
+        font-size: 13px;
+        font-weight: 400;
+        font-family: "Source Sans Pro", sans-serif;
+        margin: 0px;
+        color: grey;
+    }
+
+    .trending-got-them-list button {
+        background: none;
+        padding: 0;
+        width: 40%;
+        font-weight: 600;
+    }
+
+    .trending-condition-btn-list:hover {
+        background: rgb(247, 247, 247);
+        color: gray;
+    }
+
+    /* * List view ends here */
 
     .trending-popup-box-container.active {
         z-index: 1;

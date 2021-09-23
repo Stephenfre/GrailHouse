@@ -10,11 +10,11 @@
 
 @media only screen and (min-width: 1440px) {
     .content {
-        height: 100vh;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 200px;
     }
 
     .title-topten {
@@ -38,7 +38,7 @@
     .title-hover-icon {
         display: flex;
         align-items: center;
-        width: 19%;
+        width: 21%;
         height: 100%;
         justify-content: space-between;
     }
