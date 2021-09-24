@@ -4,18 +4,25 @@ import styled from "styled-components";
 import "./HomePage/HomePage.css";
 
 const HoverDiv = styled.div`
-    width: 14%;
+    width: 19%;
     height: 11%;
     z-index: 9999;
     position: absolute;
-    bottom: 22.5rem;
-    left: 22rem;
+    bottom: 41%;
+    left: 17%;
     background: white;
+
     @media only screen and (max-width: 500px) {
         width: 60%;
         height: 10%;
         bottom: 50%;
         left: 13%;
+    }
+    @media only screen and (min-width: 1920px) {
+        width: 15%;
+        height: 9%;
+        bottom: 31%;
+        left: 18%;
     }
     box-shadow: 0px 4px 5px #c7c7c7;
 `;
