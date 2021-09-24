@@ -1,8 +1,18 @@
 @media only screen and (min-width: 1440px) {
     .cta-shoelinks-img {
-        height: 40%;
+        height: 200px;
         width: 100%;
         background: black;
+        font-family: "Fjalla One", sans-serif;
+        display: flex;
+    }
+
+    .cta-shoelinks-img h1 {
+        color: white;
+        font-family: "Fjalla One", sans-serif;
+        text-align: center;
+        font-size: 80px;
+        margin: auto;
     }
 
     .shoelinks-content {
@@ -72,22 +82,30 @@
 
 @media only screen and (min-width: 1920px) {
     .cta-shoelinks-img {
-        height: 40%;
+        height: 250px;
         width: 100%;
         background: black;
+        display: flex;
+    }
+
+    .cta-shoelinks-img h1 {
+        color: white;
+        font-family: "Fjalla One", sans-serif;
+        text-align: center;
+        font-size: 80px;
+        margin: auto;
     }
 
     .shoelinks-content {
         width: 100%;
-        height: 1700px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 73px;
-        margin-bottom: 0px;
+        padding-top: 40px;
+        margin: 0;
     }
 
-    .shoelinks-title-details {
+    /* .shoelinks-title-details {
         width: 85%;
         height: 8%;
         display: flex;
@@ -102,7 +120,7 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1.5rem;
-    }
+    } */
 
     .shoelinks-search-links-results-details {
         width: 50%;
@@ -116,17 +134,17 @@
     }
 
     .shoelinks-shoes-container.inactive {
-        height: 1900%;
-        width: 90%;
+        width: 1750px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        margin-left: 90px;
     }
 
     .shoelinks-shoes-container.active {
-        height: 1700px;
-        width: 100%;
+        width: 1750px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        margin-left: 90px;
     }
 
     .shoelinks-options {
@@ -138,21 +156,19 @@
     }
 
     .shoelinks-shoes-content.inactive {
-        height: 700px;
-        width: 1900px;
+        width: 1500px;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        margin-left: 200px;
+        padding: 0 0 130px 150px;
     }
 
     .shoelinks-shoes-content.active {
-        height: 700px;
-        width: 68%;
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
         justify-content: flex-start;
+        padding: 0 0 130px 150px;
     }
 
     .shoelinks-menu-list-icon.active {
@@ -162,13 +178,18 @@
 
 @media only screen and (max-width: 500px) {
     .cta-shoelinks-img {
-        height: 350px;
+        height: 250px;
+        display: flex;
         width: 100%;
         background: black;
     }
 
-    .cta-shoelinks-img img {
-        margin-top: 130px;
+    .cta-shoelinks-img h1 {
+        color: white;
+        font-family: "Fjalla One", sans-serif;
+        text-align: center;
+        font-size: 80px;
+        margin: 100px auto auto;
     }
 
     .shoelinks-title-details {

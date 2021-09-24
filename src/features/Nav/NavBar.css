@@ -278,7 +278,7 @@
 
 @media only screen and (max-width: 500px) {
     .nav-container {
-        height: 7%;
+        height: 8%;
         width: 100%;
         display: flex;
         flex-direction: column;

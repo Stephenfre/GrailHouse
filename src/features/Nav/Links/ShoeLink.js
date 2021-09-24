@@ -10,7 +10,6 @@ import menuIcon from "@iconify/icons-vaadin/menu";
 import { getLinkShoes } from "../../../actions";
 import NavBar from "../NavBar";
 import SkeletonCards from "../../Content/Skeletons/SkeletonCards";
-import TrendingBackground from "../../../Svgs/TrendingBackground.svg";
 import ShoeLinkDetails from "./ShoeLinkDetails";
 import SearchResultsForm from "../../Content/Search/SearchResultsForm";
 import LinksPagination from "./LinksPagination";
@@ -55,7 +54,7 @@ function ShoeLink({ linkShoesResults, findingLinkShoes, closet }) {
         <React.Fragment>
             <NavBar />
             <div className="cta-shoelinks-img">
-                <img src={TrendingBackground} alt="cta-logo" />
+                <h1>{shoeParams}</h1>
             </div>
             <div className="shoelinks-content">
                 <div className={`shoelinks-shoes-container ${isViewActive ? "active" : "inactive"}`}>

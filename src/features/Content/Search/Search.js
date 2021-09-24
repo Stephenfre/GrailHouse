@@ -8,7 +8,6 @@ import menuIcon from "@iconify/icons-vaadin/menu";
 
 import { searchingShoes } from "../../../actions";
 import NavBar from "../../Nav/NavBar";
-import SearchCta from "./SearchCta";
 import SearchResultsForm from "./SearchResultsForm";
 import SkeletonCards from "../Skeletons/SkeletonCards";
 import Footer from "../../Footer/Footer";
@@ -48,7 +47,9 @@ function Search({ searchResults, searchShoes, shoeName, closet }) {
     return (
         <React.Fragment>
             <NavBar />
-            <SearchCta />
+            <div className="cta-shoelinks-img">
+                <h1>{newShoeName}</h1>
+            </div>
             <div className="search-content">
                 <div className={`search-shoes-container ${isViewActive ? "active" : "inactive"}`}>
                     <div className="search-options">
