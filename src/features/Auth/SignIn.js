@@ -1,19 +1,19 @@
 import React from "react";
 import "./SignForms.css";
 import useInput from "./CustomHooks/useInput";
-import { refreshTokenSetup } from "./refreshTokenSetup";
-import { useGoogleLogin } from "react-google-login";
+// import { refreshTokenSetup } from "./refreshTokenSetup";
+// import { useGoogleLogin } from "react-google-login";
 import { Link, Redirect, withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth";
 
 import GrailHouseBlack from "../../Svgs/GrailHouseBlack.svg";
-import GoogleIcon from "../../Svgs/GoogleIcon.svg";
+// import GoogleIcon from "../../Svgs/GoogleIcon.svg";
 import { Icon } from "@iconify/react";
 import arrowIosBackFill from "@iconify/icons-eva/arrow-ios-back-fill";
 
-const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
+// const clientId = "891130030394-9nr1pjp32dhv4rohq062m57gd2b91sn6.apps.googleusercontent.com";
 
 function SignIn({ dispatch, isLoggedIn, message }) {
     let history = useHistory();
@@ -65,22 +65,22 @@ function SignIn({ dispatch, isLoggedIn, message }) {
     const passwordInputClasses = passwordInputHasError ? "sign-in-inputs invaild" : "sign-in-inputs";
 
     // * Google Sign Up (Below)
-    const onSuccess = (res) => {
-        console.log("[Login Success} currentUser", res.profileObj);
-        refreshTokenSetup(res);
-    };
+    // const onSuccess = (res) => {
+    //     console.log("[Login Success} currentUser", res.profileObj);
+    //     refreshTokenSetup(res);
+    // };
 
-    const onFailure = (res) => {
-        console.log("[Login Failed} res:", res);
-    };
+    // const onFailure = (res) => {
+    //     console.log("[Login Failed} res:", res);
+    // };
 
-    const { signIn } = useGoogleLogin({
-        onSuccess,
-        onFailure,
-        clientId,
-        isSignedIn: true,
-        accessType: "offline",
-    });
+    // const { signIn } = useGoogleLogin({
+    //     onSuccess,
+    //     onFailure,
+    //     clientId,
+    //     isSignedIn: true,
+    //     accessType: "offline",
+    // });
 
     // * Google Sign Up (Above)
 
@@ -101,13 +101,13 @@ function SignIn({ dispatch, isLoggedIn, message }) {
                     <div className="sign-in-imgs">
                         <img src={GrailHouseBlack} alt="logo" />
                     </div>
-                    <button onClick={signIn} className="google-btn">
+                    {/* <button onClick={signIn} className="google-btn">
                         <img src={GoogleIcon} alt="google login" className="icon" style={{ width: "8%" }} />
                         <p className="google_btn_text" style={{ margin: "0 0 0 7px" }}>
                             Continue with Google
                         </p>
-                    </button>
-                    <div
+                    </button> */}
+                    {/* <div
                         style={{
                             width: "73%",
                             height: "20px",
@@ -127,7 +127,7 @@ function SignIn({ dispatch, isLoggedIn, message }) {
                         >
                             OR
                         </span>
-                    </div>
+                    </div> */}
                     <form className="sign-in-form" onSubmit={formSubmit}>
                         <div className="sign-in-inputs-container">
                             <div className={emailInputClasses}>
